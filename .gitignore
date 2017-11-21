@@ -1,0 +1,19 @@
+# Ignore bundler config.
+/.bundle
+
+# Ignore RubyMine config.
+/.idea
+
+# Ignore test coverage reports.
+/coverage/*
+
+# Ignore all logfiles and tempfiles.
+/log/*
+/spec/examples.txt
+/spec/tmp/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+
+# Other
+.DS_Store

@@ -1,0 +1,8 @@
+.dockerignore
+.DS_Store
+.git
+/.idea
+/coverage/*
+/log/*
+/spec/tmp/*
+/tmp/*

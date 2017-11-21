@@ -1,0 +1,51 @@
+AllCops:
+  DisplayCopNames: true
+  ExtraDetails: true
+  Exclude:
+    - db/schema.rb
+  TargetRubyVersion: 2.4
+  TargetRailsVersion: 5.1
+
+Layout/DotPosition:
+  EnforcedStyle: trailing
+
+Layout/EmptyLines:
+  Enabled: false
+
+Layout/EmptyLineBetweenDefs:
+  NumberOfEmptyLines: [1, 2]
+
+Metrics/AbcSize:
+  Exclude:
+    - db/migrate/*
+  Max: 20
+
+Metrics/BlockLength:
+  ExcludedMethods: ['configure', 'task']
+  Exclude:
+    - config/routes.rb
+    - spec/**/*
+
+Metrics/LineLength:
+  IgnoredPatterns: ['\A\s*#'] # Allow too long comment lines
+  Max: 120
+
+Metrics/MethodLength:
+  Exclude:
+    - db/migrate/*
+  Max: 25
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Bundler/OrderedGems:
+  Enabled: false
+
+Rails:
+  Enabled: true
+
+Rails/FilePath:
+  Enabled: false
