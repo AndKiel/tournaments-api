@@ -19,6 +19,7 @@ services:
     working_dir: /untitled-tournaments
     command: ./docker-start.sh
     environment:
+#      APIPIE_RECORD: examples
       BUNDLE_PATH: /bundle_cache
       WEB_CONCURRENCY: 1
     links:

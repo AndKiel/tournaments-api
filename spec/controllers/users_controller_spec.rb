@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe UsersController, type: :controller do
   describe 'POST #sign_up' do
     context 'params are valid' do
-      it 'returns User' do
+      it 'returns User', :show_in_doc do
         expect do
           process :sign_up,
                   method: :post,
@@ -21,7 +21,7 @@ RSpec.describe UsersController, type: :controller do
     end
 
     context 'params are not valid' do
-      it 'returns validation errors' do
+      it 'returns validation errors', :show_in_doc do
         expect do
           process :sign_up,
                   method: :post,

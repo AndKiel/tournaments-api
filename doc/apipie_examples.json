@@ -1,0 +1,104 @@
+{
+  "anonymous#anon": [
+    {
+      "verb": "GET",
+      "path": "/anonymous/anon",
+      "versions": [
+
+      ],
+      "query": "",
+      "request_data": null,
+      "response_data": {
+        "errors": [
+          {
+            "detail": "You cannot perform this action.",
+            "title": "unauthorized"
+          }
+        ]
+      },
+      "code": "403",
+      "show_in_doc": 1,
+      "recorded": true
+    },
+    {
+      "verb": "GET",
+      "path": "/anonymous/anon",
+      "versions": [
+
+      ],
+      "query": "",
+      "request_data": null,
+      "response_data": null,
+      "code": "404",
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "users#sign_up": [
+    {
+      "verb": "POST",
+      "path": "/users/sign_up",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": {
+        "user": {
+          "email": ""
+        }
+      },
+      "response_data": {
+        "errors": [
+          {
+            "source": {
+              "pointer": "/data/attributes/email"
+            },
+            "detail": "can't be blank"
+          },
+          {
+            "source": {
+              "pointer": "/data/attributes/password"
+            },
+            "detail": "can't be blank"
+          },
+          {
+            "source": {
+              "pointer": "/data/attributes/password_confirmation"
+            },
+            "detail": "can't be blank"
+          }
+        ]
+      },
+      "code": "422",
+      "show_in_doc": 1,
+      "recorded": true
+    },
+    {
+      "verb": "POST",
+      "path": "/users/sign_up",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": {
+        "user": {
+          "email": "sign.up@mail.co",
+          "password": "password",
+          "password_confirmation": "password"
+        }
+      },
+      "response_data": {
+        "data": {
+          "id": "980190963",
+          "type": "users",
+          "attributes": {
+            "email": "sign.up@mail.co"
+          }
+        }
+      },
+      "code": "201",
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ]
+}

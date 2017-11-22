@@ -43,7 +43,7 @@ gem 'kaminari'
 
 
 # API documentation
-# gem 'apipie-rails'
+gem 'apipie-rails'
 
 
 group :development do
