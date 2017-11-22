@@ -1,7 +1,6 @@
-require 'reform/form/dry'
-
-Rails.application.config.reform.validations = :dry
+require 'reform/form/active_model/validations'
+require 'reform/form/validation/unique_validator'
 
 Reform::Form.class_eval do
-  feature Reform::Form::Dry
+  feature Reform::Form::ActiveModel::Validations
 end

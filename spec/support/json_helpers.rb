@@ -49,7 +49,8 @@ module JsonHelpers
 
   # JSONAPI resources
 
-  # define_responses('user', {
-  #   email: String
-  # })
+  define_responses(
+    'user',
+    email: String
+  )
 end

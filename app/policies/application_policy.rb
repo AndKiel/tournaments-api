@@ -7,6 +7,11 @@ class ApplicationPolicy
   end
 
 
+  def permitted_attributes
+    raise NotImplementedError, 'Subclasses must define `permitted_attributes`.'
+  end
+
+
   def index?
     false
   end

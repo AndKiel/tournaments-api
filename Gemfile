@@ -20,13 +20,12 @@ gem 'pry-byebug'
 
 
 # Users, authentication, authorization
-# gem 'devise'
+gem 'bcrypt'
 gem 'doorkeeper'
 gem 'pundit'
 
 
 # Validations
-gem 'dry-validation'
 gem 'reform'
 gem 'reform-rails'
 

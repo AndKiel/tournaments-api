@@ -1,0 +1,19 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  created_at      :datetime         not null
+#  email           :string           not null
+#  id              :integer          not null, primary key
+#  password_digest :string           not null
+#  updated_at      :datetime         not null
+#
+# Indexes
+#
+#  index_users_on_email  (email) UNIQUE
+#
+
+one:
+  email: 'one@mail.co'
+  # password
+  password_digest: '$2a$10$DduaGQK4NkMwtaa..reSv.7IruCI35cKIBodTuOPDDb/yPstoqmH2'

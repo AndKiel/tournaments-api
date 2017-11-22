@@ -20,6 +20,12 @@ class ApplicationController < ActionController::API
            status: status
   end
 
+  def render_validation_errors(form)
+    render json: form,
+           serializer: ActiveModel::Serializer::ErrorSerializer,
+           status: :unprocessable_entity
+  end
+
   def ping
     head :ok
   end
