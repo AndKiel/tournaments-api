@@ -4,7 +4,7 @@
 #
 #  created_at      :datetime         not null
 #  email           :string           not null
-#  id              :integer          not null, primary key
+#  id              :uuid             not null, primary key
 #  password_digest :string           not null
 #  updated_at      :datetime         not null
 #

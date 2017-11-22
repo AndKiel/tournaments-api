@@ -8,7 +8,7 @@
 #          sign_up_users POST /users/sign_up(.:format)                         users#sign_up
 # apipie_apipie_checksum GET  /docs/apipie_checksum(.:format)                  apipie/apipies#apipie_checksum {:format=>/json/}
 #          apipie_apipie GET  /docs(/:version)(/:resource)(/:method)(.:format) apipie/apipies#index {:version=>/[^\/]+/, :resource=>/[^\/]+/, :method=>/[^\/]+/}
-# 
+#
 
 Rails.application.routes.draw do
   root 'application#ping'
