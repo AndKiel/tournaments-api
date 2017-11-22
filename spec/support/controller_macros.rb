@@ -15,16 +15,16 @@ module ControllerMacros
 
   # Doorkeeper
 
-  # def authenticate(user_sym)
-  #   let(:current_resource_owner) { users(user_sym) }
-  #   let(:token) do
-  #     double acceptable?: true,
-  #            resource_owner_id: current_resource_owner.id,
-  #            scopes: ['public']
-  #   end
-  #
-  #   before do
-  #     allow(controller).to receive(:doorkeeper_token) { token }
-  #   end
-  # end
+  def authenticate(user_sym)
+    let(:current_resource_owner) { users(user_sym) }
+    let(:token) do
+      double acceptable?: true,
+             resource_owner_id: current_resource_owner.id,
+             scopes: ['public']
+    end
+
+    before do
+      allow(controller).to receive(:doorkeeper_token) { token }
+    end
+  end
 end

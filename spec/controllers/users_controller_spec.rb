@@ -4,7 +4,7 @@ RSpec.describe UsersController, type: :controller do
   describe 'POST #sign_up' do
     context 'params are valid' do
       it 'returns User' do
-        expect {
+        expect do
           process :sign_up,
                   method: :post,
                   params: {
@@ -14,7 +14,7 @@ RSpec.describe UsersController, type: :controller do
                       password_confirmation: 'password'
                     }
                   }
-        }.to change(User, :count).by(1)
+        end.to change(User, :count).by(1)
         expect(response).to have_http_status :created
         expect(response.body).to match_json_expression user_json
       end
@@ -22,7 +22,7 @@ RSpec.describe UsersController, type: :controller do
 
     context 'params are not valid' do
       it 'returns validation errors' do
-        expect {
+        expect do
           process :sign_up,
                   method: :post,
                   params: {
@@ -30,7 +30,7 @@ RSpec.describe UsersController, type: :controller do
                       email: ''
                     }
                   }
-        }.to_not change(User, :count)
+        end.to_not change(User, :count)
         expect(response).to have_http_status :unprocessable_entity
         expect(response.body).to match_json_expression validation_errors_json
       end
