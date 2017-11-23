@@ -8,15 +8,8 @@
       ],
       "query": "",
       "request_data": null,
-      "response_data": {
-        "errors": [
-          {
-            "detail": "You cannot perform this action.",
-            "title": "unauthorized"
-          }
-        ]
-      },
-      "code": "403",
+      "response_data": null,
+      "code": "404",
       "show_in_doc": 1,
       "recorded": true
     },
@@ -28,8 +21,38 @@
       ],
       "query": "",
       "request_data": null,
-      "response_data": null,
-      "code": "404",
+      "response_data": {
+        "errors": [
+          {
+            "detail": "You cannot perform this action.",
+            "title": "unauthorized"
+          }
+        ]
+      },
+      "code": "403",
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "users#show": [
+    {
+      "verb": "GET",
+      "path": "/user",
+      "versions": [
+        "1.0"
+      ],
+      "query": "",
+      "request_data": null,
+      "response_data": {
+        "data": {
+          "id": "aa67c98c-d81f-5a9c-b0bc-26caa0051aea",
+          "type": "users",
+          "attributes": {
+            "email": "one@mail.co"
+          }
+        }
+      },
+      "code": "200",
       "show_in_doc": 1,
       "recorded": true
     }
@@ -89,7 +112,7 @@
       },
       "response_data": {
         "data": {
-          "id": "980190963",
+          "id": "c7bb6a2c-cf7e-4d09-911d-8e9fc852b79c",
           "type": "users",
           "attributes": {
             "email": "sign.up@mail.co"
@@ -97,6 +120,33 @@
         }
       },
       "code": "201",
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "users#update": [
+    {
+      "verb": "PUT",
+      "path": "/user",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": {
+        "user": {
+          "email": "one.updated@mail.co"
+        }
+      },
+      "response_data": {
+        "data": {
+          "id": "aa67c98c-d81f-5a9c-b0bc-26caa0051aea",
+          "type": "users",
+          "attributes": {
+            "email": "one.updated@mail.co"
+          }
+        }
+      },
+      "code": "200",
       "show_in_doc": 1,
       "recorded": true
     }

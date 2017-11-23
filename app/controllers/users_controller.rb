@@ -2,10 +2,9 @@ class UsersController < ApplicationController
   include UsersDoc
 
   after_action :verify_authorized
-  after_action :verify_policy_scoped
 
   def sign_up
-    model = policy_scope(User).new
+    model = User.new
     authorize model
     form = User::SignUp.new(model)
     if form.validate(permitted_attributes(model))
@@ -13,6 +12,27 @@ class UsersController < ApplicationController
       form.save
       return render json: form.model,
                     status: :created
+    end
+    render_validation_errors(form)
+  end
+
+
+  before_action :doorkeeper_authorize!, only: %i[show update]
+
+  def show
+    model = pundit_user
+    authorize model
+    render json: pundit_user
+  end
+
+  def update
+    model = pundit_user
+    authorize model
+    form = User::Update.new(model)
+    if form.validate(permitted_attributes(model))
+      form.password_digest = BCrypt::Password.create(form.password) unless form.password.blank?
+      form.save
+      return render json: form.model
     end
     render_validation_errors(form)
   end

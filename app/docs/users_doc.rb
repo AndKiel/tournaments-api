@@ -11,4 +11,20 @@ module UsersDoc
     end
     error code: 422, desc: 'Unprocessable entity'
   end
+
+  doc_for :show do
+    api :GET, '/user', 'Get authenticated user'
+    error code: 401, desc: 'Unauthorized'
+  end
+
+  doc_for :update do
+    api :PUT, '/user', 'Update authenticated user'
+    param :user, Hash, required: true do
+      param :email, String
+      param :password, String
+      param :password_confirmation, String
+    end
+    error code: 401, desc: 'Unauthorized'
+    error code: 422, desc: 'Unprocessable entity'
+  end
 end
