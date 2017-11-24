@@ -24,4 +24,9 @@ class Competitor < ApplicationRecord
   belongs_to :tournament
   belongs_to :user
   has_many :players, dependent: :destroy
+
+  enum status: {
+    enlisted: 0,
+    confirmed: 1
+  }
 end

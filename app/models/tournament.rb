@@ -26,4 +26,10 @@ class Tournament < ApplicationRecord
   belongs_to :organiser, class_name: 'User'
   has_many :competitors, dependent: :destroy
   has_many :rounds, dependent: :destroy
+
+  enum status: {
+    created: 0,
+    in_progress: 1,
+    ended: 2
+  }
 end
