@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171124082610) do
+ActiveRecord::Schema.define(version: 20171124091150) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,13 +54,23 @@ ActiveRecord::Schema.define(version: 20171124082610) do
     t.index ["uid"], name: "index_oauth_applications_on_uid", unique: true
   end
 
+  create_table "rounds", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "tournament_id", null: false
+    t.integer "number", null: false
+    t.integer "competitors_limit", null: false
+    t.integer "tables_count", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tournament_id"], name: "index_rounds_on_tournament_id"
+  end
+
   create_table "tournaments", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "organiser_id", null: false
     t.text "name", null: false
     t.text "description", default: "", null: false
-    t.integer "competitors_limit"
-    t.integer "status"
-    t.uuid "organiser_id", null: false
     t.datetime "starts_at"
+    t.integer "competitors_limit", null: false
+    t.integer "status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["organiser_id"], name: "index_tournaments_on_organiser_id"
