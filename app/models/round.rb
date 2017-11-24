@@ -14,6 +14,10 @@
 #
 #  index_rounds_on_tournament_id  (tournament_id)
 #
+# Foreign Keys
+#
+#  fk_rails_...  (tournament_id => tournaments.id)
+#
 
 class Round < ApplicationRecord
   belongs_to :tournament

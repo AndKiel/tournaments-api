@@ -23,5 +23,6 @@
 
 class Tournament < ApplicationRecord
   belongs_to :organiser, class_name: 'User'
+  has_many :competitors
   has_many :rounds
 end

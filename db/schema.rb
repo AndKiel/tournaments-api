@@ -10,11 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171124091150) do
+ActiveRecord::Schema.define(version: 20171124092034) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "pgcrypto"
+
+  create_table "competitors", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "tournament_id", null: false
+    t.uuid "user_id", null: false
+    t.integer "status", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tournament_id"], name: "index_competitors_on_tournament_id"
+    t.index ["user_id"], name: "index_competitors_on_user_id"
+  end
 
   create_table "oauth_access_grants", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "resource_owner_id", null: false
@@ -84,7 +94,10 @@ ActiveRecord::Schema.define(version: 20171124091150) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "competitors", "tournaments"
+  add_foreign_key "competitors", "users"
   add_foreign_key "oauth_access_grants", "oauth_applications", column: "application_id"
   add_foreign_key "oauth_access_tokens", "oauth_applications", column: "application_id"
+  add_foreign_key "rounds", "tournaments"
   add_foreign_key "tournaments", "users", column: "organiser_id"
 end
