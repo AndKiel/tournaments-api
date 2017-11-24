@@ -1,4 +1,6 @@
 class TournamentsController < ApplicationController
+  include TournamentsDoc
+
   after_action :verify_authorized
 
 
