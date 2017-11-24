@@ -22,14 +22,11 @@
 #  fk_rails_...  (organiser_id => users.id)
 #
 
-class Tournament < ApplicationRecord
-  belongs_to :organiser, class_name: 'User'
-  has_many :competitors, dependent: :destroy
-  has_many :rounds, dependent: :destroy
-
-  enum status: {
-    created: 0,
-    in_progress: 1,
-    ended: 2
-  }
+class TournamentSerializer < ActiveModel::Serializer
+  attributes :competitors_limit,
+             :description,
+             :name,
+             :result_names,
+             # :starts_at,
+             :status
 end

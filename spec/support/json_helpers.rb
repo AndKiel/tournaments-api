@@ -50,6 +50,16 @@ module JsonHelpers
   # JSONAPI resources
 
   define_responses(
+    'tournament',
+    competitors_limit: Integer,
+    description: String,
+    name: String,
+    result_names: Array,
+    # starts_at: String,
+    status: String
+  )
+
+  define_responses(
     'user',
     email: String,
     name: String

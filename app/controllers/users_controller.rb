@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   after_action :verify_authorized
 
+
   def sign_up
     model = User.new
     authorize model

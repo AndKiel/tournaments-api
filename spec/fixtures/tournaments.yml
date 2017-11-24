@@ -22,14 +22,18 @@
 #  fk_rails_...  (organiser_id => users.id)
 #
 
-class Tournament < ApplicationRecord
-  belongs_to :organiser, class_name: 'User'
-  has_many :competitors, dependent: :destroy
-  has_many :rounds, dependent: :destroy
+tenkaichi_budokai:
+  competitors_limit: 8
+  name: 'Tenkaichi Budokai'
+  organiser: one
+  result_names:
+    - 'Win'
+  starts_at: <%= 10.days.since %>
 
-  enum status: {
-    created: 0,
-    in_progress: 1,
-    ended: 2
-  }
-end
+delete_me:
+  competitors_limit: 100
+  name: 'Delete me!'
+  organiser: one
+  result_names:
+    - 'Points'
+  starts_at: <%= 20.days.since %>
