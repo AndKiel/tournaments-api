@@ -30,7 +30,7 @@ class UsersController < ApplicationController
     authorize model
     form = User::Update.new(model)
     if form.validate(permitted_attributes(model))
-      form.password_digest = BCrypt::Password.create(form.password) unless form.password.blank?
+      form.password_digest = BCrypt::Password.create(form.password) if form.password.present?
       form.save
       return render json: form.model
     end

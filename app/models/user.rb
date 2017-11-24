@@ -14,6 +14,6 @@
 #
 
 class User < ApplicationRecord
-  has_many :competitors
-  has_many :tournaments, foreign_key: 'organizer_id'
+  has_many :competitors, dependent: :destroy
+  has_many :tournaments, foreign_key: 'organizer_id', dependent: :destroy
 end
