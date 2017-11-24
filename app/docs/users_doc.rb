@@ -6,6 +6,7 @@ module UsersDoc
     api :POST, '/users/sign_up', 'Create user'
     param :user, Hash, required: true do
       param :email, String, required: true
+      param :name, String
       param :password, String, required: true
       param :password_confirmation, String, required: true
     end
@@ -21,6 +22,7 @@ module UsersDoc
     api :PUT, '/user', 'Update authenticated user'
     param :user, Hash, required: true do
       param :email, String
+      param :name, String
       param :password, String
       param :password_confirmation, String
     end

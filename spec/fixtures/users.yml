@@ -16,5 +16,6 @@
 
 one:
   email: 'one@mail.co'
+  name: John Smith
   # password
   password_digest: '$2a$10$DduaGQK4NkMwtaa..reSv.7IruCI35cKIBodTuOPDDb/yPstoqmH2'

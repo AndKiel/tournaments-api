@@ -51,6 +51,7 @@ module JsonHelpers
 
   define_responses(
     'user',
-    email: String
+    email: String,
+    name: String
   )
 end
