@@ -6,8 +6,9 @@
 #  created_at        :datetime         not null
 #  description       :text             default(""), not null
 #  id                :uuid             not null, primary key
-#  name              :text             not null
+#  name              :string           not null
 #  organiser_id      :uuid             not null
+#  result_names      :string           not null, is an Array
 #  starts_at         :datetime
 #  status            :integer          default(0), not null
 #  updated_at        :datetime         not null

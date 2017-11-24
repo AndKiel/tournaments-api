@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(version: 20171124094044) do
     t.uuid "competitor_id", null: false
     t.uuid "round_id", null: false
     t.integer "table_number", null: false
-    t.integer "results", null: false, array: true
+    t.integer "result_values", null: false, array: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["competitor_id"], name: "index_players_on_competitor_id"
@@ -87,8 +87,9 @@ ActiveRecord::Schema.define(version: 20171124094044) do
 
   create_table "tournaments", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "organiser_id", null: false
-    t.text "name", null: false
+    t.string "name", null: false
     t.text "description", default: "", null: false
+    t.string "result_names", null: false, array: true
     t.datetime "starts_at"
     t.integer "competitors_limit", null: false
     t.integer "status", default: 0, null: false
@@ -100,6 +101,7 @@ ActiveRecord::Schema.define(version: 20171124094044) do
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "email", null: false
     t.string "password_digest", null: false
+    t.string "name", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true

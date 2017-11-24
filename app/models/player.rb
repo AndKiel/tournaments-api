@@ -5,7 +5,7 @@
 #  competitor_id :uuid             not null
 #  created_at    :datetime         not null
 #  id            :uuid             not null, primary key
-#  results       :integer          not null, is an Array
+#  result_values :integer          not null, is an Array
 #  round_id      :uuid             not null
 #  table_number  :integer          not null
 #  updated_at    :datetime         not null
