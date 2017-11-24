@@ -35,7 +35,8 @@ RSpec.describe TournamentsController, type: :controller do
                       tournament: {
                         competitors_limit: 8,
                         name: 'New tournament test',
-                        result_names: ['Win']
+                        result_names: ['Win'],
+                        starts_at: 14.days.since
                       }
                     }
           end.to change(Tournament, :count).by(1)

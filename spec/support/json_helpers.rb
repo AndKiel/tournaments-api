@@ -55,7 +55,7 @@ module JsonHelpers
     description: String,
     name: String,
     result_names: Array,
-    # starts_at: String,
+    starts_at: String,
     status: String
   )
 

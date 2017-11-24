@@ -29,6 +29,7 @@ gem 'pundit'
 gem 'reform'
 gem 'reform-rails'
 gem 'validates_email_format_of'
+gem 'validates_timeliness'
 
 
 # File upload and processing

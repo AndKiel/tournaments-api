@@ -27,6 +27,6 @@ class TournamentSerializer < ActiveModel::Serializer
              :description,
              :name,
              :result_names,
-             # :starts_at,
+             :starts_at,
              :status
 end

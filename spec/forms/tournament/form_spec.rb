@@ -31,11 +31,29 @@ RSpec.describe Tournament::Form do
     expect(subject.errors[:result_names]).to include I18n.t('errors.messages.too_short', count: 1)
   end
 
+  it 'validates presence of starts at' do
+    result = subject.validate(starts_at: nil)
+    expect(result).to be false
+    expect(subject.errors[:starts_at]).to include I18n.t('errors.messages.blank')
+  end
+
+  it 'validates timeliness of starts at' do
+    result = subject.validate(starts_at: 'not.a.date')
+    expect(result).to be false
+    expect(subject.errors[:starts_at]).to include I18n.t('errors.messages.invalid_datetime')
+
+    result = subject.validate(starts_at: 1.day.ago)
+    rescriction = Time.current.strftime('%Y-%m-%d %H:%M:%S')
+    expect(result).to be false
+    expect(subject.errors[:starts_at]).to include I18n.t('errors.messages.after', restriction: rescriction)
+  end
+
   it 'returns true for valid attributes' do
     result = subject.validate(
       competitors_limit: 8,
       name: 'Tenkaichi Budokai',
-      result_names: ['Win']
+      result_names: ['Win'],
+      starts_at: 7.days.since
     )
     expect(result).to be true
   end

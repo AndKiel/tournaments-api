@@ -19,5 +19,12 @@ class Tournament < ApplicationRecord
               length: {
                 minimum: 1
               }
+
+    validates :starts_at,
+              presence: true,
+              timeliness: {
+                after: :now,
+                type: :datetime
+              }
   end
 end
