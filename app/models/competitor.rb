@@ -23,4 +23,5 @@
 class Competitor < ApplicationRecord
   belongs_to :tournament
   belongs_to :user
+  has_many :players, dependent: :destroy
 end
