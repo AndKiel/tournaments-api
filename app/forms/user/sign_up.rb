@@ -8,6 +8,7 @@ class User < ApplicationRecord
     validation :default do
       validates :email,
                 presence: true,
+                email_format: true,
                 unique: true
 
       validates :password,

@@ -9,6 +9,12 @@ RSpec.describe User::SignUp do
     expect(subject.errors[:email]).to include I18n.t('errors.messages.blank')
   end
 
+  it 'validates format of email' do
+    result = subject.validate(email: 'not.an.email')
+    expect(result).to be false
+    expect(subject.errors[:email]).to include I18n.t('activemodel.errors.messages.invalid_email_address')
+  end
+
   it 'validates uniqueness of email' do
     result = subject.validate(email: users(:one).email)
     expect(result).to be false
