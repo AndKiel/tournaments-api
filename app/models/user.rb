@@ -14,4 +14,5 @@
 #
 
 class User < ApplicationRecord
+  has_many :tournaments, foreign_key: 'organizer_id'
 end
