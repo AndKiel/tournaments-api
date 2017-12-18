@@ -21,7 +21,7 @@ Metrics/AbcSize:
   Max: 20
 
 Metrics/BlockLength:
-  ExcludedMethods: ['configure', 'task']
+  ExcludedMethods: ['configure', 'included','task']
   Exclude:
     - config/routes.rb
     - spec/**/*
