@@ -18,5 +18,5 @@ class User < ApplicationRecord
   include Authenticable
 
   has_many :competitors, dependent: :destroy
-  has_many :tournaments, foreign_key: 'organizer_id', dependent: :destroy
+  has_many :tournaments, foreign_key: 'organizer_id', inverse_of: :organiser, dependent: :destroy
 end
