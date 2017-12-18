@@ -32,7 +32,7 @@ RSpec.describe UsersController, type: :controller do
                   }
         end.to_not change(User, :count)
         expect(response).to have_http_status :unprocessable_entity
-        expect(response.body).to match_json_expression validation_errors_json
+        expect(response.body).to match_json_expression errors_json
       end
     end
   end
@@ -60,7 +60,7 @@ RSpec.describe UsersController, type: :controller do
                 }
         expect(response).to have_http_status :ok
         expect(response.body).to match_json_expression user_json
-        expect(current_resource_owner.attributes).to_not eq(current_resource_owner.reload.attributes)
+        expect(current_user.attributes).to_not eq(current_user.reload.attributes)
       end
     end
   end

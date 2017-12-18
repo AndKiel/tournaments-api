@@ -6,7 +6,7 @@ RSpec.describe TournamentsController, type: :controller do
       process :index,
               method: :get
       expect(response).to have_http_status :ok
-      expect(response.body).to match_json_expression tournament_collection_json
+      expect(response.body).to match_json_expression tournaments_json
     end
   end
 
@@ -57,7 +57,7 @@ RSpec.describe TournamentsController, type: :controller do
                     }
           end.to_not change(Tournament, :count)
           expect(response).to have_http_status :unprocessable_entity
-          expect(response.body).to match_json_expression validation_errors_json
+          expect(response.body).to match_json_expression errors_json
         end
       end
     end
@@ -89,7 +89,7 @@ RSpec.describe TournamentsController, type: :controller do
                     }
                   }
           expect(response).to have_http_status :unprocessable_entity
-          expect(response.body).to match_json_expression validation_errors_json
+          expect(response.body).to match_json_expression errors_json
         end
       end
     end

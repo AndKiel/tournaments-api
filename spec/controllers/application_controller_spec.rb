@@ -23,7 +23,7 @@ RSpec.describe ApplicationController, type: :controller do
       process :anon,
               method: :get
       expect(response).to have_http_status(:forbidden)
-      expect(response.body).to match_json_expression(errors_json)
+      expect(response.body).to match_json_expression(error_json)
     end
   end
 end

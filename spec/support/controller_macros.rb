@@ -16,10 +16,10 @@ module ControllerMacros
   # Doorkeeper
 
   def authenticate(user_sym)
-    let(:current_resource_owner) { users(user_sym) }
+    let(:current_user) { users(user_sym) }
     let(:token) do
       double acceptable?: true,
-             resource_owner_id: current_resource_owner.id,
+             resource_owner_id: current_user.id,
              scopes: ['public']
     end
 
