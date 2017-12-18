@@ -25,6 +25,7 @@
 class TournamentSerializer < ActiveModel::Serializer
   attributes :competitors_limit,
              :description,
+             :id,
              :name,
              :result_names,
              :starts_at,

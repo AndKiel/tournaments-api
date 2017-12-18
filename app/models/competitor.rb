@@ -21,6 +21,8 @@
 #
 
 class Competitor < ApplicationRecord
+  extend Enumerize
+
   belongs_to :tournament
   belongs_to :user
   has_many :players, dependent: :destroy

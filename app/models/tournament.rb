@@ -23,6 +23,8 @@
 #
 
 class Tournament < ApplicationRecord
+  extend Enumerize
+
   belongs_to :organiser, class_name: 'User', inverse_of: :tournaments
   has_many :competitors, dependent: :destroy
   has_many :rounds, dependent: :destroy

@@ -30,6 +30,7 @@ module JsonHelpers
     'tournament',
     competitors_limit: Integer,
     description: String,
+    id: String,
     name: String,
     result_names: Array,
     starts_at: String,
@@ -39,6 +40,7 @@ module JsonHelpers
   define_responses(
     'user',
     email: String,
+    id: String,
     name: String
   )
 end
