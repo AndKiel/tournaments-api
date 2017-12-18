@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe User::SignUp do
+RSpec.describe User::SignUpForm do
   subject { described_class.new(User.new) }
 
   it 'validates presence of email' do

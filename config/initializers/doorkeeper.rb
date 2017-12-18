@@ -10,9 +10,7 @@ Doorkeeper.configure do
   # To use password credentials flow you need to tell doorkeeper how to authenticate the resource owner:
   resource_owner_from_credentials do |_routes|
     resource_owner = User.find_by(email: params[:email])
-    if resource_owner && BCrypt::Password.new(resource_owner.password_digest) == params[:password]
-      return resource_owner
-    end
+    return resource_owner if resource_owner&.password == params[:password]
     raise Doorkeeper::Errors::DoorkeeperError, 'invalid_resource_owner'
   end
 

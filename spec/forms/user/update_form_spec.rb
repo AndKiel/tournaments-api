@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe User::Update do
+RSpec.describe User::UpdateForm do
   subject { described_class.new(User.new) }
 
   it 'validates presence of email' do

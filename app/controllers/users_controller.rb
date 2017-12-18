@@ -7,9 +7,8 @@ class UsersController < ApplicationController
   def sign_up
     model = User.new
     authorize model
-    form = User::SignUp.new(model)
+    form = User::SignUpForm.new(model)
     if form.validate(permitted_attributes(model))
-      form.password_digest = BCrypt::Password.create(form.password)
       form.save
       return render json: form.model,
                     status: :created
@@ -29,9 +28,8 @@ class UsersController < ApplicationController
   def update
     model = pundit_user
     authorize model
-    form = User::Update.new(model)
+    form = User::UpdateForm.new(model)
     if form.validate(permitted_attributes(model))
-      form.password_digest = BCrypt::Password.create(form.password) if form.password.present?
       form.save
       return render json: form.model
     end
