@@ -32,10 +32,10 @@ class TournamentPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       case user
-        when User
-          super.where(organiser: user)
-        else
-          super
+      when User
+        super.where(organiser: user)
+      else
+        super
       end
     end
   end
