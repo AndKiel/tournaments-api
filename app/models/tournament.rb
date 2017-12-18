@@ -27,9 +27,11 @@ class Tournament < ApplicationRecord
   has_many :competitors, dependent: :destroy
   has_many :rounds, dependent: :destroy
 
-  enum status: {
-    created: 0,
-    in_progress: 1,
-    ended: 2
-  }
+  enumerize :status,
+            in: {
+              created: 0,
+              in_progress: 1,
+              ended: 2
+            },
+            default: :created
 end
