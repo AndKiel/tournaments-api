@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Tournament::Form do
+RSpec.describe TournamentForm do
   subject { described_class.new(Tournament.new) }
 
   it 'validates presence of competitors limit' do
