@@ -30,6 +30,14 @@ tenkaichi_budokai:
     - 'Win'
   starts_at: <%= 10.days.since %>
 
+game_of_thrones:
+  competitors_limit: 20
+  name: 'Game of Thrones'
+  organiser: john_smith
+  result_names:
+    - 'Win'
+  starts_at: <%= 5.days.since %>
+
 delete_me:
   competitors_limit: 100
   name: 'Delete me!'

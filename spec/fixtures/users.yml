@@ -19,3 +19,9 @@ john_smith:
   name: John Smith
   # password
   password_digest: '$2a$10$DduaGQK4NkMwtaa..reSv.7IruCI35cKIBodTuOPDDb/yPstoqmH2'
+
+jane_doe:
+  email: 'jane.doe@mail.co'
+  name: Jane Doe
+  # password
+  password_digest: '$2a$10$DduaGQK4NkMwtaa..reSv.7IruCI35cKIBodTuOPDDb/yPstoqmH2'

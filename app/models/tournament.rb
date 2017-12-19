@@ -35,5 +35,6 @@ class Tournament < ApplicationRecord
               in_progress: 1,
               ended: 2
             },
-            default: :created
+            default: :created,
+            scope: true
 end
