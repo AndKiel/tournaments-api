@@ -46,21 +46,21 @@ class TournamentsController < ApplicationController
   def destroy
     model = policy_scope(Tournament).find(params[:id])
     authorize model
-    model.destroy
+    model.destroy!
     head :no_content
   end
 
   def start
     model = policy_scope(Tournament).find(params[:id])
     authorize model
-    model.update(status: :in_progress)
+    model.update!(status: :in_progress)
     render json: model
   end
 
   def end
     model = policy_scope(Tournament).find(params[:id])
     authorize model
-    model.update(status: :ended)
+    model.update!(status: :ended)
     render json: model
   end
 end
