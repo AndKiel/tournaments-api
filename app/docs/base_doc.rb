@@ -18,6 +18,6 @@ module BaseDoc
   def doc_for(action_name, &block)
     instance_eval(&block)
     # Create a method stub for docs definition, real one must be defined in a controller
-    define_method(action_name) {}
+    define_method(action_name){}
   end
 end
