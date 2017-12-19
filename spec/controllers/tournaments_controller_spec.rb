@@ -23,7 +23,7 @@ RSpec.describe TournamentsController, type: :controller do
   end
 
   context 'when authenticated' do
-    authenticate(:one)
+    authenticate(:john_smith)
 
     describe 'POST #create' do
       context 'params are valid' do

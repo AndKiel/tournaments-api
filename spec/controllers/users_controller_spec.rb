@@ -38,7 +38,7 @@ RSpec.describe UsersController, type: :controller do
   end
 
   context 'when authenticated' do
-    authenticate(:one)
+    authenticate(:john_smith)
 
     describe 'GET #show' do
       it 'returns authenticated User', :show_in_doc do

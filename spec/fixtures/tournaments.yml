@@ -25,7 +25,7 @@
 tenkaichi_budokai:
   competitors_limit: 8
   name: 'Tenkaichi Budokai'
-  organiser: one
+  organiser: john_smith
   result_names:
     - 'Win'
   starts_at: <%= 10.days.since %>
@@ -33,7 +33,7 @@ tenkaichi_budokai:
 delete_me:
   competitors_limit: 100
   name: 'Delete me!'
-  organiser: one
+  organiser: john_smith
   result_names:
     - 'Points'
   starts_at: <%= 20.days.since %>

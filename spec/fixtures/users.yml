@@ -14,8 +14,8 @@
 #  index_users_on_email  (email) UNIQUE
 #
 
-one:
-  email: 'one@mail.co'
+john_smith:
+  email: 'john.smith@mail.co'
   name: John Smith
   # password
   password_digest: '$2a$10$DduaGQK4NkMwtaa..reSv.7IruCI35cKIBodTuOPDDb/yPstoqmH2'

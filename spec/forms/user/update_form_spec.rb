@@ -16,7 +16,7 @@ RSpec.describe User::UpdateForm do
   end
 
   it 'validates uniqueness of email' do
-    result = subject.validate(email: users(:one).email)
+    result = subject.validate(email: users(:john_smith).email)
     expect(result).to be false
     expect(subject.errors[:email]).to include I18n.t('errors.messages.taken')
   end
