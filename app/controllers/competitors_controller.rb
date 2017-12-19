@@ -15,4 +15,11 @@ class CompetitorsController < ApplicationController
     model.destroy!
     head :no_content
   end
+
+  def confirm
+    model = pundit_user.tournament_competitors.find(params[:id])
+    authorize model
+    model.update(status: :confirmed)
+    head :no_content
+  end
 end

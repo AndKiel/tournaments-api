@@ -24,6 +24,14 @@ game_of_thrones_jane_doe:
   user: jane_doe
   tournament: game_of_thrones
 
+created_jane_doe:
+  user: jane_doe
+  tournament: created
+
+in_progress_jane_doe:
+  user: jane_doe
+  tournament: in_progress
+
 ended_jane_doe:
   user: jane_doe
   tournament: ended

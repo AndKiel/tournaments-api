@@ -11,7 +11,7 @@ RSpec.describe 'Tournaments', type: :request do
     context 'when authenticated' do
       authenticate(:john_smith)
 
-      it 'returns organized Tournaments', :show_in_doc do
+      it 'returns organised Tournaments', :show_in_doc do
         get tournaments_path,
             headers: auth_headers
         expect(response).to have_http_status :ok

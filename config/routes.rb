@@ -19,9 +19,10 @@
 #                        PATCH  /tournaments/:id(.:format)                       tournaments#update
 #                        PUT    /tournaments/:id(.:format)                       tournaments#update
 #                        DELETE /tournaments/:id(.:format)                       tournaments#destroy
+#     confirm_competitor POST   /competitors/:id/confirm(.:format)               competitors#confirm
 # apipie_apipie_checksum GET    /docs/apipie_checksum(.:format)                  apipie/apipies#apipie_checksum {:format=>/json/}
 #          apipie_apipie GET    /docs(/:version)(/:resource)(/:method)(.:format) apipie/apipies#index {:version=>/[^\/]+/, :resource=>/[^\/]+/, :method=>/[^\/]+/}
-# 
+#
 
 Rails.application.routes.draw do
   root 'application#ping'
@@ -43,6 +44,11 @@ Rails.application.routes.draw do
     end
 
     resource :competitor, only: %i[create destroy]
+  end
+  resources :competitors, only: :none do
+    member do
+      post :confirm
+    end
   end
 
   apipie

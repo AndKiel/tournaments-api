@@ -8,6 +8,11 @@ class CompetitorPolicy < ApplicationPolicy
     Tournament.with_status(:created).exists?(record.tournament_id)
   end
 
+  def confirm?
+    record.status.enlisted? &&
+      Tournament.with_status(:created).exists?(record.tournament_id)
+  end
+
   class Scope < Scope
     def resolve
       scope

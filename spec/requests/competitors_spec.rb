@@ -54,4 +54,31 @@ RSpec.describe 'Competitors', type: :request do
       end
     end
   end
+
+  describe 'POST /competitors/:id/confirm' do
+    authenticate(:john_smith)
+
+    context 'when conditions for confirm are met' do
+      let(:competitor) { competitors(:created_jane_doe) }
+
+      it 'updates Competitor' do
+        post confirm_competitor_path(competitor.id),
+             headers: auth_headers
+        expect(response).to have_http_status(:no_content)
+        expect(response.body).to be_empty
+        expect(competitor.reload.status).to eq(:confirmed)
+      end
+    end
+
+    context 'when conditions for confirm are not met' do
+      let(:competitor) { competitors(:in_progress_jane_doe) }
+
+      it 'returns error' do
+        post confirm_competitor_path(competitor.id),
+             headers: auth_headers
+        expect(response).to have_http_status(:forbidden)
+        expect(response.body).to match_json_expression(error_json)
+      end
+    end
+  end
 end
