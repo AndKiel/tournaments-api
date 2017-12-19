@@ -7,6 +7,17 @@ RSpec.describe 'Tournaments', type: :request do
       expect(response).to have_http_status :ok
       expect(response.body).to match_json_expression tournaments_json
     end
+
+    context 'when authenticated' do
+      authenticate(:john_smith)
+
+      it 'returns organized Tournaments', :show_in_doc do
+        get tournaments_path,
+            headers: auth_headers
+        expect(response).to have_http_status :ok
+        expect(response.body).to match_json_expression tournaments_json
+      end
+    end
   end
 
   describe 'GET /tournaments/:id' do

@@ -6,7 +6,7 @@ class TournamentsController < ApplicationController
 
   def index
     authorize Tournament
-    models = Tournament.page(params[:page])
+    models = policy_scope(Tournament).page(params[:page])
     render json: models
   end
 
