@@ -11,6 +11,7 @@ class TournamentForm < Reform::Form
               only_integer: true,
               greater_than: 1
             }
+
   validates :name,
             presence: true
 
