@@ -4,8 +4,8 @@ RSpec.describe 'Tournaments', type: :request do
   describe 'GET /tournaments' do
     it 'returns Tournaments', :show_in_doc do
       get tournaments_path
-      expect(response).to have_http_status :ok
-      expect(response.body).to match_json_expression tournaments_json
+      expect(response).to have_http_status(:ok)
+      expect(response.body).to match_json_expression(tournaments_json)
     end
 
     context 'when authenticated' do
@@ -14,8 +14,8 @@ RSpec.describe 'Tournaments', type: :request do
       it 'returns organised Tournaments', :show_in_doc do
         get tournaments_path,
             headers: auth_headers
-        expect(response).to have_http_status :ok
-        expect(response.body).to match_json_expression tournaments_json
+        expect(response).to have_http_status(:ok)
+        expect(response.body).to match_json_expression(tournaments_json)
       end
     end
   end
@@ -25,8 +25,8 @@ RSpec.describe 'Tournaments', type: :request do
 
     it 'returns Tournament', :show_in_doc do
       get tournament_path(tournament.id)
-      expect(response).to have_http_status :ok
-      expect(response.body).to match_json_expression tournament_json
+      expect(response).to have_http_status(:ok)
+      expect(response.body).to match_json_expression(tournament_json)
     end
   end
 
@@ -48,8 +48,8 @@ RSpec.describe 'Tournaments', type: :request do
                    }
                  }
           end.to change(Tournament, :count).by(1)
-          expect(response).to have_http_status :created
-          expect(response.body).to match_json_expression tournament_json
+          expect(response).to have_http_status(:created)
+          expect(response.body).to match_json_expression(tournament_json)
         end
       end
 
@@ -64,8 +64,8 @@ RSpec.describe 'Tournaments', type: :request do
                    }
                  }
           end.to_not change(Tournament, :count)
-          expect(response).to have_http_status :unprocessable_entity
-          expect(response.body).to match_json_expression errors_json
+          expect(response).to have_http_status(:unprocessable_entity)
+          expect(response.body).to match_json_expression(errors_json)
         end
       end
     end
@@ -82,8 +82,8 @@ RSpec.describe 'Tournaments', type: :request do
                   competitors_limit: 16
                 }
               }
-          expect(response).to have_http_status :ok
-          expect(response.body).to match_json_expression tournament_json
+          expect(response).to have_http_status(:ok)
+          expect(response.body).to match_json_expression(tournament_json)
         end
       end
 
@@ -96,8 +96,8 @@ RSpec.describe 'Tournaments', type: :request do
                   competitors_limit: 0
                 }
               }
-          expect(response).to have_http_status :unprocessable_entity
-          expect(response.body).to match_json_expression errors_json
+          expect(response).to have_http_status(:unprocessable_entity)
+          expect(response.body).to match_json_expression(errors_json)
         end
       end
     end
@@ -110,7 +110,7 @@ RSpec.describe 'Tournaments', type: :request do
           delete tournament_path(tournament.id),
                  headers: auth_headers
         end.to change(Tournament, :count).by(-1)
-        expect(response).to have_http_status :no_content
+        expect(response).to have_http_status(:no_content)
         expect(response.body).to be_empty
       end
     end
@@ -122,7 +122,7 @@ RSpec.describe 'Tournaments', type: :request do
         it 'starts Tournament' do
           post start_tournament_path(tournament.id),
                headers: auth_headers
-          expect(response).to have_http_status :ok
+          expect(response).to have_http_status(:ok)
           expect(response.body).to match_json_expression(tournament_json)
           expect(tournament.reload.status).to eq(:in_progress)
         end
@@ -134,7 +134,7 @@ RSpec.describe 'Tournaments', type: :request do
         it 'returns error' do
           post start_tournament_path(tournament.id),
                headers: auth_headers
-          expect(response).to have_http_status :forbidden
+          expect(response).to have_http_status(:forbidden)
           expect(response.body).to match_json_expression(error_json)
         end
       end
@@ -147,7 +147,7 @@ RSpec.describe 'Tournaments', type: :request do
         it 'ends Tournament' do
           post end_tournament_path(tournament.id),
                headers: auth_headers
-          expect(response).to have_http_status :ok
+          expect(response).to have_http_status(:ok)
           expect(response.body).to match_json_expression(tournament_json)
           expect(tournament.reload.status).to eq(:ended)
         end
@@ -159,7 +159,7 @@ RSpec.describe 'Tournaments', type: :request do
         it 'returns error' do
           post end_tournament_path(tournament.id),
                headers: auth_headers
-          expect(response).to have_http_status :forbidden
+          expect(response).to have_http_status(:forbidden)
           expect(response.body).to match_json_expression(error_json)
         end
       end
