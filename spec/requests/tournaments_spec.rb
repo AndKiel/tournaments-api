@@ -34,7 +34,7 @@ RSpec.describe 'Tournaments', type: :request do
     authenticate(:john_smith)
 
     describe 'POST /tournaments' do
-      context 'params are valid' do
+      context 'when params are valid' do
         it 'returns Tournament', :show_in_doc do
           expect do
             post tournaments_path,
@@ -53,7 +53,7 @@ RSpec.describe 'Tournaments', type: :request do
         end
       end
 
-      context 'params are not valid' do
+      context 'when params are not valid' do
         it 'returns validation errors', :show_in_doc do
           expect do
             post tournaments_path,
@@ -73,7 +73,7 @@ RSpec.describe 'Tournaments', type: :request do
     describe 'PUT /tournaments/:id' do
       let(:tournament) { tournaments(:tenkaichi_budokai) }
 
-      context 'params are valid' do
+      context 'when params are valid' do
         it 'returns Tournament', :show_in_doc do
           put tournament_path(tournament.id),
               headers: auth_headers,
@@ -87,7 +87,7 @@ RSpec.describe 'Tournaments', type: :request do
         end
       end
 
-      context 'params are not valid' do
+      context 'when params are not valid' do
         it 'return validation errors', :show_in_doc do
           put tournament_path(tournament.id),
               headers: auth_headers,
@@ -112,6 +112,56 @@ RSpec.describe 'Tournaments', type: :request do
         end.to change(Tournament, :count).by(-1)
         expect(response).to have_http_status :no_content
         expect(response.body).to be_empty
+      end
+    end
+
+    describe 'POST /tournaments/:id/start' do
+      context 'when conditions for start are met' do
+        let(:tournament) { tournaments(:created) }
+
+        it 'starts Tournament' do
+          post start_tournament_path(tournament.id),
+               headers: auth_headers
+          expect(response).to have_http_status :ok
+          expect(response.body).to match_json_expression(tournament_json)
+          expect(tournament.reload.status).to eq(:in_progress)
+        end
+      end
+
+      context 'when conditions for start are not met' do
+        let(:tournament) { tournaments(:in_progress) }
+
+        it 'returns error' do
+          post start_tournament_path(tournament.id),
+               headers: auth_headers
+          expect(response).to have_http_status :forbidden
+          expect(response.body).to match_json_expression(error_json)
+        end
+      end
+    end
+
+    describe 'POST /tournaments/:id/end' do
+      context 'when conditions for end are met' do
+        let(:tournament) { tournaments(:in_progress) }
+
+        it 'ends Tournament' do
+          post end_tournament_path(tournament.id),
+               headers: auth_headers
+          expect(response).to have_http_status :ok
+          expect(response.body).to match_json_expression(tournament_json)
+          expect(tournament.reload.status).to eq(:ended)
+        end
+      end
+
+      context 'when conditions for end are not met' do
+        let(:tournament) { tournaments(:ended) }
+
+        it 'returns error' do
+          post end_tournament_path(tournament.id),
+               headers: auth_headers
+          expect(response).to have_http_status :forbidden
+          expect(response.body).to match_json_expression(error_json)
+        end
       end
     end
   end

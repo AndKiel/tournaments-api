@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Users', type: :request do
   describe 'POST #sign_up' do
-    context 'params are valid' do
+    context 'when params are valid' do
       it 'returns User', :show_in_doc do
         expect do
           post sign_up_users_path,
@@ -19,7 +19,7 @@ RSpec.describe 'Users', type: :request do
       end
     end
 
-    context 'params are not valid' do
+    context 'when params are not valid' do
       it 'returns validation errors', :show_in_doc do
         expect do
           post sign_up_users_path,

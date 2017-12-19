@@ -9,6 +9,8 @@
 #                   user GET    /user(.:format)                                  users#show
 #                        PATCH  /user(.:format)                                  users#update
 #                        PUT    /user(.:format)                                  users#update
+#         end_tournament POST   /tournaments/:id/end(.:format)                   tournaments#end
+#       start_tournament POST   /tournaments/:id/start(.:format)                 tournaments#start
 #            tournaments GET    /tournaments(.:format)                           tournaments#index
 #                        POST   /tournaments(.:format)                           tournaments#create
 #             tournament GET    /tournaments/:id(.:format)                       tournaments#show
@@ -31,10 +33,13 @@ Rails.application.routes.draw do
       post :sign_up
     end
   end
-
   resource :user, only: %i[show update]
-
-  resources :tournaments, only: %i[index show create update destroy]
+  resources :tournaments, only: %i[index show create update destroy] do
+    member do
+      post :end
+      post :start
+    end
+  end
 
   apipie
 end

@@ -17,8 +17,8 @@ class TournamentsController < ApplicationController
   end
 
 
-  before_action :doorkeeper_authorize!, only: %i[create update destroy]
-  after_action :verify_policy_scoped, only: %i[create update destroy]
+  before_action :doorkeeper_authorize!, only: %i[create update destroy start end]
+  after_action :verify_policy_scoped, only: %i[create update destroy start end]
 
   def create
     model = policy_scope(Tournament).new
@@ -48,5 +48,19 @@ class TournamentsController < ApplicationController
     authorize model
     model.destroy
     head :no_content
+  end
+
+  def start
+    model = policy_scope(Tournament).find(params[:id])
+    authorize model
+    model.update(status: :in_progress)
+    render json: model
+  end
+
+  def end
+    model = policy_scope(Tournament).find(params[:id])
+    authorize model
+    model.update(status: :ended)
+    render json: model
   end
 end

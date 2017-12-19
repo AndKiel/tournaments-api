@@ -37,3 +37,29 @@ delete_me:
   result_names:
     - 'Points'
   starts_at: <%= 20.days.since %>
+
+created:
+  competitors_limit: 8
+  name: 'Start me!'
+  organiser: john_smith
+  result_names:
+    - 'Points'
+  starts_at: <%= 1.minute.ago %>
+
+in_progress:
+  competitors_limit: 8
+  name: 'End me!'
+  organiser: john_smith
+  result_names:
+    - 'Points'
+  starts_at: <%= 8.hours.ago %>
+  status: 1
+
+ended:
+  competitors_limit: 8
+  name: 'Historical'
+  organiser: john_smith
+  result_names:
+    - 'Points'
+  starts_at: <%= 1.day.ago %>
+  status: 2

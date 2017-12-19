@@ -29,6 +29,14 @@ class TournamentPolicy < ApplicationPolicy
     user.id == record.organiser_id
   end
 
+  def start?
+    record.status.created? && record.starts_at <= Time.now
+  end
+
+  def end?
+    record.status.in_progress?
+  end
+
   class Scope < Scope
     def resolve
       case user
