@@ -25,6 +25,12 @@ RSpec.describe TournamentForm do
     expect(subject.errors[:name]).to include I18n.t('errors.messages.blank')
   end
 
+  it 'validates presence of result names' do
+    result = subject.validate(result_names: nil)
+    expect(result).to be false
+    expect(subject.errors[:result_names]).to include I18n.t('errors.messages.blank')
+  end
+
   it 'validates length of result names' do
     result = subject.validate(result_names: [])
     expect(result).to be false

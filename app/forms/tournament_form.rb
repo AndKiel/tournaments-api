@@ -2,7 +2,10 @@ class TournamentForm < Reform::Form
   property :competitors_limit
   property :description
   property :name
-  property :result_names
+  property :result_names,
+           populator: lambda { |fragment:, **|
+             self.result_names = fragment.reject(&:blank?)
+           }
   property :starts_at
 
   validates :competitors_limit,
@@ -16,6 +19,7 @@ class TournamentForm < Reform::Form
             presence: true
 
   validates :result_names,
+            presence: true,
             length: {
               minimum: 1
             }
