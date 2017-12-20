@@ -18,7 +18,12 @@
 #  fk_rails_...  (tournament_id => tournaments.id)
 #
 
-class Round < ApplicationRecord
-  belongs_to :tournament
-  has_many :players, dependent: :destroy
-end
+tenkaichi_budokai_one:
+  competitors_limit: 8
+  tables_count: 4
+  tournament: tenkaichi_budokai
+
+game_of_thrones_delete_me:
+  competitors_limit: 20
+  tables_count: 4
+  tournament: game_of_thrones

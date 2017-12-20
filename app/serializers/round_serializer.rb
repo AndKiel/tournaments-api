@@ -18,7 +18,9 @@
 #  fk_rails_...  (tournament_id => tournaments.id)
 #
 
-class Round < ApplicationRecord
-  belongs_to :tournament
-  has_many :players, dependent: :destroy
+class RoundSerializer < ActiveModel::Serializer
+  attributes :competitors_limit,
+             :created_at,
+             :id,
+             :tables_count
 end

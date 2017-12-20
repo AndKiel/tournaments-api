@@ -30,7 +30,7 @@ class TournamentPolicy < ApplicationPolicy
   end
 
   def start?
-    record.status.created? && record.starts_at <= Time.now
+    record.status.created? && record.starts_at <= Time.current
   end
 
   def end?

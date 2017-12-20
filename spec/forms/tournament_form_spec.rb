@@ -12,7 +12,7 @@ RSpec.describe TournamentForm do
   it 'validates numericality of competitors limit' do
     result = subject.validate(competitors_limit: 2.5)
     expect(result).to be false
-    expect(subject.errors[:competitors_limit]).to include I18n.t('errors.messages.not_an_integer', count: 1)
+    expect(subject.errors[:competitors_limit]).to include I18n.t('errors.messages.not_an_integer')
 
     result = subject.validate(competitors_limit: -20)
     expect(result).to be false

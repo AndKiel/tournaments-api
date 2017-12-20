@@ -5,12 +5,11 @@ class CompetitorPolicy < ApplicationPolicy
   end
 
   def destroy?
-    Tournament.with_status(:created).exists?(record.tournament_id)
+    record.tournament.status.created?
   end
 
   def confirm?
-    record.status.enlisted? &&
-      Tournament.with_status(:created).exists?(record.tournament_id)
+    record.status.enlisted? && record.tournament.status.created?
   end
 
   class Scope < Scope
