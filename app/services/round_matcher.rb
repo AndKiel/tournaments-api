@@ -32,7 +32,7 @@ class RoundMatcher
       group.each do |competitor_id|
         @players << @round.players.create!(
           competitor_id: competitor_id,
-          table_number: idx
+          table_number: idx + 1
         )
       end
     end
