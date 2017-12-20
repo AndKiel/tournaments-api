@@ -4,10 +4,10 @@ class RoundsController < ApplicationController
 
   def create
     tournament = pundit_user.organised_tournaments.find(params[:tournament_id])
-    model = tournament.rounds.new
-    authorize model
-    form = RoundForm.new(model)
-    if form.validate(permitted_attributes(model))
+    round = tournament.rounds.new
+    authorize round
+    form = RoundForm.new(round)
+    if form.validate(permitted_attributes(round))
       form.save
       return render json: form.model,
                     status: :created
@@ -16,10 +16,10 @@ class RoundsController < ApplicationController
   end
 
   def update
-    model = pundit_user.tournament_rounds.find(params[:id])
-    authorize model
-    form = RoundForm.new(model)
-    if form.validate(permitted_attributes(model))
+    round = pundit_user.tournament_rounds.find(params[:id])
+    authorize round
+    form = RoundForm.new(round)
+    if form.validate(permitted_attributes(round))
       form.save
       return render json: form.model
     end
@@ -27,9 +27,9 @@ class RoundsController < ApplicationController
   end
 
   def destroy
-    model = pundit_user.tournament_rounds.find(params[:id])
-    authorize model
-    model.destroy!
+    round = pundit_user.tournament_rounds.find(params[:id])
+    authorize round
+    round.destroy!
     head :no_content
   end
 end
