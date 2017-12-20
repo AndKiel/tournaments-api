@@ -9,7 +9,7 @@ module JsonHelpers
 
   # Errors
 
-  def error_json
+  def forbidden_error_json
     {
       error: {
         code: String,
@@ -18,7 +18,7 @@ module JsonHelpers
     }
   end
 
-  def errors_json
+  def validation_errors_json
     {
       errors: Hash
     }
