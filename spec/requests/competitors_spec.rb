@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Competitors', type: :request do
-  authenticate(:jane_doe)
+  authenticate(:hellen)
 
   describe 'POST /competitor' do
     context 'when it is possible to enlist' do
@@ -68,10 +68,10 @@ RSpec.describe 'Competitors', type: :request do
   end
 
   describe 'POST /competitors/:id/confirm' do
-    authenticate(:john_smith)
+    authenticate(:john)
 
     context 'when conditions for confirm are met' do
-      let(:competitor) { competitors(:created_jane_doe) }
+      let(:competitor) { competitors(:created_hellen) }
 
       it 'updates Competitor' do
         post confirm_competitor_path(competitor.id),
@@ -83,7 +83,7 @@ RSpec.describe 'Competitors', type: :request do
     end
 
     context 'when conditions for confirm are not met' do
-      let(:competitor) { competitors(:in_progress_jane_doe) }
+      let(:competitor) { competitors(:in_progress_hellen) }
 
       it 'returns error' do
         post confirm_competitor_path(competitor.id),

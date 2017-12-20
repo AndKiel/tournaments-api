@@ -36,7 +36,7 @@ RSpec.describe 'Users', type: :request do
   end
 
   context 'when authenticated' do
-    authenticate(:john_smith)
+    authenticate(:john)
 
     describe 'GET #show' do
       it 'returns authenticated User' do

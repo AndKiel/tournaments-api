@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Players', type: :request do
-  authenticate(:john_smith)
+  authenticate(:john)
 
   describe 'POST /players' do
     let(:round) { rounds(:discworld_one) }

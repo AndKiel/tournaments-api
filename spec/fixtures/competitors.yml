@@ -20,43 +20,9 @@
 #  fk_rails_...  (user_id => users.id)
 #
 
-game_of_thrones_jane_doe:
-  tournament: game_of_thrones
-  user: jane_doe
-
-discworld_john_smith:
-  tournament: discworld
-  user: john_smith
-  status: 1
-
-discworld_jane_smith:
-  tournament: discworld
-  user: jane_smith
-  status: 1
-
-discworld_john_doe:
-  tournament: discworld
-  user: john_doe
-  status: 1
-
-discworld_jane_doe:
-  tournament: discworld
-  user: jane_doe
-  status: 1
-
 discworld_andrew:
   tournament: discworld
   user: andrew
-  status: 1
-
-discworld_michael:
-  tournament: discworld
-  user: michael
-  status: 1
-
-discworld_jack:
-  tournament: discworld
-  user: jack
   status: 1
 
 discworld_anne:
@@ -64,14 +30,70 @@ discworld_anne:
   user: anne
   status: 1
 
-created_jane_doe:
+discworld_cathy:
+  tournament: discworld
+  user: cathy
+  status: 1
+
+discworld_hellen:
+  tournament: discworld
+  user: hellen
+  status: 1
+
+discworld_ivan:
+  tournament: discworld
+  user: ivan
+  status: 1
+
+discworld_jack:
+  tournament: discworld
+  user: jack
+  status: 1
+
+discworld_jane:
+  tournament: discworld
+  user: jane
+  status: 1
+
+discworld_john:
+  tournament: discworld
+  user: john
+  status: 1
+
+discworld_michael:
+  tournament: discworld
+  user: michael
+  status: 1
+
+discworld_neal:
+  tournament: discworld
+  user: neal
+  status: 1
+
+discworld_peter:
+  tournament: discworld
+  user: peter
+  status: 1
+
+discworld_thomas:
+  tournament: discworld
+  user: thomas
+  status: 1
+
+
+game_of_thrones_hellen:
+  tournament: game_of_thrones
+  user: hellen
+
+
+created_hellen:
   tournament: created
-  user: jane_doe
+  user: hellen
 
-in_progress_jane_doe:
+in_progress_hellen:
   tournament: in_progress
-  user: jane_doe
+  user: hellen
 
-ended_jane_doe:
+ended_hellen:
   tournament: ended
-  user: jane_doe
+  user: hellen

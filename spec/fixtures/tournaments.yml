@@ -22,44 +22,37 @@
 #  fk_rails_...  (organiser_id => users.id)
 #
 
-tenkaichi_budokai:
-  competitors_limit: 8
-  name: 'Tenkaichi Budokai'
-  organiser: john_smith
-  result_names:
-    - 'Win'
-  starts_at: <%= 10.days.since %>
-
-game_of_thrones:
-  competitors_limit: 20
-  name: 'Game of Thrones'
-  organiser: john_smith
-  result_names:
-    - 'Win'
-  starts_at: <%= 5.days.since %>
-
 discworld:
-  competitors_limit: 8
+  competitors_limit: 12
   name: 'Discworld: Ankh-Morpork'
-  organiser: john_smith
+  organiser: john
   result_names:
     - 'Win'
     - 'Points'
   starts_at: <%= 1.minute.ago %>
   status: 1
 
-delete_me:
-  competitors_limit: 100
-  name: 'Delete me!'
-  organiser: john_smith
+game_of_thrones:
+  competitors_limit: 20
+  name: 'Game of Thrones'
+  organiser: john
   result_names:
-    - 'Points'
-  starts_at: <%= 20.days.since %>
+    - 'Win'
+  starts_at: <%= 5.days.since %>
+
+tenkaichi_budokai:
+  competitors_limit: 8
+  name: 'Tenkaichi Budokai'
+  organiser: john
+  result_names:
+    - 'Win'
+  starts_at: <%= 10.days.since %>
+
 
 created:
   competitors_limit: 8
   name: 'Start me!'
-  organiser: john_smith
+  organiser: john
   result_names:
     - 'Points'
   starts_at: <%= 1.minute.ago %>
@@ -67,7 +60,7 @@ created:
 in_progress:
   competitors_limit: 8
   name: 'End me!'
-  organiser: john_smith
+  organiser: john
   result_names:
     - 'Points'
   starts_at: <%= 8.hours.ago %>
@@ -76,8 +69,16 @@ in_progress:
 ended:
   competitors_limit: 8
   name: 'Historical'
-  organiser: john_smith
+  organiser: john
   result_names:
     - 'Points'
   starts_at: <%= 1.day.ago %>
   status: 2
+
+delete_me:
+  competitors_limit: 100
+  name: 'Delete me!'
+  organiser: john
+  result_names:
+    - 'Points'
+  starts_at: <%= 20.days.since %>

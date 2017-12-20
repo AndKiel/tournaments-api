@@ -9,7 +9,7 @@ RSpec.describe 'Tournaments', type: :request do
     end
 
     context 'when authenticated' do
-      authenticate(:john_smith)
+      authenticate(:john)
 
       it 'returns organised Tournaments' do
         get tournaments_path,
@@ -31,7 +31,7 @@ RSpec.describe 'Tournaments', type: :request do
   end
 
   context 'when authenticated' do
-    authenticate(:john_smith)
+    authenticate(:john)
 
     describe 'POST /tournaments' do
       context 'when params are valid' do

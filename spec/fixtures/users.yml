@@ -14,50 +14,63 @@
 #  index_users_on_email  (email) UNIQUE
 #
 
-john_smith:
-  email: 'john.smith@mail.co'
-  name: John Smith
-  # password
-  password_digest: '$2a$10$DduaGQK4NkMwtaa..reSv.7IruCI35cKIBodTuOPDDb/yPstoqmH2'
-
-jane_smith:
-  email: 'jane.smith@mail.co'
-  name: Jane Smith
-  # password
-  password_digest: '$2a$10$DduaGQK4NkMwtaa..reSv.7IruCI35cKIBodTuOPDDb/yPstoqmH2'
-
-john_doe:
-  email: 'john.doe@mail.co'
-  name: John Doe
-  # password
-  password_digest: '$2a$10$DduaGQK4NkMwtaa..reSv.7IruCI35cKIBodTuOPDDb/yPstoqmH2'
-
-jane_doe:
-  email: 'jane.doe@mail.co'
-  name: Jane Doe
-  # password
-  password_digest: '$2a$10$DduaGQK4NkMwtaa..reSv.7IruCI35cKIBodTuOPDDb/yPstoqmH2'
-
 andrew:
   email: 'andrew@mail.co'
   name: Andrew
   # password
   password_digest: '$2a$10$DduaGQK4NkMwtaa..reSv.7IruCI35cKIBodTuOPDDb/yPstoqmH2'
 
-michael:
-  email: 'michael@mail.co'
-  name: Michael
-  # password
+anne:
+  email: 'anne@mail.co'
+  name: Anne
+  password_digest: '$2a$10$DduaGQK4NkMwtaa..reSv.7IruCI35cKIBodTuOPDDb/yPstoqmH2'
+
+cathy:
+  email: 'cathy@mail.co'
+  name: Cathy
+  password_digest: '$2a$10$DduaGQK4NkMwtaa..reSv.7IruCI35cKIBodTuOPDDb/yPstoqmH2'
+
+hellen:
+  email: 'hellen@mail.co'
+  name: Hellen
+  password_digest: '$2a$10$DduaGQK4NkMwtaa..reSv.7IruCI35cKIBodTuOPDDb/yPstoqmH2'
+
+ivan:
+  email: 'ivan@mail.co'
+  name: Ivan
   password_digest: '$2a$10$DduaGQK4NkMwtaa..reSv.7IruCI35cKIBodTuOPDDb/yPstoqmH2'
 
 jack:
   email: 'jack@mail.co'
   name: Jack
-  # password
   password_digest: '$2a$10$DduaGQK4NkMwtaa..reSv.7IruCI35cKIBodTuOPDDb/yPstoqmH2'
 
-anne:
-  email: 'anne@mail.co'
-  name: Anne
-  # password
+jane:
+  email: 'jane@mail.co'
+  name: Jane
+  password_digest: '$2a$10$DduaGQK4NkMwtaa..reSv.7IruCI35cKIBodTuOPDDb/yPstoqmH2'
+
+john:
+  email: 'john@mail.co'
+  name: John
+  password_digest: '$2a$10$DduaGQK4NkMwtaa..reSv.7IruCI35cKIBodTuOPDDb/yPstoqmH2'
+
+michael:
+  email: 'michael@mail.co'
+  name: Michael
+  password_digest: '$2a$10$DduaGQK4NkMwtaa..reSv.7IruCI35cKIBodTuOPDDb/yPstoqmH2'
+
+neal:
+  email: 'neal@mail.co'
+  name: Neal
+  password_digest: '$2a$10$DduaGQK4NkMwtaa..reSv.7IruCI35cKIBodTuOPDDb/yPstoqmH2'
+
+peter:
+  email: 'peter@mail.co'
+  name: Peter
+  password_digest: '$2a$10$DduaGQK4NkMwtaa..reSv.7IruCI35cKIBodTuOPDDb/yPstoqmH2'
+
+thomas:
+  email: 'thomas@mail.co'
+  name: Thomas
   password_digest: '$2a$10$DduaGQK4NkMwtaa..reSv.7IruCI35cKIBodTuOPDDb/yPstoqmH2'

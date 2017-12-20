@@ -22,9 +22,10 @@
 #
 
 discworld_one1:
-  competitor: discworld_jane_doe
+  competitor: discworld_hellen
   round: discworld_one
   table_number: 1
+
 
 discworld_two1:
   competitor: discworld_andrew
