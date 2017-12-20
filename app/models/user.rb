@@ -23,4 +23,5 @@ class User < ApplicationRecord
   has_many :organised_tournaments, class_name: 'Tournament', foreign_key: 'organiser_id', inverse_of: :organiser, dependent: :destroy
   has_many :tournament_competitors, through: :organised_tournaments, source: :competitors
   has_many :tournament_rounds, through: :organised_tournaments, source: :rounds
+  has_many :tournament_players, through: :tournament_rounds, source: :players
 end

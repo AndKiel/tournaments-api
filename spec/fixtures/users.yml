@@ -37,3 +37,27 @@ jane_doe:
   name: Jane Doe
   # password
   password_digest: '$2a$10$DduaGQK4NkMwtaa..reSv.7IruCI35cKIBodTuOPDDb/yPstoqmH2'
+
+andrew:
+  email: 'andrew@mail.co'
+  name: Andrew
+  # password
+  password_digest: '$2a$10$DduaGQK4NkMwtaa..reSv.7IruCI35cKIBodTuOPDDb/yPstoqmH2'
+
+michael:
+  email: 'michael@mail.co'
+  name: Michael
+  # password
+  password_digest: '$2a$10$DduaGQK4NkMwtaa..reSv.7IruCI35cKIBodTuOPDDb/yPstoqmH2'
+
+jack:
+  email: 'jack@mail.co'
+  name: Jack
+  # password
+  password_digest: '$2a$10$DduaGQK4NkMwtaa..reSv.7IruCI35cKIBodTuOPDDb/yPstoqmH2'
+
+anne:
+  email: 'anne@mail.co'
+  name: Anne
+  # password
+  password_digest: '$2a$10$DduaGQK4NkMwtaa..reSv.7IruCI35cKIBodTuOPDDb/yPstoqmH2'

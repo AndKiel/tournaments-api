@@ -21,8 +21,27 @@
 #  fk_rails_...  (round_id => rounds.id)
 #
 
-class Player < ApplicationRecord
-  belongs_to :competitor
-  belongs_to :round
-  has_one :tournament, through: :round
-end
+discworld_one1:
+  competitor: discworld_jane_doe
+  round: discworld_one
+  table_number: 1
+
+discworld_two1:
+  competitor: discworld_andrew
+  round: discworld_two
+  table_number: 1
+
+discworld_two2:
+  competitor: discworld_michael
+  round: discworld_two
+  table_number: 1
+
+discworld_two3:
+  competitor: discworld_jack
+  round: discworld_two
+  table_number: 1
+
+discworld_two4:
+  competitor: discworld_anne
+  round: discworld_two
+  table_number: 1

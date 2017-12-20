@@ -21,8 +21,8 @@
 #  fk_rails_...  (round_id => rounds.id)
 #
 
-class Player < ApplicationRecord
-  belongs_to :competitor
-  belongs_to :round
-  has_one :tournament, through: :round
+class PlayerSerializer < ActiveModel::Serializer
+  attributes :id,
+             :result_values,
+             :table_number
 end

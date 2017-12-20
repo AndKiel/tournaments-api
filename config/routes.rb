@@ -24,6 +24,9 @@
 #                  round PATCH  /rounds/:id(.:format)                            rounds#update
 #                        PUT    /rounds/:id(.:format)                            rounds#update
 #                        DELETE /rounds/:id(.:format)                            rounds#destroy
+#                players POST   /players(.:format)                               players#create
+#                 player PATCH  /players/:id(.:format)                           players#update
+#                        PUT    /players/:id(.:format)                           players#update
 # apipie_apipie_checksum GET    /docs/apipie_checksum(.:format)                  apipie/apipies#apipie_checksum {:format=>/json/}
 #          apipie_apipie GET    /docs(/:version)(/:resource)(/:method)(.:format) apipie/apipies#index {:version=>/[^\/]+/, :resource=>/[^\/]+/, :method=>/[^\/]+/}
 #
@@ -57,6 +60,9 @@ Rails.application.routes.draw do
   end
 
   resources :rounds, only: %i[create update destroy]
+
+  resource :players, only: :create
+  resources :players, only: :update
 
   apipie
 end

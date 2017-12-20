@@ -27,6 +27,13 @@ module JsonHelpers
   # Resources
 
   define_responses(
+    'player',
+    id: String,
+    result_values: Array,
+    table_number: Integer
+  )
+
+  define_responses(
     'round',
     competitors_limit: Integer,
     created_at: ::JsonExpressions::DATE_MATCHER,

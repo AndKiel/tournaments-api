@@ -32,5 +32,6 @@ class Competitor < ApplicationRecord
               enlisted: 0,
               confirmed: 1
             },
-            default: :enlisted
+            default: :enlisted,
+            scope: true
 end

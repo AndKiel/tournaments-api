@@ -44,6 +44,26 @@ discworld_jane_doe:
   user: jane_doe
   status: 1
 
+discworld_andrew:
+  tournament: discworld
+  user: andrew
+  status: 1
+
+discworld_michael:
+  tournament: discworld
+  user: michael
+  status: 1
+
+discworld_jack:
+  tournament: discworld
+  user: jack
+  status: 1
+
+discworld_anne:
+  tournament: discworld
+  user: anne
+  status: 1
+
 created_jane_doe:
   tournament: created
   user: jane_doe

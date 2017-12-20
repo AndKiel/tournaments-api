@@ -18,24 +18,33 @@ class TournamentPolicy < ApplicationPolicy
   end
 
   def create?
-    user.id == record.organiser_id
+    organised_by_user?
   end
 
   def update?
-    user.id == record.organiser_id
+    organised_by_user?
   end
 
   def destroy?
-    user.id == record.organiser_id
+    organised_by_user?
   end
 
   def start?
-    record.status.created? && record.starts_at <= Time.current
+    organised_by_user? &&
+      record.status.created? &&
+      record.starts_at <= Time.current
   end
 
   def end?
-    record.status.in_progress?
+    organised_by_user? &&
+      record.status.in_progress?
   end
+
+
+  def organised_by_user?
+    user.id == record.organiser_id
+  end
+
 
   class Scope < Scope
     def resolve
