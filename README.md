@@ -18,4 +18,4 @@ Execute `docker-compose run web bundle exec rspec`.
 
 Requires schemacrawler (14.16.03) and graphviz.
 
-Execute `./schemacrawler.sh -infolevel=standard -command=schema -sortcolumns -portablenames -outputformat=png -outputfile=db-schema.png -server=postgresql -u=postgres -password=postgres -database="untitled-tournaments-development"`
+Execute `./schemacrawler.sh -infolevel=standard -command=schema -sortcolumns -portablenames -outputformat=pdf -outputfile=db-schema.pdf -server=postgresql -u=postgres -password=postgres -database="untitled-tournaments-development"`

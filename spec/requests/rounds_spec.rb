@@ -3,15 +3,16 @@ require 'rails_helper'
 RSpec.describe 'Rounds', type: :request do
   authenticate(:john_smith)
 
-  describe 'POST /tournaments/:tournament_id/rounds' do
+  describe 'POST /rounds' do
     let(:tournament) { tournaments(:tenkaichi_budokai) }
 
     context 'when params are valid' do
       it 'returns Round' do
         expect do
-          post tournament_rounds_path(tournament.id),
+          post rounds_path,
                headers: auth_headers,
                params: {
+                 tournament_id: tournament.id,
                  round: {
                    competitors_limit: 4,
                    tables_count: 2
@@ -25,9 +26,10 @@ RSpec.describe 'Rounds', type: :request do
 
     context 'when params are not valid' do
       it 'returns validation errors' do
-        post tournament_rounds_path(tournament.id),
+        post rounds_path,
              headers: auth_headers,
              params: {
+               tournament_id: tournament.id,
                round: {
                  competitors_limit: 0,
                  tables_count: 0

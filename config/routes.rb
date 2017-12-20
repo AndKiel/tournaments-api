@@ -11,16 +11,16 @@
 #                        PUT    /user(.:format)                                  users#update
 #       start_tournament POST   /tournaments/:id/start(.:format)                 tournaments#start
 #         end_tournament POST   /tournaments/:id/end(.:format)                   tournaments#end
-#  tournament_competitor DELETE /tournaments/:tournament_id/competitor(.:format) competitors#destroy
-#                        POST   /tournaments/:tournament_id/competitor(.:format) competitors#create
-#      tournament_rounds POST   /tournaments/:tournament_id/rounds(.:format)     rounds#create
 #            tournaments GET    /tournaments(.:format)                           tournaments#index
 #                        POST   /tournaments(.:format)                           tournaments#create
 #             tournament GET    /tournaments/:id(.:format)                       tournaments#show
 #                        PATCH  /tournaments/:id(.:format)                       tournaments#update
 #                        PUT    /tournaments/:id(.:format)                       tournaments#update
 #                        DELETE /tournaments/:id(.:format)                       tournaments#destroy
+#             competitor DELETE /competitor(.:format)                            competitors#destroy
+#                        POST   /competitor(.:format)                            competitors#create
 #     confirm_competitor POST   /competitors/:id/confirm(.:format)               competitors#confirm
+#                 rounds POST   /rounds(.:format)                                rounds#create
 #                  round PATCH  /rounds/:id(.:format)                            rounds#update
 #                        PUT    /rounds/:id(.:format)                            rounds#update
 #                        DELETE /rounds/:id(.:format)                            rounds#destroy
@@ -41,21 +41,22 @@ Rails.application.routes.draw do
     end
   end
   resource :user, only: %i[show update]
+
   resources :tournaments, only: %i[index show create update destroy] do
     member do
       post :start
       post :end
     end
-
-    resource :competitor, only: %i[create destroy]
-    resources :rounds, only: %i[create]
   end
+
+  resource :competitor, only: %i[create destroy]
   resources :competitors, only: :none do
     member do
       post :confirm
     end
   end
-  resources :rounds, only: %i[update destroy]
+
+  resources :rounds, only: %i[create update destroy]
 
   apipie
 end
