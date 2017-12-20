@@ -1,7 +1,7 @@
 # == Route Map
 #
 #                 Prefix Verb   URI Pattern                                      Controller#Action
-#                   root GET    /                                                application#ping
+#                   root GET    /                                                tournaments#index
 #            oauth_token POST   /oauth/token(.:format)                           doorkeeper/tokens#create
 #           oauth_revoke POST   /oauth/revoke(.:format)                          doorkeeper/tokens#revoke
 #       oauth_token_info GET    /oauth/token/info(.:format)                      doorkeeper/token_info#show
@@ -29,7 +29,7 @@
 #
 
 Rails.application.routes.draw do
-  root 'application#ping'
+  root 'tournaments#index'
 
   use_doorkeeper do
     skip_controllers :applications, :authorizations, :authorized_applications
