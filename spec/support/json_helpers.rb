@@ -27,6 +27,12 @@ module JsonHelpers
   # Resources
 
   define_responses(
+    'competitor',
+    id: String,
+    status: String
+  )
+
+  define_responses(
     'player',
     id: String,
     result_values: Array,

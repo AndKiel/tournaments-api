@@ -7,7 +7,8 @@ class CompetitorsController < ApplicationController
     competitor = pundit_user.competitors.find_or_initialize_by(tournament: tournament)
     authorize competitor
     competitor.save!
-    head :created
+    render json: competitor,
+           status: :created
   end
 
   def destroy
@@ -21,6 +22,6 @@ class CompetitorsController < ApplicationController
     competitor = pundit_user.tournament_competitors.find(params[:id])
     authorize competitor
     competitor.update!(status: :confirmed)
-    head :no_content
+    render json: competitor
   end
 end

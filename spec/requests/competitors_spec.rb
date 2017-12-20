@@ -16,7 +16,7 @@ RSpec.describe 'Competitors', type: :request do
                }
         end.to change(Competitor, :count).by(1)
         expect(response).to have_http_status(:created)
-        expect(response.body).to be_empty
+        expect(response.body).to match_json_expression(competitor_json)
       end
     end
 
@@ -76,8 +76,8 @@ RSpec.describe 'Competitors', type: :request do
       it 'updates Competitor' do
         post confirm_competitor_path(competitor.id),
              headers: auth_headers
-        expect(response).to have_http_status(:no_content)
-        expect(response.body).to be_empty
+        expect(response).to have_http_status(:ok)
+        expect(response.body).to match_json_expression(competitor_json)
         expect(competitor.reload.status).to eq(:confirmed)
       end
     end
