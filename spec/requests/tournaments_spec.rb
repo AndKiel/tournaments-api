@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Tournaments', type: :request do
   describe 'GET /tournaments' do
-    it 'returns Tournaments', :show_in_doc do
+    it 'returns Tournaments' do
       get tournaments_path
       expect(response).to have_http_status(:ok)
       expect(response.body).to match_json_expression(tournaments_json)
@@ -11,7 +11,7 @@ RSpec.describe 'Tournaments', type: :request do
     context 'when authenticated' do
       authenticate(:john_smith)
 
-      it 'returns organised Tournaments', :show_in_doc do
+      it 'returns organised Tournaments' do
         get tournaments_path,
             headers: auth_headers
         expect(response).to have_http_status(:ok)
@@ -23,7 +23,7 @@ RSpec.describe 'Tournaments', type: :request do
   describe 'GET /tournaments/:id' do
     let(:tournament) { tournaments(:tenkaichi_budokai) }
 
-    it 'returns Tournament', :show_in_doc do
+    it 'returns Tournament' do
       get tournament_path(tournament.id)
       expect(response).to have_http_status(:ok)
       expect(response.body).to match_json_expression(tournament_json)
@@ -35,7 +35,7 @@ RSpec.describe 'Tournaments', type: :request do
 
     describe 'POST /tournaments' do
       context 'when params are valid' do
-        it 'returns Tournament', :show_in_doc do
+        it 'returns Tournament' do
           expect do
             post tournaments_path,
                  headers: auth_headers,
@@ -54,7 +54,7 @@ RSpec.describe 'Tournaments', type: :request do
       end
 
       context 'when params are not valid' do
-        it 'returns validation errors', :show_in_doc do
+        it 'returns validation errors' do
           expect do
             post tournaments_path,
                  headers: auth_headers,
@@ -74,7 +74,7 @@ RSpec.describe 'Tournaments', type: :request do
       let(:tournament) { tournaments(:tenkaichi_budokai) }
 
       context 'when params are valid' do
-        it 'returns Tournament', :show_in_doc do
+        it 'returns Tournament' do
           put tournament_path(tournament.id),
               headers: auth_headers,
               params: {
@@ -88,7 +88,7 @@ RSpec.describe 'Tournaments', type: :request do
       end
 
       context 'when params are not valid' do
-        it 'return validation errors', :show_in_doc do
+        it 'return validation errors' do
           put tournament_path(tournament.id),
               headers: auth_headers,
               params: {
@@ -105,7 +105,7 @@ RSpec.describe 'Tournaments', type: :request do
     describe 'DELETE /tournaments/:id' do
       let(:tournament) { tournaments(:delete_me) }
 
-      it 'deletes Tournament', :show_in_doc do
+      it 'deletes Tournament' do
         expect do
           delete tournament_path(tournament.id),
                  headers: auth_headers

@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Users', type: :request do
   describe 'POST #sign_up' do
     context 'when params are valid' do
-      it 'returns User', :show_in_doc do
+      it 'returns User' do
         expect do
           post sign_up_users_path,
                params: {
@@ -20,7 +20,7 @@ RSpec.describe 'Users', type: :request do
     end
 
     context 'when params are not valid' do
-      it 'returns validation errors', :show_in_doc do
+      it 'returns validation errors' do
         expect do
           post sign_up_users_path,
                params: {
@@ -39,7 +39,7 @@ RSpec.describe 'Users', type: :request do
     authenticate(:john_smith)
 
     describe 'GET #show' do
-      it 'returns authenticated User', :show_in_doc do
+      it 'returns authenticated User' do
         get user_path,
             headers: auth_headers
         expect(response).to have_http_status(:ok)
@@ -49,7 +49,7 @@ RSpec.describe 'Users', type: :request do
 
     describe 'PUT #update' do
       context 'when params are valid' do
-        it 'updates authenticated User', :show_in_doc do
+        it 'updates authenticated User' do
           put user_path,
               headers: auth_headers,
               params: {
