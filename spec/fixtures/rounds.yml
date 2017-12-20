@@ -27,3 +27,13 @@ game_of_thrones_delete_me:
   competitors_limit: 20
   tables_count: 4
   tournament: game_of_thrones
+
+discworld_one:
+  competitors_limit: 8
+  tables_count: 2
+  tournament: discworld
+
+discworld_two:
+  competitors_limit: 4
+  tables_count: 1
+  tournament: discworld

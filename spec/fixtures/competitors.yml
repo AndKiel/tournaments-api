@@ -21,17 +21,37 @@
 #
 
 game_of_thrones_jane_doe:
-  user: jane_doe
   tournament: game_of_thrones
+  user: jane_doe
+
+discworld_john_smith:
+  tournament: discworld
+  user: john_smith
+  status: 1
+
+discworld_jane_smith:
+  tournament: discworld
+  user: jane_smith
+  status: 1
+
+discworld_john_doe:
+  tournament: discworld
+  user: john_doe
+  status: 1
+
+discworld_jane_doe:
+  tournament: discworld
+  user: jane_doe
+  status: 1
 
 created_jane_doe:
-  user: jane_doe
   tournament: created
+  user: jane_doe
 
 in_progress_jane_doe:
-  user: jane_doe
   tournament: in_progress
+  user: jane_doe
 
 ended_jane_doe:
-  user: jane_doe
   tournament: ended
+  user: jane_doe

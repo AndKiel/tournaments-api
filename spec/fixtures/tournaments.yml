@@ -38,6 +38,16 @@ game_of_thrones:
     - 'Win'
   starts_at: <%= 5.days.since %>
 
+discworld:
+  competitors_limit: 8
+  name: 'Discworld: Ankh-Morpork'
+  organiser: john_smith
+  result_names:
+    - 'Win'
+    - 'Points'
+  starts_at: <%= 1.minute.ago %>
+  status: 1
+
 delete_me:
   competitors_limit: 100
   name: 'Delete me!'
