@@ -5,10 +5,10 @@ class UsersController < ApplicationController
 
 
   def sign_up
-    model = User.new
-    authorize model
-    form = User::SignUpForm.new(model)
-    if form.validate(permitted_attributes(model))
+    user = User.new
+    authorize user
+    form = User::SignUpForm.new(user)
+    if form.validate(permitted_attributes(user))
       form.save
       return render json: form.model,
                     status: :created
@@ -20,16 +20,16 @@ class UsersController < ApplicationController
   before_action :doorkeeper_authorize!, only: %i[show update]
 
   def show
-    model = pundit_user
-    authorize model
+    user = pundit_user
+    authorize user
     render json: pundit_user
   end
 
   def update
-    model = pundit_user
-    authorize model
-    form = User::UpdateForm.new(model)
-    if form.validate(permitted_attributes(model))
+    user = pundit_user
+    authorize user
+    form = User::UpdateForm.new(user)
+    if form.validate(permitted_attributes(user))
       form.save
       return render json: form.model
     end
