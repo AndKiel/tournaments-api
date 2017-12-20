@@ -3,23 +3,24 @@ class CompetitorsController < ApplicationController
   after_action :verify_authorized
 
   def create
-    model = pundit_user.competitors.new(tournament_id: params[:tournament_id])
-    authorize model
-    model.save!
-    head :no_content
+    tournament = Tournament.find(params[:tournament_id])
+    competitor = pundit_user.competitors.find_or_initialize_by(tournament: tournament)
+    authorize competitor
+    competitor.save!
+    head :created
   end
 
   def destroy
-    model = pundit_user.competitors.find_by!(tournament_id: params[:tournament_id])
-    authorize model
-    model.destroy!
+    competitor = pundit_user.competitors.find_by!(tournament_id: params[:tournament_id])
+    authorize competitor
+    competitor.destroy!
     head :no_content
   end
 
   def confirm
-    model = pundit_user.tournament_competitors.find(params[:id])
-    authorize model
-    model.update!(status: :confirmed)
+    competitor = pundit_user.tournament_competitors.find(params[:id])
+    authorize competitor
+    competitor.update!(status: :confirmed)
     head :no_content
   end
 end

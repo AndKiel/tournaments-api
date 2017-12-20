@@ -15,7 +15,7 @@ RSpec.describe 'Competitors', type: :request do
                  tournament_id: tournament.id
                }
         end.to change(Competitor, :count).by(1)
-        expect(response).to have_http_status(:no_content)
+        expect(response).to have_http_status(:created)
         expect(response.body).to be_empty
       end
     end
