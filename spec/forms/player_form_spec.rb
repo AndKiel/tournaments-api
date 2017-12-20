@@ -3,6 +3,12 @@ require 'rails_helper'
 RSpec.describe PlayerForm do
   subject { described_class.new(Player.new) }
 
+  it 'validates presence of result values' do
+    result = subject.validate(result_values: nil)
+    expect(result).to be false
+    expect(subject.errors[:result_values]).to include I18n.t('errors.messages.blank')
+  end
+
   it 'validates length of result values' do
     result = subject.validate(result_values: [])
     expect(result).to be false

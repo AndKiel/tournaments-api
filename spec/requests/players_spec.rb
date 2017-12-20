@@ -42,7 +42,7 @@ RSpec.describe 'Players', type: :request do
               headers: auth_headers,
               params: {
                 player: {
-                  result_values: nil
+                  result_values: []
                 }
               }
         expect(response).to have_http_status(:unprocessable_entity)
