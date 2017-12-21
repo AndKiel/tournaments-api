@@ -4,7 +4,7 @@ Doorkeeper.configure do
 
   # This block will be called to check whether the resource owner is authenticated or not.
   resource_owner_authenticator do
-    pundit_user
+    current_user
   end
 
   # To use password credentials flow you need to tell doorkeeper how to authenticate the resource owner:

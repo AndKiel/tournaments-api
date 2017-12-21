@@ -7,10 +7,10 @@ class ApplicationPolicy
   end
 
 
+  # :nocov:
   def permitted_attributes
     raise NotImplementedError, 'Subclasses must define `permitted_attributes`.'
   end
-
 
   def index?
     false
@@ -31,6 +31,7 @@ class ApplicationPolicy
   def destroy?
     false
   end
+  # :nocov:
 
 
   def scope

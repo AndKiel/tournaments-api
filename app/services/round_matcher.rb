@@ -15,6 +15,8 @@ class RoundMatcher
     @players
   end
 
+  private
+
   def clear_round
     @round.players.destroy_all
   end

@@ -1,8 +1,10 @@
 class UsersController < ApplicationController
   include UsersDoc
 
+  before_action :doorkeeper_authorize!, only: %i[show update]
   after_action :verify_authorized
 
+  # Public actions
 
   def sign_up
     user = User.new
@@ -16,17 +18,16 @@ class UsersController < ApplicationController
     render_validation_errors(form)
   end
 
-
-  before_action :doorkeeper_authorize!, only: %i[show update]
+  # Actions for authenticated users
 
   def show
-    user = pundit_user
+    user = current_user
     authorize user
-    render json: pundit_user
+    render json: current_user
   end
 
   def update
-    user = pundit_user
+    user = current_user
     authorize user
     form = User::UpdateForm.new(user)
     if form.validate(permitted_attributes(user))

@@ -2,8 +2,10 @@ class RoundsController < ApplicationController
   before_action :doorkeeper_authorize!
   after_action :verify_authorized
 
+  # Actions for tournament organiser
+
   def create
-    tournament = pundit_user.organised_tournaments.find(params[:tournament_id])
+    tournament = current_user.organised_tournaments.find(params[:tournament_id])
     round = tournament.rounds.new
     authorize round
     form = RoundForm.new(round)
@@ -16,7 +18,7 @@ class RoundsController < ApplicationController
   end
 
   def update
-    round = pundit_user.tournament_rounds.find(params[:id])
+    round = current_user.tournament_rounds.find(params[:id])
     authorize round
     form = RoundForm.new(round)
     if form.validate(permitted_attributes(round))
@@ -27,7 +29,7 @@ class RoundsController < ApplicationController
   end
 
   def destroy
-    round = pundit_user.tournament_rounds.find(params[:id])
+    round = current_user.tournament_rounds.find(params[:id])
     authorize round
     round.destroy!
     head :no_content

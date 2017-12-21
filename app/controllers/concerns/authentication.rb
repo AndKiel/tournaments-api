@@ -6,9 +6,9 @@ module Authentication
 
     protected
 
-    def pundit_user
+    def current_user
       return unless doorkeeper_token
-      @pundit_user ||= User.find_by(id: doorkeeper_token.resource_owner_id)
+      @current_user ||= User.find_by(id: doorkeeper_token.resource_owner_id)
     end
   end
 end

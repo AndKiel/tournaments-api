@@ -1,8 +1,11 @@
 class TournamentsController < ApplicationController
   include TournamentsDoc
 
+  before_action :doorkeeper_authorize!, only: %i[create update destroy start end]
   after_action :verify_authorized
+  after_action :verify_policy_scoped, only: %i[create update destroy start end]
 
+  # Public actions
 
   def index
     authorize Tournament
@@ -16,9 +19,7 @@ class TournamentsController < ApplicationController
     render json: tournament
   end
 
-
-  before_action :doorkeeper_authorize!, only: %i[create update destroy start end]
-  after_action :verify_policy_scoped, only: %i[create update destroy start end]
+  # Actions for authenticated users
 
   def create
     tournament = policy_scope(Tournament).new
@@ -31,6 +32,8 @@ class TournamentsController < ApplicationController
     end
     render_validation_errors(form)
   end
+
+  # Actions for tournament organisers
 
   def update
     tournament = policy_scope(Tournament).find(params[:id])
