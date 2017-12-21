@@ -1,7 +1,7 @@
 class PlayerForm < Reform::Form
   property :result_values,
            populator: lambda { |fragment:, **|
-             self.result_values = fragment.reject(&:blank?)
+             self.result_values = fragment.select { |value| value.to_i.to_s == value.to_s }
            }
 
   validation :default do
