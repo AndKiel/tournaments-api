@@ -1,6 +1,4 @@
 module ControllerMacros
-  # Anonymous controller actions
-
   def define_anonymous_action(kontroller = 'anonymous', &action)
     controller do
       define_method :anon, action
@@ -10,21 +8,6 @@ module ControllerMacros
       routes.draw do
         get "/#{kontroller}/anon"
       end
-    end
-  end
-
-  # Doorkeeper
-
-  def authenticate(user_sym)
-    let(:current_user) { users(user_sym) }
-    let(:token) do
-      double acceptable?: true,
-             resource_owner_id: current_user.id,
-             scopes: ['public']
-    end
-
-    before do
-      allow(controller).to receive(:doorkeeper_token) { token }
     end
   end
 end
