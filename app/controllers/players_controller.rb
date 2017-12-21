@@ -7,7 +7,7 @@ class PlayersController < ApplicationController
   def create
     round = current_user.tournament_rounds.find(params[:round_id])
     authorize round, :assign_players?
-    players = RoundMatcher.new(round).call
+    players = MatchmakingService.new(round).call
     render json: players,
            status: :created
   end

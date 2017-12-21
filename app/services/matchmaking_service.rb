@@ -1,4 +1,4 @@
-class RoundMatcher
+class MatchmakingService
   def initialize(round)
     @round = round
     @tournament = round.tournament
