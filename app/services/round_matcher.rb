@@ -7,7 +7,7 @@ class RoundMatcher
 
   def call
     clear_round
-    if is_first_round?
+    if first_round?
       randomize_players
     else
       assign_players
@@ -23,13 +23,26 @@ class RoundMatcher
 
   def randomize_players
     competitor_ids = @tournament.competitors.
-      with_status(:confirmed).
-      order(created_at: :asc).
-      limit(@round.competitors_limit).
-      pluck(:id)
-
+                     with_status(:confirmed).
+                     order(created_at: :asc).
+                     limit(@round.competitors_limit).
+                     pluck(:id)
     competitor_ids.shuffle!
+    create_players(competitor_ids)
+  end
 
+  def assign_players
+    competitor_ids = @tournament.results.
+                     limit(@round.competitors_limit).
+                     pluck(:competitor_id)
+    create_players(competitor_ids)
+  end
+
+  def first_round?
+    @round.id == @tournament.rounds.order(created_at: :asc).first.id
+  end
+
+  def create_players(competitor_ids)
     competitor_ids.in_groups(@round.tables_count, false).each_with_index do |group, idx|
       group.each do |competitor_id|
         @players << @round.players.create!(
@@ -38,13 +51,5 @@ class RoundMatcher
         )
       end
     end
-  end
-
-  def assign_players
-    raise NotImplementedError
-  end
-
-  def is_first_round?
-    @round.id == @tournament.rounds.order(created_at: :asc).first.id
   end
 end
