@@ -27,6 +27,7 @@ class Tournament < ApplicationRecord
 
   belongs_to :organiser, class_name: 'User', inverse_of: :tournaments
   has_many :competitors, dependent: :destroy
+  has_many :results
   has_many :rounds, dependent: :destroy
 
   enumerize :status,

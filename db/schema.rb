@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171220094704) do
+ActiveRecord::Schema.define(version: 20171221120724) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -114,4 +114,22 @@ ActiveRecord::Schema.define(version: 20171220094704) do
   add_foreign_key "players", "rounds"
   add_foreign_key "rounds", "tournaments"
   add_foreign_key "tournaments", "users", column: "organiser_id"
+
+  create_view "results",  sql_definition: <<-SQL
+      SELECT summary.tournament_id,
+      summary.competitor_id,
+      array_agg(summary.result) AS total
+     FROM ( SELECT rounds.tournament_id,
+              players.competitor_id,
+              sum(arr.value) AS result
+             FROM ((players
+               JOIN rounds ON ((rounds.id = players.round_id)))
+               JOIN tournaments ON ((tournaments.id = rounds.tournament_id))),
+              LATERAL unnest(players.result_values) WITH ORDINALITY arr(value, index)
+            GROUP BY rounds.tournament_id, players.competitor_id, arr.index
+            ORDER BY players.competitor_id, arr.index) summary
+    GROUP BY summary.tournament_id, summary.competitor_id
+    ORDER BY (array_agg(summary.result)) DESC;
+  SQL
+
 end
