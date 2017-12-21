@@ -7,7 +7,7 @@ class TournamentForm < Reform::Form
              self.result_names = fragment.reject(&:blank?)
            }
   property :starts_at,
-           skip_if: lambda { |*| !model.status.created? }
+           skip_if: ->(*) { !model.status.created? }
 
   validates :competitors_limit,
             presence: true,
