@@ -86,6 +86,47 @@ game_of_thrones_hellen:
   user: hellen
 
 
+gwent_andrew:
+  tournament: gwent
+  user: andrew
+  status: 1
+
+gwent_anne:
+  tournament: gwent
+  user: anne
+  status: 1
+
+gwent_cathy:
+  tournament: gwent
+  user: cathy
+  status: 1
+
+gwent_hellen:
+  tournament: gwent
+  user: hellen
+  status: 1
+
+gwent_ivan:
+  tournament: gwent
+  user: ivan
+  status: 1
+
+gwent_jack:
+  tournament: gwent
+  user: jack
+  status: 1
+
+gwent_jane:
+  tournament: gwent
+  user: jane
+  status: 1
+
+gwent_john:
+  tournament: gwent
+  user: john
+  status: 1
+
+
 created_hellen:
   tournament: created
   user: hellen

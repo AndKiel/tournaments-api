@@ -40,6 +40,15 @@ game_of_thrones:
     - 'Win'
   starts_at: <%= 5.days.since %>
 
+gwent:
+  competitors_limit: 8
+  name: 'Gwent'
+  organiser: john
+  result_names:
+    - 'Win'
+  starts_at: <%= 1.minute.ago %>
+  status: 1
+
 tenkaichi_budokai:
   competitors_limit: 8
   name: 'Tenkaichi Budokai'

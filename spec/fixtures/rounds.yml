@@ -50,6 +50,17 @@ game_of_thrones_delete_me:
   tournament: game_of_thrones
 
 
+gwent_one:
+  competitors_limit: 8
+  tables_count: 4
+  tournament: gwent
+
+gwent_two:
+  competitors_limit: 4
+  tables_count: 2
+  tournament: gwent
+
+
 tenkaichi_budokai_one:
   competitors_limit: 8
   tables_count: 4

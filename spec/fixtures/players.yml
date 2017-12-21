@@ -46,3 +46,60 @@ discworld_two4:
   competitor: discworld_anne
   round: discworld_two
   table_number: 1
+
+
+gwent_one1:
+  competitor: gwent_andrew
+  result_values:
+    - 1
+  round: gwent_one
+  table_number: 1
+
+gwent_one2:
+  competitor: gwent_anne
+  result_values:
+    - 0
+  round: gwent_one
+  table_number: 1
+
+gwent_one3:
+  competitor: gwent_cathy
+  result_values:
+    - 0
+  round: gwent_one
+  table_number: 2
+
+gwent_one4:
+  competitor: gwent_hellen
+  result_values:
+    - 1
+  round: gwent_one
+  table_number: 2
+
+gwent_one5:
+  competitor: gwent_ivan
+  result_values:
+    - 0
+  round: gwent_one
+  table_number: 3
+
+gwent_one6:
+  competitor: gwent_jack
+  result_values:
+    - 1
+  round: gwent_one
+  table_number: 3
+
+gwent_one7:
+  competitor: gwent_jane
+  result_values:
+    - 1
+  round: gwent_one
+  table_number: 4
+
+gwent_one8:
+  competitor: gwent_john
+  result_values:
+    - 0
+  round: gwent_one
+  table_number: 4

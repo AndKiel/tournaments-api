@@ -12,7 +12,7 @@ SimpleCov.start do
   add_group 'Models',      'app/models'
   add_group 'Policies',    'app/policies'
   add_group 'Serializers', 'app/serializers'
-  # add_group 'Services',    'app/services'
+  add_group 'Services',    'app/services'
   # add_group 'Uploaders',   'app/uploaders'
 
   track_files '{app,lib}/**/*.rb'
