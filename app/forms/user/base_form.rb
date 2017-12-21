@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   class BaseForm < Reform::Form
     property :email
+    property :name
     property :password, readable: false
     property :password_confirmation, virtual: true
 

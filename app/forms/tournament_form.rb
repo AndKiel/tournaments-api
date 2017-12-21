@@ -6,7 +6,8 @@ class TournamentForm < Reform::Form
            populator: lambda { |fragment:, **|
              self.result_names = fragment.reject(&:blank?)
            }
-  property :starts_at
+  property :starts_at,
+           skip_if: lambda { |*| !model.status.created? }
 
   validates :competitors_limit,
             presence: true,
