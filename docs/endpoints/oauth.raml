@@ -9,6 +9,7 @@
           application/json:
   /info:
     get:
+      securedBy: [oauth]
       responses:
         200:
           body:
@@ -18,5 +19,6 @@
             application/json:
 /revoke:
   post:
+    securedBy: [oauth]
     responses:
       200:

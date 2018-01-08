@@ -1,4 +1,5 @@
 post:
+  securedBy: [oauth]
   queryParameters:
     round_id:
       description: The id of the round
@@ -18,6 +19,7 @@ post:
       description: The id of the player
       type: uuid
   put:
+    securedBy: [oauth]
     responses:
       200:
         body:

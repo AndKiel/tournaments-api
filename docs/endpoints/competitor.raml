@@ -1,3 +1,4 @@
+securedBy: [oauth]
 post:
   queryParameters:
     tournament_id:
@@ -29,6 +30,7 @@ delete:
       description: The id of the competitor
       type: uuid
   post:
+    securedBy: [oauth]
     responses:
       200:
         body:

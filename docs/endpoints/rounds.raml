@@ -1,4 +1,5 @@
 post:
+  securedBy: [oauth]
   queryParameters:
     tournament_id:
       description: The id of the tournament
@@ -13,6 +14,7 @@ post:
       body:
         application/json:
 /{id}:
+  securedBy: [oauth]
   uriParameters:
     id:
       description: The id of the round

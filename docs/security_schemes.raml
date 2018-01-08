@@ -1,0 +1,9 @@
+oauth:
+  type: OAuth 2.0
+  describedBy:
+    headers:
+      Authorization:
+        type: string
+  settings:
+    accessTokenUri: http://0.0.0.0:3000/oauth/token
+    authorizationGrants: [ client_credentials ]

@@ -1,4 +1,5 @@
 get:
+  securedBy: [null, oauth]
   queryParameters:
     page:
       description: Specify the page that you want to retrieve
@@ -10,6 +11,7 @@ get:
         application/json:
           type: Tournament[]
 post:
+  securedBy: [oauth]
   responses:
     201:
       body:
@@ -31,6 +33,7 @@ post:
         application/json:
           type: Tournament
   put:
+    securedBy: [oauth]
     responses:
       200:
         body:
@@ -44,6 +47,7 @@ post:
         body:
           application/json:
   delete:
+    securedBy: [oauth]
     responses:
       204:
       401:
@@ -52,6 +56,7 @@ post:
           application/json:
   /start:
     post:
+      securedBy: [oauth]
       responses:
         200:
           body:
@@ -63,6 +68,7 @@ post:
             application/json:
   /end:
     post:
+      securedBy: [oauth]
       responses:
         200:
           body:
