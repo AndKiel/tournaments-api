@@ -20,8 +20,17 @@ baseUri: http://0.0.0.0:3000
 
 /tournaments:
   get:
+    queryParameters:
+      page:
+        description: Specify the page that you want to retrieve
+        required: false
+        type: integer
   post:
   /{id}:
+    uriParameters:
+      id:
+        description: The id of the tournament
+        type: uuid
     get:
     put:
     delete:
@@ -32,17 +41,45 @@ baseUri: http://0.0.0.0:3000
 
 /competitor:
   post:
+    queryParameters:
+      tournament_id:
+        description: The id of the tournament
+        type: uuid
   delete:
+    queryParameters:
+      tournament_id:
+        description: The id of the tournament
+        type: uuid
   /{id}/confirm:
+    uriParameters:
+      id:
+        description: The id of the competitor
+        type: uuid
     post:
 
 /rounds:
   post:
+    queryParameters:
+      tournament_id:
+        description: The id of the tournament
+        type: uuid
   /{id}:
+    uriParameters:
+      id:
+        description: The id of the round
+        type: uuid
     put:
     delete:
 
 /players:
   post:
+    queryParameters:
+      round_id:
+        description: The id of the round
+        type: uuid
   /{id}:
+    uriParameters:
+      id:
+        description: The id of the player
+        type: uuid
     put:
