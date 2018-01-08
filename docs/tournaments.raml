@@ -1,0 +1,68 @@
+get:
+  queryParameters:
+    page:
+      description: Specify the page that you want to retrieve
+      required: false
+      type: integer
+  responses:
+    200:
+      body:
+        application/json:
+post:
+  responses:
+    201:
+      body:
+        application/json:
+    401:
+    422:
+      body:
+        application/json:
+/{id}:
+  uriParameters:
+    id:
+      description: The id of the tournament
+      type: uuid
+  get:
+    responses:
+      200:
+      body:
+        application/json:
+  put:
+    responses:
+      200:
+        body:
+          application/json:
+      401:
+      403:
+        body:
+          application/json:
+      422:
+        body:
+          application/json:
+  delete:
+    responses:
+      204:
+      401:
+      403:
+        body:
+          application/json:
+  /start:
+    post:
+      responses:
+        200:
+          body:
+            application/json:
+        401:
+        403:
+          body:
+            application/json:
+  /end:
+    post:
+      responses:
+        200:
+          body:
+            application/json:
+        401:
+        403:
+          body:
+            application/json:

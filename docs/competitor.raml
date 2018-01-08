@@ -1,0 +1,38 @@
+post:
+  queryParameters:
+    tournament_id:
+      description: The id of the tournament
+      type: uuid
+  responses:
+    201:
+      body:
+        application/json:
+    401:
+    403:
+      body:
+        application/json:
+delete:
+  queryParameters:
+    tournament_id:
+      description: The id of the tournament
+      type: uuid
+  responses:
+    204:
+    401:
+    403:
+      body:
+        application/json:
+/{id}/confirm:
+  uriParameters:
+    id:
+      description: The id of the competitor
+      type: uuid
+  post:
+    responses:
+      200:
+        body:
+          application/json:
+      401:
+      403:
+        body:
+          application/json:
