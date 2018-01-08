@@ -8,15 +8,13 @@ get:
   responses:
     200:
       body:
-        application/json:
-          type: Tournament[]
+        type: Tournament[]
 post:
   securedBy: [oauth]
   responses:
     201:
       body:
-        application/json:
-          type: Tournament
+        type: Tournament
     401:
     422:
       body:
@@ -30,15 +28,13 @@ post:
     responses:
       200:
       body:
-        application/json:
-          type: Tournament
+        type: Tournament
   put:
     securedBy: [oauth]
     responses:
       200:
         body:
-          application/json:
-            type: Tournament
+          type: Tournament
       401:
       403:
         body:
@@ -60,8 +56,7 @@ post:
       responses:
         200:
           body:
-            application/json:
-              type: Tournament
+            type: Tournament
         401:
         403:
           body:
@@ -72,8 +67,7 @@ post:
       responses:
         200:
           body:
-            application/json:
-              type: Tournament
+            type: Tournament
         401:
         403:
           body:
