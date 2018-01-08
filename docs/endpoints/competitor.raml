@@ -1,5 +1,6 @@
 displayName: Competitor
 securedBy: [oauth]
+is: [authenticable, authorizable]
 post:
   queryParameters:
     tournament_id:
@@ -9,10 +10,6 @@ post:
     201:
       body:
         type: Competitor
-    401:
-    403:
-      body:
-        type: Error
 delete:
   queryParameters:
     tournament_id:
@@ -20,10 +17,7 @@ delete:
       type: uuid
   responses:
     204:
-    401:
-    403:
-      body:
-        type: Error
+
 /{id}/confirm:
   uriParameters:
     id:
@@ -31,11 +25,8 @@ delete:
       type: uuid
   post:
     securedBy: [oauth]
+    is: [authenticable, authorizable]
     responses:
       200:
         body:
           type: Competitor
-      401:
-      403:
-        body:
-          type: Error

@@ -1,6 +1,7 @@
 displayName: Players
 post:
   securedBy: [oauth]
+  is: [authenticable, authorizable]
   queryParameters:
     round_id:
       description: The id of the round
@@ -9,10 +10,7 @@ post:
     201:
       body:
         type: Player[]
-    401:
-    403:
-      body:
-        type: Error
+
 /{id}:
   uriParameters:
     id:
@@ -20,14 +18,8 @@ post:
       type: uuid
   patch:
     securedBy: [oauth]
+    is: [authenticable, authorizable, validatable]
     responses:
       200:
         body:
           type: Player
-      401:
-      403:
-        body:
-          type: Error
-      422:
-        body:
-          type: ValidationErrors

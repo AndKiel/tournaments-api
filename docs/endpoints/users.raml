@@ -1,10 +1,8 @@
 displayName: Users
 /sign_up:
   post:
+    is: [validatable]
     responses:
       201:
         body:
           type: User
-      422:
-        body:
-          type: ValidationErrors

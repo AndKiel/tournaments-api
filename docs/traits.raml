@@ -1,0 +1,13 @@
+authenticable:
+  responses:
+    401:
+authorizable:
+  responses:
+    403:
+      body:
+        type: Error
+validatable:
+  responses:
+    422:
+      body:
+        type: ValidationErrors

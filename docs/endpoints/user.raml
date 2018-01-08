@@ -1,17 +1,14 @@
 displayName: User
 securedBy: [oauth]
+is: [authenticable]
 get:
   responses:
     200:
       body:
         type: User
-    401:
 patch:
+  is: [validatable]
   responses:
     200:
       body:
         type: User
-    401:
-    422:
-      body:
-        type: ValidationErrors

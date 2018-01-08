@@ -13,14 +13,12 @@ get:
         type: Tournament[]
 post:
   securedBy: [oauth]
+  is: [authenticable, validatable]
   responses:
     201:
       body:
         type: Tournament
-    401:
-    422:
-      body:
-        type: ValidationErrors
+
 /{id}:
   uriParameters:
     id:
@@ -33,44 +31,31 @@ post:
         type: Tournament
   patch:
     securedBy: [oauth]
+    is: [authenticable, authorizable, validatable]
     responses:
       200:
         body:
           type: Tournament
-      401:
-      403:
-        body:
-          type: Error
-      422:
-        body:
-          type: ValidationErrors
   delete:
     securedBy: [oauth]
+    is: [authenticable, authorizable]
     responses:
       204:
-      401:
-      403:
-        body:
-          type: Error
+
   /start:
     post:
       securedBy: [oauth]
+      is: [authenticable, authorizable]
       responses:
         200:
           body:
             type: Tournament
-        401:
-        403:
-          body:
-            type: Error
+
   /end:
     post:
       securedBy: [oauth]
+      is: [authenticable, authorizable]
       responses:
         200:
           body:
             type: Tournament
-        401:
-        403:
-          body:
-            type: Error

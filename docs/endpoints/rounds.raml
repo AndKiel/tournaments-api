@@ -1,6 +1,7 @@
 displayName: Rounds
 post:
   securedBy: [oauth]
+  is: [authenticable, authorizable]
   queryParameters:
     tournament_id:
       description: The id of the tournament
@@ -9,32 +10,20 @@ post:
     201:
       body:
         type: Round
-    401:
-    403:
-      body:
-        type: Error
+
 /{id}:
   securedBy: [oauth]
+  is: [authenticable, authorizable]
   uriParameters:
     id:
       description: The id of the round
       type: uuid
   patch:
+    is: [validatable]
     responses:
       200:
         body:
           type: Round
-      401:
-      403:
-        body:
-          type: Error
-      422:
-        body:
-          type: ValidationErrors
   delete:
     responses:
       204:
-      401:
-      403:
-        body:
-          type: Error
