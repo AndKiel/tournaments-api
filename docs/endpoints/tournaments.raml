@@ -8,11 +8,13 @@ get:
     200:
       body:
         application/json:
+          type: Tournament[]
 post:
   responses:
     201:
       body:
         application/json:
+          type: Tournament
     401:
     422:
       body:
@@ -27,11 +29,13 @@ post:
       200:
       body:
         application/json:
+          type: Tournament
   put:
     responses:
       200:
         body:
           application/json:
+            type: Tournament
       401:
       403:
         body:
@@ -52,6 +56,7 @@ post:
         200:
           body:
             application/json:
+              type: Tournament
         401:
         403:
           body:
@@ -62,6 +67,7 @@ post:
         200:
           body:
             application/json:
+              type: Tournament
         401:
         403:
           body:

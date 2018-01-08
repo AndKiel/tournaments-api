@@ -1,12 +1,13 @@
 post:
   queryParameters:
-    round_id:
-      description: The id of the round
+    tournament_id:
+      description: The id of the tournament
       type: uuid
   responses:
     201:
       body:
         application/json:
+          type: Round
     401:
     403:
       body:
@@ -14,17 +15,25 @@ post:
 /{id}:
   uriParameters:
     id:
-      description: The id of the player
+      description: The id of the round
       type: uuid
   put:
     responses:
       200:
         body:
           application/json:
+            type: Round
       401:
       403:
         body:
           application/json:
       422:
+        body:
+          application/json:
+  delete:
+    responses:
+      204:
+      401:
+      403:
         body:
           application/json:

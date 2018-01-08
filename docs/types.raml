@@ -1,0 +1,38 @@
+Competitor:
+  type: object
+  properties:
+    id: string
+    status: string
+
+Player:
+  type: object
+  properties:
+    id: string
+    result_values: number[]
+    table_number: integer
+
+Round:
+  type: object
+  properties:
+    competitors_limit: integer
+    created_at: datetime
+    id: string
+    tables_count: integer
+
+Tournament:
+  type: object
+  properties:
+    competitors_limit: integer
+    description: string
+    id: string
+    name: string
+    result_names: string[]
+    starts_at: datetime
+    status: string
+
+User:
+  type: object
+  properties:
+    email: string
+    id: string
+    name: string

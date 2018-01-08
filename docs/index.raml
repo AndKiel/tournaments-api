@@ -3,10 +3,12 @@
 title: Untitled Tournaments
 baseUri: http://0.0.0.0:3000
 
-/oauth: !include oauth.raml
-/users: !include users.raml
-/user: !include user.raml
-/tournaments: !include tournaments.raml
-/competitor: !include competitor.raml
-/rounds: !include rounds.raml
-/players: !include players.raml
+types:  !include types.raml
+
+/oauth: !include endpoints/oauth.raml
+/users: !include endpoints/users.raml
+/user: !include endpoints/user.raml
+/tournaments: !include endpoints/tournaments.raml
+/competitor: !include endpoints/competitor.raml
+/rounds: !include endpoints/rounds.raml
+/players: !include endpoints/players.raml
