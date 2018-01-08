@@ -1,6 +1,4 @@
 class UsersController < ApplicationController
-  include UsersDoc
-
   before_action :doorkeeper_authorize!, only: %i[show update]
   after_action :verify_authorized
 

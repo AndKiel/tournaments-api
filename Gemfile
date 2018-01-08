@@ -46,10 +46,6 @@ gem 'kaminari'
 gem 'scenic'
 
 
-# API documentation
-gem 'apipie-rails'
-
-
 group :development do
   # Auto-reloading
   gem 'listen', '>= 3.0.5', '< 3.2'

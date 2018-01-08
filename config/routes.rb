@@ -1,35 +1,33 @@
 # == Route Map
 #
-#                 Prefix Verb   URI Pattern                                      Controller#Action
-#                   root GET    /                                                tournaments#index
-#            oauth_token POST   /oauth/token(.:format)                           doorkeeper/tokens#create
-#           oauth_revoke POST   /oauth/revoke(.:format)                          doorkeeper/tokens#revoke
-#       oauth_token_info GET    /oauth/token/info(.:format)                      doorkeeper/token_info#show
-#          sign_up_users POST   /users/sign_up(.:format)                         users#sign_up
-#                   user GET    /user(.:format)                                  users#show
-#                        PATCH  /user(.:format)                                  users#update
-#                        PUT    /user(.:format)                                  users#update
-#       start_tournament POST   /tournaments/:id/start(.:format)                 tournaments#start
-#         end_tournament POST   /tournaments/:id/end(.:format)                   tournaments#end
-#            tournaments GET    /tournaments(.:format)                           tournaments#index
-#                        POST   /tournaments(.:format)                           tournaments#create
-#             tournament GET    /tournaments/:id(.:format)                       tournaments#show
-#                        PATCH  /tournaments/:id(.:format)                       tournaments#update
-#                        PUT    /tournaments/:id(.:format)                       tournaments#update
-#                        DELETE /tournaments/:id(.:format)                       tournaments#destroy
-#             competitor DELETE /competitor(.:format)                            competitors#destroy
-#                        POST   /competitor(.:format)                            competitors#create
-#     confirm_competitor POST   /competitors/:id/confirm(.:format)               competitors#confirm
-#                 rounds POST   /rounds(.:format)                                rounds#create
-#                  round PATCH  /rounds/:id(.:format)                            rounds#update
-#                        PUT    /rounds/:id(.:format)                            rounds#update
-#                        DELETE /rounds/:id(.:format)                            rounds#destroy
-#                players POST   /players(.:format)                               players#create
-#                 player PATCH  /players/:id(.:format)                           players#update
-#                        PUT    /players/:id(.:format)                           players#update
-# apipie_apipie_checksum GET    /docs/apipie_checksum(.:format)                  apipie/apipies#apipie_checksum {:format=>/json/}
-#          apipie_apipie GET    /docs(/:version)(/:resource)(/:method)(.:format) apipie/apipies#index {:version=>/[^\/]+/, :resource=>/[^\/]+/, :method=>/[^\/]+/}
-#
+#             Prefix Verb   URI Pattern                        Controller#Action
+#               root GET    /                                  tournaments#index
+#        oauth_token POST   /oauth/token(.:format)             doorkeeper/tokens#create
+#       oauth_revoke POST   /oauth/revoke(.:format)            doorkeeper/tokens#revoke
+#   oauth_token_info GET    /oauth/token/info(.:format)        doorkeeper/token_info#show
+#      sign_up_users POST   /users/sign_up(.:format)           users#sign_up
+#               user GET    /user(.:format)                    users#show
+#                    PATCH  /user(.:format)                    users#update
+#                    PUT    /user(.:format)                    users#update
+#   start_tournament POST   /tournaments/:id/start(.:format)   tournaments#start
+#     end_tournament POST   /tournaments/:id/end(.:format)     tournaments#end
+#        tournaments GET    /tournaments(.:format)             tournaments#index
+#                    POST   /tournaments(.:format)             tournaments#create
+#         tournament GET    /tournaments/:id(.:format)         tournaments#show
+#                    PATCH  /tournaments/:id(.:format)         tournaments#update
+#                    PUT    /tournaments/:id(.:format)         tournaments#update
+#                    DELETE /tournaments/:id(.:format)         tournaments#destroy
+#         competitor DELETE /competitor(.:format)              competitors#destroy
+#                    POST   /competitor(.:format)              competitors#create
+# confirm_competitor POST   /competitors/:id/confirm(.:format) competitors#confirm
+#             rounds POST   /rounds(.:format)                  rounds#create
+#              round PATCH  /rounds/:id(.:format)              rounds#update
+#                    PUT    /rounds/:id(.:format)              rounds#update
+#                    DELETE /rounds/:id(.:format)              rounds#destroy
+#            players POST   /players(.:format)                 players#create
+#             player PATCH  /players/:id(.:format)             players#update
+#                    PUT    /players/:id(.:format)             players#update
+# 
 
 Rails.application.routes.draw do
   root 'tournaments#index'
@@ -63,6 +61,4 @@ Rails.application.routes.draw do
 
   resource :players, only: :create
   resources :players, only: :update
-
-  apipie
 end

@@ -1,6 +1,4 @@
 class TournamentsController < ApplicationController
-  include TournamentsDoc
-
   before_action :doorkeeper_authorize!, only: %i[create update destroy start end]
   after_action :verify_authorized
   after_action :verify_policy_scoped, only: %i[create update destroy start end]

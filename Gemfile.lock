@@ -48,8 +48,6 @@ GEM
     annotate (2.7.2)
       activerecord (>= 3.2, < 6.0)
       rake (>= 10.4, < 13.0)
-    apipie-rails (0.5.6)
-      rails (>= 4.1)
     arel (8.0.0)
     ast (2.3.0)
     bcrypt (3.1.11)
@@ -251,7 +249,6 @@ PLATFORMS
 DEPENDENCIES
   active_model_serializers
   annotate
-  apipie-rails
   bcrypt
   doorkeeper
   enumerize
