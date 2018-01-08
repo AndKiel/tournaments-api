@@ -30,7 +30,7 @@ RSpec.describe 'Competitors', type: :request do
                tournament_id: tournament.id
              }
         expect(response).to have_http_status(:forbidden)
-        expect(response.body).to match_json_expression(forbidden_error_json)
+        expect(response.body).to match_json_expression(error_json)
       end
     end
   end
@@ -62,7 +62,7 @@ RSpec.describe 'Competitors', type: :request do
                  tournament_id: tournament.id
                }
         expect(response).to have_http_status(:forbidden)
-        expect(response.body).to match_json_expression(forbidden_error_json)
+        expect(response.body).to match_json_expression(error_json)
       end
     end
   end
@@ -89,7 +89,7 @@ RSpec.describe 'Competitors', type: :request do
         post confirm_competitor_path(competitor.id),
              headers: auth_headers
         expect(response).to have_http_status(:forbidden)
-        expect(response.body).to match_json_expression(forbidden_error_json)
+        expect(response.body).to match_json_expression(error_json)
       end
     end
   end

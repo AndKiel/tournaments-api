@@ -11,7 +11,7 @@ post:
     401:
     403:
       body:
-        application/json:
+        type: Error
 /{id}:
   uriParameters:
     id:
@@ -26,7 +26,7 @@ post:
       401:
       403:
         body:
-          application/json:
+          type: Error
       422:
         body:
-          application/json:
+          type: ValidationErrors

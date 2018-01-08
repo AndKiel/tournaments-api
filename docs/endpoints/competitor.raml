@@ -11,7 +11,7 @@ post:
     401:
     403:
       body:
-        application/json:
+        type: Error
 delete:
   queryParameters:
     tournament_id:
@@ -22,7 +22,7 @@ delete:
     401:
     403:
       body:
-        application/json:
+        type: Error
 /{id}/confirm:
   uriParameters:
     id:
@@ -37,4 +37,4 @@ delete:
       401:
       403:
         body:
-          application/json:
+          type: Error

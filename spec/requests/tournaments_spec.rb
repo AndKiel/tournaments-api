@@ -135,7 +135,7 @@ RSpec.describe 'Tournaments', type: :request do
           post start_tournament_path(tournament.id),
                headers: auth_headers
           expect(response).to have_http_status(:forbidden)
-          expect(response.body).to match_json_expression(forbidden_error_json)
+          expect(response.body).to match_json_expression(error_json)
         end
       end
     end
@@ -160,7 +160,7 @@ RSpec.describe 'Tournaments', type: :request do
           post end_tournament_path(tournament.id),
                headers: auth_headers
           expect(response).to have_http_status(:forbidden)
-          expect(response.body).to match_json_expression(forbidden_error_json)
+          expect(response.body).to match_json_expression(error_json)
         end
       end
     end

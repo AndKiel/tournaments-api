@@ -11,7 +11,7 @@ post:
     401:
     403:
       body:
-        application/json:
+        type: Error
 /{id}:
   securedBy: [oauth]
   uriParameters:
@@ -26,14 +26,14 @@ post:
       401:
       403:
         body:
-          application/json:
+          type: Error
       422:
         body:
-          application/json:
+          type: ValidationErrors
   delete:
     responses:
       204:
       401:
       403:
         body:
-          application/json:
+          type: Error

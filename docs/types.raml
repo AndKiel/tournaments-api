@@ -4,6 +4,11 @@ Competitor:
     id: string
     status: string
 
+Error:
+  type: object
+  properties:
+    message: string
+
 Player:
   type: object
   properties:
@@ -36,3 +41,10 @@ User:
     email: string
     id: string
     name: string
+
+ValidationErrors:
+  type: object
+  properties:
+    //:
+      type: string[]
+  minProperties: 1

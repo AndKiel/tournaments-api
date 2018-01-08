@@ -13,7 +13,7 @@ module ErrorHandling
       policy_name = exception.policy.class.to_s.underscore
       message     = I18n.t "#{policy_name}.#{exception.query}", scope: 'pundit', default: :default
 
-      render json: { error: { code: 'forbidden', message: message } },
+      render json: { message: message },
              status: :forbidden
     end
 

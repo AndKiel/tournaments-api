@@ -9,19 +9,12 @@ module JsonHelpers
 
   # Errors
 
-  def forbidden_error_json
-    {
-      error: {
-        code: String,
-        message: String
-      }
-    }
+  def error_json
+    { message: String }
   end
 
   def validation_errors_json
-    {
-      errors: Hash
-    }
+    { errors: Hash }
   end
 
   # Resources

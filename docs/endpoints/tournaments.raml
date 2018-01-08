@@ -5,6 +5,7 @@ get:
       description: Specify the page that you want to retrieve
       required: false
       type: integer
+      default: 1
   responses:
     200:
       body:
@@ -18,7 +19,7 @@ post:
     401:
     422:
       body:
-        application/json:
+        type: ValidationErrors
 /{id}:
   uriParameters:
     id:
@@ -38,10 +39,10 @@ post:
       401:
       403:
         body:
-          application/json:
+          type: Error
       422:
         body:
-          application/json:
+          type: ValidationErrors
   delete:
     securedBy: [oauth]
     responses:
@@ -49,7 +50,7 @@ post:
       401:
       403:
         body:
-          application/json:
+          type: Error
   /start:
     post:
       securedBy: [oauth]
@@ -60,7 +61,7 @@ post:
         401:
         403:
           body:
-            application/json:
+            type: Error
   /end:
     post:
       securedBy: [oauth]
@@ -71,4 +72,4 @@ post:
         401:
         403:
           body:
-            application/json:
+            type: Error
