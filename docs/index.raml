@@ -1,0 +1,48 @@
+#%RAML 1.0
+---
+title: Untitled Tournaments
+baseUri: http://0.0.0.0:3000
+
+/oauth:
+  /token:
+    post:
+    /info:
+      get:
+  /revoke:
+    post:
+
+/users/sign_up:
+  post:
+
+/user:
+  get:
+  put:
+
+/tournaments:
+  get:
+  post:
+  /{id}:
+    get:
+    put:
+    delete:
+    /start:
+      post:
+    /end:
+      post:
+
+/competitor:
+  post:
+  delete:
+  /{id}/confirm:
+    post:
+
+/rounds:
+  post:
+  /{id}:
+    put:
+    delete:
+
+/players:
+  post:
+  /{id}:
+    put:

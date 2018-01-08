@@ -9,6 +9,13 @@ services:
     ports:
       - '5432:5432'
 
+  docs:
+    image: mattjtodd/raml2html:latest
+    working_dir: /untitled-tournaments
+    command: -i ./docs/index.raml -o ./public/docs.html
+    volumes:
+      - .:/untitled-tournaments
+
 #  redis:
 #    image: redis:latest
 #    ports:

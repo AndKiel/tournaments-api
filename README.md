@@ -6,13 +6,17 @@ Back-end for tournament management application.
 
 First Docker build: `docker-compose build`.
 
-Launch stack: `docker-compose up`.
+Launch stack: `docker-compose up web`.
 
 Create database: `docker-compose run web bundle exec rake db:setup`.
 
 ### Running Tests ###
 
 Execute `docker-compose run web bundle exec rspec`.
+
+### Generating docs ###
+
+Execute `docker-compose run docs`.
 
 ### Generating database schema ###
 

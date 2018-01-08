@@ -27,7 +27,7 @@
 #            players POST   /players(.:format)                 players#create
 #             player PATCH  /players/:id(.:format)             players#update
 #                    PUT    /players/:id(.:format)             players#update
-# 
+#
 
 Rails.application.routes.draw do
   root 'tournaments#index'
