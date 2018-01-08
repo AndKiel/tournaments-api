@@ -6,17 +6,53 @@ baseUri: http://0.0.0.0:3000
 /oauth:
   /token:
     post:
+      responses:
+        200:
+          body:
+            application/json:
+        401:
+          body:
+            application/json:
     /info:
       get:
+        responses:
+          200:
+            body:
+              application/json:
+          401:
+            body:
+              application/json:
   /revoke:
     post:
+      responses:
+        200:
 
 /users/sign_up:
   post:
+    responses:
+      201:
+        body:
+          application/json:
+      422:
+        body:
+          application/json:
 
 /user:
   get:
+    responses:
+      200:
+        body:
+          application/json:
+      401:
   put:
+    responses:
+      200:
+        body:
+          application/json:
+      401:
+      422:
+        body:
+          application/json:
 
 /tournaments:
   get:
@@ -25,19 +61,68 @@ baseUri: http://0.0.0.0:3000
         description: Specify the page that you want to retrieve
         required: false
         type: integer
+    responses:
+      200:
+        body:
+          application/json:
   post:
+    responses:
+      201:
+        body:
+          application/json:
+      401:
+      422:
+        body:
+          application/json:
   /{id}:
     uriParameters:
       id:
         description: The id of the tournament
         type: uuid
     get:
+      responses:
+        200:
+        body:
+          application/json:
     put:
+      responses:
+        200:
+          body:
+            application/json:
+        401:
+        403:
+          body:
+            application/json:
+        422:
+          body:
+            application/json:
     delete:
+      responses:
+        204:
+        401:
+        403:
+          body:
+            application/json:
     /start:
       post:
+        responses:
+          200:
+            body:
+              application/json:
+          401:
+          403:
+            body:
+              application/json:
     /end:
       post:
+        responses:
+          200:
+            body:
+              application/json:
+          401:
+          403:
+            body:
+              application/json:
 
 /competitor:
   post:
@@ -45,17 +130,39 @@ baseUri: http://0.0.0.0:3000
       tournament_id:
         description: The id of the tournament
         type: uuid
+    responses:
+      201:
+        body:
+          application/json:
+      401:
+      403:
+        body:
+          application/json:
   delete:
     queryParameters:
       tournament_id:
         description: The id of the tournament
         type: uuid
+    responses:
+      204:
+      401:
+      403:
+        body:
+          application/json:
   /{id}/confirm:
     uriParameters:
       id:
         description: The id of the competitor
         type: uuid
     post:
+      responses:
+        200:
+          body:
+            application/json:
+        401:
+        403:
+          body:
+            application/json:
 
 /rounds:
   post:
@@ -63,13 +170,38 @@ baseUri: http://0.0.0.0:3000
       tournament_id:
         description: The id of the tournament
         type: uuid
+    responses:
+      201:
+        body:
+          application/json:
+      401:
+      403:
+        body:
+          application/json:
   /{id}:
     uriParameters:
       id:
         description: The id of the round
         type: uuid
     put:
+      responses:
+        200:
+          body:
+            application/json:
+        401:
+        403:
+          body:
+            application/json:
+        422:
+          body:
+            application/json:
     delete:
+      responses:
+        204:
+        401:
+        403:
+          body:
+            application/json:
 
 /players:
   post:
@@ -77,9 +209,28 @@ baseUri: http://0.0.0.0:3000
       round_id:
         description: The id of the round
         type: uuid
+    responses:
+      201:
+        body:
+          application/json:
+      401:
+      403:
+        body:
+          application/json:
   /{id}:
     uriParameters:
       id:
         description: The id of the player
         type: uuid
     put:
+      responses:
+        200:
+          body:
+            application/json:
+        401:
+        403:
+          body:
+            application/json:
+        422:
+          body:
+            application/json:
