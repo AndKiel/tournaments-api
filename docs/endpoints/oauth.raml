@@ -14,10 +14,10 @@ displayName: Authentication
             example: |
               {
                 "access_token": "0ddb922452c983a70566e30dce16e2017db335103e35d783874c448862a78168",
-                "token_type": "bearer",
                 "expires_in": 7200,
                 "refresh_token": "f2188c4165d912524e04c6496d10f06803cc08ed50271a0b0a73061e3ac1c06c",
-                "scope": "public"
+                "scope": "public",
+                "token_type": "bearer"
               }
       401:
         body:
@@ -38,11 +38,11 @@ displayName: Authentication
             application/json:
               example: |
                 {
-                  "resource_owner_id": 1,
-                  "scopes": [],
-                  "expires_in_seconds": 7178,
                   "application": { "uid": null },
-                  "created_at": 1440460991
+                  "created_at": 1440460991,
+                  "expires_in_seconds": 7178,
+                  "resource_owner_id": 1,
+                  "scopes": []
                 }
         401:
           body:
