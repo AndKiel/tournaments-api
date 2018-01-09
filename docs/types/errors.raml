@@ -1,13 +1,19 @@
 Error:
   type: object
   properties:
-    error: string
-    error_description: string
+    error:
+      description: Error code, for forbidden actions it is always "forbidden".
+      type: string
+    error_description:
+      description: Human-readable error message.
+      type: string
 
 ValidationError:
   type: object
   properties:
-    error: string
+    error:
+      description: Error code, for validation error it is always "invalid_params".
+      type: string
     fields:
       description: A hash containing all errors. Hash keys are field names, values are error messages (arrays of string).
       type: hash

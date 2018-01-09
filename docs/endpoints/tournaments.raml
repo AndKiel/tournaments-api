@@ -1,7 +1,7 @@
 displayName: Tournaments
 get:
   description: Retrieve tournaments. Authentication is optional - when authenticated, retrieve only tournaments created by authenticated user.
-  securedBy: [null, oauth]
+  securedBy: [oauth]
   is: [paginated]
   responses:
     200:
