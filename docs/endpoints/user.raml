@@ -10,6 +10,8 @@ get:
 patch:
   description: Update account details for currently authenticated user.
   is: [validatable]
+  body:
+    type: UserParams
   responses:
     200:
       body:

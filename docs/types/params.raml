@@ -1,0 +1,27 @@
+PlayerParams:
+  type: object
+  properties:
+    result_values: integer[]
+
+RoundParams:
+  type: object
+  properties:
+    competitors_limit: integer
+    tables_count: integer
+
+TournamentParams:
+  type: object
+  properties:
+    competitors_limit: integer
+    description: string
+    name: string
+    starts_at: datetime
+    result_names: string[]
+
+UserParams:
+  type: object
+  properties:
+    email: string
+    name: string
+    password: string
+    password_confirmation: string

@@ -1,8 +1,10 @@
 displayName: Sign up
 /sign_up:
   post:
-    description: Create new user account.
+    description: Create a new user account.
     is: [validatable]
+    body:
+      type: UserParams
     responses:
       201:
         body:

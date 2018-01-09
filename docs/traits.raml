@@ -1,11 +1,13 @@
 authenticable:
   responses:
     401:
+
 authorizable:
   responses:
     403:
       body:
         type: Error
+
 paginated:
   queryParameters:
     page:
@@ -13,6 +15,7 @@ paginated:
       required: false
       type: integer
       default: 1
+
 validatable:
   responses:
     422:

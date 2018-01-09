@@ -21,6 +21,8 @@ post:
     description: Update player with the round results.
     securedBy: [oauth]
     is: [authenticable, authorizable, validatable]
+    body:
+      type: PlayerParams
     responses:
       200:
         body:

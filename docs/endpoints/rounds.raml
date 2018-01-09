@@ -3,6 +3,8 @@ post:
   description: Create a new tournament round. User can create rounds only in tournaments he created and didn't end.
   securedBy: [oauth]
   is: [authenticable, authorizable]
+  body:
+    type: RoundParams
   queryParameters:
     tournament_id:
       description: The id of the tournament
@@ -22,6 +24,8 @@ post:
   patch:
     description: Update tournament round. User can update rounds only in tournaments he created and didn't end.
     is: [validatable]
+    body:
+      type: RoundParams
     responses:
       200:
         body:

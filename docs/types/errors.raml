@@ -1,0 +1,13 @@
+Error:
+  type: object
+  properties:
+    error: string
+    error_description: string
+
+ValidationError:
+  type: object
+  properties:
+    error: string
+    fields:
+      description: A hash containing all errors. Hash keys are field names, values are error messages (arrays of string).
+      type: hash
