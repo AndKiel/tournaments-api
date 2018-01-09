@@ -2,11 +2,13 @@ displayName: User
 securedBy: [oauth]
 is: [authenticable]
 get:
+  description: Retrieve account details for currently authenticated user.
   responses:
     200:
       body:
         type: User
 patch:
+  description: Update account details for currently authenticated user.
   is: [validatable]
   responses:
     200:

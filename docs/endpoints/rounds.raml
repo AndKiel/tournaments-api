@@ -1,5 +1,6 @@
 displayName: Rounds
 post:
+  description: Create a new tournament round. User can create rounds only in tournaments he created and didn't end.
   securedBy: [oauth]
   is: [authenticable, authorizable]
   queryParameters:
@@ -19,11 +20,13 @@ post:
       description: The id of the round
       type: uuid
   patch:
+    description: Update tournament round. User can update rounds only in tournaments he created and didn't end.
     is: [validatable]
     responses:
       200:
         body:
           type: Round
   delete:
+    description: Remove tournament round. User can remove rounds only in tournaments he created and didn't end.
     responses:
       204:

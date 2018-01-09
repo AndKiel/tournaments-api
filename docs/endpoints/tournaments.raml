@@ -1,17 +1,14 @@
 displayName: Tournaments
 get:
+  description: Retrieve tournaments. Authentication is optional - when authenticated, retrieve only tournaments created by authenticated user.
   securedBy: [null, oauth]
-  queryParameters:
-    page:
-      description: Specify the page that you want to retrieve
-      required: false
-      type: integer
-      default: 1
+  is: [paginated]
   responses:
     200:
       body:
         type: Tournament[]
 post:
+  description: Create new tournament.
   securedBy: [oauth]
   is: [authenticable, validatable]
   responses:
@@ -25,11 +22,13 @@ post:
       description: The id of the tournament
       type: uuid
   get:
+    description: Retrieve a tournament.
     responses:
       200:
       body:
         type: Tournament
   patch:
+    description: Update tournament details. User can update only tournaments he created.
     securedBy: [oauth]
     is: [authenticable, authorizable, validatable]
     responses:
@@ -37,6 +36,7 @@ post:
         body:
           type: Tournament
   delete:
+    description: Remove a tournament. User can remove only tournaments he created.
     securedBy: [oauth]
     is: [authenticable, authorizable]
     responses:
@@ -44,6 +44,7 @@ post:
 
   /start:
     post:
+      description: Mark tournament as 'in progress'. User can start only tournaments he created and their 'starts_at' date is in the past.
       securedBy: [oauth]
       is: [authenticable, authorizable]
       responses:
@@ -53,6 +54,7 @@ post:
 
   /end:
     post:
+      description: Mark tournament as 'ended'. User can start only tournaments he created and were previously started.
       securedBy: [oauth]
       is: [authenticable, authorizable]
       responses:

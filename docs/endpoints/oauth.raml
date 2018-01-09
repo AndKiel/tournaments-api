@@ -1,7 +1,7 @@
 displayName: Authentication
 /token:
   post:
-    description: Create an access token allowing user to authenticate.
+    description: Create an access token that allows user to authenticate.
     queryParameters:
       email: string
       password: string
@@ -55,7 +55,7 @@ displayName: Authentication
 
 /revoke:
   post:
-    description: Revoke the given token. Always returns 200 OK, even if token doesn't exist ar has already been revoked.
+    description: Revoke the given token. Always returns 200 OK, even if token doesn't exist or has already been revoked.
     securedBy: [oauth]
     responses:
       200:

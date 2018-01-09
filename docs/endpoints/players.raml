@@ -1,5 +1,6 @@
 displayName: Players
 post:
+  description: Assign players to tables in a tournament round. Assignment is randomized for the first round and based on score for the following rounds. User can assign players only in tournaments he created.
   securedBy: [oauth]
   is: [authenticable, authorizable]
   queryParameters:
@@ -17,6 +18,7 @@ post:
       description: The id of the player
       type: uuid
   patch:
+    description: Update player with the round results.
     securedBy: [oauth]
     is: [authenticable, authorizable, validatable]
     responses:

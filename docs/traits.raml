@@ -6,6 +6,13 @@ authorizable:
     403:
       body:
         type: Error
+paginated:
+  queryParameters:
+    page:
+      description: Specify the page that you want to retrieve, 25 results are returned per page.
+      required: false
+      type: integer
+      default: 1
 validatable:
   responses:
     422:

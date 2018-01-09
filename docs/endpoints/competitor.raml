@@ -2,6 +2,7 @@ displayName: Competitor
 securedBy: [oauth]
 is: [authenticable, authorizable]
 post:
+  description: Enlist in a tournament. User can enlist only in tournaments that didn't start.
   queryParameters:
     tournament_id:
       description: The id of the tournament
@@ -11,6 +12,7 @@ post:
       body:
         type: Competitor
 delete:
+  description: Resign from a tournament. User can resign only from tournaments that didn't start.
   queryParameters:
     tournament_id:
       description: The id of the tournament
@@ -24,6 +26,7 @@ delete:
       description: The id of the competitor
       type: uuid
   post:
+    description: Confirm user participation in a tournament. User can confirm competitors only in tournaments he created.
     securedBy: [oauth]
     is: [authenticable, authorizable]
     responses:
