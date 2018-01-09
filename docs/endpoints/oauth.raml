@@ -1,11 +1,12 @@
 displayName: Authentication
 /token:
   post:
+    description: Create an access token allowing user to authenticate.
     queryParameters:
       email: string
       password: string
       grant_type:
-        enum: [client_credentials]
+        enum: ["client_credentials"]
     responses:
       200:
         body:
@@ -29,6 +30,7 @@ displayName: Authentication
 
   /info:
     get:
+      description: Retrieve details about the token used for authentication.
       securedBy: [oauth]
       responses:
         200:
@@ -36,11 +38,11 @@ displayName: Authentication
             application/json:
               example: |
                 {
-                  "resource_owner_id":1,
-                  "scopes":[],
-                  "expires_in_seconds":7178,
-                  "application":{"uid":null},
-                  "created_at":1440460991
+                  "resource_owner_id": 1,
+                  "scopes": [],
+                  "expires_in_seconds": 7178,
+                  "application": { "uid": null },
+                  "created_at": 1440460991
                 }
         401:
           body:
@@ -53,6 +55,7 @@ displayName: Authentication
 
 /revoke:
   post:
+    description: Revoke the given token. Always returns 200 OK, even if token doesn't exist ar has already been revoked.
     securedBy: [oauth]
     responses:
       200:
