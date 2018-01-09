@@ -1,9 +1,11 @@
 authenticable:
+  usage: Apply this to any method that requires authentication.
   responses:
     401:
       description: Returned when request was not authenticated properly.
 
 authorizable:
+  usage: Apply this to any method that requires some conditions to be met for execution.
   responses:
     403:
       description: Returned when action is not allowed, e.g. required conditions are not met.
@@ -11,6 +13,7 @@ authorizable:
         type: Error
 
 paginated:
+  usage: Apply this to any method that returns paginated results.
   queryParameters:
     page:
       description: Specify the page that you want to retrieve, 25 results are returned per page.
@@ -19,6 +22,7 @@ paginated:
       default: 1
 
 validatable:
+  usage: Apply this to any method that validates incoming parameters.
   responses:
     422:
       description: Returned when sent parameters are not valid.
