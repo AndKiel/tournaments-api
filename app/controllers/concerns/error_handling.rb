@@ -13,12 +13,12 @@ module ErrorHandling
       policy_name = exception.policy.class.to_s.underscore
       message     = I18n.t "#{policy_name}.#{exception.query}", scope: 'pundit', default: :default
 
-      render json: { message: message },
+      render json: { error: 'forbidden', error_description: message },
              status: :forbidden
     end
 
     def render_validation_errors(form)
-      render json: { errors: form.errors.messages },
+      render json: { error: 'invalid_params', fields: form.errors.messages },
              status: :unprocessable_entity
     end
 

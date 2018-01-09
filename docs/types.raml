@@ -1,13 +1,22 @@
+Error:
+  type: object
+  properties:
+    error: string
+    error_description: string
+
+ValidationError:
+  type: object
+  properties:
+    error: string
+    fields:
+      description: A hash containing all errors. Hash keys are field names, values are error messages (arrays of string).
+      type: hash
+
 Competitor:
   type: object
   properties:
     id: string
     status: string
-
-Error:
-  type: object
-  properties:
-    message: string
 
 Player:
   type: object
@@ -41,10 +50,3 @@ User:
     email: string
     id: string
     name: string
-
-ValidationErrors:
-  type: object
-  properties:
-    //:
-      type: string[]
-  minProperties: 1

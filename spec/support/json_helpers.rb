@@ -10,11 +10,11 @@ module JsonHelpers
   # Errors
 
   def error_json
-    { message: String }
+    { error: String, error_description: String }
   end
 
-  def validation_errors_json
-    { errors: Hash }
+  def validation_error_json
+    { error: String, fields: Hash }
   end
 
   # Resources
