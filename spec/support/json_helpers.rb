@@ -17,6 +17,18 @@ module JsonHelpers
     { error: String, fields: Hash }
   end
 
+  # OAuth
+
+  def access_token_json
+    {
+      access_token: String,
+      created_at: Integer,
+      expires_in: Integer,
+      refresh_token: String,
+      token_type: String
+    }
+  end
+
   # Resources
 
   define_responses(

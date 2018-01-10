@@ -6,27 +6,19 @@ displayName: Authentication
       email: string
       password: string
       grant_type:
-        enum: ["client_credentials"]
+        enum: ["password"]
     responses:
       200:
         body:
-          application/json:
-            example: |
-              {
-                "access_token": "0ddb922452c983a70566e30dce16e2017db335103e35d783874c448862a78168",
-                "expires_in": 7200,
-                "refresh_token": "f2188c4165d912524e04c6496d10f06803cc08ed50271a0b0a73061e3ac1c06c",
-                "scope": "public",
-                "token_type": "bearer"
-              }
+          type: AccessToken
       401:
         body:
-          application/json:
-            example: |
-              {
-                "error": "invalid_grant",
-                "error_description": "The provided authorization grant is invalid, expired, revoked, does not match the redirection URI used in the authorization request, or was issued to another client."
-              }
+          type: Error
+          example: |
+            {
+              "error": "invalid_grant",
+              "error_description": "The provided authorization grant is invalid, expired, revoked, does not match the redirection URI used in the authorization request, or was issued to another client."
+            }
 
   /info:
     get:
@@ -35,27 +27,27 @@ displayName: Authentication
       responses:
         200:
           body:
-            application/json:
-              example: |
-                {
-                  "application": { "uid": null },
-                  "created_at": 1440460991,
-                  "expires_in_seconds": 7178,
-                  "resource_owner_id": 1,
-                  "scopes": []
-                }
+            example: |
+              {
+                "application": { "uid": null },
+                "created_at": 1440460991,
+                "expires_in_seconds": 7178,
+                "resource_owner_id": 1,
+                "scopes": []
+              }
         401:
           body:
-            application/json:
-              example: |
-                {
-                  "error": "invalid_request",
-                  "error_description": "The request is missing a required parameter, includes an unsupported parameter value, or is otherwise malformed."
-                }
+            type: Error
+            example: |
+              {
+                "error": "invalid_request",
+                "error_description": "The request is missing a required parameter, includes an unsupported parameter value, or is otherwise malformed."
+              }
 
 /revoke:
   post:
-    description: Revoke the given token. Always returns 200 OK, even if token doesn't exist or has already been revoked.
+    description: Revoke the given token.
     securedBy: [oauth]
     responses:
       200:
+        description: Always returns 200 OK, even if token doesn't exist or has already been revoked.

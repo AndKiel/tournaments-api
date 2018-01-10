@@ -1,8 +1,24 @@
+AccessToken:
+  type: object
+  properties:
+    access_token: string
+    created_at: integer,
+    expires_in: integer
+    refresh_token: string
+    token_type: string
+  example:
+    access_token: fdf22ac62f7007c2a63291485446650e01637a986db59364e33761838e109ee4
+    created_at: 1515571806
+    expires_in: 7200
+    refresh_token: 8a737a12ea6a3182aa9924b277d67d55c92f67fa3d03f5016aa50c787ea513b0
+    token_type: bearer
+
 Competitor:
   type: object
   properties:
     id: string
-    status: string
+    status:
+      enum: ["enlisted", "confirmed"]
 
 Player:
   type: object
@@ -23,12 +39,15 @@ Tournament:
   type: object
   properties:
     competitors_limit: integer
-    description: string
+    description:
+      type: string
+      required: false
     id: string
     name: string
     result_names: string[]
     starts_at: datetime
-    status: string
+    status:
+      enum: ["created", "in_progress", "ended"]
 
 User:
   type: object

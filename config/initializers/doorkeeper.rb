@@ -10,8 +10,10 @@ Doorkeeper.configure do
   # To use password credentials flow you need to tell doorkeeper how to authenticate the resource owner:
   resource_owner_from_credentials do |_routes|
     resource_owner = User.find_by(email: params[:email])
-    return resource_owner if resource_owner&.password == params[:password]
-    raise Doorkeeper::Errors::DoorkeeperError, 'invalid_resource_owner'
+    unless resource_owner&.password == params[:password]
+      raise Doorkeeper::Errors::DoorkeeperError, 'invalid_resource_owner'
+    end
+    resource_owner
   end
 
   # If you want to restrict access to the web interface for adding oauth authorized applications, you need to declare the block below.
@@ -102,7 +104,7 @@ Doorkeeper.configure do
   #   http://tools.ietf.org/html/rfc6819#section-4.4.2
   #   http://tools.ietf.org/html/rfc6819#section-4.4.3
   #
-  grant_flows %w[client_credentials]
+  grant_flows %w[password]
 
   # Under some circumstances you might want to have applications auto-approved,
   # so that the user skips the authorization step.
