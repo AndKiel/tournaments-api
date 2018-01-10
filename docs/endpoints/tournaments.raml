@@ -1,6 +1,6 @@
 displayName: Tournaments
 get:
-  description: Retrieve tournaments. Authentication is optional - when authenticated, retrieve only tournaments created by authenticated user.
+  description: Retrieve tournaments. Authentication is optional - when authenticated, retrieve only tournaments created by authenticated user. Tournaments are sorted by 'starts_at' (ascending).
   securedBy: [oauth]
   is: [paginated]
   responses:
@@ -24,7 +24,7 @@ post:
       description: The id of the tournament
       type: uuid
   get:
-    description: Retrieve a tournament.
+    description: Retrieve a tournament with relations.
     is: [findable]
     responses:
       200:

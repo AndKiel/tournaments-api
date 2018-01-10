@@ -21,6 +21,7 @@ Round:
     tables_count: integer
 
 RoundWithRelations:
+  displayName: Round
   type: object
   properties:
     <<: *round-properties
@@ -41,6 +42,7 @@ Tournament:
       enum: ["created", "in_progress", "ended"]
 
 TournamentWithRelations:
+  displayName: Tournament
   type: object
   properties:
     <<: *tournament-properties
