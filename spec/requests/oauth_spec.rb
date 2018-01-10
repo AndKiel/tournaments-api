@@ -34,6 +34,10 @@ RSpec.describe 'OAuth', type: :request do
   end
 
   describe 'POST /oauth/revoke' do
-    it 'revokes AccessToken'
+    it 'revokes AccessToken' do
+      post oauth_revoke_path
+      expect(response).to have_http_status(:ok)
+      expect(response.body).to match_json_expression({})
+    end
   end
 end
