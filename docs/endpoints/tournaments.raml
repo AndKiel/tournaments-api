@@ -25,14 +25,15 @@ post:
       type: uuid
   get:
     description: Retrieve a tournament.
+    is: [findable]
     responses:
       200:
-      body:
-        type: Tournament
+        body:
+          type: Tournament
   patch:
     description: Update tournament details. User can update only tournaments he created.
     securedBy: [oauth]
-    is: [authenticable, authorizable, validatable]
+    is: [authenticable, authorizable, findable, validatable]
     body:
       type: TournamentParams
     responses:
@@ -42,7 +43,7 @@ post:
   delete:
     description: Remove a tournament. User can remove only tournaments he created.
     securedBy: [oauth]
-    is: [authenticable, authorizable]
+    is: [authenticable, authorizable, findable]
     responses:
       204:
 
@@ -50,7 +51,7 @@ post:
     post:
       description: Mark tournament as 'in progress'. User can start only tournaments he created and their 'starts_at' date is in the past.
       securedBy: [oauth]
-      is: [authenticable, authorizable]
+      is: [authenticable, authorizable, findable]
       responses:
         200:
           body:
@@ -60,7 +61,7 @@ post:
     post:
       description: Mark tournament as 'ended'. User can start only tournaments he created and were previously started.
       securedBy: [oauth]
-      is: [authenticable, authorizable]
+      is: [authenticable, authorizable, findable]
       responses:
         200:
           body:

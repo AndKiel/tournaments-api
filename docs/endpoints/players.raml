@@ -20,7 +20,7 @@ post:
   patch:
     description: Update player with the round results.
     securedBy: [oauth]
-    is: [authenticable, authorizable, validatable]
+    is: [authenticable, authorizable, findable, validatable]
     body:
       type: PlayerParams
     responses:

@@ -2,7 +2,7 @@ authenticable:
   usage: Apply this to any method that requires authentication.
   responses:
     401:
-      description: Returned when request was not authenticated properly.
+      description: Returned when request was not authenticated properly. Response is always empty.
 
 authorizable:
   usage: Apply this to any method that requires some conditions to be met for execution.
@@ -11,6 +11,12 @@ authorizable:
       description: Returned when action is not allowed, e.g. required conditions are not met.
       body:
         type: Error
+
+findable:
+  usage: Apply this to any method that can respond with NOT FOUND status.
+  responses:
+    404:
+      description: Returned when resource was not found. Response is always empty.
 
 paginated:
   usage: Apply this to any method that returns paginated results.

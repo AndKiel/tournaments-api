@@ -2,7 +2,7 @@ displayName: Rounds
 post:
   description: Create a new tournament round. User can create rounds only in tournaments he created and didn't end.
   securedBy: [oauth]
-  is: [authenticable, authorizable]
+  is: [authenticable, authorizable, findable]
   body:
     type: RoundParams
   queryParameters:
@@ -16,7 +16,7 @@ post:
 
 /{id}:
   securedBy: [oauth]
-  is: [authenticable, authorizable]
+  is: [authenticable, authorizable, findable]
   uriParameters:
     id:
       description: The id of the round

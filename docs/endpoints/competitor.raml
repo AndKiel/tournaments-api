@@ -1,6 +1,6 @@
 displayName: Competitor
 securedBy: [oauth]
-is: [authenticable, authorizable]
+is: [authenticable, authorizable, findable]
 post:
   description: Enlist in a tournament. User can enlist only in tournaments that didn't start.
   queryParameters:
@@ -28,7 +28,7 @@ delete:
   post:
     description: Confirm user participation in a tournament. User can confirm competitors only in tournaments he created.
     securedBy: [oauth]
-    is: [authenticable, authorizable]
+    is: [authenticable, authorizable, findable]
     responses:
       200:
         body:
