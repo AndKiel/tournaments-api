@@ -37,7 +37,7 @@ RSpec.describe 'OAuth', type: :request do
     context 'when authenticated' do
       authenticate(:anne)
 
-      it 'returns AccessToken details'  do
+      it 'returns AccessToken details' do
         get oauth_token_info_path,
             headers: auth_headers
         expect(response).to have_http_status(:ok)
