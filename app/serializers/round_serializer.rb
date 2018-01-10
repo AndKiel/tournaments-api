@@ -23,4 +23,6 @@ class RoundSerializer < ActiveModel::Serializer
              :created_at,
              :id,
              :tables_count
+
+  has_many :players
 end

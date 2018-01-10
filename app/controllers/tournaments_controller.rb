@@ -14,7 +14,8 @@ class TournamentsController < ApplicationController
   def show
     tournament = Tournament.find(params[:id])
     authorize tournament
-    render json: tournament
+    render json: tournament,
+           include: %w[competitors rounds rounds.players]
   end
 
   # Actions for authenticated users

@@ -21,12 +21,22 @@ RSpec.describe 'Tournaments', type: :request do
   end
 
   describe 'GET /tournaments/:id' do
-    let(:tournament) { tournaments(:tenkaichi_budokai) }
+    let(:tournament) { tournaments(:gwent) }
+    let(:tournament_detailed_json) do
+      tournament_json.merge(
+        competitors: [competitor_json].ignore_extra_values!,
+        rounds: [
+          round_json.merge(
+            players: [player_json].ignore_extra_values!
+          )
+        ].ignore_extra_values!
+      )
+    end
 
     it 'returns Tournament' do
       get tournament_path(tournament.id)
       expect(response).to have_http_status(:ok)
-      expect(response.body).to match_json_expression(tournament_json)
+      expect(response.body).to match_json_expression(tournament_detailed_json)
     end
   end
 

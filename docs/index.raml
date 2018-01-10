@@ -8,8 +8,9 @@ mediaType: application/json
 securitySchemes: !include security_schemes.raml
 traits: !include traits.raml
 types: !include types/errors.raml
+types: !include types/models.raml
+types: !include types/oauth.raml
 types: !include types/params.raml
-types: !include types/resources.raml
 
 /users: !include endpoints/users.raml
 /oauth: !include endpoints/oauth.raml

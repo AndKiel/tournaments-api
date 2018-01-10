@@ -30,4 +30,7 @@ class TournamentSerializer < ActiveModel::Serializer
              :result_names,
              :starts_at,
              :status
+
+  has_many :competitors
+  has_many :rounds
 end

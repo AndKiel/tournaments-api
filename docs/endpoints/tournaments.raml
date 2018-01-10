@@ -29,7 +29,7 @@ post:
     responses:
       200:
         body:
-          type: Tournament
+          type: TournamentWithRelations
   patch:
     description: Update tournament details. User can update only tournaments he created.
     securedBy: [oauth]
