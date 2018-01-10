@@ -1,5 +1,5 @@
 class TournamentsController < ApplicationController
-  before_action :doorkeeper_authorize!, only: %i[create update destroy start end]
+  before_action :doorkeeper_authorize!, only: %i[enlisted create update destroy start end]
   after_action :verify_authorized
   after_action :verify_policy_scoped, only: %i[create update destroy start end]
 
@@ -8,6 +8,12 @@ class TournamentsController < ApplicationController
   def index
     authorize Tournament
     tournaments = policy_scope(Tournament).order(starts_at: :asc).page(params[:page])
+    render json: tournaments
+  end
+
+  def enlisted
+    authorize Tournament
+    tournaments = current_user.tournaments.order(starts_at: :asc).page(params[:page])
     render json: tournaments
   end
 

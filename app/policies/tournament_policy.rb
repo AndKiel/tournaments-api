@@ -13,6 +13,10 @@ class TournamentPolicy < ApplicationPolicy
     true
   end
 
+  def enlisted?
+    true
+  end
+
   def show?
     true
   end

@@ -18,6 +18,16 @@ post:
       body:
         type: Tournament
 
+/enlisted:
+  get:
+    description: Retrieve tournaments that currently authenticated user has enlisted in. Tournaments are sorted by 'starts_at' (ascending).
+    securedBy: [oauth]
+    is: [paginated]
+    responses:
+      200:
+        body:
+          type: Tournament[]
+
 /{id}:
   uriParameters:
     id:

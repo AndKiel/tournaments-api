@@ -20,6 +20,17 @@ RSpec.describe 'Tournaments', type: :request do
     end
   end
 
+  describe 'GET /tournaments/enlisted' do
+    authenticate(:andrew)
+
+    it 'returns Tournaments user has enlisted in' do
+      get enlisted_tournaments_path,
+          headers: auth_headers
+      expect(response).to have_http_status(:ok)
+      expect(response.body).to match_json_expression(tournaments_json)
+    end
+  end
+
   describe 'GET /tournaments/:id' do
     let(:tournament) { tournaments(:gwent) }
     let(:tournament_detailed_json) do
