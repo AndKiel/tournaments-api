@@ -13,6 +13,27 @@ AccessToken:
     refresh_token: 8a737a12ea6a3182aa9924b277d67d55c92f67fa3d03f5016aa50c787ea513b0
     token_type: bearer
 
+AccessTokenInfo:
+  type: object
+  properties:
+    application: Application
+    created_at: integer
+    expires_in_seconds: integer
+    resource_owner_id: string
+    scopes: string[]
+  example:
+    application:
+      uid:
+    created_at: 1515572788
+    expires_in_seconds: 100
+    resource_owner_id: 6a15b02f-0712-56dc-a290-915475d29abb
+    scopes: ["public"]
+
+Application:
+  type: object
+  properties:
+    uid: nil
+
 Competitor:
   type: object
   properties:

@@ -29,6 +29,18 @@ module JsonHelpers
     }
   end
 
+  def access_token_info_json
+    {
+      application: {
+        uid: nil
+      },
+      created_at: Integer,
+      expires_in_seconds: Integer,
+      resource_owner_id: String,
+      scopes: Array
+    }
+  end
+
   # Resources
 
   define_responses(

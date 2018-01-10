@@ -27,14 +27,7 @@ displayName: Authentication
       responses:
         200:
           body:
-            example: |
-              {
-                "application": { "uid": null },
-                "created_at": 1440460991,
-                "expires_in_seconds": 7178,
-                "resource_owner_id": 1,
-                "scopes": []
-              }
+            type: AccessTokenInfo
         401:
           body:
             type: Error
