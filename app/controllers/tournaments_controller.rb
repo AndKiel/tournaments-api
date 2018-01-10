@@ -7,7 +7,7 @@ class TournamentsController < ApplicationController
 
   def index
     authorize Tournament
-    tournaments = policy_scope(Tournament).page(params[:page])
+    tournaments = policy_scope(Tournament).order(starts_at: :asc).page(params[:page])
     render json: tournaments
   end
 
