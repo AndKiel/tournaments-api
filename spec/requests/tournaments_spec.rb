@@ -8,6 +8,18 @@ RSpec.describe 'Tournaments', type: :request do
       expect(response.body).to match_json_expression(tournaments_json)
     end
 
+    it 'allows filtering' do
+      expect(Tournament).to receive(:starts_at_after).and_call_original
+      get tournaments_path,
+          params: {
+            filters: {
+              starts_at_after: 1.day.since
+            }
+          }
+      expect(response).to have_http_status(:ok)
+      expect(response.body).to match_json_expression(tournaments_json)
+    end
+
     context 'when authenticated' do
       authenticate(:john)
 
@@ -26,6 +38,18 @@ RSpec.describe 'Tournaments', type: :request do
     it 'returns Tournaments user has enlisted in' do
       get enlisted_tournaments_path,
           headers: auth_headers
+      expect(response).to have_http_status(:ok)
+      expect(response.body).to match_json_expression(tournaments_json)
+    end
+
+    it 'allows filtering' do
+      expect(Tournament).to receive(:starts_at_after).and_call_original
+      get tournaments_path,
+          params: {
+            filters: {
+              starts_at_after: 1.day.since
+            }
+          }
       expect(response).to have_http_status(:ok)
       expect(response.body).to match_json_expression(tournaments_json)
     end

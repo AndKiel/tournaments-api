@@ -7,13 +7,19 @@ class TournamentsController < ApplicationController
 
   def index
     authorize Tournament
-    tournaments = policy_scope(Tournament).order(starts_at: :asc).page(params[:page])
+    tournaments = policy_scope(Tournament).
+                  apply_filters(params).
+                  order(starts_at: :asc).
+                  page(params[:page])
     render json: tournaments
   end
 
   def enlisted
     authorize Tournament
-    tournaments = current_user.tournaments.order(starts_at: :asc).page(params[:page])
+    tournaments = current_user.tournaments.
+                  apply_filters(params).
+                  order(starts_at: :asc).
+                  page(params[:page])
     render json: tournaments
   end
 

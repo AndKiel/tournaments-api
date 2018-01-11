@@ -23,6 +23,7 @@
 #
 
 class Tournament < ApplicationRecord
+  include TournamentFilters
   extend Enumerize
 
   belongs_to :organiser, class_name: 'User', inverse_of: :tournaments
