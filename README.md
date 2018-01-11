@@ -18,14 +18,8 @@ API will be available at [http://localhost:3000/]().
 
 Execute `docker-compose run web bundle exec rspec`.
 
-### Generating docs ###
+### Updating documentation ###
 
-Execute `docker-compose run docs`.
+API documentation: `docker-compose run docs`.
 
-### Generating database schema ###
-
-Prerequisites:
-* [schemacrawler](http://www.schemacrawler.com/) (14.16.03+)
-* [graphviz](https://graphviz.gitlab.io)
-
-While Docker web container is running execute `./schemacrawler.sh -infolevel=standard -command=schema -sortcolumns -portablenames -outputformat=pdf -outputfile=db-schema.pdf -server=postgresql -u=postgres -password=postgres -database="tournaments-api-development"`.
+Database schema: `docker-compose run schema`.

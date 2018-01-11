@@ -11,15 +11,24 @@ services:
 
   docs:
     image: mattjtodd/raml2html:latest
-    working_dir: /tournaments-api
-    command: -i ./docs/index.raml -o ./docs/index.html
+    working_dir: /docs
+    command: -i index.raml -o index.html
     volumes:
-      - .:/tournaments-api
+      - ./docs:/docs
 
 #  redis:
 #    image: redis:latest
 #    ports:
 #      - '6379:6379'
+
+  schema:
+    image: sualeh/schemacrawler:latest
+    working_dir: /schemacrawler
+    command: ./schemacrawler.sh -infolevel=standard -command=schema -sortcolumns -portablenames -outputformat=pdf -outputfile=/docs/db-schema.pdf -server=postgresql -url="jdbc:postgresql://db:5432/tournaments-api-development" -u=postgres -password=postgres
+    links:
+      - db
+    volumes:
+      - ./docs:/docs
 
   web:
     build: .
