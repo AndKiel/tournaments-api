@@ -5,14 +5,14 @@ default: &default
 
 development:
   <<: *default
-  database: untitled-tournaments-development
+  database: tournaments-api-development
   username: postgres
   password: postgres
   host: db
 
 test:
   <<: *default
-  database: untitled-tournaments-test
+  database: tournaments-api-test
   username: postgres
   password: postgres
   host: db

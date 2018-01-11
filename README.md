@@ -1,4 +1,4 @@
-# Untitled Tournaments API #
+# Tournaments API #
 
 Back-end for tournament management application.
 
@@ -22,4 +22,4 @@ Execute `docker-compose run docs`.
 
 Requires schemacrawler (14.16.03) and graphviz.
 
-Execute `./schemacrawler.sh -infolevel=standard -command=schema -sortcolumns -portablenames -outputformat=pdf -outputfile=db-schema.pdf -server=postgresql -u=postgres -password=postgres -database="untitled-tournaments-development"`
+Execute `./schemacrawler.sh -infolevel=standard -command=schema -sortcolumns -portablenames -outputformat=pdf -outputfile=db-schema.pdf -server=postgresql -u=postgres -password=postgres -database="tournaments-api-development"`

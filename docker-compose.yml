@@ -5,16 +5,16 @@ services:
     image: postgres:9.6
     environment:
       POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: untitled-tournaments-development
+      POSTGRES_DB: tournaments-api-development
     ports:
       - '5432:5432'
 
   docs:
     image: mattjtodd/raml2html:latest
-    working_dir: /untitled-tournaments
+    working_dir: /tournaments-api
     command: -i ./docs/index.raml -o ./public/docs.html
     volumes:
-      - .:/untitled-tournaments
+      - .:/tournaments-api
 
 #  redis:
 #    image: redis:latest
@@ -23,7 +23,7 @@ services:
 
   web:
     build: .
-    working_dir: /untitled-tournaments
+    working_dir: /tournaments-api
     command: bash -c "rm -f tmp/pids/server.pid && bundle install && bundle exec rails s -p 3000 -b '0.0.0.0'"
     environment:
       BUNDLE_PATH: /bundle_cache
@@ -37,7 +37,7 @@ services:
     tty: true
     stdin_open: true
     volumes:
-      - .:/untitled-tournaments
+      - .:/tournaments-api
       - cache-volume:/bundle_cache
 
 volumes:
