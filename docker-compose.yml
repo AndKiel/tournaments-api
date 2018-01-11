@@ -12,7 +12,7 @@ services:
   docs:
     image: mattjtodd/raml2html:latest
     working_dir: /tournaments-api
-    command: -i ./docs/index.raml -o ./public/docs.html
+    command: -i ./docs/index.raml -o ./docs/index.html
     volumes:
       - .:/tournaments-api
 
