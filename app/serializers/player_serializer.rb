@@ -22,7 +22,8 @@
 #
 
 class PlayerSerializer < ActiveModel::Serializer
-  attributes :id,
+  attributes :competitor_id,
+             :id,
              :result_values,
              :table_number
 end

@@ -51,6 +51,7 @@ module JsonHelpers
 
   define_responses(
     'player',
+    competitor_id: String,
     id: String,
     result_values: Array,
     table_number: Integer
