@@ -18,15 +18,6 @@ findable:
     404:
       description: Returned when resource was not found. Response is always empty.
 
-paginated:
-  usage: Apply this to any method that returns paginated results.
-  queryParameters:
-    page:
-      description: Specify the page that you want to retrieve, 25 results are returned per page.
-      required: false
-      type: integer
-      default: 1
-
 validatable:
   usage: Apply this to any method that validates incoming parameters.
   responses:

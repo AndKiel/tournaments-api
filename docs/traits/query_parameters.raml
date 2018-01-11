@@ -1,0 +1,15 @@
+paginated:
+  usage: Apply this to any method that returns paginated results.
+  queryParameters:
+    page:
+      description: Specify the page that you want to retrieve, 25 results are returned per page.
+      required: false
+      type: integer
+      default: 1
+
+withTournamentFilters:
+  usage: Apply this to any method that lists tournaments and allows to filter them.
+  queryParameters:
+    filters:
+      type: TournamentFilters
+      required: false
