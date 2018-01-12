@@ -7,6 +7,9 @@ post:
     tournament_id:
       description: The id of the tournament
       type: uuid
+  body:
+    properties:
+      competitor: CompetitorParams
   responses:
     201:
       body:

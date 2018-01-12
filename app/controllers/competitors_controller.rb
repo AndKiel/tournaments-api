@@ -8,9 +8,13 @@ class CompetitorsController < ApplicationController
     tournament = Tournament.find(params[:tournament_id])
     competitor = current_user.competitors.find_or_initialize_by(tournament: tournament)
     authorize competitor
-    competitor.save!
-    render json: competitor,
-           status: :created
+    form = CompetitorForm.new(competitor)
+    if form.validate(permitted_attributes(competitor))
+      form.save
+      return render json: form.model,
+                    status: :created
+    end
+    render_validation_errors(form)
   end
 
   def destroy

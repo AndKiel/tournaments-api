@@ -7,16 +7,36 @@ RSpec.describe 'Competitors', type: :request do
     context 'when it is possible to enlist' do
       let(:tournament) { tournaments(:tenkaichi_budokai) }
 
-      it 'creates Competitor' do
-        expect do
+      context 'when params are valid' do
+        it 'creates Competitor' do
+          expect do
+            post competitor_path,
+                 headers: auth_headers,
+                 params: {
+                   tournament_id: tournament.id,
+                   competitor: {
+                     name: 'Hellen'
+                   }
+                 }
+          end.to change(Competitor, :count).by(1)
+          expect(response).to have_http_status(:created)
+          expect(response.body).to match_json_expression(competitor_json)
+        end
+      end
+
+      context 'when params are not valid' do
+        it 'returns validation errors' do
           post competitor_path,
                headers: auth_headers,
                params: {
-                 tournament_id: tournament.id
+                 tournament_id: tournament.id,
+                 competitor: {
+                   name: ''
+                 }
                }
-        end.to change(Competitor, :count).by(1)
-        expect(response).to have_http_status(:created)
-        expect(response.body).to match_json_expression(competitor_json)
+          expect(response).to have_http_status(:unprocessable_entity)
+          expect(response.body).to match_json_expression(validation_error_json)
+        end
       end
     end
 

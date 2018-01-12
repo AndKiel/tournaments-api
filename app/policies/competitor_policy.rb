@@ -1,4 +1,8 @@
 class CompetitorPolicy < ApplicationPolicy
+  def permitted_attributes
+    %i[name]
+  end
+
   def create?
     record.tournament.status.created?
   end
