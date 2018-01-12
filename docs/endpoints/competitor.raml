@@ -10,7 +10,8 @@ post:
   responses:
     201:
       body:
-        type: Competitor
+        properties:
+          competitor: Competitor
 delete:
   description: Resign from a tournament. User can resign only from tournaments that didn't start.
   queryParameters:
@@ -32,4 +33,5 @@ delete:
     responses:
       200:
         body:
-          type: Competitor
+          properties:
+            competitor: Competitor

@@ -58,14 +58,16 @@ RSpec.describe 'Tournaments', type: :request do
   describe 'GET /tournaments/:id' do
     let(:tournament) { tournaments(:gwent) }
     let(:tournament_detailed_json) do
-      tournament_json.merge(
-        competitors: [competitor_json].ignore_extra_values!,
-        rounds: [
-          round_json.merge(
-            players: [player_json].ignore_extra_values!
-          )
-        ].ignore_extra_values!
-      )
+      {
+        tournament: tournament_json[:tournament].merge(
+          competitors: competitors_json[:competitors],
+          rounds: [
+            round_json[:round].merge(
+              players: [player_json[:player]].ignore_extra_values!
+            )
+          ].ignore_extra_values!
+        )
+      }
     end
 
     it 'returns Tournament' do

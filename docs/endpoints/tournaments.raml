@@ -6,7 +6,8 @@ get:
   responses:
     200:
       body:
-        type: Tournament[]
+        properties:
+          tournaments: Tournament[]
 post:
   description: Create a new tournament.
   securedBy: [oauth]
@@ -17,7 +18,8 @@ post:
   responses:
     201:
       body:
-        type: Tournament
+        properties:
+          tournament: Tournament
 
 /enlisted:
   get:
@@ -27,7 +29,8 @@ post:
     responses:
       200:
         body:
-          type: Tournament[]
+          properties:
+            tournaments: Tournament[]
 
 /{id}:
   uriParameters:
@@ -40,7 +43,8 @@ post:
     responses:
       200:
         body:
-          type: TournamentWithRelations
+          properties:
+            tournament: TournamentWithRelations
   patch:
     description: Update tournament details. User can update only tournaments he created.
     securedBy: [oauth]
@@ -51,7 +55,8 @@ post:
     responses:
       200:
         body:
-          type: Tournament
+          properties:
+            tournament: Tournament
   delete:
     description: Remove a tournament. User can remove only tournaments he created.
     securedBy: [oauth]
@@ -67,7 +72,8 @@ post:
       responses:
         200:
           body:
-            type: Tournament
+            properties:
+              tournament: Tournament
 
   /end:
     post:
@@ -77,4 +83,5 @@ post:
       responses:
         200:
           body:
-            type: Tournament
+            properties:
+              tournament: Tournament

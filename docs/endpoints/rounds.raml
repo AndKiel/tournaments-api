@@ -13,7 +13,8 @@ post:
   responses:
     201:
       body:
-        type: Round
+        properties:
+          round: Round
 
 /{id}:
   securedBy: [oauth]
@@ -31,7 +32,8 @@ post:
     responses:
       200:
         body:
-          type: Round
+          properties:
+            round: Round
   delete:
     description: Remove tournament round. User can remove rounds only in tournaments he created and didn't end.
     responses:

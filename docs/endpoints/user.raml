@@ -6,7 +6,8 @@ get:
   responses:
     200:
       body:
-        type: User
+        properties:
+          user: User
 patch:
   description: Update account details for currently authenticated user.
   is: [validatable]
@@ -16,4 +17,5 @@ patch:
   responses:
     200:
       body:
-        type: User
+        properties:
+          user: User

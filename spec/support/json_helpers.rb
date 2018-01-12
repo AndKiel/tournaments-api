@@ -3,8 +3,8 @@ module JsonHelpers
 
   def self.define_responses(type, attrs)
     plural_type = type.pluralize
-    define_method("#{type}_json") { attrs }
-    define_method("#{plural_type}_json") { [attrs].ignore_extra_values! }
+    define_method("#{type}_json") { { "#{type}": attrs } }
+    define_method("#{plural_type}_json") { { "#{plural_type}": [attrs].ignore_extra_values! } }
   end
 
   # Errors

@@ -10,7 +10,8 @@ post:
   responses:
     201:
       body:
-        type: Player[]
+        properties:
+          players: Player[]
 
 /{id}:
   uriParameters:
@@ -27,4 +28,5 @@ post:
     responses:
       200:
         body:
-          type: Player
+          properties:
+            player: Player
