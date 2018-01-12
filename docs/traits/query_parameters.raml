@@ -1,3 +1,10 @@
+filterable:
+  usage: Apply this to any method that returns a <<typeName>> collection and allows filtering.
+  queryParameters:
+    filters:
+      type: <<typeName>>Filters
+      required: false
+
 paginated:
   usage: Apply this to any method that returns paginated results.
   queryParameters:
@@ -6,10 +13,3 @@ paginated:
       required: false
       type: integer
       default: 1
-
-withTournamentFilters:
-  usage: Apply this to any method that lists tournaments and allows to filter them.
-  queryParameters:
-    filters:
-      type: TournamentFilters
-      required: false
