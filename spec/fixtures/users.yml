@@ -5,7 +5,6 @@
 #  created_at      :datetime         not null
 #  email           :string           not null
 #  id              :uuid             not null, primary key
-#  name            :string           default(""), not null
 #  password_digest :string           not null
 #  updated_at      :datetime         not null
 #
@@ -16,61 +15,49 @@
 
 andrew:
   email: 'andrew@mail.co'
-  name: Andrew
   # password
   password_digest: '$2a$10$DduaGQK4NkMwtaa..reSv.7IruCI35cKIBodTuOPDDb/yPstoqmH2'
 
 anne:
   email: 'anne@mail.co'
-  name: Anne
   password_digest: '$2a$10$DduaGQK4NkMwtaa..reSv.7IruCI35cKIBodTuOPDDb/yPstoqmH2'
 
 cathy:
   email: 'cathy@mail.co'
-  name: Cathy
   password_digest: '$2a$10$DduaGQK4NkMwtaa..reSv.7IruCI35cKIBodTuOPDDb/yPstoqmH2'
 
 hellen:
   email: 'hellen@mail.co'
-  name: Hellen
   password_digest: '$2a$10$DduaGQK4NkMwtaa..reSv.7IruCI35cKIBodTuOPDDb/yPstoqmH2'
 
 ivan:
   email: 'ivan@mail.co'
-  name: Ivan
   password_digest: '$2a$10$DduaGQK4NkMwtaa..reSv.7IruCI35cKIBodTuOPDDb/yPstoqmH2'
 
 jack:
   email: 'jack@mail.co'
-  name: Jack
   password_digest: '$2a$10$DduaGQK4NkMwtaa..reSv.7IruCI35cKIBodTuOPDDb/yPstoqmH2'
 
 jane:
   email: 'jane@mail.co'
-  name: Jane
   password_digest: '$2a$10$DduaGQK4NkMwtaa..reSv.7IruCI35cKIBodTuOPDDb/yPstoqmH2'
 
 john:
   email: 'john@mail.co'
-  name: John
   password_digest: '$2a$10$DduaGQK4NkMwtaa..reSv.7IruCI35cKIBodTuOPDDb/yPstoqmH2'
 
 michael:
   email: 'michael@mail.co'
-  name: Michael
   password_digest: '$2a$10$DduaGQK4NkMwtaa..reSv.7IruCI35cKIBodTuOPDDb/yPstoqmH2'
 
 neal:
   email: 'neal@mail.co'
-  name: Neal
   password_digest: '$2a$10$DduaGQK4NkMwtaa..reSv.7IruCI35cKIBodTuOPDDb/yPstoqmH2'
 
 peter:
   email: 'peter@mail.co'
-  name: Peter
   password_digest: '$2a$10$DduaGQK4NkMwtaa..reSv.7IruCI35cKIBodTuOPDDb/yPstoqmH2'
 
 thomas:
   email: 'thomas@mail.co'
-  name: Thomas
   password_digest: '$2a$10$DduaGQK4NkMwtaa..reSv.7IruCI35cKIBodTuOPDDb/yPstoqmH2'

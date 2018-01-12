@@ -1,6 +1,6 @@
 class UserPolicy < ApplicationPolicy
   def permitted_attributes
-    %i[email name password password_confirmation]
+    %i[email password password_confirmation]
   end
 
   def sign_up?

@@ -5,7 +5,6 @@
 #  created_at      :datetime         not null
 #  email           :string           not null
 #  id              :uuid             not null, primary key
-#  name            :string           default(""), not null
 #  password_digest :string           not null
 #  updated_at      :datetime         not null
 #
@@ -16,6 +15,5 @@
 
 class UserSerializer < ActiveModel::Serializer
   attributes :email,
-             :id,
-             :name
+             :id
 end
