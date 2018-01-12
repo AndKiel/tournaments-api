@@ -4,7 +4,8 @@ post:
   securedBy: [oauth]
   is: [authenticable, authorizable, findable]
   body:
-    type: RoundParams
+    properties:
+      round: RoundParams
   queryParameters:
     tournament_id:
       description: The id of the tournament
@@ -25,7 +26,8 @@ post:
     description: Update tournament round. User can update rounds only in tournaments he created and didn't end.
     is: [validatable]
     body:
-      type: RoundParams
+      properties:
+        round: RoundParams
     responses:
       200:
         body:

@@ -11,7 +11,8 @@ patch:
   description: Update account details for currently authenticated user.
   is: [validatable]
   body:
-    type: UserParams
+    properties:
+      user: UserParams
   responses:
     200:
       body:

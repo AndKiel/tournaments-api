@@ -4,7 +4,8 @@ displayName: Sign up
     description: Create a new user account.
     is: [validatable]
     body:
-      type: SignUpParams
+      properties:
+        user: SignUpParams
     responses:
       201:
         body:

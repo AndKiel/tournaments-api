@@ -12,7 +12,8 @@ post:
   securedBy: [oauth]
   is: [authenticable, validatable]
   body:
-    type: TournamentParams
+    properties:
+      tournament: TournamentParams
   responses:
     201:
       body:
@@ -45,7 +46,8 @@ post:
     securedBy: [oauth]
     is: [authenticable, authorizable, findable, validatable]
     body:
-      type: TournamentParams
+      properties:
+        tournament: TournamentParams
     responses:
       200:
         body:

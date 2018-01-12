@@ -22,7 +22,8 @@ post:
     securedBy: [oauth]
     is: [authenticable, authorizable, findable, validatable]
     body:
-      type: PlayerParams
+      properties:
+        player: PlayerParams
     responses:
       200:
         body:
