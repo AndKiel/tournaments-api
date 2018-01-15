@@ -56,7 +56,6 @@ group :development do
   gem 'rubocop', require: false
 
   # Optimization
-  # gem 'bullet'
   # gem 'derailed_benchmarks'
   # gem 'flamegraph'
   # gem 'rack-mini-profiler'
@@ -64,6 +63,7 @@ end
 
 
 group :test do
+  gem 'bullet'
   gem 'fuubar'
   gem 'json_expressions', require: false
   gem 'rspec-rails'
