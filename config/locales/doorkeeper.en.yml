@@ -35,9 +35,9 @@ en:
         unsupported_grant_type: 'The authorization grant type is not supported by the authorization server.'
 
         # Password Access token errors
-        invalid_resource_owner: 'The provided resource owner credentials are not valid, or resource owner cannot be found'
+        invalid_resource_owner: 'The provided user credentials are not valid, or user cannot be found.'
 
         invalid_token:
-          revoked: 'The access token was revoked'
-          expired: 'The access token expired'
-          unknown: 'The access token is invalid'
+          revoked: 'The access token was revoked.'
+          expired: 'The access token expired.'
+          unknown: 'The access token is invalid.'
