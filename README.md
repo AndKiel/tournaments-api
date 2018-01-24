@@ -14,6 +14,8 @@ Create database: `docker-compose run web bundle exec rake db:setup`.
 
 API will be available at [http://localhost:3000/]().
 
+Front-end is available [here](https://github.com/AndKiel/tournaments-api-ui).
+
 ### Running Tests ###
 
 Execute `docker-compose run web bundle exec rspec`.
