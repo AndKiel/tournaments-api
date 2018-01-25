@@ -6,6 +6,7 @@ RSpec.describe 'Tournaments', type: :request do
       get tournaments_path
       expect(response).to have_http_status(:ok)
       expect(response.body).to match_json_expression(tournaments_json)
+      expect(response.body).to match_json_expression(pagination_meta_json)
     end
 
     it 'allows filtering' do
@@ -18,6 +19,7 @@ RSpec.describe 'Tournaments', type: :request do
           }
       expect(response).to have_http_status(:ok)
       expect(response.body).to match_json_expression(tournaments_json)
+      expect(response.body).to match_json_expression(pagination_meta_json)
     end
 
     context 'when authenticated' do
@@ -28,6 +30,7 @@ RSpec.describe 'Tournaments', type: :request do
             headers: auth_headers
         expect(response).to have_http_status(:ok)
         expect(response.body).to match_json_expression(tournaments_json)
+        expect(response.body).to match_json_expression(pagination_meta_json)
       end
     end
   end
@@ -40,6 +43,7 @@ RSpec.describe 'Tournaments', type: :request do
           headers: auth_headers
       expect(response).to have_http_status(:ok)
       expect(response.body).to match_json_expression(tournaments_json)
+      expect(response.body).to match_json_expression(pagination_meta_json)
     end
 
     it 'allows filtering' do
@@ -52,6 +56,7 @@ RSpec.describe 'Tournaments', type: :request do
           }
       expect(response).to have_http_status(:ok)
       expect(response.body).to match_json_expression(tournaments_json)
+      expect(response.body).to match_json_expression(pagination_meta_json)
     end
   end
 

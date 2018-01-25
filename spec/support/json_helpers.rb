@@ -4,7 +4,7 @@ module JsonHelpers
   def self.define_responses(type, attrs)
     plural_type = type.pluralize
     define_method("#{type}_json") { { "#{type}": attrs } }
-    define_method("#{plural_type}_json") { { "#{plural_type}": [attrs].ignore_extra_values! } }
+    define_method("#{plural_type}_json") { { "#{plural_type}": [attrs].ignore_extra_values! }.ignore_extra_keys! }
   end
 
   # Errors
@@ -82,4 +82,14 @@ module JsonHelpers
     email: String,
     id: String
   )
+
+  # Meta
+
+  def pagination_meta_json
+    {
+      meta: {
+        total_count: Integer
+      }
+    }.ignore_extra_keys!
+  end
 end

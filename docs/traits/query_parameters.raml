@@ -13,3 +13,11 @@ paginated:
       required: false
       type: integer
       default: 1
+  responses:
+    200:
+      body:
+        properties:
+          meta:
+            type: object
+            properties:
+              total_count: integer

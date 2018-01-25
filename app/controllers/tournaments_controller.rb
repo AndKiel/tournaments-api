@@ -11,7 +11,8 @@ class TournamentsController < ApplicationController
                   apply_filters(params).
                   order(starts_at: :asc).
                   page(params[:page])
-    render json: tournaments
+    render json: tournaments,
+           meta: pagination_meta(tournaments)
   end
 
   def enlisted
@@ -20,7 +21,8 @@ class TournamentsController < ApplicationController
                   apply_filters(params).
                   order(starts_at: :asc).
                   page(params[:page])
-    render json: tournaments
+    render json: tournaments,
+           meta: pagination_meta(tournaments)
   end
 
   def show
