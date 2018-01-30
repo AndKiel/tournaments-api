@@ -72,6 +72,7 @@ module JsonHelpers
     description: String,
     id: String,
     name: String,
+    organiser_id: String,
     result_names: Array,
     starts_at: String,
     status: String
