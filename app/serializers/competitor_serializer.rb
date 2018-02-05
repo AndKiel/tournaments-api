@@ -24,5 +24,6 @@
 class CompetitorSerializer < ActiveModel::Serializer
   attributes :id,
              :name,
-             :status
+             :status,
+             :user_id
 end

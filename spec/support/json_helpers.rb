@@ -47,7 +47,8 @@ module JsonHelpers
     'competitor',
     id: String,
     name: String,
-    status: String
+    status: String,
+    user_id: String
   )
 
   define_responses(
