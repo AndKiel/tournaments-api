@@ -48,7 +48,7 @@ module JsonHelpers
     id: String,
     name: String,
     status: String,
-    user_id: String
+    user_id: ::JsonExpressions.maybe(String)
   )
 
   define_responses(

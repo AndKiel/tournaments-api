@@ -1,0 +1,15 @@
+displayName: Competitors
+/{id}/confirm:
+  uriParameters:
+    id:
+      description: The id of the competitor
+      type: uuid
+  post:
+    description: Confirm user participation in a tournament. User can confirm competitors only in tournaments he created.
+    securedBy: [oauth]
+    is: [authenticable, authorizable, findable]
+    responses:
+      200:
+        body:
+          properties:
+            competitor: Competitor

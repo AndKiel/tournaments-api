@@ -87,29 +87,83 @@ RSpec.describe 'Competitors', type: :request do
     end
   end
 
-  describe 'POST /competitors/:id/confirm' do
+  context 'when authenticated as tournament organiser' do
     authenticate(:john)
 
-    context 'when conditions for confirm are met' do
-      let(:competitor) { competitors(:created_hellen) }
+    describe 'POST /competitors/add' do
+      context 'when conditions for adding competitor are met' do
+        let(:tournament) { tournaments(:tenkaichi_budokai) }
 
-      it 'updates Competitor' do
-        post confirm_competitor_path(competitor.id),
-             headers: auth_headers
-        expect(response).to have_http_status(:ok)
-        expect(response.body).to match_json_expression(competitor_json)
-        expect(competitor.reload.status).to eq(:confirmed)
+        context 'when params are valid' do
+          it 'creates Competitor' do
+            expect do
+              post add_competitor_path,
+                   headers: auth_headers,
+                   params: {
+                     tournament_id: tournament.id,
+                     competitor: {
+                       name: 'External'
+                     }
+                   }
+            end.to change(Competitor, :count).by(1)
+            expect(response).to have_http_status(:created)
+            expect(response.body).to match_json_expression(competitor_json)
+          end
+        end
+
+        context 'when params are not valid' do
+          it 'returns validation errors' do
+            post add_competitor_path,
+                 headers: auth_headers,
+                 params: {
+                   tournament_id: tournament.id,
+                   competitor: {
+                     name: ''
+                   }
+                 }
+            expect(response).to have_http_status(:unprocessable_entity)
+            expect(response.body).to match_json_expression(validation_error_json)
+          end
+        end
+      end
+
+      context 'when conditions for adding competitor are not met' do
+        let(:tournament) { tournaments(:in_progress) }
+
+        it 'returns error' do
+          post add_competitor_path,
+               headers: auth_headers,
+               params: {
+                 tournament_id: tournament.id
+               }
+          expect(response).to have_http_status(:forbidden)
+          expect(response.body).to match_json_expression(error_json)
+        end
       end
     end
 
-    context 'when conditions for confirm are not met' do
-      let(:competitor) { competitors(:in_progress_hellen) }
+    describe 'POST /competitors/:id/confirm' do
+      context 'when conditions for confirm are met' do
+        let(:competitor) { competitors(:created_hellen) }
 
-      it 'returns error' do
-        post confirm_competitor_path(competitor.id),
-             headers: auth_headers
-        expect(response).to have_http_status(:forbidden)
-        expect(response.body).to match_json_expression(error_json)
+        it 'updates Competitor' do
+          post confirm_competitor_path(competitor.id),
+               headers: auth_headers
+          expect(response).to have_http_status(:ok)
+          expect(response.body).to match_json_expression(competitor_json)
+          expect(competitor.reload.status).to eq(:confirmed)
+        end
+      end
+
+      context 'when conditions for confirm are not met' do
+        let(:competitor) { competitors(:in_progress_hellen) }
+
+        it 'returns error' do
+          post confirm_competitor_path(competitor.id),
+               headers: auth_headers
+          expect(response).to have_http_status(:forbidden)
+          expect(response.body).to match_json_expression(error_json)
+        end
       end
     end
   end

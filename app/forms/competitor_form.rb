@@ -4,5 +4,5 @@ class CompetitorForm < Reform::Form
 
   validates :name,
             presence: true,
-            unique: { scope: [:tournament_id]}
+            unique: { scope: [:tournament_id] }
 end

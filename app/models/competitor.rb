@@ -8,7 +8,7 @@
 #  status        :integer          default("enlisted"), not null
 #  tournament_id :uuid             not null
 #  updated_at    :datetime         not null
-#  user_id       :uuid             not null
+#  user_id       :uuid
 #
 # Indexes
 #
@@ -25,7 +25,7 @@ class Competitor < ApplicationRecord
   extend Enumerize
 
   belongs_to :tournament
-  belongs_to :user
+  belongs_to :user, optional: true
   has_many :players, dependent: :destroy
 
   enumerize :status,

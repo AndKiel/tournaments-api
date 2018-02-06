@@ -18,6 +18,7 @@
 #                      PATCH  /tournaments/:id(.:format)         tournaments#update
 #                      PUT    /tournaments/:id(.:format)         tournaments#update
 #                      DELETE /tournaments/:id(.:format)         tournaments#destroy
+#       add_competitor POST   /competitor/add(.:format)          competitors#add
 #           competitor DELETE /competitor(.:format)              competitors#destroy
 #                      POST   /competitor(.:format)              competitors#create
 #   confirm_competitor POST   /competitors/:id/confirm(.:format) competitors#confirm
@@ -54,7 +55,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resource :competitor, only: %i[create destroy]
+  resource :competitor, only: %i[create destroy] do
+    member do
+      post :add
+    end
+  end
   resources :competitors, only: :none do
     member do
       post :confirm

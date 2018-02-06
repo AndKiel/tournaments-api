@@ -24,17 +24,20 @@ delete:
   responses:
     204:
 
-/{id}/confirm:
-  uriParameters:
-    id:
-      description: The id of the competitor
-      type: uuid
+/add:
   post:
-    description: Confirm user participation in a tournament. User can confirm competitors only in tournaments he created.
+    description: Create a competitor for user without an account. User can create competitors only in tournaments he created.
     securedBy: [oauth]
     is: [authenticable, authorizable, findable]
+    queryParameters:
+      tournament_id:
+        description: The id of the tournament
+        type: uuid
+    body:
+      properties:
+        competitor: CompetitorParams
     responses:
-      200:
+      201:
         body:
           properties:
             competitor: Competitor

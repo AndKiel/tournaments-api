@@ -11,4 +11,10 @@ module JsonExpressions
       'DATE_MATCHER'
     end
   end
+
+  def self.maybe(obj)
+    matcher = Object.new
+    matcher.define_singleton_method(:'===') { |other| obj === other || other.nil? }
+    matcher
+  end
 end
