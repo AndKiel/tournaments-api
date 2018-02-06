@@ -29,6 +29,7 @@ class TournamentForm < Reform::Form
             presence: true,
             timeliness: {
               after: :now,
-              type: :datetime
+              type: :datetime,
+              after_message: 'must be a future date'
             }
 end
