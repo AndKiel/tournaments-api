@@ -14,7 +14,7 @@ module JsonExpressions
 
   def self.maybe(obj)
     matcher = Object.new
-    matcher.define_singleton_method(:'===') { |other| obj === other || other.nil? }
+    matcher.define_singleton_method(:'===') { |other| other.is_a?(obj) || other.nil? }
     matcher
   end
 end
