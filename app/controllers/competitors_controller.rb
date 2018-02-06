@@ -45,4 +45,11 @@ class CompetitorsController < ApplicationController
     competitor.update!(status: :confirmed)
     render json: competitor
   end
+
+  def reject
+    competitor = current_user.tournament_competitors.find(params[:id])
+    authorize competitor
+    competitor.update(status: :enlisted)
+    render json: competitor
+  end
 end

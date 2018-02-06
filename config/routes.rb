@@ -22,6 +22,7 @@
 #           competitor DELETE /competitor(.:format)              competitors#destroy
 #                      POST   /competitor(.:format)              competitors#create
 #   confirm_competitor POST   /competitors/:id/confirm(.:format) competitors#confirm
+#    reject_competitor POST   /competitors/:id/reject(.:format)  competitors#reject
 #               rounds POST   /rounds(.:format)                  rounds#create
 #                round PATCH  /rounds/:id(.:format)              rounds#update
 #                      PUT    /rounds/:id(.:format)              rounds#update
@@ -63,6 +64,7 @@ Rails.application.routes.draw do
   resources :competitors, only: :none do
     member do
       post :confirm
+      post :reject
     end
   end
 

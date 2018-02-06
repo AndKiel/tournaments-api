@@ -166,5 +166,30 @@ RSpec.describe 'Competitors', type: :request do
         end
       end
     end
+
+    describe 'POST /competitors/:id/reject' do
+      context 'when conditions for reject are met' do
+        let(:competitor) { competitors(:tenkaichi_budokai_john) }
+
+        it 'updates Competitor' do
+          post reject_competitor_path(competitor.id),
+               headers: auth_headers
+          expect(response).to have_http_status(:ok)
+          expect(response.body).to match_json_expression(competitor_json)
+          expect(competitor.reload.status).to eq(:enlisted)
+        end
+      end
+
+      context 'when conditions for reject are not met' do
+        let(:competitor) { competitors(:game_of_thrones_hellen) }
+
+        it 'returns error' do
+          post reject_competitor_path(competitor.id),
+               headers: auth_headers
+          expect(response).to have_http_status(:forbidden)
+          expect(response.body).to match_json_expression(error_json)
+        end
+      end
+    end
   end
 end

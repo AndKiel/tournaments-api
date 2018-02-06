@@ -149,6 +149,13 @@ gwent_john:
   status: 1
 
 
+tenkaichi_budokai_john:
+  tournament: tenkaichi_budokai
+  user: john
+  name: John
+  status: 1
+
+
 created_hellen:
   tournament: created
   user: hellen

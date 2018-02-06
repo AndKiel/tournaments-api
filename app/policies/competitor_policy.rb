@@ -15,6 +15,10 @@ class CompetitorPolicy < ApplicationPolicy
     record.status.enlisted? && record.tournament.status.created?
   end
 
+  def reject?
+    record.status.confirmed? && record.tournament.status.created?
+  end
+
   class Scope < Scope
     def resolve
       scope
