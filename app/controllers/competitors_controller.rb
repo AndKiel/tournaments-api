@@ -39,6 +39,13 @@ class CompetitorsController < ApplicationController
     render_validation_errors(form)
   end
 
+  def remove
+    competitor = current_user.tournament_competitors.where(user_id: nil).find(params[:id])
+    authorize competitor, :destroy?
+    competitor.destroy!
+    head :no_content
+  end
+
   def confirm
     competitor = current_user.tournament_competitors.find(params[:id])
     authorize competitor

@@ -1,4 +1,16 @@
 displayName: Competitors
+/{id}/remove:
+  uriParameters:
+    id:
+      description: The id of the competitor
+      type: uuid
+  delete:
+    description: Remove competitor from a tournament. User can remove only competitors he created.
+    securedBy: [oauth]
+    is: [authenticable, authorizable, findable]
+    responses:
+      204:
+
 /{id}/confirm:
   uriParameters:
     id:

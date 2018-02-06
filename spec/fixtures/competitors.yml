@@ -33,6 +33,11 @@ discworld_anne:
   name: Anne
   status: 1
 
+discworld_anon:
+  tournament: discworld
+  name: Anon
+  status: 1
+
 discworld_cathy:
   tournament: discworld
   user: cathy
@@ -93,6 +98,10 @@ discworld_thomas:
   name: Thomas
   status: 1
 
+
+game_of_thrones_anon:
+  tournament: game_of_thrones
+  name: Anon
 
 game_of_thrones_hellen:
   tournament: game_of_thrones

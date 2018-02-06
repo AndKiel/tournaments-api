@@ -142,6 +142,30 @@ RSpec.describe 'Competitors', type: :request do
       end
     end
 
+    describe 'DELETE /competitors/:id/remove' do
+      context 'when conditions for remove are met' do
+        let(:competitor) { competitors(:game_of_thrones_anon) }
+
+        it 'deletes Competitor' do
+          delete remove_competitor_path(competitor.id),
+                 headers: auth_headers
+          expect(response).to have_http_status(:no_content)
+          expect(response.body).to be_empty
+        end
+      end
+
+      context 'when conditions for remove are not met' do
+        let(:competitor) { competitors(:discworld_anon) }
+
+        it 'returns error' do
+          delete remove_competitor_path(competitor.id),
+                 headers: auth_headers
+          expect(response).to have_http_status(:forbidden)
+          expect(response.body).to match_json_expression(error_json)
+        end
+      end
+    end
+
     describe 'POST /competitors/:id/confirm' do
       context 'when conditions for confirm are met' do
         let(:competitor) { competitors(:created_hellen) }
