@@ -18,6 +18,7 @@
 #                      PATCH  /tournaments/:id(.:format)         tournaments#update
 #                      PUT    /tournaments/:id(.:format)         tournaments#update
 #                      DELETE /tournaments/:id(.:format)         tournaments#destroy
+#              results GET    /results(.:format)                 results#index
 #       add_competitor POST   /competitor/add(.:format)          competitors#add
 #           competitor DELETE /competitor(.:format)              competitors#destroy
 #                      POST   /competitor(.:format)              competitors#create
@@ -56,6 +57,8 @@ Rails.application.routes.draw do
       post :end
     end
   end
+
+  resources :results, only: %i[index]
 
   resource :competitor, only: %i[create destroy] do
     member do

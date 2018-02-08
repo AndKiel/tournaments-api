@@ -60,6 +60,12 @@ module JsonHelpers
   )
 
   define_responses(
+    'result',
+    competitor_id: String,
+    total: Array
+  )
+
+  define_responses(
     'round',
     competitors_limit: Integer,
     created_at: ::JsonExpressions::DATE_MATCHER,

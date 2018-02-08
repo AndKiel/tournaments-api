@@ -1,0 +1,13 @@
+displayName: Results
+get:
+  description: Retrieve total results for each competitor in a tournament, sorted from highest to lowest.
+  is: [findable]
+  queryParameters:
+    tournament_id:
+      description: The id of the tournament
+      type: uuid
+  responses:
+    200:
+      body:
+        properties:
+          results: Result[]

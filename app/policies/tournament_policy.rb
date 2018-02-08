@@ -21,6 +21,10 @@ class TournamentPolicy < ApplicationPolicy
     true
   end
 
+  def results?
+    true
+  end
+
   def create?
     organised_by_user?
   end
