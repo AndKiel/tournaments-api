@@ -1,3 +1,4 @@
 en:
   errors:
     password_confirmed?: 'does not match password'
+    future_date?: 'must be a future date'

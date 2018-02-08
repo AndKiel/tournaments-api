@@ -30,6 +30,6 @@ class TournamentForm < Reform::Form
             timeliness: {
               after: :now,
               type: :datetime,
-              after_message: 'must be a future date'
+              after_message: I18n.t('errors.future_date?')
             }
 end
