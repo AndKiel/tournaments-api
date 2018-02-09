@@ -22,7 +22,8 @@
 #
 
 class CompetitorSerializer < ActiveModel::Serializer
-  attributes :id,
+  attributes :created_at,
+             :id,
              :name,
              :status,
              :user_id

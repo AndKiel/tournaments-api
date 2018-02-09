@@ -45,6 +45,7 @@ module JsonHelpers
 
   define_responses(
     'competitor',
+    created_at: ::JsonExpressions::DATE_MATCHER,
     id: String,
     name: String,
     status: String,
