@@ -40,7 +40,7 @@ RSpec.describe User::SignUpForm do
       password_confirmation: 'orNot'
     )
     expect(result).to be false
-    expect(subject.errors[:password_confirmation]).to include I18n.t('errors.password_confirmed?')
+    expect(subject.errors[:password_confirmation]).to include I18n.t('errors.messages.password_mismatch')
   end
 
   it 'returns true for valid attributes' do

@@ -1,4 +1,8 @@
 en:
   errors:
-    password_confirmed?: 'does not match password'
-    future_date?: 'must be a future date'
+    messages:
+      password_mismatch: 'does not match password'
+      future_date: 'must be a future date'
+    attributes:
+      result_values:
+        invalid: 'provide all values, only integers are accepted'

@@ -12,7 +12,7 @@ RSpec.describe PlayerForm do
   it 'validates length of result values' do
     result = subject.validate(result_values: [1])
     expect(result).to be false
-    expect(subject.errors[:result_values]).to include I18n.t('errors.messages.wrong_length.other', count: 2)
+    expect(subject.errors[:result_values]).to include I18n.t('errors.attributes.result_values.invalid')
   end
 
   it 'ignores non-integer result values' do

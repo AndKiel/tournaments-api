@@ -15,6 +15,6 @@ class PlayerForm < Reform::Form
 
   def length_of_result_values
     count = model.tournament.result_names.length
-    errors.add(:result_values, :wrong_length, count: count) unless result_values.length == count
+    errors.add(:result_values, :invalid) unless result_values.length == count
   end
 end

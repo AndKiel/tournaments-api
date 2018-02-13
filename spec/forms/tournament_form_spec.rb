@@ -49,9 +49,8 @@ RSpec.describe TournamentForm do
     expect(subject.errors[:starts_at]).to include I18n.t('errors.messages.invalid_datetime')
 
     result = subject.validate(starts_at: 1.day.ago)
-    restriction = Time.current.strftime('%Y-%m-%d %H:%M:%S')
     expect(result).to be false
-    expect(subject.errors[:starts_at]).to include I18n.t('errors.future_date?')
+    expect(subject.errors[:starts_at]).to include I18n.t('errors.messages.future_date')
   end
 
   it 'returns true for valid attributes' do

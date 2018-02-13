@@ -10,7 +10,7 @@ class User < ApplicationRecord
               unique: true
 
     def password_confirmed?
-      errors.add(:password_confirmation, I18n.t('errors.password_confirmed?')) if password != password_confirmation
+      errors.add(:password_confirmation, :password_mismatch) if password != password_confirmation
     end
   end
 end
