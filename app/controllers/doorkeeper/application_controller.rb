@@ -1,10 +1,14 @@
 # HACK: doorkeeper does not support Rails API at this moment
-# It is necessary to remove protect_from_forgery so it can work in production
+# For it to work it is necessary to:
+# - disable protect_from_forgery
+# - override layout (used by ApplicationsController)
 module Doorkeeper
   class ApplicationController < Doorkeeper.configuration.base_controller.constantize
-    include Helpers::Controller
+    # include Helpers::Controller
 
     # protect_from_forgery with: :exception
     # helper 'doorkeeper/dashboard'
+
+    def self.layout(*); end
   end
 end
