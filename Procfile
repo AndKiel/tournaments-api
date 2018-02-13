@@ -1,1 +1,1 @@
-web: bundle exec rail s
+web: bundle exec rails s
