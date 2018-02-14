@@ -4,6 +4,6 @@ module TournamentFilters
   included do
     include Filterable
 
-    filter :starts_at_after, ->(date) { where('starts_at > ?', date) }
+    filter :starts_at_after, ->(date) { where('starts_at > ?', date) if date.present? }
   end
 end
