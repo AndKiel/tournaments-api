@@ -4,6 +4,8 @@ Back-end for tournament management application.
 
 Documentation is available [here](https://andkiel.github.io/tournaments-api/index.html).
 
+[Demo](http://tournaments-api.herokuapp.com/).
+
 ### Setup ###
 
 First Docker build: `docker-compose build`.
