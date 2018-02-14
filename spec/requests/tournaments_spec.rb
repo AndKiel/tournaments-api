@@ -11,10 +11,12 @@ RSpec.describe 'Tournaments', type: :request do
 
     it 'allows filtering' do
       expect(Tournament).to receive(:starts_at_after).and_call_original
+      expect(Tournament).to receive(:with_name).and_call_original
       get tournaments_path,
           params: {
             filters: {
-              starts_at_after: 1.day.since
+              starts_at_after: 1.day.since,
+              with_name: ''
             }
           }
       expect(response).to have_http_status(:ok)
@@ -48,10 +50,12 @@ RSpec.describe 'Tournaments', type: :request do
 
     it 'allows filtering' do
       expect(Tournament).to receive(:starts_at_after).and_call_original
+      expect(Tournament).to receive(:with_name).and_call_original
       get tournaments_path,
           params: {
             filters: {
-              starts_at_after: 1.day.since
+              starts_at_after: 1.day.since,
+              with_name: ''
             }
           }
       expect(response).to have_http_status(:ok)
