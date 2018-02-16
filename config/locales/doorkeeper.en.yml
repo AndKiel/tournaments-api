@@ -1,5 +1,0 @@
-en:
-  doorkeeper:
-    errors:
-      messages:
-        invalid_resource_owner: 'The provided user credentials are not valid, or user cannot be found.'

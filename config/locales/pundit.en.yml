@@ -1,5 +1,0 @@
-en:
-  pundit:
-    default: 'You cannot perform this action.'
-    tournament_policy:
-      start?: 'You cannot start a tournament before its set date.'

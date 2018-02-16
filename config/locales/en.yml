@@ -1,0 +1,17 @@
+en:
+  doorkeeper:
+    errors:
+      messages:
+        invalid_resource_owner: 'The provided user credentials are not valid, or user cannot be found.'
+  errors:
+    messages:
+      invalid_datetime: 'is not a valid datetime'
+      future_date: 'must be a future date'
+      password_mismatch: 'does not match password'
+    attributes:
+      result_values:
+        invalid: 'provide all values, only integers are accepted'
+  pundit:
+    default: 'You cannot perform this action.'
+    tournament_policy:
+      start?: 'You cannot start a tournament before its set date.'

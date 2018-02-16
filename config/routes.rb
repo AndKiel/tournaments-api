@@ -1,80 +1,84 @@
 # == Route Map
 #
-#               Prefix Verb   URI Pattern                        Controller#Action
-#                 root GET    /                                  tournaments#index
-#          oauth_token POST   /oauth/token(.:format)             doorkeeper/tokens#create
-#         oauth_revoke POST   /oauth/revoke(.:format)            doorkeeper/tokens#revoke
-#     oauth_token_info GET    /oauth/token/info(.:format)        doorkeeper/token_info#show
-#        sign_up_users POST   /users/sign_up(.:format)           users#sign_up
-#                 user GET    /user(.:format)                    users#show
-#                      PATCH  /user(.:format)                    users#update
-#                      PUT    /user(.:format)                    users#update
-# enlisted_tournaments GET    /tournaments/enlisted(.:format)    tournaments#enlisted
-#     start_tournament POST   /tournaments/:id/start(.:format)   tournaments#start
-#       end_tournament POST   /tournaments/:id/end(.:format)     tournaments#end
-#          tournaments GET    /tournaments(.:format)             tournaments#index
-#                      POST   /tournaments(.:format)             tournaments#create
-#           tournament GET    /tournaments/:id(.:format)         tournaments#show
-#                      PATCH  /tournaments/:id(.:format)         tournaments#update
-#                      PUT    /tournaments/:id(.:format)         tournaments#update
-#                      DELETE /tournaments/:id(.:format)         tournaments#destroy
-#              results GET    /results(.:format)                 results#index
-#       add_competitor POST   /competitor/add(.:format)          competitors#add
-#           competitor DELETE /competitor(.:format)              competitors#destroy
-#                      POST   /competitor(.:format)              competitors#create
-#    remove_competitor DELETE /competitors/:id/remove(.:format)  competitors#remove
-#   confirm_competitor POST   /competitors/:id/confirm(.:format) competitors#confirm
-#    reject_competitor POST   /competitors/:id/reject(.:format)  competitors#reject
-#               rounds POST   /rounds(.:format)                  rounds#create
-#                round PATCH  /rounds/:id(.:format)              rounds#update
-#                      PUT    /rounds/:id(.:format)              rounds#update
-#                      DELETE /rounds/:id(.:format)              rounds#destroy
-#              players POST   /players(.:format)                 players#create
-#               player PATCH  /players/:id(.:format)             players#update
-#                      PUT    /players/:id(.:format)             players#update
-#
+#               Prefix Verb   URI Pattern                                  Controller#Action
+#                 root GET    /(:locale)(.:format)                         tournaments#index {:locale=>/en/}
+#          oauth_token POST   (/:locale)/oauth/token(.:format)             doorkeeper/tokens#create {:locale=>/en/}
+#         oauth_revoke POST   (/:locale)/oauth/revoke(.:format)            doorkeeper/tokens#revoke {:locale=>/en/}
+#     oauth_token_info GET    (/:locale)/oauth/token/info(.:format)        doorkeeper/token_info#show {:locale=>/en/}
+#        sign_up_users POST   (/:locale)/users/sign_up(.:format)           users#sign_up {:locale=>/en/}
+#                 user GET    (/:locale)/user(.:format)                    users#show {:locale=>/en/}
+#                      PATCH  (/:locale)/user(.:format)                    users#update {:locale=>/en/}
+#                      PUT    (/:locale)/user(.:format)                    users#update {:locale=>/en/}
+# enlisted_tournaments GET    (/:locale)/tournaments/enlisted(.:format)    tournaments#enlisted {:locale=>/en/}
+#     start_tournament POST   (/:locale)/tournaments/:id/start(.:format)   tournaments#start {:locale=>/en/}
+#       end_tournament POST   (/:locale)/tournaments/:id/end(.:format)     tournaments#end {:locale=>/en/}
+#          tournaments GET    (/:locale)/tournaments(.:format)             tournaments#index {:locale=>/en/}
+#                      POST   (/:locale)/tournaments(.:format)             tournaments#create {:locale=>/en/}
+#           tournament GET    (/:locale)/tournaments/:id(.:format)         tournaments#show {:locale=>/en/}
+#                      PATCH  (/:locale)/tournaments/:id(.:format)         tournaments#update {:locale=>/en/}
+#                      PUT    (/:locale)/tournaments/:id(.:format)         tournaments#update {:locale=>/en/}
+#                      DELETE (/:locale)/tournaments/:id(.:format)         tournaments#destroy {:locale=>/en/}
+#              results GET    (/:locale)/results(.:format)                 results#index {:locale=>/en/}
+#       add_competitor POST   (/:locale)/competitor/add(.:format)          competitors#add {:locale=>/en/}
+#           competitor DELETE (/:locale)/competitor(.:format)              competitors#destroy {:locale=>/en/}
+#                      POST   (/:locale)/competitor(.:format)              competitors#create {:locale=>/en/}
+#    remove_competitor DELETE (/:locale)/competitors/:id/remove(.:format)  competitors#remove {:locale=>/en/}
+#   confirm_competitor POST   (/:locale)/competitors/:id/confirm(.:format) competitors#confirm {:locale=>/en/}
+#    reject_competitor POST   (/:locale)/competitors/:id/reject(.:format)  competitors#reject {:locale=>/en/}
+#               rounds POST   (/:locale)/rounds(.:format)                  rounds#create {:locale=>/en/}
+#                round PATCH  (/:locale)/rounds/:id(.:format)              rounds#update {:locale=>/en/}
+#                      PUT    (/:locale)/rounds/:id(.:format)              rounds#update {:locale=>/en/}
+#                      DELETE (/:locale)/rounds/:id(.:format)              rounds#destroy {:locale=>/en/}
+#              players POST   (/:locale)/players(.:format)                 players#create {:locale=>/en/}
+#               player PATCH  (/:locale)/players/:id(.:format)             players#update {:locale=>/en/}
+#                      PUT    (/:locale)/players/:id(.:format)             players#update {:locale=>/en/}
+# 
 
 Rails.application.routes.draw do
-  root 'tournaments#index'
+  scope '(:locale)',
+        locale: /#{I18n.available_locales.join("|")}/,
+        defaults: { locale: I18n.default_locale } do
+    root 'tournaments#index'
 
-  use_doorkeeper do
-    skip_controllers :applications, :authorizations, :authorized_applications
-  end
-
-  resources :users, only: :none do
-    collection do
-      post :sign_up
+    use_doorkeeper do
+      skip_controllers :applications, :authorizations, :authorized_applications
     end
-  end
-  resource :user, only: %i[show update]
 
-  resources :tournaments, only: %i[index show create update destroy] do
-    collection do
-      get :enlisted
+    resources :users, only: :none do
+      collection do
+        post :sign_up
+      end
     end
-    member do
-      post :start
-      post :end
+    resource :user, only: %i[show update]
+
+    resources :tournaments, only: %i[index show create update destroy] do
+      collection do
+        get :enlisted
+      end
+      member do
+        post :start
+        post :end
+      end
     end
-  end
 
-  resources :results, only: %i[index]
+    resources :results, only: %i[index]
 
-  resource :competitor, only: %i[create destroy] do
-    member do
-      post :add
+    resource :competitor, only: %i[create destroy] do
+      member do
+        post :add
+      end
     end
-  end
-  resources :competitors, only: :none do
-    member do
-      delete :remove
-      post :confirm
-      post :reject
+    resources :competitors, only: :none do
+      member do
+        delete :remove
+        post :confirm
+        post :reject
+      end
     end
+
+    resources :rounds, only: %i[create update destroy]
+
+    resource :players, only: :create
+    resources :players, only: :update
   end
-
-  resources :rounds, only: %i[create update destroy]
-
-  resource :players, only: :create
-  resources :players, only: :update
 end
