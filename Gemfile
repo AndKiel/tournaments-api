@@ -8,7 +8,7 @@ end
 
 
 # Base
-gem 'rails', '~> 5.1.4'
+gem 'rails', '~> 5.1.5'
 gem 'pg'
 gem 'puma'
 gem 'figaro'
@@ -23,6 +23,7 @@ gem 'pry-byebug'
 # Users, authentication, authorization
 gem 'bcrypt'
 gem 'doorkeeper'
+gem 'doorkeeper-i18n'
 gem 'pundit'
 
 
