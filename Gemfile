@@ -45,6 +45,7 @@ gem 'validates_timeliness'
 gem 'active_model_serializers'
 gem 'enumerize'
 gem 'kaminari'
+gem 'oj'
 gem 'scenic'
 
 
