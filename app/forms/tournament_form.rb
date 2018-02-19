@@ -31,5 +31,6 @@ class TournamentForm < Reform::Form
               after: :now,
               type: :datetime,
               after_message: I18n.t('errors.messages.future_date')
-            }
+            },
+            if: ->(*) { model.status.created? }
 end
