@@ -3,7 +3,7 @@ class ResultsController < ApplicationController
 
   def index
     tournament = Tournament.find(params[:tournament_id])
-    authorize tournament
+    authorize tournament, :results?
     render json: tournament.results
   end
 end
