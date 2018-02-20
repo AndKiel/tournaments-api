@@ -32,7 +32,7 @@
 #              players POST   (/:locale)/players(.:format)                 players#create {:locale=>/en/}
 #               player PATCH  (/:locale)/players/:id(.:format)             players#update {:locale=>/en/}
 #                      PUT    (/:locale)/players/:id(.:format)             players#update {:locale=>/en/}
-# 
+#
 
 Rails.application.routes.draw do
   scope '(:locale)',
