@@ -1,6 +1,6 @@
 displayName: Players
 post:
-  description: Assign players to tables in a tournament round. Assignment is randomized for the first round and based on score for the following rounds. User can assign players only in tournaments he created.
+  description: Assign players to tables in a tournament round. For the first round assignment is random. If consecutive rounds have the same competitors limit and tables count, algorithm tries to pair up competitors who haven't met yet. Otherwise it's based on score. User can assign players only in tournaments he created.
   securedBy: [oauth]
   is: [authenticable, authorizable]
   queryParameters:
