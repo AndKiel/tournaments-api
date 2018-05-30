@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.5.0'
+ruby '2.5.1'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
@@ -8,16 +8,16 @@ end
 
 
 # Base
-gem 'rails', '~> 5.1.5'
+gem 'figaro'
 gem 'pg'
 gem 'puma'
-gem 'figaro'
 gem 'rack-cors'
+gem 'rails', '~> 5.2.0'
 
 
 # Debugging
-gem 'pry-rails'
 gem 'pry-byebug'
+gem 'pry-rails'
 
 
 # Users, authentication, authorization

@@ -3,8 +3,8 @@ AllCops:
   ExtraDetails: true
   Exclude:
     - db/schema.rb
-  TargetRubyVersion: 2.4
-  TargetRailsVersion: 5.1
+  TargetRubyVersion: 2.5.1
+  TargetRailsVersion: 5.2.0
 
 Layout/DotPosition:
   EnforcedStyle: trailing
@@ -42,9 +42,6 @@ Style/Documentation:
   Enabled: false
 
 Style/FrozenStringLiteralComment:
-  Enabled: false
-
-Bundler/OrderedGems:
   Enabled: false
 
 Rails:
