@@ -9,3 +9,5 @@ before_script:
 script:
   - bundle exec rails db:setup RAILS_ENV=test
   - bundle exec rspec
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
