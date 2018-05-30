@@ -3,7 +3,6 @@ require 'simplecov'
 SimpleCov.start do
   load_profile 'test_frameworks'
 
-  add_filter %r{^/app/docs/}
   add_filter %r{^/config/}
   add_filter %r{^/db/}
 
