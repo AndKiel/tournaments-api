@@ -8,6 +8,7 @@ end
 
 
 # Base
+gem 'bootsnap', '>= 1.1.0', require: false
 gem 'figaro'
 gem 'pg'
 gem 'puma'
