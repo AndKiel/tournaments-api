@@ -17,3 +17,11 @@ SimpleCov.start do
 
   track_files '{app,lib}/**/*.rb'
 end
+
+if ENV['CI'] == 'true'
+  require 'codecov'
+  SimpleCov.formatters = SimpleCov::Formatter::MultiFormatter.new([
+                                                                    SimpleCov::Formatter::HTMLFormatter,
+                                                                    SimpleCov.formatter = SimpleCov::Formatter::Codecov
+                                                                  ])
+end
