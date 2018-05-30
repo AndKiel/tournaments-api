@@ -1,0 +1,10 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch('DATABASE_POOL', 5) %>
+
+test:
+  <<: *default
+  database: tournaments-api-test
+  username: postgres
+  host: localhost

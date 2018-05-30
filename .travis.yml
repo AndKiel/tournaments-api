@@ -1,0 +1,11 @@
+language: ruby
+rvm:
+  - 2.5.1
+cache: bundler
+addons:
+  postgresql: '9.6'
+before_script:
+  - cp config/database.yml.travis config/database.yml
+script:
+  - bundle exec rails db:setup RAILS_ENV=test
+  - bundle exec rspec
