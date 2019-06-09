@@ -3,7 +3,7 @@ rvm:
   - 2.6.3
 cache: bundler
 addons:
-  postgresql: '9.6'
+  postgresql: '11.3'
 before_script:
   - cp config/database.yml.travis config/database.yml
 script:
