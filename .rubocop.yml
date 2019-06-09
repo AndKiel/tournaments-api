@@ -3,7 +3,7 @@ AllCops:
   ExtraDetails: true
   Exclude:
     - db/schema.rb
-  TargetRubyVersion: 2.5.1
+  TargetRubyVersion: 2.6.3
   TargetRailsVersion: 5.2.0
 
 Layout/DotPosition:
