@@ -13,6 +13,9 @@ start:
 test:
 	docker-compose run --rm web "bundle exec rspec"
 
+annotate:
+	docker-compose run --rm web "bundle exec annotate"
+
 documentation:
 	docker-compose run --rm docs
 

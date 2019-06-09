@@ -2,12 +2,12 @@
 #
 # Table name: competitors
 #
-#  created_at    :datetime         not null
 #  id            :uuid             not null, primary key
 #  name          :string           not null
 #  status        :integer          default("enlisted"), not null
-#  tournament_id :uuid             not null
+#  created_at    :datetime         not null
 #  updated_at    :datetime         not null
+#  tournament_id :uuid             not null
 #  user_id       :uuid
 #
 # Indexes

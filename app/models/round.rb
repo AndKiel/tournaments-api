@@ -2,12 +2,12 @@
 #
 # Table name: rounds
 #
-#  competitors_limit :integer          not null
-#  created_at        :datetime         not null
 #  id                :uuid             not null, primary key
+#  competitors_limit :integer          not null
 #  tables_count      :integer          not null
-#  tournament_id     :uuid             not null
+#  created_at        :datetime         not null
 #  updated_at        :datetime         not null
+#  tournament_id     :uuid             not null
 #
 # Indexes
 #

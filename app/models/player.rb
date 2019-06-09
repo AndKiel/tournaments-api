@@ -2,13 +2,13 @@
 #
 # Table name: players
 #
-#  competitor_id :uuid             not null
-#  created_at    :datetime         not null
 #  id            :uuid             not null, primary key
 #  result_values :integer          default([]), not null, is an Array
-#  round_id      :uuid             not null
 #  table_number  :integer          not null
+#  created_at    :datetime         not null
 #  updated_at    :datetime         not null
+#  competitor_id :uuid             not null
+#  round_id      :uuid             not null
 #
 # Indexes
 #

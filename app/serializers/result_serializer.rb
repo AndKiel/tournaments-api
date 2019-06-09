@@ -2,8 +2,8 @@
 #
 # Table name: results
 #
+#  total         :bigint           is an Array
 #  competitor_id :uuid
-#  total         :integer          is an Array
 #  tournament_id :uuid
 #
 

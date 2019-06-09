@@ -2,16 +2,16 @@
 #
 # Table name: tournaments
 #
-#  competitors_limit :integer          not null
-#  created_at        :datetime         not null
-#  description       :text             default(""), not null
 #  id                :uuid             not null, primary key
+#  competitors_limit :integer          not null
+#  description       :text             default(""), not null
 #  name              :string           not null
-#  organiser_id      :uuid             not null
 #  result_names      :string           not null, is an Array
 #  starts_at         :datetime
 #  status            :integer          default("created"), not null
+#  created_at        :datetime         not null
 #  updated_at        :datetime         not null
+#  organiser_id      :uuid             not null
 #
 # Indexes
 #

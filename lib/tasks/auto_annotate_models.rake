@@ -34,18 +34,20 @@ if Rails.env.development?
       'ignore_columns' => nil,
       'ignore_routes' => nil,
       'ignore_unknown_models' => 'false',
-      'hide_limit_column_types' => 'integer,boolean',
-      'hide_default_column_types' => 'json,jsonb,hstore',
+      'hide_limit_column_types' => AnnotateModels::NO_LIMIT_COL_TYPES.join(","),
+      'hide_default_column_types' => AnnotateModels::NO_DEFAULT_COL_TYPES.join(","),
       'skip_on_db_migrate' => 'false',
       'format_bare' => 'true',
       'format_rdoc' => 'false',
       'format_markdown' => 'false',
       'sort' => 'true',
       'force' => 'false',
+      'frozen' => 'false',
+      'classified_sort' => 'true',
       'trace' => 'false',
       'wrapper_open' => nil,
       'wrapper_close' => nil,
-      'with_comment' => true
+      'with_comment' => 'true'
     )
   end
 
