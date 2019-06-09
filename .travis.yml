@@ -1,7 +1,8 @@
 language: ruby
-rvm:
-  - 2.6.3
+rvm: 2.6.3
 cache: bundler
+services:
+  - postgresql
 addons:
   postgresql: '11.3'
 before_script:
