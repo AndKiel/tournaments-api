@@ -1,10 +1,12 @@
 language: ruby
 rvm: 2.6.3
 cache: bundler
-services:
-  - postgresql
 addons:
   postgresql: '11.3'
+  apt:
+    packages:
+      - postgresql-11
+      - postgresql-client-11
 before_script:
   - cp config/database.yml.travis config/database.yml
 script:
