@@ -21,6 +21,7 @@
 #  fk_rails_...  (user_id => users.id)
 #
 
+# TODO: replace fixtures with factory bot
 discworld_andrew:
   tournament: discworld
   user: andrew

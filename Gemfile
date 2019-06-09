@@ -23,7 +23,7 @@ gem 'pry-rails'
 
 # Users, authentication, authorization
 gem 'bcrypt'
-gem 'doorkeeper', '~> 4.4.3'
+gem 'doorkeeper', '~> 4.4.3' # TODO: upgrade doorkeeper to v5
 gem 'doorkeeper-i18n'
 gem 'pundit'
 
