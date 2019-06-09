@@ -1,11 +1,11 @@
-version: '3.3'
+version: '3.7'
 
 services:
   db:
-    image: postgres:9.6
+    image: postgres:11.3
     environment:
-      POSTGRES_PASSWORD: postgres
       POSTGRES_DB: tournaments-api-development
+      POSTGRES_PASSWORD: postgres
     ports:
       - '5432:5432'
 
@@ -16,16 +16,11 @@ services:
     volumes:
       - ./docs:/docs
 
-#  redis:
-#    image: redis:latest
-#    ports:
-#      - '6379:6379'
-
   schema:
-    image: sualeh/schemacrawler:latest
-    working_dir: /schemacrawler
-    command: ./schemacrawler.sh -infolevel=standard -command=schema -sortcolumns -portablenames -outputformat=pdf -outputfile=/docs/db-schema.pdf -server=postgresql -url="jdbc:postgresql://db:5432/tournaments-api-development" -u=postgres -password=postgres
-    links:
+    image: schemacrawler/schemacrawler:latest
+    entrypoint: ['/opt/schemacrawler/schemacrawler.sh']
+    command: -infolevel=standard -command=schema -sortcolumns -portablenames -outputformat=pdf -outputfile=/docs/db-schema.pdf -server=postgresql -url="jdbc:postgresql://db:5432/tournaments-api-development" -u=postgres -password=postgres
+    depends_on:
       - db
     volumes:
       - ./docs:/docs
@@ -33,14 +28,14 @@ services:
   web:
     build: .
     working_dir: /tournaments-api
-    command: bash -c "rm -f tmp/pids/server.pid && bundle install && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    entrypoint: ["bash", "-c"]
+    command: ["rm -f tmp/pids/server.pid && bundle install && bundle exec rails s -p 3000 -b '0.0.0.0'"]
     environment:
       BUNDLE_PATH: /bundle_cache
       GEM_HOME: /bundle_cache # without it spring cannot find gems
       WEB_CONCURRENCY: 1
-    links:
+    depends_on:
       - db
-#      - redis
     ports:
       - '3000:3000'
     tty: true
