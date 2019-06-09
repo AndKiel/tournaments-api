@@ -28,7 +28,7 @@ class Tournament < ApplicationRecord
 
   belongs_to :organiser, class_name: 'User', inverse_of: :tournaments
   has_many :competitors, -> { order(:created_at) }, inverse_of: :tournament, dependent: :destroy
-  has_many :results # rubocop:disable Rails/HasManyOrHasOneDependent
+  has_many :results
   has_many :rounds, -> { order(:created_at) }, inverse_of: :tournament, dependent: :destroy
 
   enumerize :status,

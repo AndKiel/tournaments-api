@@ -29,19 +29,19 @@ class MatchmakingService
   end
 
   def random_assignment
-    competitor_ids = @tournament.competitors.
-                     with_status(:confirmed).
-                     limit(@round.competitors_limit).
-                     pluck(:id)
+    competitor_ids = @tournament.competitors
+                       .with_status(:confirmed)
+                       .limit(@round.competitors_limit)
+                       .pluck(:id)
     competitor_ids.shuffle!
     create_players(competitor_ids)
   end
 
 
   def elimination_round?
-    @elimination_rounds = @tournament.rounds.
-                          where(competitors_limit: @round.competitors_limit, tables_count: @round.tables_count).
-                          all
+    @elimination_rounds = @tournament.rounds
+                            .where(competitors_limit: @round.competitors_limit, tables_count: @round.tables_count)
+                            .all
     @elimination_index = @elimination_rounds.find_index(@round)
     @elimination_index.positive?
   end
@@ -66,9 +66,9 @@ class MatchmakingService
 
 
   def swiss_assignment
-    competitor_ids = @tournament.results.
-                     limit(@round.competitors_limit).
-                     pluck(:competitor_id)
+    competitor_ids = @tournament.results
+                       .limit(@round.competitors_limit)
+                       .pluck(:competitor_id)
     create_players(competitor_ids)
   end
 

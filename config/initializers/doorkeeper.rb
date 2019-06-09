@@ -13,6 +13,7 @@ Doorkeeper.configure do
     unless resource_owner&.password == params[:password]
       raise Doorkeeper::Errors::DoorkeeperError, 'invalid_resource_owner'
     end
+
     resource_owner
   end
 
