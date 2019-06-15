@@ -11,6 +11,9 @@ AllCops:
   TargetRubyVersion: 2.6.3
   TargetRailsVersion: 5.2.3
 
+Layout/ClassStructure:
+  Enabled: true
+
 Layout/EmptyLines:
   Enabled: false
 
@@ -40,9 +43,18 @@ Metrics/MethodLength:
     - db/migrate/*
   Max: 25
 
+Style/DateTime:
+  Enabled: true
+
 Style/Documentation:
   Enabled: false
+
+Style/ImplicitRuntimeError:
+  Enabled: true
 
 Style/MixinUsage:
   Exclude:
     - bin/*
+
+Style/Send:
+  Enabled: true
