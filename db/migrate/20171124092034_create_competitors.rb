@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateCompetitors < ActiveRecord::Migration[5.1]
   def change
     create_table :competitors, id: :uuid do |t|

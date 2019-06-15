@@ -43,9 +43,6 @@ Metrics/MethodLength:
 Style/Documentation:
   Enabled: false
 
-Style/FrozenStringLiteralComment:
-  Enabled: false
-
 Style/MixinUsage:
   Exclude:
     - bin/*

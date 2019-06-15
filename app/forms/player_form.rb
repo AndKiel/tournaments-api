@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PlayerForm < Reform::Form
   property :result_values,
            populator: lambda { |fragment:, **|

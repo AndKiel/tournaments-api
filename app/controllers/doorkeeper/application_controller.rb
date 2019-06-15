@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # HACK: doorkeeper does not support Rails API at this moment
 # For it to work it is necessary to:
 # - disable protect_from_forgery

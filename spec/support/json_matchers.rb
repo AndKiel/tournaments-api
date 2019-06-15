@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # based on JsonExpressions::WILDCARD_MATCHER
 module JsonExpressions
   DATE_MATCHER = Object.new.tap do |matcher|

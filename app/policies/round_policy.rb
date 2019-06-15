@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RoundPolicy < ApplicationPolicy
   def permitted_attributes
     %i[competitors_limit tables_count]

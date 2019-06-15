@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ControllerMacros
   def define_anonymous_action(kontroller = 'anonymous', &action)
     controller do

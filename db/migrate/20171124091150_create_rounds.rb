@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateRounds < ActiveRecord::Migration[5.1]
   def change
     create_table :rounds, id: :uuid do |t|

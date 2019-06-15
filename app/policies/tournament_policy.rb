@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TournamentPolicy < ApplicationPolicy
   def permitted_attributes
     [

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PlayersController < ApplicationController
   before_action :doorkeeper_authorize!
   after_action :verify_authorized

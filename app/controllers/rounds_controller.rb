@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RoundsController < ApplicationController
   before_action :doorkeeper_authorize!
   after_action :verify_authorized

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # NOTE: only doing this in development as some production environments (Heroku)
 # NOTE: are sensitive to local FS writes, and besides -- it's just not proper
 # NOTE: to have a dev-mode tool do its thing in production.
@@ -34,8 +36,8 @@ if Rails.env.development?
       'ignore_columns' => nil,
       'ignore_routes' => nil,
       'ignore_unknown_models' => 'false',
-      'hide_limit_column_types' => AnnotateModels::NO_LIMIT_COL_TYPES.join(","),
-      'hide_default_column_types' => AnnotateModels::NO_DEFAULT_COL_TYPES.join(","),
+      'hide_limit_column_types' => AnnotateModels::NO_LIMIT_COL_TYPES.join(','),
+      'hide_default_column_types' => AnnotateModels::NO_DEFAULT_COL_TYPES.join(','),
       'skip_on_db_migrate' => 'false',
       'format_bare' => 'true',
       'format_rdoc' => 'false',

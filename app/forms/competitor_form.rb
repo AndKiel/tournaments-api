@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CompetitorForm < Reform::Form
   property :name
   property :tournament_id, writeable: false

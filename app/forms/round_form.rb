@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RoundForm < Reform::Form
   property :competitors_limit
   property :tables_count

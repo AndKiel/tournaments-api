@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TournamentForm < Reform::Form
   property :competitors_limit
   property :description

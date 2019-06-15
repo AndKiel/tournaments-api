@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TournamentsController < ApplicationController
   before_action :doorkeeper_authorize!, only: %i[enlisted create update destroy start end]
   after_action :verify_authorized
