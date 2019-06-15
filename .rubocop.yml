@@ -8,7 +8,7 @@ AllCops:
   ExtraDetails: true
   Exclude:
     - db/schema.rb
-  TargetRubyVersion: 2.6.3
+  TargetRubyVersion: 2.6
   TargetRailsVersion: 5.2.3
 
 Layout/ClassStructure:
