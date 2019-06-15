@@ -5,10 +5,6 @@ addons:
   postgresql: '9.6'
 before_script:
   - cp config/database.yml.travis config/database.yml
-jobs:
-  include:
-    - stage: "Tests"
-      name: "Rspec"
-      script: bundle exec rails db:setup RAILS_ENV=test && bundle exec rspec
-    - name: "Rubocop"
-      script: bundle exec rubocop
+script:
+  - bundle exec rails db:setup RAILS_ENV=test
+  - bundle exec rspec
