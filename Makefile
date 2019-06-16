@@ -12,7 +12,7 @@ build:
 	docker-compose build
 
 services:
-	docker-compsoe up -d db
+	docker-compose up -d db
 
 install:
 	docker-compose run --rm web "bundle install"
