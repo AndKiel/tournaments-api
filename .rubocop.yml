@@ -1,3 +1,6 @@
+require:
+  - rubocop-rails
+
 AllCops:
   DisplayCopNames: true
   ExtraDetails: true
@@ -37,6 +40,9 @@ Metrics/MethodLength:
   Exclude:
     - db/migrate/*
   Max: 25
+
+Rails/BulkChangeTable:
+  Enabled: false
 
 Style/DateTime:
   Enabled: true

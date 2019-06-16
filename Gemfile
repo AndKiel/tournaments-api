@@ -60,6 +60,7 @@ group :development do
 
   gem 'annotate'
   gem 'rubocop', require: false
+  gem 'rubocop-rails', require: false
 
   # Optimization
   # gem 'derailed_benchmarks'
