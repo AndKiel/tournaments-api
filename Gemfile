@@ -60,8 +60,6 @@ group :development do
 
   gem 'annotate'
   gem 'rubocop', require: false
-  # TODO: Enable when https://github.com/toshimaru/rubocop-rails_config/issues/42 is fixed
-  # gem 'rubocop-rails_config', require: false
 
   # Optimization
   # gem 'derailed_benchmarks'

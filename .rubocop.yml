@@ -1,8 +1,3 @@
-# TODO: Enable when https://github.com/toshimaru/rubocop-rails_config/issues/42 is fixed
-#inherit_gem:
-#  rubocop-rails_config:
-#    - config/rails.yml
-
 AllCops:
   DisplayCopNames: true
   ExtraDetails: true
