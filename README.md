@@ -7,6 +7,8 @@ The back-end for tournament management application.
 
 Documentation for API endpoints is available [here](https://andkiel.github.io/tournaments-api/index.html).
 
+Front-end is available [here](https://github.com/AndKiel/tournaments-api-ui).
+
 ### Prerequisites ###
 
 - [Docker](https://www.docker.com/products/docker-desktop)
@@ -18,8 +20,6 @@ Run `make setup`,
 then launch the app via `make start`.
 
 API will be available at [http://localhost:3000/]().
-
-Front-end is available [here](https://github.com/AndKiel/tournaments-api-ui).
 
 ### Running Tests ###
 

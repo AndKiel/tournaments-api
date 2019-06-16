@@ -1,11 +1,21 @@
 setup:
 	make stop
-	docker-compose build
-	docker-compose up -d db
-	docker-compose run --rm web "bundle install && bundle exec rake db:setup"
+	make build
+	make services
+	make install
+	docker-compose run --rm web "bundle exec rake db:setup"
 
 stop:
 	docker-compose stop
+
+build:
+	docker-compose build
+
+services:
+	docker-compsoe up -d db
+
+install:
+	docker-compose run --rm web "bundle install"
 
 start:
 	docker-compose up web
