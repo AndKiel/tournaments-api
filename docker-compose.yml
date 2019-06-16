@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   db:
-    image: postgres:11.3
+    image: postgres:11.3-alpine
     environment:
       POSTGRES_DB: tournaments-api-development
       POSTGRES_PASSWORD: postgres
