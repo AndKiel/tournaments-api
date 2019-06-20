@@ -33,12 +33,12 @@ class ApplicationPolicy
   def destroy?
     false
   end
-  # :nocov:
 
 
   def scope
     Pundit.policy_scope!(user, record.class)
   end
+  # :nocov:
 
   class Scope
     attr_reader :user, :scope

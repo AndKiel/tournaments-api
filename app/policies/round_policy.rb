@@ -20,10 +20,4 @@ class RoundPolicy < ApplicationPolicy
   def assign_players?
     record.tournament.status.in_progress?
   end
-
-  class Scope < Scope
-    def resolve
-      scope
-    end
-  end
 end

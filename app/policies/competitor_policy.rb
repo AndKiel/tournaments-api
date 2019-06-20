@@ -20,10 +20,4 @@ class CompetitorPolicy < ApplicationPolicy
   def reject?
     record.status.confirmed? && record.tournament.status.created?
   end
-
-  class Scope < Scope
-    def resolve
-      scope
-    end
-  end
 end

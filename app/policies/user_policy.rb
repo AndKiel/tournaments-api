@@ -16,10 +16,4 @@ class UserPolicy < ApplicationPolicy
   def update?
     user.id == record.id
   end
-
-  class Scope < Scope
-    def resolve
-      scope
-    end
-  end
 end

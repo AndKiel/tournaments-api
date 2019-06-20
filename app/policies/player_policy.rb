@@ -10,10 +10,4 @@ class PlayerPolicy < ApplicationPolicy
   def update?
     record.tournament.status.in_progress?
   end
-
-  class Scope < Scope
-    def resolve
-      scope
-    end
-  end
 end
