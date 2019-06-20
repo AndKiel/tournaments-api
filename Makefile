@@ -17,6 +17,9 @@ services:
 install:
 	docker-compose run --rm web "bundle install"
 
+migrate:
+	docker-compose run --rm web "bundle exec rake db:migrate"
+
 start:
 	docker-compose up web
 

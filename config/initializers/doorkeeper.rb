@@ -69,13 +69,15 @@ Doorkeeper.configure do
   # Change the way client credentials are retrieved from the request object.
   # By default it retrieves first from the `HTTP_AUTHORIZATION` header, then
   # falls back to the `:client_id` and `:client_secret` params from the `params` object.
-  # Check out the wiki for more information on customization
+  # Check out https://github.com/doorkeeper-gem/doorkeeper/wiki/Changing-how-clients-are-authenticated
+  # for more information on customization
   # client_credentials :from_basic, :from_params
 
   # Change the way access token is authenticated from the request object.
   # By default it retrieves first from the `HTTP_AUTHORIZATION` header, then
   # falls back to the `:access_token` or `:bearer_token` params from the `params` object.
-  # Check out the wiki for more information on customization
+  # Check out https://github.com/doorkeeper-gem/doorkeeper/wiki/Changing-how-clients-are-authenticated
+  # for more information on customization
   # access_token_methods :from_bearer_authorization, :from_access_token_param, :from_bearer_param
 
   # Change the native redirect uri for client apps
@@ -89,7 +91,21 @@ Doorkeeper.configure do
   # by default in non-development environments). OAuth2 delegates security in
   # communication to the HTTPS protocol so it is wise to keep this enabled.
   #
+  # Callable objects such as proc, lambda, block or any object that responds to
+  # #call can be used in order to allow conditional checks (to allow non-SSL
+  # redirects to localhost for example).
+  #
   # force_ssl_in_redirect_uri !Rails.env.development?
+  #
+  # force_ssl_in_redirect_uri { |uri| uri.host != 'localhost' }
+
+  # Specify what redirect URI's you want to block during creation. Any redirect
+  # URI is whitelisted by default.
+  #
+  # You can use this option in order to forbid URI's with 'javascript' scheme
+  # for example.
+  #
+  # forbid_redirect_uri { |uri| uri.scheme.to_s.downcase == 'javascript' }
 
   # Specify what grant flows are enabled in array of Strings. The valid
   # strings and the flows they enable are:
@@ -108,6 +124,17 @@ Doorkeeper.configure do
   #   http://tools.ietf.org/html/rfc6819#section-4.4.3
   #
   grant_flows %w[password]
+
+  # Hook into the strategies' request & response life-cycle in case your
+  # application needs advanced customization or logging:
+  #
+  # before_successful_strategy_response do |request|
+  #   puts "BEFORE HOOK FIRED! #{request}"
+  # end
+  #
+  # after_successful_strategy_response do |request, response|
+  #   puts "AFTER HOOK FIRED! #{request}, #{response}"
+  # end
 
   # Under some circumstances you might want to have applications auto-approved,
   # so that the user skips the authorization step.
