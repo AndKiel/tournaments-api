@@ -15,6 +15,10 @@ module JsonHelpers
     { error: String, error_description: String }
   end
 
+  def token_info_error_json
+    { error: String, error_description: String, state: String }
+  end
+
   def validation_error_json
     { error: String, fields: Hash }
   end
@@ -37,9 +41,9 @@ module JsonHelpers
         uid: nil
       },
       created_at: Integer,
-      expires_in_seconds: Integer,
+      expires_in: Integer,
       resource_owner_id: String,
-      scopes: Array
+      scope: Array
     }
   end
 

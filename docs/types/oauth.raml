@@ -18,16 +18,16 @@ AccessTokenInfo:
   properties:
     application: Application
     created_at: integer
-    expires_in_seconds: integer
+    expires_in: integer
     resource_owner_id: string
-    scopes: string[]
+    scope: string[]
   example:
     application:
       uid:
     created_at: 1515572788
-    expires_in_seconds: 100
+    expires_in: 100
     resource_owner_id: 6a15b02f-0712-56dc-a290-915475d29abb
-    scopes: ["public"]
+    scope: ["public"]
 
 Application:
   type: object
