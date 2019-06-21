@@ -45,7 +45,7 @@ gem 'validates_timeliness'
 
 
 # JSON and utilities
-gem 'active_model_serializers'
+gem 'blueprinter'
 gem 'enumerize'
 gem 'kaminari'
 gem 'oj'

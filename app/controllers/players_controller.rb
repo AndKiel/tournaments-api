@@ -10,7 +10,7 @@ class PlayersController < ApplicationController
     round = current_user.tournament_rounds.find(params[:round_id])
     authorize round, :assign_players?
     players = MatchmakingService.new(round).call
-    render json: players,
+    render json: PlayerSerializer.render(players, root: :players),
            status: :created
   end
 
@@ -20,7 +20,7 @@ class PlayersController < ApplicationController
     form = PlayerForm.new(player)
     if form.validate(permitted_attributes(player))
       form.save
-      return render json: form.model
+      return render json: PlayerSerializer.render(form.model, root: :player)
     end
     render_validation_errors(form)
   end

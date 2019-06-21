@@ -13,8 +13,8 @@ class TournamentsController < ApplicationController
                     .apply_filters(params)
                     .order(starts_at: :asc)
                     .page(params[:page])
-    render json: tournaments,
-           meta: pagination_meta(tournaments)
+    render json: TournamentSerializer.render(tournaments, root: :tournaments, meta: pagination_meta(tournaments))
+
   end
 
   def enlisted
@@ -23,15 +23,13 @@ class TournamentsController < ApplicationController
                     .apply_filters(params)
                     .order(starts_at: :asc)
                     .page(params[:page])
-    render json: tournaments,
-           meta: pagination_meta(tournaments)
+    render json: TournamentSerializer.render(tournaments, root: :tournaments, meta: pagination_meta(tournaments))
   end
 
   def show
     tournament = Tournament.includes(:competitors, rounds: :players).find(params[:id])
     authorize tournament
-    render json: tournament,
-           include: %w[competitors rounds rounds.players]
+    render json: TournamentSerializer.render(tournament, root: :tournament, view: :extended)
   end
 
   # Actions for authenticated users
@@ -42,7 +40,7 @@ class TournamentsController < ApplicationController
     form = TournamentForm.new(tournament)
     if form.validate(permitted_attributes(tournament))
       form.save
-      return render json: form.model,
+      return render json: TournamentSerializer.render(form.model, root: :tournament),
                     status: :created
     end
     render_validation_errors(form)
@@ -56,7 +54,7 @@ class TournamentsController < ApplicationController
     form = TournamentForm.new(tournament)
     if form.validate(permitted_attributes(tournament))
       form.save
-      return render json: form.model
+      return render json: TournamentSerializer.render(form.model, root: :tournament)
     end
     render_validation_errors(form)
   end
@@ -72,13 +70,13 @@ class TournamentsController < ApplicationController
     tournament = policy_scope(Tournament).find(params[:id])
     authorize tournament
     tournament.update!(status: :in_progress)
-    render json: tournament
+    render json: TournamentSerializer.render(tournament, root: :tournament)
   end
 
   def end
     tournament = policy_scope(Tournament).find(params[:id])
     authorize tournament
     tournament.update!(status: :ended)
-    render json: tournament
+    render json: TournamentSerializer.render(tournament, root: :tournament)
   end
 end

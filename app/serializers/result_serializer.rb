@@ -9,7 +9,7 @@
 #  tournament_id :uuid
 #
 
-class ResultSerializer < ActiveModel::Serializer
-  attributes :competitor_id,
-             :total
+class ResultSerializer < Blueprinter::Base
+  fields :competitor_id,
+         :total
 end
