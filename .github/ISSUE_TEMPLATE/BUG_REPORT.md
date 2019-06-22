@@ -1,3 +1,12 @@
+---
+name: Bug report
+about: Create a report to help us improve
+title: ''
+labels: 'Status: Pending, Type: Bug'
+assignees: AndKiel
+
+---
+
 <!--- Provide a general summary of the issue in the Title above -->
 
 ## Current Behavior
