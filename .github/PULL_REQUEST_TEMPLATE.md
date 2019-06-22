@@ -1,17 +1,19 @@
-# Description
+<!--- Provide a general summary of your changes in the Title above -->
 
-Please include a detailed description of the change. Please also include relevant motivation and context.
+## Description
+
+<!--- Please include a detailed description of the change. Please also include relevant motivation and context. -->
 
 ## Type of change
 
-Please delete options that are not relevant.
+<!--- Please delete options that are not relevant. -->
 
 - [ ] Bug fix (non-breaking change which fixes an issue)
 - [ ] New feature (non-breaking change which adds functionality)
 - [ ] Refactoring (non-breaking change that improves the code without changing functionality)
 - [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
 
-# Checklist:
+## Checklist:
 
 - [ ] My code follows the style guidelines of this project
 - [ ] I have performed a self-review of my own code
