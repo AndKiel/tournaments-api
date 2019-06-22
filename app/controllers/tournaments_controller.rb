@@ -14,7 +14,6 @@ class TournamentsController < ApplicationController
                     .order(starts_at: :asc)
                     .page(params[:page])
     render json: TournamentSerializer.render(tournaments, root: :tournaments, meta: pagination_meta(tournaments))
-
   end
 
   def enlisted
