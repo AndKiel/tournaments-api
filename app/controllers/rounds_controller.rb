@@ -13,7 +13,7 @@ class RoundsController < ApplicationController
     form = RoundForm.new(round)
     if form.validate(permitted_attributes(round))
       form.save
-      return render json: form.model,
+      return render json: RoundSerializer.render(form.model, root: :round),
                     status: :created
     end
     render_validation_errors(form)
@@ -25,7 +25,7 @@ class RoundsController < ApplicationController
     form = RoundForm.new(round)
     if form.validate(permitted_attributes(round))
       form.save
-      return render json: form.model
+      return render json: RoundSerializer.render(form.model, root: :round)
     end
     render_validation_errors(form)
   end

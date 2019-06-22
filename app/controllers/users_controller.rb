@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     form = User::SignUpForm.new(user)
     if form.validate(permitted_attributes(user))
       form.save
-      return render json: form.model,
+      return render json: UserSerializer.render(form.model, root: :user),
                     status: :created
     end
     render_validation_errors(form)
@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   def show
     user = current_user
     authorize user
-    render json: current_user
+    render json: UserSerializer.render(current_user, root: :user)
   end
 
   def update
@@ -32,7 +32,7 @@ class UsersController < ApplicationController
     form = User::UpdateForm.new(user)
     if form.validate(permitted_attributes(user))
       form.save
-      return render json: form.model
+      return render json: UserSerializer.render(form.model, root: :user)
     end
     render_validation_errors(form)
   end

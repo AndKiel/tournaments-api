@@ -20,11 +20,14 @@
 #  fk_rails_...  (tournament_id => tournaments.id)
 #
 
-class RoundSerializer < ActiveModel::Serializer
-  attributes :competitors_limit,
-             :created_at,
-             :id,
-             :tables_count
+class RoundSerializer < Blueprinter::Base
+  identifier :id
 
-  has_many :players
+  fields :competitors_limit,
+         :created_at,
+         :tables_count
+
+  view :extended do
+    association :players, blueprint: PlayerSerializer
+  end
 end

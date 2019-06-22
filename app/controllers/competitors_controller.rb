@@ -13,7 +13,7 @@ class CompetitorsController < ApplicationController
     form = CompetitorForm.new(competitor)
     if form.validate(permitted_attributes(competitor))
       form.save
-      return render json: form.model,
+      return render json: CompetitorSerializer.render(form.model, root: :competitor),
                     status: :created
     end
     render_validation_errors(form)
@@ -35,7 +35,7 @@ class CompetitorsController < ApplicationController
     form = CompetitorForm.new(competitor)
     if form.validate(permitted_attributes(competitor))
       form.save
-      return render json: form.model,
+      return render json: CompetitorSerializer.render(form.model, root: :competitor),
                     status: :created
     end
     render_validation_errors(form)
@@ -52,13 +52,13 @@ class CompetitorsController < ApplicationController
     competitor = current_user.tournament_competitors.find(params[:id])
     authorize competitor
     competitor.update!(status: :confirmed)
-    render json: competitor
+    render json: CompetitorSerializer.render(competitor, root: :competitor)
   end
 
   def reject
     competitor = current_user.tournament_competitors.find(params[:id])
     authorize competitor
     competitor.update!(status: :enlisted)
-    render json: competitor
+    render json: CompetitorSerializer.render(competitor, root: :competitor)
   end
 end

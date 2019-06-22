@@ -15,7 +15,8 @@
 #  index_users_on_email  (email) UNIQUE
 #
 
-class UserSerializer < ActiveModel::Serializer
-  attributes :email,
-             :id
+class UserSerializer < Blueprinter::Base
+  identifier :id
+
+  fields :email
 end

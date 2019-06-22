@@ -23,10 +23,11 @@
 #  fk_rails_...  (user_id => users.id)
 #
 
-class CompetitorSerializer < ActiveModel::Serializer
-  attributes :created_at,
-             :id,
-             :name,
-             :status,
-             :user_id
+class CompetitorSerializer < Blueprinter::Base
+  identifier :id
+
+  fields :created_at,
+         :name,
+         :status,
+         :user_id
 end

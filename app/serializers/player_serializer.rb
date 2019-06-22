@@ -23,9 +23,10 @@
 #  fk_rails_...  (round_id => rounds.id)
 #
 
-class PlayerSerializer < ActiveModel::Serializer
-  attributes :competitor_id,
-             :id,
-             :result_values,
-             :table_number
+class PlayerSerializer < Blueprinter::Base
+  identifier :id
+
+  fields :competitor_id,
+         :result_values,
+         :table_number
 end
