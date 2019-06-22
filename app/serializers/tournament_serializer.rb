@@ -37,6 +37,6 @@ class TournamentSerializer < Blueprinter::Base
 
   view :extended do
     association :competitors, blueprint: CompetitorSerializer
-    association :rounds, blueprint: RoundSerializer
+    association :rounds, blueprint: RoundSerializer, view: :extended
   end
 end
