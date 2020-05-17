@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   db:
-    image: postgres:11.3-alpine
+    image: postgres:12.3-alpine
     environment:
       POSTGRES_DB: tournaments-api-development
       POSTGRES_PASSWORD: postgres
@@ -19,7 +19,7 @@ services:
   schema:
     image: schemacrawler/schemacrawler:latest
     entrypoint: ['/opt/schemacrawler/schemacrawler.sh']
-    command: -infolevel=standard -command=schema -sortcolumns -portablenames -outputformat=pdf -outputfile=/docs/db-schema.pdf -server=postgresql -url="jdbc:postgresql://db:5432/tournaments-api-development" -u=postgres -password=postgres
+    command: --info-level=standard --command=schema --sort-columns --portable-names --output-format=pdf --output-file=/docs/db-schema.pdf --url="jdbc:postgresql://db:5432/tournaments-api-development" --user=postgres --password=postgres
     depends_on:
       - db
     volumes:
