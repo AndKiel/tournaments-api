@@ -1,5 +1,5 @@
 language: ruby
-rvm: 2.6.3
+rvm: 2.7.1
 cache: bundler
 addons:
   postgresql: '9.6'

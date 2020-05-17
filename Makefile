@@ -34,3 +34,6 @@ documentation:
 
 schema:
 	docker-compose run --rm schema
+
+down:
+	docker-compose down
