@@ -15,7 +15,7 @@ gem 'figaro'
 gem 'pg'
 gem 'puma'
 gem 'rack-cors'
-gem 'rails', '~> 5.2.0'
+gem 'rails', '~> 6.0.0'
 
 
 # Debugging

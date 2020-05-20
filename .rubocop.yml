@@ -11,7 +11,7 @@ AllCops:
   Exclude:
     - db/schema.rb
   TargetRubyVersion: 2.7
-  TargetRailsVersion: 5.2.3
+  TargetRailsVersion: 6.0.0
 
 Layout/ClassStructure:
   Enabled: true
