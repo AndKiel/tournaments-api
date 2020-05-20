@@ -22,6 +22,10 @@ Layout/EmptyLines:
 Layout/EmptyLineBetweenDefs:
   NumberOfEmptyLines: [1, 2]
 
+Layout/LineLength:
+  IgnoredPatterns: ['\A\s*#'] # Allow too long comment lines
+  Max: 120
+
 Layout/MultilineMethodCallIndentation:
   EnforcedStyle: indented_relative_to_receiver
 
@@ -35,10 +39,6 @@ Metrics/BlockLength:
   Exclude:
     - config/routes.rb
     - spec/**/*
-
-Metrics/LineLength:
-  IgnoredPatterns: ['\A\s*#'] # Allow too long comment lines
-  Max: 120
 
 Metrics/MethodLength:
   Exclude:
