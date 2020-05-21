@@ -25,7 +25,7 @@ gem 'pry-rails'
 
 # Users, authentication, authorization
 gem 'bcrypt'
-gem 'doorkeeper', '~> 5.1.0'
+gem 'doorkeeper'
 gem 'doorkeeper-i18n'
 gem 'pundit'
 
