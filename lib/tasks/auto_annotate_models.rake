@@ -5,11 +5,14 @@
 # NOTE: to have a dev-mode tool do its thing in production.
 if Rails.env.development?
   require 'annotate'
-  task :set_annotation_options do
+  task set_annotation_options: :environment do
     # You can override any of these by setting an environment variable of the
     # same name.
     Annotate.set_defaults(
+      'active_admin' => 'false',
+      'additional_file_patterns' => [],
       'routes' => 'false',
+      'models' => 'true',
       'position_in_routes' => 'before',
       'position_in_class' => 'before',
       'position_in_test' => 'before',
@@ -36,11 +39,12 @@ if Rails.env.development?
       'ignore_columns' => nil,
       'ignore_routes' => nil,
       'ignore_unknown_models' => 'false',
-      'hide_limit_column_types' => AnnotateModels::NO_LIMIT_COL_TYPES.join(','),
-      'hide_default_column_types' => AnnotateModels::NO_DEFAULT_COL_TYPES.join(','),
+      'hide_limit_column_types' => 'integer,bigint,boolean',
+      'hide_default_column_types' => 'json,jsonb,hstore',
       'skip_on_db_migrate' => 'false',
       'format_bare' => 'true',
       'format_rdoc' => 'false',
+      'format_yard' => 'false',
       'format_markdown' => 'false',
       'sort' => 'true',
       'force' => 'false',

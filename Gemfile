@@ -15,7 +15,7 @@ gem 'figaro'
 gem 'pg'
 gem 'puma'
 gem 'rack-cors'
-gem 'rails', '~> 5.2.0'
+gem 'rails', '~> 6.0.0'
 
 
 # Debugging
@@ -25,7 +25,7 @@ gem 'pry-rails'
 
 # Users, authentication, authorization
 gem 'bcrypt'
-gem 'doorkeeper'
+gem 'doorkeeper', '~> 5.1.0'
 gem 'doorkeeper-i18n'
 gem 'pundit'
 
@@ -54,9 +54,9 @@ gem 'scenic'
 
 group :development do
   # Auto-reloading
-  gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'listen'
   gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'spring-watcher-listen'
 
   gem 'annotate'
   gem 'rubocop', require: false
@@ -78,8 +78,3 @@ group :test do
   gem 'simplecov', require: false
   gem 'webmock'
 end
-
-
-# group :production do
-#   gem 'newrelic_rpm'
-# end

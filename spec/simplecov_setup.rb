@@ -17,6 +17,8 @@ SimpleCov.start do
   # add_group 'Uploaders',   'app/uploaders'
 
   track_files '{app,lib}/**/*.rb'
+
+  enable_coverage :branch
 end
 
 if ENV['CI'] == 'true'
