@@ -6,6 +6,7 @@
 #                 root GET    /(:locale)(.:format)                         tournaments#index {:locale=>/en/}
 #          oauth_token POST   (/:locale)/oauth/token(.:format)             doorkeeper/tokens#create {:locale=>/en/}
 #         oauth_revoke POST   (/:locale)/oauth/revoke(.:format)            doorkeeper/tokens#revoke {:locale=>/en/}
+#     oauth_introspect POST   (/:locale)/oauth/introspect(.:format)        doorkeeper/tokens#introspect {:locale=>/en/}
 #     oauth_token_info GET    (/:locale)/oauth/token/info(.:format)        doorkeeper/token_info#show {:locale=>/en/}
 #        sign_up_users POST   (/:locale)/users/sign_up(.:format)           users#sign_up {:locale=>/en/}
 #                 user GET    (/:locale)/user(.:format)                    users#show {:locale=>/en/}
@@ -34,7 +35,6 @@
 #              players POST   (/:locale)/players(.:format)                 players#create {:locale=>/en/}
 #               player PATCH  (/:locale)/players/:id(.:format)             players#update {:locale=>/en/}
 #                      PUT    (/:locale)/players/:id(.:format)             players#update {:locale=>/en/}
-#
 
 Rails.application.routes.draw do
   scope '(:locale)',

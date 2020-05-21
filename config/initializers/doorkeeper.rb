@@ -472,7 +472,7 @@ Doorkeeper.configure do
   #
   # Or you can completely disable any token introspection:
   #
-  # allow_token_introspection false
+  allow_token_introspection false
   #
   # If you need to block the request at all, then configure your routes.rb or web-server
   # like nginx to forbid the request.
