@@ -164,7 +164,7 @@ Doorkeeper.configure do
   # using the same credentials at the same time (e.g. web servers spanning
   # multiple machines and/or processes).
   #
-  # revoke_previous_client_credentials_token
+  revoke_previous_client_credentials_token
 
   # Hash access and refresh tokens before persisting them.
   # This will disable the possibility to use +reuse_access_token+
@@ -472,7 +472,7 @@ Doorkeeper.configure do
   #
   # Or you can completely disable any token introspection:
   #
-  # allow_token_introspection false
+  allow_token_introspection false
   #
   # If you need to block the request at all, then configure your routes.rb or web-server
   # like nginx to forbid the request.

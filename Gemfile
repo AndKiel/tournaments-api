@@ -25,13 +25,13 @@ gem 'pry-rails'
 
 # Users, authentication, authorization
 gem 'bcrypt'
-gem 'doorkeeper', '~> 5.1.0'
+gem 'doorkeeper', '~> 5.3.0'
 gem 'doorkeeper-i18n'
 gem 'pundit'
 
 
 # Validations
-gem 'reform'
+gem 'reform', '~> 2.2.0'
 gem 'reform-rails'
 gem 'validates_email_format_of'
 gem 'validates_timeliness'
