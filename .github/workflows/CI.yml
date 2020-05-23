@@ -1,5 +1,4 @@
 name: CI
-
 on:
   push:
     branches:
@@ -7,11 +6,10 @@ on:
   pull_request:
     branches:
       - master
-
 jobs:
   test:
+    name: Rubocop & RSpec
     runs-on: ubuntu-latest
-
     services:
       db:
         image: postgres:12.3-alpine
@@ -19,7 +17,6 @@ jobs:
           POSTGRES_PASSWORD: postgres
         ports:
           - '5432:5432'
-
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-ruby@v1
