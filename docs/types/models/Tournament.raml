@@ -1,0 +1,22 @@
+Tournament:
+  type: object
+  properties: &tournament-properties
+    competitors_limit: integer
+    description:
+      type: string
+      required: false
+    id: UUID
+    name: string
+    organiser_id: UUID
+    result_names: string[]
+    starts_at: datetime
+    status:
+      enum: ["created", "in_progress", "ended"]
+
+TournamentWithRelations:
+  displayName: Tournament
+  type: object
+  properties:
+    <<: *tournament-properties
+    competitors: Competitor[]
+    rounds: RoundWithRelations[]

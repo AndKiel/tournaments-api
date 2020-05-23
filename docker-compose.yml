@@ -10,7 +10,7 @@ services:
       - '5432:5432'
 
   docs:
-    image: mattjtodd/raml2html:latest
+    image: mattjtodd/raml2html:7.5.0
     working_dir: /docs
     command: -i index.raml -o index.html
     volumes:

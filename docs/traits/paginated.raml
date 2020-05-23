@@ -1,0 +1,15 @@
+usage: Apply this to any method that returns paginated results.
+queryParameters:
+  page:
+    description: Specify the page that you want to retrieve, 12 results are returned per page.
+    required: false
+    type: integer
+    default: 1
+responses:
+  200:
+    body:
+      properties:
+        meta:
+          type: object
+          properties:
+            total_count: integer

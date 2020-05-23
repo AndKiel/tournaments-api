@@ -3,7 +3,7 @@ displayName: Competitors
   uriParameters:
     id:
       description: The id of the competitor
-      type: uuid
+      type: UUID
   delete:
     description: Remove competitor from a tournament. User can remove only competitors he created.
     securedBy: [oauth]
@@ -15,7 +15,7 @@ displayName: Competitors
   uriParameters:
     id:
       description: The id of the competitor
-      type: uuid
+      type: UUID
   post:
     description: Confirm user participation in a tournament. User can confirm competitors only in tournaments he created.
     securedBy: [oauth]
@@ -30,7 +30,7 @@ displayName: Competitors
   uriParameters:
     id:
       description: The id of the competitor
-      type: uuid
+      type: UUID
   post:
     description: Reject user participation in a tournament. User can reject competitors only in tournaments he created.
     securedBy: [oauth]

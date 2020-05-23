@@ -1,0 +1,8 @@
+type: object
+properties:
+  error:
+    description: Error code, for validation error it is always "invalid_params".
+    type: string
+  fields:
+    description: An object containing all errors. Object keys are field names, values are error messages (arrays of string).
+    type: object

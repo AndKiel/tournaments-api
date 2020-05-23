@@ -9,7 +9,7 @@ post:
   queryParameters:
     tournament_id:
       description: The id of the tournament
-      type: uuid
+      type: UUID
   responses:
     201:
       body:
@@ -22,7 +22,7 @@ post:
   uriParameters:
     id:
       description: The id of the round
-      type: uuid
+      type: UUID
   patch:
     description: Update tournament round. User can update rounds only in tournaments he created and didn't end.
     is: [validatable]

@@ -4,16 +4,38 @@ title: Tournaments
 description: Back-end for tournament management application.
 
 mediaType: application/json
-securitySchemes: !include security_schemes.raml
 
-traits: !include traits/query_parameters.raml
-traits: !include traits/responses.raml
+types:
+  UUID: !include types/common/UUID.raml
+  Error: !include types/errors/Error.raml
+  ValidationError: !include types/errors/ValidationError.raml
+  TournamentFilters: !include types/filters/TournamentFilters.raml
+  Competitor: !include types/models/Competitor.raml
+  Player: !include types/models/Player.raml
+  Result: !include types/models/Result.raml
+  User: !include types/models/User.raml
+  AccessToken: !include types/oauth/AccessToken.raml
+  AccessTokenInfo: !include types/oauth/AccessTokenInfo.raml
+  Application: !include types/oauth/Application.raml
+  CompetitorParams: !include types/params/CompetitorParams.raml
+  PlayerParams: !include types/params/PlayerParams.raml
+  RoundParams: !include types/params/RoundParams.raml
+  SignUpParams: !include types/params/SignUpParams.raml
+  TournamentParams: !include types/params/TournamentParams.raml
+  UserParams: !include types/params/UserParams.raml
+types: !include types/models/Round.raml
+types: !include types/models/Tournament.raml
 
-types: !include types/errors.raml
-types: !include types/filters.raml
-types: !include types/models.raml
-types: !include types/oauth.raml
-types: !include types/params.raml
+traits:
+  authenticable: !include traits/authenticable.raml
+  authorizable: !include traits/authorizable.raml
+  filterable: !include traits/filterable.raml
+  findable: !include traits/findable.raml
+  paginated: !include traits/paginated.raml
+  validatable: !include traits/validatable.raml
+
+securitySchemes:
+  oauth: !include securitySchemes/oauth.raml
 
 /users: !include endpoints/users.raml
 /oauth: !include endpoints/oauth.raml
