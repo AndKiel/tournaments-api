@@ -1,27 +1,3 @@
-Competitor:
-  type: object
-  properties:
-    created_at: datetime
-    id: UUID
-    name: string
-    status:
-      enum: ["enlisted", "confirmed"]
-    user_id: UUID
-
-Player:
-  type: object
-  properties:
-    competitor_id: UUID
-    id: UUID
-    result_values: number[]
-    table_number: integer
-
-Result:
-  type: object
-  properties:
-    competitor_id: UUID
-    total: number[]
-
 Round:
   type: object
   properties: &round-properties
@@ -59,9 +35,3 @@ TournamentWithRelations:
     <<: *tournament-properties
     competitors: Competitor[]
     rounds: RoundWithRelations[]
-
-User:
-  type: object
-  properties:
-    email: string
-    id: UUID
