@@ -38,6 +38,7 @@ jobs:
         run: bundle exec rubocop
       - name: Run Rspec
         env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
           DATABASE_HOST: 127.0.0.1
           RAILS_ENV: test
         run: |
