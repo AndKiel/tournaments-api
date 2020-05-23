@@ -43,3 +43,5 @@ jobs:
         run: |
           bundle exec rails db:setup
           bundle exec rspec
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v1

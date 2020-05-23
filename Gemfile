@@ -71,7 +71,6 @@ end
 
 group :test do
   gem 'bullet'
-  gem 'codecov', require: false
   gem 'fuubar'
   gem 'json_expressions', require: false
   gem 'rspec-rails'
