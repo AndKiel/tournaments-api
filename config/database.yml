@@ -8,15 +8,15 @@ development:
   database: tournaments-api-development
   username: postgres
   password: postgres
-  host: db
+  host: <%= ENV.fetch('DATABASE_HOST', 'db') %>
 
 test:
   <<: *default
   database: tournaments-api-test
   username: postgres
   password: postgres
-  host: db
+  host: <%= ENV.fetch('DATABASE_HOST', 'db') %>
 
-production:
-  <<: *default
-  url: <%= ENV['DATABASE_URL'] %>
+#production:
+#  <<: *default
+#  url: <%#= ENV['DATABASE_URL'] %>

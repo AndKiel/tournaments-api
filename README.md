@@ -1,6 +1,6 @@
 # Tournaments API #
 
-[![Build Status](https://travis-ci.com/AndKiel/tournaments-api.svg?branch=master)](https://travis-ci.com/AndKiel/tournaments-api)
+[![CI](https://github.com/AndKiel/tournaments-api/workflows/CI/badge.svg)](https://github.com/AndKiel/tournaments-api/actions?query=workflow%3ACI+branch%3Amaster)
 [![codecov](https://codecov.io/gh/AndKiel/tournaments-api/branch/master/graph/badge.svg)](https://codecov.io/gh/AndKiel/tournaments-api)
 
 The back-end for tournament management application.
