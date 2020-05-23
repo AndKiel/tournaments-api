@@ -6,7 +6,7 @@ post:
   queryParameters:
     tournament_id:
       description: The id of the tournament
-      type: uuid
+      type: UUID
   body:
     properties:
       competitor: CompetitorParams
@@ -20,7 +20,7 @@ delete:
   queryParameters:
     tournament_id:
       description: The id of the tournament
-      type: uuid
+      type: UUID
   responses:
     204:
 
@@ -32,7 +32,7 @@ delete:
     queryParameters:
       tournament_id:
         description: The id of the tournament
-        type: uuid
+        type: UUID
     body:
       properties:
         competitor: CompetitorParams

@@ -6,7 +6,7 @@ post:
   queryParameters:
     round_id:
       description: The id of the round
-      type: uuid
+      type: UUID
   responses:
     201:
       body:
@@ -17,7 +17,7 @@ post:
   uriParameters:
     id:
       description: The id of the player
-      type: uuid
+      type: UUID
   patch:
     description: Update player with the round results.
     securedBy: [oauth]
