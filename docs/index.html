@@ -297,7 +297,9 @@
                                                             <ul>
                                                                 <li><strong>email</strong>: <em><span class="required">required</span>(string)</em>
                                                                 </li>
-                                                                <li><strong>id</strong>: <em><span class="required">required</span>(string)</em>
+                                                                <li><strong>id</strong>: <em><span class="required">required</span>(string
+                                                                    - pattern:
+                                                                    ^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$)</em>
                                                                 </li>
                                                             </ul>
                                                         </li>
@@ -314,9 +316,11 @@
                                                             <p>Error code, for validation error it is always
                                                                 "invalid_params".</p></li>
                                                         <li><strong>fields</strong>: <em><span
-                                                                class="required">required</span>(hash)</em>
-                                                            <p>A hash containing all errors. Hash keys are field names,
-                                                                values are error messages (arrays of string).</p></li>
+                                                                class="required">required</span>(object)</em>
+                                                            <p>An object containing all errors. Object keys are field
+                                                                names, values are error messages (arrays of string).</p>
+                                                            <ul></ul>
+                                                        </li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -497,7 +501,9 @@
                                                         <li><strong>expires_in</strong>: <em><span class="required">required</span>(integer)</em>
                                                         </li>
                                                         <li><strong>resource_owner_id</strong>: <em><span
-                                                                class="required">required</span>(string)</em></li>
+                                                                class="required">required</span>(string - pattern:
+                                                            ^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$)</em>
+                                                        </li>
                                                         <li><strong>scope</strong>: <em><span
                                                                 class="required">required</span>(array of string)</em>
                                                         </li>
@@ -543,7 +549,7 @@
                                                         <li><strong>Authorization</strong>: <em><span class="required">required</span>(string)</em>
                                                             <p><strong>Example</strong>:</p>
                                                             <div class="examples">
-                                                                <pre><code>Bearer 123def789jkl</code></pre>
+                                                                <pre><code>Bearer iDbsaZHplNEL1thqvGsfYFyb_4P4Fv6uCCAGcENK_ho</code></pre>
                                                             </div>
                                                         </li>
                                                     </ul>
@@ -617,7 +623,7 @@
                                                         <li><strong>Authorization</strong>: <em><span class="required">required</span>(string)</em>
                                                             <p><strong>Example</strong>:</p>
                                                             <div class="examples">
-                                                                <pre><code>Bearer 123def789jkl</code></pre>
+                                                                <pre><code>Bearer iDbsaZHplNEL1thqvGsfYFyb_4P4Fv6uCCAGcENK_ho</code></pre>
                                                             </div>
                                                         </li>
                                                     </ul>
@@ -699,7 +705,9 @@
                                                             <ul>
                                                                 <li><strong>email</strong>: <em><span class="required">required</span>(string)</em>
                                                                 </li>
-                                                                <li><strong>id</strong>: <em><span class="required">required</span>(string)</em>
+                                                                <li><strong>id</strong>: <em><span class="required">required</span>(string
+                                                                    - pattern:
+                                                                    ^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$)</em>
                                                                 </li>
                                                             </ul>
                                                         </li>
@@ -714,7 +722,7 @@
                                                         <li><strong>Authorization</strong>: <em><span class="required">required</span>(string)</em>
                                                             <p><strong>Example</strong>:</p>
                                                             <div class="examples">
-                                                                <pre><code>Bearer 123def789jkl</code></pre>
+                                                                <pre><code>Bearer iDbsaZHplNEL1thqvGsfYFyb_4P4Fv6uCCAGcENK_ho</code></pre>
                                                             </div>
                                                         </li>
                                                     </ul>
@@ -774,7 +782,9 @@
                                                             <ul>
                                                                 <li><strong>email</strong>: <em><span class="required">required</span>(string)</em>
                                                                 </li>
-                                                                <li><strong>id</strong>: <em><span class="required">required</span>(string)</em>
+                                                                <li><strong>id</strong>: <em><span class="required">required</span>(string
+                                                                    - pattern:
+                                                                    ^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$)</em>
                                                                 </li>
                                                             </ul>
                                                         </li>
@@ -795,9 +805,11 @@
                                                             <p>Error code, for validation error it is always
                                                                 "invalid_params".</p></li>
                                                         <li><strong>fields</strong>: <em><span
-                                                                class="required">required</span>(hash)</em>
-                                                            <p>A hash containing all errors. Hash keys are field names,
-                                                                values are error messages (arrays of string).</p></li>
+                                                                class="required">required</span>(object)</em>
+                                                            <p>An object containing all errors. Object keys are field
+                                                                names, values are error messages (arrays of string).</p>
+                                                            <ul></ul>
+                                                        </li>
                                                     </ul>
                                                 </div>
                                                 <div class="tab-pane" id="user_patch_securedby"><h1>Secured by
@@ -807,7 +819,7 @@
                                                         <li><strong>Authorization</strong>: <em><span class="required">required</span>(string)</em>
                                                             <p><strong>Example</strong>:</p>
                                                             <div class="examples">
-                                                                <pre><code>Bearer 123def789jkl</code></pre>
+                                                                <pre><code>Bearer iDbsaZHplNEL1thqvGsfYFyb_4P4Fv6uCCAGcENK_ho</code></pre>
                                                             </div>
                                                         </li>
                                                     </ul>
@@ -919,17 +931,21 @@
                                                                     </li>
                                                                     <li><strong>description</strong>: <em>(string)</em>
                                                                     </li>
-                                                                    <li><strong>id</strong>: <em><span class="required">required</span>(string)</em>
+                                                                    <li><strong>id</strong>: <em><span class="required">required</span>(string
+                                                                        - pattern:
+                                                                        ^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$)</em>
                                                                     </li>
                                                                     <li><strong>name</strong>: <em><span
                                                                             class="required">required</span>(string)</em>
                                                                     </li>
                                                                     <li><strong>organiser_id</strong>: <em><span
-                                                                            class="required">required</span>(uuid)</em>
+                                                                            class="required">required</span>(string -
+                                                                        pattern:
+                                                                        ^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$)</em>
                                                                     </li>
                                                                     <li><strong>result_names</strong>: <em><span
-                                                                            class="required">required</span>(array of )</em>
-                                                                    </li>
+                                                                            class="required">required</span>(array of
+                                                                        string)</em></li>
                                                                     <li><strong>starts_at</strong>: <em><span
                                                                             class="required">required</span>(datetime)</em>
                                                                     </li>
@@ -956,7 +972,7 @@
                                                         <li><strong>Authorization</strong>: <em><span class="required">required</span>(string)</em>
                                                             <p><strong>Example</strong>:</p>
                                                             <div class="examples">
-                                                                <pre><code>Bearer 123def789jkl</code></pre>
+                                                                <pre><code>Bearer iDbsaZHplNEL1thqvGsfYFyb_4P4Fv6uCCAGcENK_ho</code></pre>
                                                             </div>
                                                         </li>
                                                     </ul>
@@ -1027,15 +1043,20 @@
                                                                         class="required">required</span>(integer)</em>
                                                                 </li>
                                                                 <li><strong>description</strong>: <em>(string)</em></li>
-                                                                <li><strong>id</strong>: <em><span class="required">required</span>(string)</em>
+                                                                <li><strong>id</strong>: <em><span class="required">required</span>(string
+                                                                    - pattern:
+                                                                    ^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$)</em>
                                                                 </li>
                                                                 <li><strong>name</strong>: <em><span class="required">required</span>(string)</em>
                                                                 </li>
                                                                 <li><strong>organiser_id</strong>: <em><span
-                                                                        class="required">required</span>(uuid)</em></li>
-                                                                <li><strong>result_names</strong>: <em><span
-                                                                        class="required">required</span>(array of )</em>
+                                                                        class="required">required</span>(string -
+                                                                    pattern:
+                                                                    ^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$)</em>
                                                                 </li>
+                                                                <li><strong>result_names</strong>: <em><span
+                                                                        class="required">required</span>(array of
+                                                                    string)</em></li>
                                                                 <li><strong>starts_at</strong>: <em><span
                                                                         class="required">required</span>(datetime)</em>
                                                                 </li>
@@ -1060,9 +1081,11 @@
                                                             <p>Error code, for validation error it is always
                                                                 "invalid_params".</p></li>
                                                         <li><strong>fields</strong>: <em><span
-                                                                class="required">required</span>(hash)</em>
-                                                            <p>A hash containing all errors. Hash keys are field names,
-                                                                values are error messages (arrays of string).</p></li>
+                                                                class="required">required</span>(object)</em>
+                                                            <p>An object containing all errors. Object keys are field
+                                                                names, values are error messages (arrays of string).</p>
+                                                            <ul></ul>
+                                                        </li>
                                                     </ul>
                                                 </div>
                                                 <div class="tab-pane" id="tournaments_post_securedby"><h1>Secured by
@@ -1072,7 +1095,7 @@
                                                         <li><strong>Authorization</strong>: <em><span class="required">required</span>(string)</em>
                                                             <p><strong>Example</strong>:</p>
                                                             <div class="examples">
-                                                                <pre><code>Bearer 123def789jkl</code></pre>
+                                                                <pre><code>Bearer iDbsaZHplNEL1thqvGsfYFyb_4P4Fv6uCCAGcENK_ho</code></pre>
                                                             </div>
                                                         </li>
                                                     </ul>
@@ -1168,17 +1191,21 @@
                                                                     </li>
                                                                     <li><strong>description</strong>: <em>(string)</em>
                                                                     </li>
-                                                                    <li><strong>id</strong>: <em><span class="required">required</span>(string)</em>
+                                                                    <li><strong>id</strong>: <em><span class="required">required</span>(string
+                                                                        - pattern:
+                                                                        ^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$)</em>
                                                                     </li>
                                                                     <li><strong>name</strong>: <em><span
                                                                             class="required">required</span>(string)</em>
                                                                     </li>
                                                                     <li><strong>organiser_id</strong>: <em><span
-                                                                            class="required">required</span>(uuid)</em>
+                                                                            class="required">required</span>(string -
+                                                                        pattern:
+                                                                        ^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$)</em>
                                                                     </li>
                                                                     <li><strong>result_names</strong>: <em><span
-                                                                            class="required">required</span>(array of )</em>
-                                                                    </li>
+                                                                            class="required">required</span>(array of
+                                                                        string)</em></li>
                                                                     <li><strong>starts_at</strong>: <em><span
                                                                             class="required">required</span>(datetime)</em>
                                                                     </li>
@@ -1205,7 +1232,7 @@
                                                         <li><strong>Authorization</strong>: <em><span class="required">required</span>(string)</em>
                                                             <p><strong>Example</strong>:</p>
                                                             <div class="examples">
-                                                                <pre><code>Bearer 123def789jkl</code></pre>
+                                                                <pre><code>Bearer iDbsaZHplNEL1thqvGsfYFyb_4P4Fv6uCCAGcENK_ho</code></pre>
                                                             </div>
                                                         </li>
                                                     </ul>
@@ -1277,7 +1304,8 @@
                                                     Parameters</h3>
                                                     <ul>
                                                         <li><strong>id</strong>: <em><span
-                                                                class="required">required</span>(uuid)</em>
+                                                                class="required">required</span>(string - pattern:
+                                                            ^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$)</em>
                                                             <p>The id of the tournament</p></li>
                                                     </ul>
                                                 </div>
@@ -1291,7 +1319,7 @@
                                                             <ul>
                                                                 <li><strong>competitors</strong>: <em><span
                                                                         class="required">required</span>(array of
-                                                                    object)</em>
+                                                                    Competitor)</em>
                                                                     <p><strong>Items</strong>: Competitor</p>
                                                                     <div class="items">
                                                                         <ul>
@@ -1299,7 +1327,9 @@
                                                                                     class="required">required</span>(datetime)</em>
                                                                             </li>
                                                                             <li><strong>id</strong>: <em><span
-                                                                                    class="required">required</span>(string)</em>
+                                                                                    class="required">required</span>(string
+                                                                                - pattern:
+                                                                                ^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$)</em>
                                                                             </li>
                                                                             <li><strong>name</strong>: <em><span
                                                                                     class="required">required</span>(string)</em>
@@ -1308,19 +1338,46 @@
                                                                                     class="required">required</span>(one
                                                                                 of enlisted, confirmed)</em></li>
                                                                             <li><strong>user_id</strong>: <em><span
-                                                                                    class="required">required</span>(uuid)</em>
+                                                                                    class="required">required</span>(string
+                                                                                - pattern:
+                                                                                ^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$)</em>
                                                                             </li>
                                                                         </ul>
                                                                     </div>
                                                                 </li>
                                                                 <li><strong>rounds</strong>: <em><span class="required">required</span>(array
-                                                                    of object)</em>
+                                                                    of RoundWithRelations)</em>
                                                                     <p><strong>Items</strong>: Round</p>
                                                                     <div class="items">
                                                                         <ul>
                                                                             <li><strong>players</strong>: <em><span
                                                                                     class="required">required</span>(array
-                                                                                of )</em></li>
+                                                                                of Player)</em>
+                                                                                <p><strong>Items</strong>: Player</p>
+                                                                                <div class="items">
+                                                                                    <ul>
+                                                                                        <li>
+                                                                                            <strong>competitor_id</strong>:
+                                                                                            <em><span class="required">required</span>(string
+                                                                                                - pattern:
+                                                                                                ^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$)</em>
+                                                                                        </li>
+                                                                                        <li><strong>id</strong>:
+                                                                                            <em><span class="required">required</span>(string
+                                                                                                - pattern:
+                                                                                                ^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$)</em>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <strong>result_values</strong>:
+                                                                                            <em><span class="required">required</span>(array
+                                                                                                of number)</em></li>
+                                                                                        <li>
+                                                                                            <strong>table_number</strong>:
+                                                                                            <em><span class="required">required</span>(integer)</em>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                            </li>
                                                                             <li><strong>competitors_limit</strong>: <em><span
                                                                                     class="required">required</span>(integer)</em>
                                                                             </li>
@@ -1328,7 +1385,9 @@
                                                                                     class="required">required</span>(datetime)</em>
                                                                             </li>
                                                                             <li><strong>id</strong>: <em><span
-                                                                                    class="required">required</span>(string)</em>
+                                                                                    class="required">required</span>(string
+                                                                                - pattern:
+                                                                                ^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$)</em>
                                                                             </li>
                                                                             <li><strong>tables_count</strong>: <em><span
                                                                                     class="required">required</span>(integer)</em>
@@ -1340,15 +1399,20 @@
                                                                         class="required">required</span>(integer)</em>
                                                                 </li>
                                                                 <li><strong>description</strong>: <em>(string)</em></li>
-                                                                <li><strong>id</strong>: <em><span class="required">required</span>(string)</em>
+                                                                <li><strong>id</strong>: <em><span class="required">required</span>(string
+                                                                    - pattern:
+                                                                    ^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$)</em>
                                                                 </li>
                                                                 <li><strong>name</strong>: <em><span class="required">required</span>(string)</em>
                                                                 </li>
                                                                 <li><strong>organiser_id</strong>: <em><span
-                                                                        class="required">required</span>(uuid)</em></li>
-                                                                <li><strong>result_names</strong>: <em><span
-                                                                        class="required">required</span>(array of )</em>
+                                                                        class="required">required</span>(string -
+                                                                    pattern:
+                                                                    ^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$)</em>
                                                                 </li>
+                                                                <li><strong>result_names</strong>: <em><span
+                                                                        class="required">required</span>(array of
+                                                                    string)</em></li>
                                                                 <li><strong>starts_at</strong>: <em><span
                                                                         class="required">required</span>(datetime)</em>
                                                                 </li>
@@ -1396,7 +1460,8 @@
                                                     Parameters</h3>
                                                     <ul>
                                                         <li><strong>id</strong>: <em><span
-                                                                class="required">required</span>(uuid)</em>
+                                                                class="required">required</span>(string - pattern:
+                                                            ^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$)</em>
                                                             <p>The id of the tournament</p></li>
                                                     </ul>
                                                     <h3>Body</h3>
@@ -1436,15 +1501,20 @@
                                                                         class="required">required</span>(integer)</em>
                                                                 </li>
                                                                 <li><strong>description</strong>: <em>(string)</em></li>
-                                                                <li><strong>id</strong>: <em><span class="required">required</span>(string)</em>
+                                                                <li><strong>id</strong>: <em><span class="required">required</span>(string
+                                                                    - pattern:
+                                                                    ^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$)</em>
                                                                 </li>
                                                                 <li><strong>name</strong>: <em><span class="required">required</span>(string)</em>
                                                                 </li>
                                                                 <li><strong>organiser_id</strong>: <em><span
-                                                                        class="required">required</span>(uuid)</em></li>
-                                                                <li><strong>result_names</strong>: <em><span
-                                                                        class="required">required</span>(array of )</em>
+                                                                        class="required">required</span>(string -
+                                                                    pattern:
+                                                                    ^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$)</em>
                                                                 </li>
+                                                                <li><strong>result_names</strong>: <em><span
+                                                                        class="required">required</span>(array of
+                                                                    string)</em></li>
                                                                 <li><strong>starts_at</strong>: <em><span
                                                                         class="required">required</span>(datetime)</em>
                                                                 </li>
@@ -1488,9 +1558,11 @@
                                                             <p>Error code, for validation error it is always
                                                                 "invalid_params".</p></li>
                                                         <li><strong>fields</strong>: <em><span
-                                                                class="required">required</span>(hash)</em>
-                                                            <p>A hash containing all errors. Hash keys are field names,
-                                                                values are error messages (arrays of string).</p></li>
+                                                                class="required">required</span>(object)</em>
+                                                            <p>An object containing all errors. Object keys are field
+                                                                names, values are error messages (arrays of string).</p>
+                                                            <ul></ul>
+                                                        </li>
                                                     </ul>
                                                 </div>
                                                 <div class="tab-pane" id="tournaments__id__patch_securedby"><h1>Secured
@@ -1500,7 +1572,7 @@
                                                         <li><strong>Authorization</strong>: <em><span class="required">required</span>(string)</em>
                                                             <p><strong>Example</strong>:</p>
                                                             <div class="examples">
-                                                                <pre><code>Bearer 123def789jkl</code></pre>
+                                                                <pre><code>Bearer iDbsaZHplNEL1thqvGsfYFyb_4P4Fv6uCCAGcENK_ho</code></pre>
                                                             </div>
                                                         </li>
                                                     </ul>
@@ -1540,7 +1612,8 @@
                                                     URI Parameters</h3>
                                                     <ul>
                                                         <li><strong>id</strong>: <em><span
-                                                                class="required">required</span>(uuid)</em>
+                                                                class="required">required</span>(string - pattern:
+                                                            ^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$)</em>
                                                             <p>The id of the tournament</p></li>
                                                     </ul>
                                                 </div>
@@ -1577,7 +1650,7 @@
                                                         <li><strong>Authorization</strong>: <em><span class="required">required</span>(string)</em>
                                                             <p><strong>Example</strong>:</p>
                                                             <div class="examples">
-                                                                <pre><code>Bearer 123def789jkl</code></pre>
+                                                                <pre><code>Bearer iDbsaZHplNEL1thqvGsfYFyb_4P4Fv6uCCAGcENK_ho</code></pre>
                                                             </div>
                                                         </li>
                                                     </ul>
@@ -1641,7 +1714,8 @@
                                                     <h3>URI Parameters</h3>
                                                     <ul>
                                                         <li><strong>id</strong>: <em><span
-                                                                class="required">required</span>(uuid)</em>
+                                                                class="required">required</span>(string - pattern:
+                                                            ^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$)</em>
                                                             <p>The id of the tournament</p></li>
                                                     </ul>
                                                 </div>
@@ -1658,15 +1732,20 @@
                                                                         class="required">required</span>(integer)</em>
                                                                 </li>
                                                                 <li><strong>description</strong>: <em>(string)</em></li>
-                                                                <li><strong>id</strong>: <em><span class="required">required</span>(string)</em>
+                                                                <li><strong>id</strong>: <em><span class="required">required</span>(string
+                                                                    - pattern:
+                                                                    ^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$)</em>
                                                                 </li>
                                                                 <li><strong>name</strong>: <em><span class="required">required</span>(string)</em>
                                                                 </li>
                                                                 <li><strong>organiser_id</strong>: <em><span
-                                                                        class="required">required</span>(uuid)</em></li>
-                                                                <li><strong>result_names</strong>: <em><span
-                                                                        class="required">required</span>(array of )</em>
+                                                                        class="required">required</span>(string -
+                                                                    pattern:
+                                                                    ^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$)</em>
                                                                 </li>
+                                                                <li><strong>result_names</strong>: <em><span
+                                                                        class="required">required</span>(array of
+                                                                    string)</em></li>
                                                                 <li><strong>starts_at</strong>: <em><span
                                                                         class="required">required</span>(datetime)</em>
                                                                 </li>
@@ -1705,7 +1784,7 @@
                                                         <li><strong>Authorization</strong>: <em><span class="required">required</span>(string)</em>
                                                             <p><strong>Example</strong>:</p>
                                                             <div class="examples">
-                                                                <pre><code>Bearer 123def789jkl</code></pre>
+                                                                <pre><code>Bearer iDbsaZHplNEL1thqvGsfYFyb_4P4Fv6uCCAGcENK_ho</code></pre>
                                                             </div>
                                                         </li>
                                                     </ul>
@@ -1769,7 +1848,8 @@
                                                     URI Parameters</h3>
                                                     <ul>
                                                         <li><strong>id</strong>: <em><span
-                                                                class="required">required</span>(uuid)</em>
+                                                                class="required">required</span>(string - pattern:
+                                                            ^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$)</em>
                                                             <p>The id of the tournament</p></li>
                                                     </ul>
                                                 </div>
@@ -1786,15 +1866,20 @@
                                                                         class="required">required</span>(integer)</em>
                                                                 </li>
                                                                 <li><strong>description</strong>: <em>(string)</em></li>
-                                                                <li><strong>id</strong>: <em><span class="required">required</span>(string)</em>
+                                                                <li><strong>id</strong>: <em><span class="required">required</span>(string
+                                                                    - pattern:
+                                                                    ^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$)</em>
                                                                 </li>
                                                                 <li><strong>name</strong>: <em><span class="required">required</span>(string)</em>
                                                                 </li>
                                                                 <li><strong>organiser_id</strong>: <em><span
-                                                                        class="required">required</span>(uuid)</em></li>
-                                                                <li><strong>result_names</strong>: <em><span
-                                                                        class="required">required</span>(array of )</em>
+                                                                        class="required">required</span>(string -
+                                                                    pattern:
+                                                                    ^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$)</em>
                                                                 </li>
+                                                                <li><strong>result_names</strong>: <em><span
+                                                                        class="required">required</span>(array of
+                                                                    string)</em></li>
                                                                 <li><strong>starts_at</strong>: <em><span
                                                                         class="required">required</span>(datetime)</em>
                                                                 </li>
@@ -1833,7 +1918,7 @@
                                                         <li><strong>Authorization</strong>: <em><span class="required">required</span>(string)</em>
                                                             <p><strong>Example</strong>:</p>
                                                             <div class="examples">
-                                                                <pre><code>Bearer 123def789jkl</code></pre>
+                                                                <pre><code>Bearer iDbsaZHplNEL1thqvGsfYFyb_4P4Fv6uCCAGcENK_ho</code></pre>
                                                             </div>
                                                         </li>
                                                     </ul>
@@ -1891,7 +1976,9 @@
                                                 <div class="tab-pane active" id="results_get_request"><h3>Query
                                                     Parameters</h3>
                                                     <ul>
-                                                        <li><strong>tournament_id</strong>: <em><span class="required">required</span>(uuid)</em>
+                                                        <li><strong>tournament_id</strong>: <em><span class="required">required</span>(string
+                                                            - pattern:
+                                                            ^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$)</em>
                                                             <p>The id of the tournament</p></li>
                                                     </ul>
                                                 </div>
@@ -1907,11 +1994,13 @@
                                                             <div class="items">
                                                                 <ul>
                                                                     <li><strong>competitor_id</strong>: <em><span
-                                                                            class="required">required</span>(uuid)</em>
+                                                                            class="required">required</span>(string -
+                                                                        pattern:
+                                                                        ^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$)</em>
                                                                     </li>
                                                                     <li><strong>total</strong>: <em><span
-                                                                            class="required">required</span>(array of )</em>
-                                                                    </li>
+                                                                            class="required">required</span>(array of
+                                                                        number)</em></li>
                                                                 </ul>
                                                             </div>
                                                         </li>
@@ -1992,7 +2081,9 @@
                                                 <div class="tab-pane active" id="competitor_post_request"><h3>Query
                                                     Parameters</h3>
                                                     <ul>
-                                                        <li><strong>tournament_id</strong>: <em><span class="required">required</span>(uuid)</em>
+                                                        <li><strong>tournament_id</strong>: <em><span class="required">required</span>(string
+                                                            - pattern:
+                                                            ^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$)</em>
                                                             <p>The id of the tournament</p></li>
                                                     </ul>
                                                     <h3>Body</h3>
@@ -2020,14 +2111,19 @@
                                                                 <li><strong>created_at</strong>: <em><span
                                                                         class="required">required</span>(datetime)</em>
                                                                 </li>
-                                                                <li><strong>id</strong>: <em><span class="required">required</span>(string)</em>
+                                                                <li><strong>id</strong>: <em><span class="required">required</span>(string
+                                                                    - pattern:
+                                                                    ^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$)</em>
                                                                 </li>
                                                                 <li><strong>name</strong>: <em><span class="required">required</span>(string)</em>
                                                                 </li>
                                                                 <li><strong>status</strong>: <em><span class="required">required</span>(one
                                                                     of enlisted, confirmed)</em></li>
                                                                 <li><strong>user_id</strong>: <em><span
-                                                                        class="required">required</span>(uuid)</em></li>
+                                                                        class="required">required</span>(string -
+                                                                    pattern:
+                                                                    ^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$)</em>
+                                                                </li>
                                                             </ul>
                                                         </li>
                                                     </ul>
@@ -2061,7 +2157,7 @@
                                                         <li><strong>Authorization</strong>: <em><span class="required">required</span>(string)</em>
                                                             <p><strong>Example</strong>:</p>
                                                             <div class="examples">
-                                                                <pre><code>Bearer 123def789jkl</code></pre>
+                                                                <pre><code>Bearer iDbsaZHplNEL1thqvGsfYFyb_4P4Fv6uCCAGcENK_ho</code></pre>
                                                             </div>
                                                         </li>
                                                     </ul>
@@ -2100,7 +2196,9 @@
                                                 <div class="tab-pane active" id="competitor_delete_request"><h3>Query
                                                     Parameters</h3>
                                                     <ul>
-                                                        <li><strong>tournament_id</strong>: <em><span class="required">required</span>(uuid)</em>
+                                                        <li><strong>tournament_id</strong>: <em><span class="required">required</span>(string
+                                                            - pattern:
+                                                            ^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$)</em>
                                                             <p>The id of the tournament</p></li>
                                                     </ul>
                                                 </div>
@@ -2136,7 +2234,7 @@
                                                         <li><strong>Authorization</strong>: <em><span class="required">required</span>(string)</em>
                                                             <p><strong>Example</strong>:</p>
                                                             <div class="examples">
-                                                                <pre><code>Bearer 123def789jkl</code></pre>
+                                                                <pre><code>Bearer iDbsaZHplNEL1thqvGsfYFyb_4P4Fv6uCCAGcENK_ho</code></pre>
                                                             </div>
                                                         </li>
                                                     </ul>
@@ -2199,7 +2297,9 @@
                                                 <div class="tab-pane active" id="competitor_add_post_request"><h3>Query
                                                     Parameters</h3>
                                                     <ul>
-                                                        <li><strong>tournament_id</strong>: <em><span class="required">required</span>(uuid)</em>
+                                                        <li><strong>tournament_id</strong>: <em><span class="required">required</span>(string
+                                                            - pattern:
+                                                            ^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$)</em>
                                                             <p>The id of the tournament</p></li>
                                                     </ul>
                                                     <h3>Body</h3>
@@ -2227,14 +2327,19 @@
                                                                 <li><strong>created_at</strong>: <em><span
                                                                         class="required">required</span>(datetime)</em>
                                                                 </li>
-                                                                <li><strong>id</strong>: <em><span class="required">required</span>(string)</em>
+                                                                <li><strong>id</strong>: <em><span class="required">required</span>(string
+                                                                    - pattern:
+                                                                    ^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$)</em>
                                                                 </li>
                                                                 <li><strong>name</strong>: <em><span class="required">required</span>(string)</em>
                                                                 </li>
                                                                 <li><strong>status</strong>: <em><span class="required">required</span>(one
                                                                     of enlisted, confirmed)</em></li>
                                                                 <li><strong>user_id</strong>: <em><span
-                                                                        class="required">required</span>(uuid)</em></li>
+                                                                        class="required">required</span>(string -
+                                                                    pattern:
+                                                                    ^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$)</em>
+                                                                </li>
                                                             </ul>
                                                         </li>
                                                     </ul>
@@ -2268,7 +2373,7 @@
                                                         <li><strong>Authorization</strong>: <em><span class="required">required</span>(string)</em>
                                                             <p><strong>Example</strong>:</p>
                                                             <div class="examples">
-                                                                <pre><code>Bearer 123def789jkl</code></pre>
+                                                                <pre><code>Bearer iDbsaZHplNEL1thqvGsfYFyb_4P4Fv6uCCAGcENK_ho</code></pre>
                                                             </div>
                                                         </li>
                                                     </ul>
@@ -2337,7 +2442,8 @@
                                                      id="competitors__id__remove_delete_request"><h3>URI Parameters</h3>
                                                     <ul>
                                                         <li><strong>id</strong>: <em><span
-                                                                class="required">required</span>(uuid)</em>
+                                                                class="required">required</span>(string - pattern:
+                                                            ^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$)</em>
                                                             <p>The id of the competitor</p></li>
                                                     </ul>
                                                 </div>
@@ -2374,7 +2480,7 @@
                                                         <li><strong>Authorization</strong>: <em><span class="required">required</span>(string)</em>
                                                             <p><strong>Example</strong>:</p>
                                                             <div class="examples">
-                                                                <pre><code>Bearer 123def789jkl</code></pre>
+                                                                <pre><code>Bearer iDbsaZHplNEL1thqvGsfYFyb_4P4Fv6uCCAGcENK_ho</code></pre>
                                                             </div>
                                                         </li>
                                                     </ul>
@@ -2437,7 +2543,8 @@
                                                     <h3>URI Parameters</h3>
                                                     <ul>
                                                         <li><strong>id</strong>: <em><span
-                                                                class="required">required</span>(uuid)</em>
+                                                                class="required">required</span>(string - pattern:
+                                                            ^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$)</em>
                                                             <p>The id of the competitor</p></li>
                                                     </ul>
                                                 </div>
@@ -2453,14 +2560,19 @@
                                                                 <li><strong>created_at</strong>: <em><span
                                                                         class="required">required</span>(datetime)</em>
                                                                 </li>
-                                                                <li><strong>id</strong>: <em><span class="required">required</span>(string)</em>
+                                                                <li><strong>id</strong>: <em><span class="required">required</span>(string
+                                                                    - pattern:
+                                                                    ^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$)</em>
                                                                 </li>
                                                                 <li><strong>name</strong>: <em><span class="required">required</span>(string)</em>
                                                                 </li>
                                                                 <li><strong>status</strong>: <em><span class="required">required</span>(one
                                                                     of enlisted, confirmed)</em></li>
                                                                 <li><strong>user_id</strong>: <em><span
-                                                                        class="required">required</span>(uuid)</em></li>
+                                                                        class="required">required</span>(string -
+                                                                    pattern:
+                                                                    ^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$)</em>
+                                                                </li>
                                                             </ul>
                                                         </li>
                                                     </ul>
@@ -2494,7 +2606,7 @@
                                                         <li><strong>Authorization</strong>: <em><span class="required">required</span>(string)</em>
                                                             <p><strong>Example</strong>:</p>
                                                             <div class="examples">
-                                                                <pre><code>Bearer 123def789jkl</code></pre>
+                                                                <pre><code>Bearer iDbsaZHplNEL1thqvGsfYFyb_4P4Fv6uCCAGcENK_ho</code></pre>
                                                             </div>
                                                         </li>
                                                     </ul>
@@ -2557,7 +2669,8 @@
                                                     <h3>URI Parameters</h3>
                                                     <ul>
                                                         <li><strong>id</strong>: <em><span
-                                                                class="required">required</span>(uuid)</em>
+                                                                class="required">required</span>(string - pattern:
+                                                            ^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$)</em>
                                                             <p>The id of the competitor</p></li>
                                                     </ul>
                                                 </div>
@@ -2573,14 +2686,19 @@
                                                                 <li><strong>created_at</strong>: <em><span
                                                                         class="required">required</span>(datetime)</em>
                                                                 </li>
-                                                                <li><strong>id</strong>: <em><span class="required">required</span>(string)</em>
+                                                                <li><strong>id</strong>: <em><span class="required">required</span>(string
+                                                                    - pattern:
+                                                                    ^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$)</em>
                                                                 </li>
                                                                 <li><strong>name</strong>: <em><span class="required">required</span>(string)</em>
                                                                 </li>
                                                                 <li><strong>status</strong>: <em><span class="required">required</span>(one
                                                                     of enlisted, confirmed)</em></li>
                                                                 <li><strong>user_id</strong>: <em><span
-                                                                        class="required">required</span>(uuid)</em></li>
+                                                                        class="required">required</span>(string -
+                                                                    pattern:
+                                                                    ^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$)</em>
+                                                                </li>
                                                             </ul>
                                                         </li>
                                                     </ul>
@@ -2614,7 +2732,7 @@
                                                         <li><strong>Authorization</strong>: <em><span class="required">required</span>(string)</em>
                                                             <p><strong>Example</strong>:</p>
                                                             <div class="examples">
-                                                                <pre><code>Bearer 123def789jkl</code></pre>
+                                                                <pre><code>Bearer iDbsaZHplNEL1thqvGsfYFyb_4P4Fv6uCCAGcENK_ho</code></pre>
                                                             </div>
                                                         </li>
                                                     </ul>
@@ -2682,7 +2800,9 @@
                                                 <div class="tab-pane active" id="rounds_post_request"><h3>Query
                                                     Parameters</h3>
                                                     <ul>
-                                                        <li><strong>tournament_id</strong>: <em><span class="required">required</span>(uuid)</em>
+                                                        <li><strong>tournament_id</strong>: <em><span class="required">required</span>(string
+                                                            - pattern:
+                                                            ^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$)</em>
                                                             <p>The id of the tournament</p></li>
                                                     </ul>
                                                     <h3>Body</h3>
@@ -2717,7 +2837,9 @@
                                                                 <li><strong>created_at</strong>: <em><span
                                                                         class="required">required</span>(datetime)</em>
                                                                 </li>
-                                                                <li><strong>id</strong>: <em><span class="required">required</span>(string)</em>
+                                                                <li><strong>id</strong>: <em><span class="required">required</span>(string
+                                                                    - pattern:
+                                                                    ^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$)</em>
                                                                 </li>
                                                                 <li><strong>tables_count</strong>: <em><span
                                                                         class="required">required</span>(integer)</em>
@@ -2755,7 +2877,7 @@
                                                         <li><strong>Authorization</strong>: <em><span class="required">required</span>(string)</em>
                                                             <p><strong>Example</strong>:</p>
                                                             <div class="examples">
-                                                                <pre><code>Bearer 123def789jkl</code></pre>
+                                                                <pre><code>Bearer iDbsaZHplNEL1thqvGsfYFyb_4P4Fv6uCCAGcENK_ho</code></pre>
                                                             </div>
                                                         </li>
                                                     </ul>
@@ -2826,7 +2948,8 @@
                                                     Parameters</h3>
                                                     <ul>
                                                         <li><strong>id</strong>: <em><span
-                                                                class="required">required</span>(uuid)</em>
+                                                                class="required">required</span>(string - pattern:
+                                                            ^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$)</em>
                                                             <p>The id of the round</p></li>
                                                     </ul>
                                                     <h3>Body</h3>
@@ -2861,7 +2984,9 @@
                                                                 <li><strong>created_at</strong>: <em><span
                                                                         class="required">required</span>(datetime)</em>
                                                                 </li>
-                                                                <li><strong>id</strong>: <em><span class="required">required</span>(string)</em>
+                                                                <li><strong>id</strong>: <em><span class="required">required</span>(string
+                                                                    - pattern:
+                                                                    ^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$)</em>
                                                                 </li>
                                                                 <li><strong>tables_count</strong>: <em><span
                                                                         class="required">required</span>(integer)</em>
@@ -2904,9 +3029,11 @@
                                                             <p>Error code, for validation error it is always
                                                                 "invalid_params".</p></li>
                                                         <li><strong>fields</strong>: <em><span
-                                                                class="required">required</span>(hash)</em>
-                                                            <p>A hash containing all errors. Hash keys are field names,
-                                                                values are error messages (arrays of string).</p></li>
+                                                                class="required">required</span>(object)</em>
+                                                            <p>An object containing all errors. Object keys are field
+                                                                names, values are error messages (arrays of string).</p>
+                                                            <ul></ul>
+                                                        </li>
                                                     </ul>
                                                 </div>
                                                 <div class="tab-pane" id="rounds__id__patch_securedby"><h1>Secured by
@@ -2916,7 +3043,7 @@
                                                         <li><strong>Authorization</strong>: <em><span class="required">required</span>(string)</em>
                                                             <p><strong>Example</strong>:</p>
                                                             <div class="examples">
-                                                                <pre><code>Bearer 123def789jkl</code></pre>
+                                                                <pre><code>Bearer iDbsaZHplNEL1thqvGsfYFyb_4P4Fv6uCCAGcENK_ho</code></pre>
                                                             </div>
                                                         </li>
                                                     </ul>
@@ -2956,7 +3083,8 @@
                                                     Parameters</h3>
                                                     <ul>
                                                         <li><strong>id</strong>: <em><span
-                                                                class="required">required</span>(uuid)</em>
+                                                                class="required">required</span>(string - pattern:
+                                                            ^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$)</em>
                                                             <p>The id of the round</p></li>
                                                     </ul>
                                                 </div>
@@ -2992,7 +3120,7 @@
                                                         <li><strong>Authorization</strong>: <em><span class="required">required</span>(string)</em>
                                                             <p><strong>Example</strong>:</p>
                                                             <div class="examples">
-                                                                <pre><code>Bearer 123def789jkl</code></pre>
+                                                                <pre><code>Bearer iDbsaZHplNEL1thqvGsfYFyb_4P4Fv6uCCAGcENK_ho</code></pre>
                                                             </div>
                                                         </li>
                                                     </ul>
@@ -3065,7 +3193,9 @@
                                                 <div class="tab-pane active" id="players_post_request"><h3>Query
                                                     Parameters</h3>
                                                     <ul>
-                                                        <li><strong>round_id</strong>: <em><span class="required">required</span>(uuid)</em>
+                                                        <li><strong>round_id</strong>: <em><span class="required">required</span>(string
+                                                            - pattern:
+                                                            ^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$)</em>
                                                             <p>The id of the round</p></li>
                                                     </ul>
                                                 </div>
@@ -3081,13 +3211,17 @@
                                                             <div class="items">
                                                                 <ul>
                                                                     <li><strong>competitor_id</strong>: <em><span
-                                                                            class="required">required</span>(uuid)</em>
+                                                                            class="required">required</span>(string -
+                                                                        pattern:
+                                                                        ^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$)</em>
                                                                     </li>
-                                                                    <li><strong>id</strong>: <em><span class="required">required</span>(string)</em>
+                                                                    <li><strong>id</strong>: <em><span class="required">required</span>(string
+                                                                        - pattern:
+                                                                        ^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$)</em>
                                                                     </li>
                                                                     <li><strong>result_values</strong>: <em><span
-                                                                            class="required">required</span>(array of )</em>
-                                                                    </li>
+                                                                            class="required">required</span>(array of
+                                                                        number)</em></li>
                                                                     <li><strong>table_number</strong>: <em><span
                                                                             class="required">required</span>(integer)</em>
                                                                     </li>
@@ -3122,7 +3256,7 @@
                                                         <li><strong>Authorization</strong>: <em><span class="required">required</span>(string)</em>
                                                             <p><strong>Example</strong>:</p>
                                                             <div class="examples">
-                                                                <pre><code>Bearer 123def789jkl</code></pre>
+                                                                <pre><code>Bearer iDbsaZHplNEL1thqvGsfYFyb_4P4Fv6uCCAGcENK_ho</code></pre>
                                                             </div>
                                                         </li>
                                                     </ul>
@@ -3184,7 +3318,8 @@
                                                     Parameters</h3>
                                                     <ul>
                                                         <li><strong>id</strong>: <em><span
-                                                                class="required">required</span>(uuid)</em>
+                                                                class="required">required</span>(string - pattern:
+                                                            ^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$)</em>
                                                             <p>The id of the player</p></li>
                                                     </ul>
                                                     <h3>Body</h3>
@@ -3211,12 +3346,17 @@
                                                                 class="required">required</span>(object)</em>
                                                             <ul>
                                                                 <li><strong>competitor_id</strong>: <em><span
-                                                                        class="required">required</span>(uuid)</em></li>
-                                                                <li><strong>id</strong>: <em><span class="required">required</span>(string)</em>
+                                                                        class="required">required</span>(string -
+                                                                    pattern:
+                                                                    ^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$)</em>
+                                                                </li>
+                                                                <li><strong>id</strong>: <em><span class="required">required</span>(string
+                                                                    - pattern:
+                                                                    ^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$)</em>
                                                                 </li>
                                                                 <li><strong>result_values</strong>: <em><span
-                                                                        class="required">required</span>(array of )</em>
-                                                                </li>
+                                                                        class="required">required</span>(array of
+                                                                    number)</em></li>
                                                                 <li><strong>table_number</strong>: <em><span
                                                                         class="required">required</span>(integer)</em>
                                                                 </li>
@@ -3258,9 +3398,11 @@
                                                             <p>Error code, for validation error it is always
                                                                 "invalid_params".</p></li>
                                                         <li><strong>fields</strong>: <em><span
-                                                                class="required">required</span>(hash)</em>
-                                                            <p>A hash containing all errors. Hash keys are field names,
-                                                                values are error messages (arrays of string).</p></li>
+                                                                class="required">required</span>(object)</em>
+                                                            <p>An object containing all errors. Object keys are field
+                                                                names, values are error messages (arrays of string).</p>
+                                                            <ul></ul>
+                                                        </li>
                                                     </ul>
                                                 </div>
                                                 <div class="tab-pane" id="players__id__patch_securedby"><h1>Secured by
@@ -3270,7 +3412,7 @@
                                                         <li><strong>Authorization</strong>: <em><span class="required">required</span>(string)</em>
                                                             <p><strong>Example</strong>:</p>
                                                             <div class="examples">
-                                                                <pre><code>Bearer 123def789jkl</code></pre>
+                                                                <pre><code>Bearer iDbsaZHplNEL1thqvGsfYFyb_4P4Fv6uCCAGcENK_ho</code></pre>
                                                             </div>
                                                         </li>
                                                     </ul>
