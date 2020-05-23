@@ -2,15 +2,11 @@
 /.idea
 /coverage
 /log
-/spec/tmp/*
 /tmp
 .dockerignore
 .DS_Store
 .gitignore
 .tool-versions
-.travis.yml
 docker-compose.yml
 Dockerfile
-LICENCE
 Makefile
-README.md
