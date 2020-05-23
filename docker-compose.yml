@@ -4,7 +4,6 @@ services:
   db:
     image: postgres:12.3-alpine
     environment:
-      POSTGRES_DB: tournaments-api-development
       POSTGRES_PASSWORD: postgres
     ports:
       - '5432:5432'
