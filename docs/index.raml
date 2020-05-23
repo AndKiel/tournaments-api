@@ -23,7 +23,8 @@ types:
   SignUpParams: !include types/params/SignUpParams.raml
   TournamentParams: !include types/params/TournamentParams.raml
   UserParams: !include types/params/UserParams.raml
-types: !include types/models.raml
+types: !include types/models/Round.raml
+types: !include types/models/Tournament.raml
 
 traits:
   authenticable: !include traits/authenticable.raml

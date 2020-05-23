@@ -1,18 +1,3 @@
-Round:
-  type: object
-  properties: &round-properties
-    competitors_limit: integer
-    created_at: datetime
-    id: UUID
-    tables_count: integer
-
-RoundWithRelations:
-  displayName: Round
-  type: object
-  properties:
-    <<: *round-properties
-    players: Player[]
-
 Tournament:
   type: object
   properties: &tournament-properties
