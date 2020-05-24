@@ -19,7 +19,8 @@ RSpec.describe 'Competitors', type: :request do
                    competitor: {
                      name: 'Hellen'
                    }
-                 }
+                 },
+                 as: :json
           end.to change(Competitor, :count).by(1)
           expect(response).to have_http_status(:created)
           expect(response.body).to match_json_expression(competitor_json)
@@ -35,7 +36,8 @@ RSpec.describe 'Competitors', type: :request do
                  competitor: {
                    name: ''
                  }
-               }
+               },
+               as: :json
           expect(response).to have_http_status(:unprocessable_entity)
           expect(response.body).to match_json_expression(validation_error_json)
         end
@@ -50,7 +52,8 @@ RSpec.describe 'Competitors', type: :request do
              headers: auth_headers,
              params: {
                tournament_id: tournament.id
-             }
+             },
+             as: :json
         expect(response).to have_http_status(:forbidden)
         expect(response.body).to match_json_expression(error_json)
       end
@@ -106,7 +109,8 @@ RSpec.describe 'Competitors', type: :request do
                      competitor: {
                        name: 'External'
                      }
-                   }
+                   },
+                   as: :json
             end.to change(Competitor, :count).by(1)
             expect(response).to have_http_status(:created)
             expect(response.body).to match_json_expression(competitor_json)
@@ -122,7 +126,8 @@ RSpec.describe 'Competitors', type: :request do
                    competitor: {
                      name: ''
                    }
-                 }
+                 },
+                 as: :json
             expect(response).to have_http_status(:unprocessable_entity)
             expect(response.body).to match_json_expression(validation_error_json)
           end
@@ -137,7 +142,8 @@ RSpec.describe 'Competitors', type: :request do
                headers: auth_headers,
                params: {
                  tournament_id: tournament.id
-               }
+               },
+               as: :json
           expect(response).to have_http_status(:forbidden)
           expect(response.body).to match_json_expression(error_json)
         end

@@ -16,7 +16,8 @@ RSpec.describe 'Players', type: :request do
                headers: auth_headers,
                params: {
                  round_id: round.id
-               }
+               },
+               as: :json
         end.to change(Player, :count)
         expect(response).to have_http_status(:created)
         expect(response.body).to match_json_expression(players_json)
@@ -33,7 +34,8 @@ RSpec.describe 'Players', type: :request do
                headers: auth_headers,
                params: {
                  round_id: round.id
-               }
+               },
+               as: :json
         end.to change(Player, :count)
         expect(response).to have_http_status(:created)
         expect(response.body).to match_json_expression(players_json)
@@ -50,7 +52,8 @@ RSpec.describe 'Players', type: :request do
                headers: auth_headers,
                params: {
                  round_id: round.id
-               }
+               },
+               as: :json
         end.to change(Player, :count)
         expect(response).to have_http_status(:created)
         expect(response.body).to match_json_expression(players_json)
@@ -69,7 +72,8 @@ RSpec.describe 'Players', type: :request do
                 player: {
                   result_values: [1, 100]
                 }
-              }
+              },
+              as: :json
         expect(response).to have_http_status(:ok)
         expect(response.body).to match_json_expression(player_json)
       end
@@ -83,7 +87,8 @@ RSpec.describe 'Players', type: :request do
                 player: {
                   result_values: []
                 }
-              }
+              },
+              as: :json
         expect(response).to have_http_status(:unprocessable_entity)
         expect(response.body).to match_json_expression(validation_error_json)
       end
