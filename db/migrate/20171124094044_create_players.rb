@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class CreatePlayers < ActiveRecord::Migration[5.1]
+class CreatePlayers < ActiveRecord::Migration[6.0]
   def change
     create_table :players, id: :uuid do |t|
       t.references :competitor, type: :uuid, null: false, foreign_key: true

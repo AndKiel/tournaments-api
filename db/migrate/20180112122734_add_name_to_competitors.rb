@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class AddNameToCompetitors < ActiveRecord::Migration[5.1]
+class AddNameToCompetitors < ActiveRecord::Migration[6.0]
   class FakeCompetitor < ApplicationRecord
     self.table_name = :competitors
 
