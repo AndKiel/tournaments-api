@@ -14,7 +14,7 @@ RSpec.describe CompetitorForm do
   it 'validates presence of name' do
     result = subject.validate(name: nil)
     expect(result).to be false
-    expect(subject.errors[:name]).to include I18n.t('errors.messages.blank')
+    expect(subject.errors[:name]).to include 'must be filled'
   end
 
   it 'validates uniqueness of name in scope of tournament_id' do
