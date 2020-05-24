@@ -6,17 +6,15 @@ class PlayerForm < Reform::Form
              self.result_values = fragment.select { |value| value.to_i.to_s == value.to_s }
            }
 
-  validation :default do
-    validates :result_values,
-              presence: true
-  end
+  validation do
+    params do
+      required(:result_values).filled(:array?)
+    end
 
-  validation :additional, if: :default do
-    validate :length_of_result_values
-  end
-
-  def length_of_result_values
-    count = model.tournament.result_names.length
-    errors.add(:result_values, :invalid) unless result_values.length == count
+    # FIXME: How to use form/model from dry?
+    # rule(:result_values) do
+    #   count = form.model.tournament.result_names.length
+    #   key.failure(:invalid) unless result_values.length == count
+    # end
   end
 end
