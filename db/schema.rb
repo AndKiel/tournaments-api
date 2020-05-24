@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_20_133051) do
+ActiveRecord::Schema.define(version: 2018_02_06_091851) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -20,8 +20,8 @@ ActiveRecord::Schema.define(version: 2019_06_20_133051) do
     t.uuid "tournament_id", null: false
     t.uuid "user_id"
     t.integer "status", default: 0, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.string "name", null: false
     t.index ["tournament_id"], name: "index_competitors_on_tournament_id"
     t.index ["user_id"], name: "index_competitors_on_user_id"
@@ -36,6 +36,8 @@ ActiveRecord::Schema.define(version: 2019_06_20_133051) do
     t.datetime "created_at", null: false
     t.datetime "revoked_at"
     t.string "scopes", default: "", null: false
+    t.index ["application_id"], name: "index_oauth_access_grants_on_application_id"
+    t.index ["resource_owner_id"], name: "index_oauth_access_grants_on_resource_owner_id"
     t.index ["token"], name: "index_oauth_access_grants_on_token", unique: true
   end
 
@@ -49,6 +51,7 @@ ActiveRecord::Schema.define(version: 2019_06_20_133051) do
     t.datetime "created_at", null: false
     t.string "scopes"
     t.string "previous_refresh_token", default: "", null: false
+    t.index ["application_id"], name: "index_oauth_access_tokens_on_application_id"
     t.index ["refresh_token"], name: "index_oauth_access_tokens_on_refresh_token", unique: true
     t.index ["resource_owner_id"], name: "index_oauth_access_tokens_on_resource_owner_id"
     t.index ["token"], name: "index_oauth_access_tokens_on_token", unique: true
@@ -58,11 +61,11 @@ ActiveRecord::Schema.define(version: 2019_06_20_133051) do
     t.string "name", null: false
     t.string "uid", null: false
     t.string "secret", null: false
-    t.text "redirect_uri", null: false
+    t.text "redirect_uri"
     t.string "scopes", default: "", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.boolean "confidential", default: true, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["uid"], name: "index_oauth_applications_on_uid", unique: true
   end
 
@@ -71,8 +74,8 @@ ActiveRecord::Schema.define(version: 2019_06_20_133051) do
     t.uuid "round_id", null: false
     t.integer "table_number", null: false
     t.integer "result_values", default: [], null: false, array: true
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["competitor_id"], name: "index_players_on_competitor_id"
     t.index ["round_id"], name: "index_players_on_round_id"
   end
@@ -81,8 +84,8 @@ ActiveRecord::Schema.define(version: 2019_06_20_133051) do
     t.uuid "tournament_id", null: false
     t.integer "competitors_limit", null: false
     t.integer "tables_count", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["tournament_id"], name: "index_rounds_on_tournament_id"
   end
 
@@ -94,23 +97,25 @@ ActiveRecord::Schema.define(version: 2019_06_20_133051) do
     t.datetime "starts_at"
     t.integer "competitors_limit", null: false
     t.integer "status", default: 0, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["organiser_id"], name: "index_tournaments_on_organiser_id"
   end
 
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "email", null: false
     t.string "password_digest", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
   add_foreign_key "competitors", "tournaments"
   add_foreign_key "competitors", "users"
   add_foreign_key "oauth_access_grants", "oauth_applications", column: "application_id"
+  add_foreign_key "oauth_access_grants", "users", column: "resource_owner_id"
   add_foreign_key "oauth_access_tokens", "oauth_applications", column: "application_id"
+  add_foreign_key "oauth_access_tokens", "users", column: "resource_owner_id"
   add_foreign_key "players", "competitors"
   add_foreign_key "players", "rounds"
   add_foreign_key "rounds", "tournaments"

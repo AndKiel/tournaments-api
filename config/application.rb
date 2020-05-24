@@ -7,8 +7,6 @@ require 'active_model/railtie'
 require 'active_record/railtie'
 require 'action_controller/railtie'
 
-# Require the gems listed in Gemfile, including any gems
-# you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
 module TournamentsApi
@@ -22,10 +20,14 @@ module TournamentsApi
     # the framework and any gems in your application.
     secrets.secret_key_base = Figaro.env.secret_key_base!
 
-    # Only loads a smaller set of middleware suitable for API only apps.
-    # Middleware like session, flash, cookies can be added back manually.
-    # Skip views, helpers and assets when generating a new resource.
+    config.action_controller.allow_forgery_protection = !Rails.env.test?
+    config.action_controller.perform_caching = Rails.env.production?
+    config.action_view.raise_on_missing_translations = !Rails.env.production?
+    config.active_record.dump_schema_after_migration = Rails.env.development?
     config.api_only = true
+    config.cache_classes = Rails.env.production?
+    config.consider_all_requests_local = !Rails.env.production?
+    config.eager_load = Rails.env.production?
 
     config.generators do |g|
       g.orm :active_record, primary_key_type: :uuid
