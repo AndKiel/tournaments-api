@@ -15,7 +15,7 @@ class User < ApplicationRecord
 
       rule(:email) do
         key.failure(I18n.t('errors.messages.invalid_email')) if ValidatesEmailFormatOf.validate_email_format(value)
-        key.failure(I18n.t('errors.messages.taken')) unless User.where.not(id: form.model.id).find_by(email: value).nil?
+        key.failure(I18n.t('errors.messages.taken')) if User.where.not(id: form.model.id).find_by(email: value)
       end
     end
   end

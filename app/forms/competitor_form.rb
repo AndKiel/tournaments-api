@@ -5,20 +5,19 @@ class CompetitorForm < Reform::Form
   property :tournament_id, writeable: false
 
   validation do
+    option :form
+
     params do
       required(:name).filled(:str?)
     end
 
-    # FIXME: How to access form/model from dry?
-    # rule(:name) do
-    #   unless Competitor
-    #            .where
-    #            .not(id: form.model.id)
-    #            .where(tournament_id: form.model.tournament_id)
-    #            .find_by(name: value)
-    #            .nil?
-    #     key.failure(:taken)
-    #   end
-    # end
+    rule(:name) do
+      if Competitor
+           .where(tournament_id: form.model.tournament_id)
+           .where.not(id: form.model.id)
+           .find_by(name: value)
+        key.failure(I18n.t('errors.messages.taken'))
+      end
+    end
   end
 end
