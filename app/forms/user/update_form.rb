@@ -9,7 +9,9 @@ class User < ApplicationRecord
       end
 
       rule(:password, :password_confirmation) do
-        key(:password_confirmation).failure(I18n.t('errors.messages.password_mismatch')) if values[:password] != values[:password_confirmation]
+        if values[:password] != values[:password_confirmation]
+          key(:password_confirmation).failure(I18n.t('errors.messages.password_mismatch'))
+        end
       end
     end
   end
