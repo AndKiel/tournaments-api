@@ -48,7 +48,7 @@ RSpec.describe TournamentForm do
   it 'validates timeliness of starts at' do
     result = subject.validate(starts_at: 'not.a.date')
     expect(result).to be false
-    expect(subject.errors[:starts_at]).to include I18n.t('errors.messages.invalid_datetime')
+    expect(subject.errors[:starts_at]).to include 'must be a date time'
 
     result = subject.validate(starts_at: 1.day.ago)
     expect(result).to be false
