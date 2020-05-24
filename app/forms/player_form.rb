@@ -14,8 +14,8 @@ class PlayerForm < Reform::Form
     end
 
     rule(:result_values) do
-      count = form.model.tournament.result_names.length
-      key.failure(I18n.t('errors.attributes.result_values.invalid')) unless value.length == count
+      result_names_count = form.model.tournament.result_names.length
+      key.failure(I18n.t('errors.attributes.result_values.invalid')) unless value.length == result_names_count
     end
   end
 end
