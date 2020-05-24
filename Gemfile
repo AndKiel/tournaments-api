@@ -31,10 +31,10 @@ gem 'pundit'
 
 
 # Validations
-gem 'reform', '~> 2.2.0'
-gem 'reform-rails'
+gem 'dry-monads' # TODO: Remove when dry-validation 1.5.1 is released
+gem 'dry-validation'
+gem 'reform'
 gem 'validates_email_format_of'
-gem 'validates_timeliness'
 
 
 # File upload and processing

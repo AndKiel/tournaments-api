@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
-require 'reform/form/active_model/validations'
-require 'reform/form/validation/unique_validator'
+require 'reform/form/dry'
 
 Reform::Form.class_eval do
-  # TODO: switch to dry-validation?
-  feature Reform::Form::ActiveModel::Validations
+  feature Reform::Form::Dry
 end
