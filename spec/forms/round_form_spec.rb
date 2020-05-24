@@ -8,7 +8,7 @@ RSpec.describe RoundForm do
   it 'validates presence of competitors limit' do
     result = subject.validate(competitors_limit: nil)
     expect(result).to be false
-    expect(subject.errors[:competitors_limit]).to include I18n.t('errors.messages.blank')
+    expect(subject.errors[:competitors_limit]).to include 'must be filled'
   end
 
   it 'validates numericality of competitors limit' do
@@ -24,7 +24,7 @@ RSpec.describe RoundForm do
   it 'validates presence of tables count' do
     result = subject.validate(tables_count: nil)
     expect(result).to be false
-    expect(subject.errors[:tables_count]).to include I18n.t('errors.messages.blank')
+    expect(subject.errors[:tables_count]).to include 'must be filled'
   end
 
   it 'validates numericality of tables count' do
