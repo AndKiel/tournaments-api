@@ -8,7 +8,7 @@ RSpec.describe TournamentForm do
   it 'validates presence of competitors limit' do
     result = subject.validate(competitors_limit: nil)
     expect(result).to be false
-    expect(subject.errors[:competitors_limit]).to include I18n.t('errors.messages.blank')
+    expect(subject.errors[:competitors_limit]).to include 'must be filled'
   end
 
   it 'validates numericality of competitors limit' do
@@ -24,25 +24,25 @@ RSpec.describe TournamentForm do
   it 'validates presence of name' do
     result = subject.validate(name: '')
     expect(result).to be false
-    expect(subject.errors[:name]).to include I18n.t('errors.messages.blank')
+    expect(subject.errors[:name]).to include 'must be filled'
   end
 
   it 'validates presence of result names' do
     result = subject.validate(result_names: nil)
     expect(result).to be false
-    expect(subject.errors[:result_names]).to include I18n.t('errors.messages.blank')
+    expect(subject.errors[:result_names]).to include 'must be filled'
   end
 
   it 'validates length of result names' do
     result = subject.validate(result_names: [])
     expect(result).to be false
-    expect(subject.errors[:result_names]).to include I18n.t('errors.messages.too_short', count: 1)
+    expect(subject.errors[:result_names]).to include 'must be filled'
   end
 
   it 'validates presence of starts at' do
     result = subject.validate(starts_at: nil)
     expect(result).to be false
-    expect(subject.errors[:starts_at]).to include I18n.t('errors.messages.blank')
+    expect(subject.errors[:starts_at]).to include 'must be filled'
   end
 
   it 'validates timeliness of starts at' do
