@@ -2,6 +2,7 @@
 
 FactoryBot.define do
   factory :round do
-
+    competitors_limit { 12 }
+    tables_count { 3 }
   end
 end
