@@ -13,6 +13,7 @@ require 'webmock/rspec'
 
 require 'support/controller_macros'
 require 'support/database_cleaner'
+require 'support/factory_bot'
 require 'support/json_matchers'
 require 'support/json_helpers'
 require 'support/request_macros'
@@ -22,7 +23,6 @@ ActiveRecord::Migration.maintain_test_schema!
 RSpec.configure do |config|
   config.extend ControllerMacros, type: :controller
   config.extend RequestMacros, type: :request
-  config.include FactoryBot::Syntax::Methods
   config.include JsonHelpers
 
   config.filter_rails_from_backtrace!
