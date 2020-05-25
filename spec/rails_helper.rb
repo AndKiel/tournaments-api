@@ -12,6 +12,7 @@ require 'json_expressions/rspec'
 require 'webmock/rspec'
 
 require 'support/controller_macros'
+require 'support/database_cleaner'
 require 'support/json_matchers'
 require 'support/json_helpers'
 require 'support/request_macros'

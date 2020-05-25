@@ -80,6 +80,10 @@ GEM
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
     crass (1.0.6)
+    database_cleaner (1.8.5)
+    database_cleaner-active_record (1.8.0)
+      activerecord
+      database_cleaner (~> 1.8.0)
     declarative (0.0.10)
     declarative-builder (0.1.0)
       declarative-option (< 0.2.0)
@@ -296,6 +300,7 @@ DEPENDENCIES
   bootsnap (>= 1.1.0)
   bullet
   codecov
+  database_cleaner-active_record
   doorkeeper (~> 5.3.0)
   doorkeeper-i18n
   enumerize
