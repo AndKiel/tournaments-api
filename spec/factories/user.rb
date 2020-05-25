@@ -2,6 +2,7 @@
 
 FactoryBot.define do
   factory :user do
-
+    sequence(:email) { |n| "user.#{n}@mail.co" }
+    password_digest { '$2a$10$DduaGQK4NkMwtaa..reSv.7IruCI35cKIBodTuOPDDb/yPstoqmH2' }
   end
 end
