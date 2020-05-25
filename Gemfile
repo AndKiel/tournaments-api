@@ -47,7 +47,6 @@ group :development do
   gem 'spring-watcher-listen'
 
   gem 'annotate'
-  gem 'factory_bot_rails'
   gem 'rubocop', require: false
   gem 'rubocop-rails', require: false
 
@@ -61,6 +60,7 @@ group :test do
   gem 'bullet'
   gem 'codecov', require: false
   gem 'database_cleaner-active_record'
+  gem 'factory_bot_rails'
   gem 'fuubar'
   gem 'json_expressions', require: false
   gem 'rspec-rails'
