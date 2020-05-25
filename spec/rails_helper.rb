@@ -21,11 +21,9 @@ ActiveRecord::Migration.maintain_test_schema!
 RSpec.configure do |config|
   config.extend ControllerMacros, type: :controller
   config.extend RequestMacros, type: :request
+  config.include FactoryBot::Syntax::Methods
   config.include JsonHelpers
 
   config.filter_rails_from_backtrace!
-  config.fixture_path = "#{::Rails.root}/spec/fixtures"
-  config.global_fixtures = :all
   config.infer_spec_type_from_file_location!
-  config.use_transactional_fixtures = true
 end
