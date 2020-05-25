@@ -12,8 +12,8 @@ RSpec.describe 'Tournaments', type: :request do
     end
 
     it 'allows filtering' do
-      expect(Tournament).to receive(:starts_at_after).and_call_original
-      expect(Tournament).to receive(:with_name).and_call_original
+      expect(Tournament).to have_received(:starts_at_after).and_call_original
+      expect(Tournament).to have_received(:with_name).and_call_original
       get tournaments_path,
           params: {
             filters: {
@@ -51,8 +51,8 @@ RSpec.describe 'Tournaments', type: :request do
     end
 
     it 'allows filtering' do
-      expect(Tournament).to receive(:starts_at_after).and_call_original
-      expect(Tournament).to receive(:with_name).and_call_original
+      expect(Tournament).to have_received(:starts_at_after).and_call_original
+      expect(Tournament).to have_received(:with_name).and_call_original
       get tournaments_path,
           params: {
             filters: {
@@ -121,7 +121,7 @@ RSpec.describe 'Tournaments', type: :request do
                      name: 'New tournament test'
                    }
                  }
-          end.to_not change(Tournament, :count)
+          end.not_to change(Tournament, :count)
           expect(response).to have_http_status(:unprocessable_entity)
           expect(response.body).to match_json_expression(validation_error_json)
         end

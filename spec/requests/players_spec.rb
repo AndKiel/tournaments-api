@@ -10,7 +10,7 @@ RSpec.describe 'Players', type: :request do
       let(:round) { rounds(:discworld_one) }
 
       it 'randomizes Players' do
-        expect_any_instance_of(MatchmakingService).to receive(:random_assignment).and_call_original
+        expect_any_instance_of(MatchmakingService).to have_received(:random_assignment).and_call_original
         expect do
           post players_path,
                headers: auth_headers,
@@ -27,7 +27,7 @@ RSpec.describe 'Players', type: :request do
       let(:round) { rounds(:discworld_two) }
 
       it "assigns Players who haven't met yet" do
-        expect_any_instance_of(MatchmakingService).to receive(:new_opponents_assignment).and_call_original
+        expect_any_instance_of(MatchmakingService).to have_received(:new_opponents_assignment).and_call_original
         expect do
           post players_path,
                headers: auth_headers,
@@ -44,7 +44,7 @@ RSpec.describe 'Players', type: :request do
       let(:round) { rounds(:gwent_two) }
 
       it 'assigns Players according to their results' do
-        expect_any_instance_of(MatchmakingService).to receive(:swiss_assignment).and_call_original
+        expect_any_instance_of(MatchmakingService).to have_received(:swiss_assignment).and_call_original
         expect do
           post players_path,
                headers: auth_headers,

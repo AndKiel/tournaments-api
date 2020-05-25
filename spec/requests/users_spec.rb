@@ -30,7 +30,7 @@ RSpec.describe 'Users', type: :request do
                    email: ''
                  }
                }
-        end.to_not change(User, :count)
+        end.not_to change(User, :count)
         expect(response).to have_http_status(:unprocessable_entity)
         expect(response.body).to match_json_expression(validation_error_json)
       end
@@ -61,7 +61,7 @@ RSpec.describe 'Users', type: :request do
               }
           expect(response).to have_http_status(:ok)
           expect(response.body).to match_json_expression(user_json)
-          expect(current_user.attributes).to_not eq(current_user.reload.attributes)
+          expect(current_user.attributes).not_to eq(current_user.reload.attributes)
         end
       end
 

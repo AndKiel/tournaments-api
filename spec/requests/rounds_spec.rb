@@ -58,7 +58,7 @@ RSpec.describe 'Rounds', type: :request do
               }
         expect(response).to have_http_status(:ok)
         expect(response.body).to match_json_expression(round_json)
-        expect(round.attributes).to_not eq(round.reload.attributes)
+        expect(round.attributes).not_to eq(round.reload.attributes)
       end
     end
 
