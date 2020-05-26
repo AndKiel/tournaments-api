@@ -2,9 +2,13 @@
 
 FactoryBot.define do
   factory :tournament do
+    transient do
+      result_names_count { 1 }
+    end
+
     competitors_limit { 12 }
     name { 'Game Tournament' }
-    result_names { ['Win'] }
+    result_names { Array.new(result_names_count) { 'Win' } }
     starts_at { 1.day.since }
     status { 'created' }
 
