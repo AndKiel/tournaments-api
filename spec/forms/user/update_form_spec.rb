@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe User::UpdateForm do
-  let!(:another_user) { create(:user) }
+  let(:another_user) { create(:user) }
 
   subject { described_class.new(User.new) }
 

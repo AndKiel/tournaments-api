@@ -3,8 +3,8 @@
 require 'rails_helper'
 
 RSpec.describe PlayerForm do
-  let!(:tournament) { create(:tournament, result_names_count: 2) }
-  let!(:round) { create(:round, tournament: tournament) }
+  let(:tournament) { create(:tournament, result_names_count: 2) }
+  let(:round) { create(:round, tournament: tournament) }
   let(:player) { build(:player, round: round) }
 
   subject { described_class.new(player) }
