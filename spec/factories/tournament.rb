@@ -9,23 +9,23 @@ FactoryBot.define do
     competitors_limit { 12 }
     name { 'Game Tournament' }
     result_names { Array.new(result_names_count) { 'Win' } }
-    starts_at { 1.minute.ago }
+    starts_at { 1.day.since }
     status { 'created' }
 
     association :organiser
 
     trait :ended do
-      starts_at { 1.day.ago }
+      past
       status { 'ended' }
     end
 
     trait :in_progress do
-      starts_at { 1.minute.ago }
+      past
       status { 'in_progress' }
     end
 
-    trait :upcoming do
-      starts_at { 1.day.since }
+    trait :past do
+      starts_at { 1.minute.ago }
     end
   end
 end
