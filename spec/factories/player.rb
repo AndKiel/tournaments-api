@@ -7,12 +7,12 @@ FactoryBot.define do
     association :competitor
     association :round
 
-    trait :winner do
-      result_values { [1] }
-    end
-
     trait :loser do
       result_values { [0] }
+    end
+
+    trait :winner do
+      result_values { [1] }
     end
   end
 end
