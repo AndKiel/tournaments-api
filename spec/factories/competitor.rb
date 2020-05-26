@@ -5,6 +5,9 @@ FactoryBot.define do
     sequence(:name) { |n| "Competitor #{n}" }
     status { 'enlisted' }
 
+    association :tournament
+    association :user
+
     trait :confirmed do
       status { 'confirmed' }
     end

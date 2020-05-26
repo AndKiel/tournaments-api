@@ -8,6 +8,8 @@ FactoryBot.define do
     starts_at { 1.day.since }
     status { 'created' }
 
+    association :organiser
+
     trait :in_progress do
       starts_at { 1.minute.ago }
       status { 'in_progress' }

@@ -4,6 +4,9 @@ FactoryBot.define do
   factory :player do
     table_number { 1 }
 
+    association :competitor
+    association :round
+
     trait :winner do
       result_values { [1] }
     end
