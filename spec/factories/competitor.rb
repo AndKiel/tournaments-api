@@ -8,6 +8,10 @@ FactoryBot.define do
     association :tournament
     association :user
 
+    trait :anonymous do
+      user { nil }
+    end
+
     trait :confirmed do
       status { 'confirmed' }
     end
