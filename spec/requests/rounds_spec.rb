@@ -3,11 +3,11 @@
 require 'rails_helper'
 
 RSpec.describe 'Rounds', type: :request do
-  authenticate(:john)
+  auth
+
+  let(:tournament) { create(:tournament, organiser: current_user) }
 
   describe 'POST /rounds' do
-    let(:tournament) { tournaments(:tenkaichi_budokai) }
-
     context 'when params are valid' do
       it 'returns Round' do
         expect do
@@ -44,7 +44,7 @@ RSpec.describe 'Rounds', type: :request do
   end
 
   describe 'PATCH /rounds/:id' do
-    let(:round) { rounds(:tenkaichi_budokai_one) }
+    let!(:round) { create(:round, tournament: tournament) }
 
     context 'when params are valid' do
       it 'returns Round' do
@@ -79,7 +79,7 @@ RSpec.describe 'Rounds', type: :request do
   end
 
   describe 'DELETE /rounds/:id' do
-    let(:round) { rounds(:game_of_thrones_delete_me) }
+    let!(:round) { create(:round, tournament: tournament) }
 
     it 'returns nothing' do
       expect do
