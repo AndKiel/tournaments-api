@@ -30,6 +30,7 @@ RSpec.describe 'Tournaments', type: :request do
 
     context 'when authenticated' do
       auth
+
       let!(:tournaments) { create_list(:tournament, 2, organiser: current_user) }
 
       it 'returns organised Tournaments' do
@@ -43,8 +44,10 @@ RSpec.describe 'Tournaments', type: :request do
   end
 
   describe 'GET /tournaments/enlisted' do
-    # TODO: change to factories
-    authenticate(:andrew)
+    auth
+
+    let!(:tournament) { create(:tournament) }
+    let!(:competitor) { create(:competitor, tournament: tournament, user: current_user) }
 
     it 'returns Tournaments user has enlisted in' do
       get enlisted_tournaments_path,
@@ -71,8 +74,10 @@ RSpec.describe 'Tournaments', type: :request do
   end
 
   describe 'GET /tournaments/:id' do
-    # TODO: change to factories
-    let(:tournament) { tournaments(:gwent) }
+    let!(:tournament) { create(:tournament) }
+    let!(:competitor) { create(:competitor, :anonymous, tournament: tournament) }
+    let!(:round) { create(:round, tournament: tournament) }
+    let!(:player) { create(:player, competitor: competitor, round: round) }
     let(:tournament_detailed_json) do
       {
         tournament: tournament_json[:tournament].merge(
