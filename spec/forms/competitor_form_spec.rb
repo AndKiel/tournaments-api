@@ -4,9 +4,9 @@ require 'rails_helper'
 
 RSpec.describe CompetitorForm do
   let(:tournament) { create(:tournament) }
+  let(:competitor) { build(:competitor, tournament: tournament) }
   let(:another_competitor) { create(:competitor, tournament: tournament) }
   let(:different_tournament_competitor) { create(:competitor) }
-  let(:competitor) { build(:competitor, tournament: tournament) }
 
   subject { described_class.new(competitor) }
 

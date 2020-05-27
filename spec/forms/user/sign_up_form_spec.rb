@@ -39,7 +39,6 @@ RSpec.describe User::SignUpForm do
 
   it 'validates confirmation of password' do
     result = subject.validate(
-      email: 'some@one.co',
       password: 'verySecure',
       password_confirmation: 'orNot'
     )

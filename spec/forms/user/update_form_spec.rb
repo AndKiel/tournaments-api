@@ -25,9 +25,13 @@ RSpec.describe User::UpdateForm do
     expect(subject.errors[:email]).to include I18n.t('errors.messages.taken')
   end
 
+  it 'allows to skip password' do
+    result = subject.validate(email: 'some@one.co')
+    expect(result).to be true
+  end
+
   it 'validates confirmation of password' do
     result = subject.validate(
-      email: 'some@one.co',
       password: 'verySecure',
       password_confirmation: 'orNot'
     )
