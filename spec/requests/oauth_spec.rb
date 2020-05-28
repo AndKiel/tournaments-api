@@ -6,7 +6,7 @@ RSpec.describe 'OAuth', type: :request do
   describe 'POST /oauth/token' do
     let(:user) { create(:user) }
 
-    context 'valid params' do
+    context 'with valid params' do
       it 'creates AccessToken' do
         expect do
           post oauth_token_path,
@@ -21,7 +21,7 @@ RSpec.describe 'OAuth', type: :request do
       end
     end
 
-    context 'invalid params' do
+    context 'with invalid params' do
       it 'returns error' do
         post oauth_token_path,
              params: {
@@ -47,7 +47,7 @@ RSpec.describe 'OAuth', type: :request do
       end
     end
 
-    context 'when not authenticated' do
+    context 'when unauthenticated' do
       it 'returns error' do
         get oauth_token_info_path
         expect(response).to have_http_status(:unauthorized)

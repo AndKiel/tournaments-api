@@ -107,7 +107,7 @@ RSpec.describe 'Tournaments', type: :request do
     authenticate
 
     describe 'POST /tournaments' do
-      context 'when params are valid' do
+      context 'with valid params' do
         it 'returns Tournament' do
           expect do
             post tournaments_path,
@@ -126,7 +126,7 @@ RSpec.describe 'Tournaments', type: :request do
         end
       end
 
-      context 'when params are not valid' do
+      context 'with invalid params' do
         it 'returns validation errors' do
           expect do
             post tournaments_path,
@@ -146,7 +146,7 @@ RSpec.describe 'Tournaments', type: :request do
     describe 'PUT /tournaments/:id' do
       let(:tournament) { create(:tournament, organiser: current_user) }
 
-      context 'when params are valid' do
+      context 'with valid params' do
         it 'returns Tournament' do
           put tournament_path(tournament.id),
               headers: auth_headers,
@@ -160,7 +160,7 @@ RSpec.describe 'Tournaments', type: :request do
         end
       end
 
-      context 'when params are not valid' do
+      context 'with invalid params' do
         it 'return validation errors' do
           put tournament_path(tournament.id),
               headers: auth_headers,
