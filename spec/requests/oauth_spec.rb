@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe 'OAuth', type: :request do
   describe 'POST /oauth/token' do
-    let(:user) { users(:andrew) }
+    let(:user) { create(:user) }
 
     context 'valid params' do
       it 'creates AccessToken' do
@@ -37,7 +37,7 @@ RSpec.describe 'OAuth', type: :request do
 
   describe 'GET /oauth/token/info' do
     context 'when authenticated' do
-      authenticate(:anne)
+      authenticate
 
       it 'returns AccessToken details' do
         get oauth_token_info_path,
@@ -57,7 +57,7 @@ RSpec.describe 'OAuth', type: :request do
   end
 
   describe 'POST /oauth/revoke' do
-    authenticate(:anne)
+    authenticate
 
     it 'revokes AccessToken' do
       post oauth_revoke_path,

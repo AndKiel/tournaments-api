@@ -3,6 +3,8 @@
 require 'rails_helper'
 
 RSpec.describe User::SignUpForm do
+  let(:another_user) { create(:user) }
+
   subject { described_class.new(User.new) }
 
   it 'validates presence of email' do
@@ -18,7 +20,7 @@ RSpec.describe User::SignUpForm do
   end
 
   it 'validates uniqueness of email' do
-    result = subject.validate(email: users(:john).email)
+    result = subject.validate(email: another_user.email)
     expect(result).to be false
     expect(subject.errors[:email]).to include I18n.t('errors.messages.taken')
   end
@@ -37,7 +39,6 @@ RSpec.describe User::SignUpForm do
 
   it 'validates confirmation of password' do
     result = subject.validate(
-      email: 'some@one.co',
       password: 'verySecure',
       password_confirmation: 'orNot'
     )
