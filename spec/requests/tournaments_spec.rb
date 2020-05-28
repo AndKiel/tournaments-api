@@ -29,7 +29,7 @@ RSpec.describe 'Tournaments', type: :request do
     end
 
     context 'when authenticated' do
-      auth
+      authenticate
 
       let!(:tournaments) { create_list(:tournament, 2, organiser: current_user) }
 
@@ -44,7 +44,7 @@ RSpec.describe 'Tournaments', type: :request do
   end
 
   describe 'GET /tournaments/enlisted' do
-    auth
+    authenticate
 
     let!(:tournament) { create(:tournament) }
     let!(:competitor) { create(:competitor, tournament: tournament, user: current_user) }
@@ -99,7 +99,7 @@ RSpec.describe 'Tournaments', type: :request do
   end
 
   context 'when authenticated' do
-    auth
+    authenticate
 
     describe 'POST /tournaments' do
       context 'when params are valid' do

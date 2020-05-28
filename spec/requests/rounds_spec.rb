@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Rounds', type: :request do
-  auth
+  authenticate
 
   let(:tournament) { create(:tournament, organiser: current_user) }
 

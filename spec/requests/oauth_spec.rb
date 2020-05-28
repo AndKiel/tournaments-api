@@ -37,7 +37,7 @@ RSpec.describe 'OAuth', type: :request do
 
   describe 'GET /oauth/token/info' do
     context 'when authenticated' do
-      auth
+      authenticate
 
       it 'returns AccessToken details' do
         get oauth_token_info_path,
@@ -57,7 +57,7 @@ RSpec.describe 'OAuth', type: :request do
   end
 
   describe 'POST /oauth/revoke' do
-    auth
+    authenticate
 
     it 'revokes AccessToken' do
       post oauth_revoke_path,

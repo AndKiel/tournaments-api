@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Competitors', type: :request do
-  auth
+  authenticate
 
   let(:tournament) { create(:tournament) }
 

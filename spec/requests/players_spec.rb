@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Players', type: :request do
-  auth
+  authenticate
 
   let(:tournament) { create(:tournament, :in_progress, organiser: current_user) }
   let!(:competitors) { create_list(:competitor, 12, :anonymous, :confirmed, tournament: tournament) }
