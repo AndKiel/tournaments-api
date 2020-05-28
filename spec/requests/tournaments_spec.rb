@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe 'Tournaments', type: :request do
   describe 'GET /tournaments' do
-    let!(:tournaments) { create_list(:tournament, 5) }
+    before { create_list(:tournament, 5) }
 
     it 'returns Tournaments' do
       get tournaments_path
@@ -31,7 +31,7 @@ RSpec.describe 'Tournaments', type: :request do
     context 'when authenticated' do
       authenticate
 
-      let!(:tournaments) { create_list(:tournament, 2, organiser: current_user) }
+      before { create_list(:tournament, 2, organiser: current_user) }
 
       it 'returns organised Tournaments' do
         get tournaments_path,
@@ -46,8 +46,10 @@ RSpec.describe 'Tournaments', type: :request do
   describe 'GET /tournaments/enlisted' do
     authenticate
 
-    let!(:tournament) { create(:tournament) }
-    let!(:competitor) { create(:competitor, tournament: tournament, user: current_user) }
+    before do
+      tournament = create(:tournament)
+      create(:competitor, tournament: tournament, user: current_user)
+    end
 
     it 'returns Tournaments user has enlisted in' do
       get enlisted_tournaments_path,
@@ -75,9 +77,6 @@ RSpec.describe 'Tournaments', type: :request do
 
   describe 'GET /tournaments/:id' do
     let!(:tournament) { create(:tournament) }
-    let!(:competitor) { create(:competitor, :anonymous, tournament: tournament) }
-    let!(:round) { create(:round, tournament: tournament) }
-    let!(:player) { create(:player, competitor: competitor, round: round) }
     let(:tournament_detailed_json) do
       {
         tournament: tournament_json[:tournament].merge(
@@ -89,6 +88,12 @@ RSpec.describe 'Tournaments', type: :request do
           ].ignore_extra_values!
         )
       }
+    end
+
+    before do
+      competitor = create(:competitor, :anonymous, tournament: tournament)
+      round = create(:round, tournament: tournament)
+      create(:player, competitor: competitor, round: round)
     end
 
     it 'returns Tournament' do

@@ -58,7 +58,7 @@ RSpec.describe 'Competitors', type: :request do
   end
 
   describe 'DELETE /competitor' do
-    let!(:competitor) { create(:competitor, tournament: tournament, user: current_user) }
+    before { create(:competitor, tournament: tournament, user: current_user) }
 
     context 'when it is possible to resign' do
       it 'deletes Competitor' do
@@ -76,7 +76,8 @@ RSpec.describe 'Competitors', type: :request do
 
     context 'when it is not possible to resign' do
       let(:tournament) { create(:tournament, :ended) }
-      let!(:competitor) { create(:competitor, tournament: tournament, user: current_user) }
+
+      before { create(:competitor, tournament: tournament, user: current_user) }
 
       it 'returns error' do
         delete competitor_path,
