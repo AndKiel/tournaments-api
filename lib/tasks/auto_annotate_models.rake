@@ -23,7 +23,7 @@ if Rails.env.development?
       'include_version' => 'false',
       'require' => '',
       'exclude_tests' => 'false',
-      'exclude_fixtures' => 'false',
+      'exclude_fixtures' => 'true',
       'exclude_factories' => 'false',
       'exclude_serializers' => 'false',
       'exclude_scaffolds' => 'true',

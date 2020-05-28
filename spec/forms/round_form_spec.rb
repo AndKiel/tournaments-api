@@ -3,7 +3,9 @@
 require 'rails_helper'
 
 RSpec.describe RoundForm do
-  subject { described_class.new(Round.new(tournament: tournaments(:tenkaichi_budokai))) }
+  let(:round) { build(:round) }
+
+  subject { described_class.new(round) }
 
   it 'validates presence of competitors limit' do
     result = subject.validate(competitors_limit: nil)

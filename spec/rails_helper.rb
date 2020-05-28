@@ -12,6 +12,8 @@ require 'json_expressions/rspec'
 require 'webmock/rspec'
 
 require 'support/controller_macros'
+require 'support/database_cleaner'
+require 'support/factory_bot'
 require 'support/json_matchers'
 require 'support/json_helpers'
 require 'support/request_macros'
@@ -24,8 +26,5 @@ RSpec.configure do |config|
   config.include JsonHelpers
 
   config.filter_rails_from_backtrace!
-  config.fixture_path = "#{::Rails.root}/spec/fixtures"
-  config.global_fixtures = :all
   config.infer_spec_type_from_file_location!
-  config.use_transactional_fixtures = true
 end
