@@ -3,9 +3,9 @@
 require 'rails_helper'
 
 RSpec.describe User::SignUpForm do
-  let(:another_user) { create(:user) }
-
   subject(:form) { described_class.new(User.new) }
+
+  let(:another_user) { create(:user) }
 
   it 'validates presence of email' do
     result = form.validate(email: '')

@@ -3,11 +3,11 @@
 require 'rails_helper'
 
 RSpec.describe PlayerForm do
+  subject(:form) { described_class.new(player) }
+
   let(:tournament) { create(:tournament, result_names_count: 2) }
   let(:round) { create(:round, tournament: tournament) }
   let(:player) { build(:player, round: round) }
-
-  subject(:form) { described_class.new(player) }
 
   it 'validates presence of result values' do
     result = form.validate(result_values: nil)

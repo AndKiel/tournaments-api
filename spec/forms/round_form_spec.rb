@@ -3,9 +3,9 @@
 require 'rails_helper'
 
 RSpec.describe RoundForm do
-  let(:round) { build(:round) }
-
   subject(:form) { described_class.new(round) }
+
+  let(:round) { build(:round) }
 
   it 'validates presence of competitors limit' do
     result = form.validate(competitors_limit: nil)

@@ -3,12 +3,12 @@
 require 'rails_helper'
 
 RSpec.describe CompetitorForm do
+  subject(:form) { described_class.new(competitor) }
+
   let(:tournament) { create(:tournament) }
   let(:competitor) { build(:competitor, tournament: tournament) }
   let(:another_competitor) { create(:competitor, tournament: tournament) }
   let(:different_tournament_competitor) { create(:competitor) }
-
-  subject(:form) { described_class.new(competitor) }
 
   it 'validates presence of name' do
     result = form.validate(name: nil)

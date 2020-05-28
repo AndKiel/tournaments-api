@@ -3,9 +3,9 @@
 require 'rails_helper'
 
 RSpec.describe TournamentForm do
-  let(:tournament) { build(:tournament) }
-
   subject(:form) { described_class.new(tournament) }
+
+  let(:tournament) { build(:tournament) }
 
   it 'validates presence of competitors limit' do
     result = form.validate(competitors_limit: nil)
