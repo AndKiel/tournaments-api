@@ -56,6 +56,9 @@ RSpec/AnyInstance:
 RSpec/ExampleLength:
   Max: 15
 
+RSpec/MessageSpies:
+  EnforcedStyle: receive
+
 RSpec/MultipleExpectations:
   Max: 5
 
