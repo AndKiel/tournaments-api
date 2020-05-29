@@ -52,6 +52,9 @@ Rails/BulkChangeTable:
 RSpec/AnyInstance:
   Enabled: false
 
+RSpec/ExampleLength:
+  Max: 15
+
 RSpec/MultipleExpectations:
   Enabled: false
 
