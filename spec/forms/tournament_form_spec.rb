@@ -13,11 +13,13 @@ RSpec.describe TournamentForm do
     expect(form.errors[:competitors_limit]).to include I18n.t('errors.messages.blank')
   end
 
-  it 'validates numericality of competitors limit' do
+  it 'validates competitors limit being integer' do
     result = form.validate(competitors_limit: 2.5)
     expect(result).to be false
     expect(form.errors[:competitors_limit]).to include I18n.t('errors.messages.not_an_integer')
+  end
 
+  it 'validates competitors limit being greater than 1' do
     result = form.validate(competitors_limit: -20)
     expect(result).to be false
     expect(form.errors[:competitors_limit]).to include I18n.t('errors.messages.greater_than', count: 1)
@@ -47,11 +49,13 @@ RSpec.describe TournamentForm do
     expect(form.errors[:starts_at]).to include I18n.t('errors.messages.blank')
   end
 
-  it 'validates timeliness of starts at' do
+  it 'validates starts at being datetime' do
     result = form.validate(starts_at: 'not.a.date')
     expect(result).to be false
     expect(form.errors[:starts_at]).to include I18n.t('errors.messages.invalid_datetime')
+  end
 
+  it 'validates starts at being a future date' do
     result = form.validate(starts_at: 1.day.ago)
     expect(result).to be false
     expect(form.errors[:starts_at]).to include I18n.t('errors.messages.future_date')
