@@ -48,7 +48,9 @@ group :development do
 
   gem 'annotate'
   gem 'rubocop', require: false
+  gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false
+  gem 'rubocop-rspec', require: false
 
   # Optimization
   # gem 'derailed_benchmarks'
@@ -65,5 +67,5 @@ group :test do
   gem 'json_expressions', require: false
   gem 'rspec-rails'
   gem 'simplecov', require: false
-  gem 'webmock'
+  # gem 'webmock'
 end

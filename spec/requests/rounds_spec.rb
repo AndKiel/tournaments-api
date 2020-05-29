@@ -8,7 +8,7 @@ RSpec.describe 'Rounds', type: :request do
   let(:tournament) { create(:tournament, organiser: current_user) }
 
   describe 'POST /rounds' do
-    context 'when params are valid' do
+    context 'with valid params' do
       it 'returns Round' do
         expect do
           post rounds_path,
@@ -26,7 +26,7 @@ RSpec.describe 'Rounds', type: :request do
       end
     end
 
-    context 'when params are not valid' do
+    context 'with invalid params' do
       it 'returns validation errors' do
         post rounds_path,
              headers: auth_headers,
@@ -46,7 +46,7 @@ RSpec.describe 'Rounds', type: :request do
   describe 'PATCH /rounds/:id' do
     let!(:round) { create(:round, tournament: tournament) }
 
-    context 'when params are valid' do
+    context 'with valid params' do
       it 'returns Round' do
         patch round_path(round.id),
               headers: auth_headers,
@@ -58,11 +58,11 @@ RSpec.describe 'Rounds', type: :request do
               }
         expect(response).to have_http_status(:ok)
         expect(response.body).to match_json_expression(round_json)
-        expect(round.attributes).to_not eq(round.reload.attributes)
+        expect(round.attributes).not_to eq(round.reload.attributes)
       end
     end
 
-    context 'when params are not valid' do
+    context 'with invalid params' do
       it 'returns validation errors' do
         patch round_path(round.id),
               headers: auth_headers,

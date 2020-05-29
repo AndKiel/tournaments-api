@@ -3,44 +3,44 @@
 require 'rails_helper'
 
 RSpec.describe User::UpdateForm do
+  subject(:form) { described_class.new(User.new) }
+
   let(:another_user) { create(:user) }
 
-  subject { described_class.new(User.new) }
-
   it 'validates presence of email' do
-    result = subject.validate(email: '')
+    result = form.validate(email: '')
     expect(result).to be false
-    expect(subject.errors[:email]).to include I18n.t('errors.messages.blank')
+    expect(form.errors[:email]).to include I18n.t('errors.messages.blank')
   end
 
   it 'validates format of email' do
-    result = subject.validate(email: 'not.an.email')
+    result = form.validate(email: 'not.an.email')
     expect(result).to be false
-    expect(subject.errors[:email]).to include I18n.t('activemodel.errors.messages.invalid_email_address')
+    expect(form.errors[:email]).to include I18n.t('activemodel.errors.messages.invalid_email_address')
   end
 
   it 'validates uniqueness of email' do
-    result = subject.validate(email: another_user.email)
+    result = form.validate(email: another_user.email)
     expect(result).to be false
-    expect(subject.errors[:email]).to include I18n.t('errors.messages.taken')
+    expect(form.errors[:email]).to include I18n.t('errors.messages.taken')
   end
 
   it 'allows to skip password' do
-    result = subject.validate(email: 'some@one.co')
+    result = form.validate(email: 'some@one.co')
     expect(result).to be true
   end
 
   it 'validates confirmation of password' do
-    result = subject.validate(
+    result = form.validate(
       password: 'verySecure',
       password_confirmation: 'orNot'
     )
     expect(result).to be false
-    expect(subject.errors[:password_confirmation]).to include I18n.t('errors.messages.password_mismatch')
+    expect(form.errors[:password_confirmation]).to include I18n.t('errors.messages.password_mismatch')
   end
 
   it 'returns true for valid attributes' do
-    result = subject.validate(
+    result = form.validate(
       email: 'some@one.co',
       password: 'verySecure',
       password_confirmation: 'verySecure'

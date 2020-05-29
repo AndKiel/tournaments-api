@@ -3,32 +3,32 @@
 require 'rails_helper'
 
 RSpec.describe PlayerForm do
+  subject(:form) { described_class.new(player) }
+
   let(:tournament) { create(:tournament, result_names_count: 2) }
   let(:round) { create(:round, tournament: tournament) }
   let(:player) { build(:player, round: round) }
 
-  subject { described_class.new(player) }
-
   it 'validates presence of result values' do
-    result = subject.validate(result_values: nil)
+    result = form.validate(result_values: nil)
     expect(result).to be false
-    expect(subject.errors[:result_values]).to include I18n.t('errors.messages.blank')
+    expect(form.errors[:result_values]).to include I18n.t('errors.messages.blank')
   end
 
   it 'validates length of result values' do
-    result = subject.validate(result_values: [1])
+    result = form.validate(result_values: [1])
     expect(result).to be false
-    expect(subject.errors[:result_values]).to include I18n.t('errors.attributes.result_values.invalid')
+    expect(form.errors[:result_values]).to include I18n.t('errors.attributes.result_values.invalid')
   end
 
   it 'ignores non-integer result values' do
-    result = subject.validate(result_values: ['A', nil, 2.2])
+    result = form.validate(result_values: ['A', nil, 2.2])
     expect(result).to be false
-    expect(subject.errors[:result_values]).to include I18n.t('errors.messages.blank')
+    expect(form.errors[:result_values]).to include I18n.t('errors.messages.blank')
   end
 
   it 'returns true for valid attributes' do
-    result = subject.validate(result_values: [1, 73])
+    result = form.validate(result_values: [1, 73])
     expect(result).to be true
   end
 end

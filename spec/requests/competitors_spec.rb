@@ -9,7 +9,7 @@ RSpec.describe 'Competitors', type: :request do
 
   describe 'POST /competitor' do
     context 'when it is possible to enlist' do
-      context 'when params are valid' do
+      context 'with valid params' do
         it 'creates Competitor' do
           expect do
             post competitor_path,
@@ -26,7 +26,7 @@ RSpec.describe 'Competitors', type: :request do
         end
       end
 
-      context 'when params are not valid' do
+      context 'with invalid params' do
         it 'returns validation errors' do
           post competitor_path,
                headers: auth_headers,
@@ -58,7 +58,7 @@ RSpec.describe 'Competitors', type: :request do
   end
 
   describe 'DELETE /competitor' do
-    let!(:competitor) { create(:competitor, tournament: tournament, user: current_user) }
+    before { create(:competitor, tournament: tournament, user: current_user) }
 
     context 'when it is possible to resign' do
       it 'deletes Competitor' do
@@ -76,7 +76,8 @@ RSpec.describe 'Competitors', type: :request do
 
     context 'when it is not possible to resign' do
       let(:tournament) { create(:tournament, :ended) }
-      let!(:competitor) { create(:competitor, tournament: tournament, user: current_user) }
+
+      before { create(:competitor, tournament: tournament, user: current_user) }
 
       it 'returns error' do
         delete competitor_path,
@@ -95,7 +96,7 @@ RSpec.describe 'Competitors', type: :request do
 
     describe 'POST /competitors/add' do
       context 'when conditions for adding competitor are met' do
-        context 'when params are valid' do
+        context 'with valid params' do
           it 'creates Competitor' do
             expect do
               post add_competitor_path,
@@ -112,7 +113,7 @@ RSpec.describe 'Competitors', type: :request do
           end
         end
 
-        context 'when params are not valid' do
+        context 'with invalid params' do
           it 'returns validation errors' do
             post add_competitor_path,
                  headers: auth_headers,

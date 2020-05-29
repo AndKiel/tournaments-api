@@ -1,5 +1,7 @@
 require:
+  - rubocop-performance
   - rubocop-rails
+  - rubocop-rspec
 
 inherit_mode:
   merge:
@@ -47,6 +49,21 @@ Metrics/MethodLength:
 
 Rails/BulkChangeTable:
   Enabled: false
+
+RSpec/AnyInstance:
+  Enabled: false
+
+RSpec/ExampleLength:
+  Max: 15
+
+RSpec/MessageSpies:
+  EnforcedStyle: receive
+
+RSpec/MultipleExpectations:
+  Max: 5
+
+RSpec/NestedGroups:
+  Max: 5
 
 Style/DateTime:
   Enabled: true

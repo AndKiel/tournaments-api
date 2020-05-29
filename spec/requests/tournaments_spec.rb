@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe 'Tournaments', type: :request do
   describe 'GET /tournaments' do
-    let!(:tournaments) { create_list(:tournament, 5) }
+    before { create_list(:tournament, 5) }
 
     it 'returns Tournaments' do
       get tournaments_path
@@ -31,7 +31,7 @@ RSpec.describe 'Tournaments', type: :request do
     context 'when authenticated' do
       authenticate
 
-      let!(:tournaments) { create_list(:tournament, 2, organiser: current_user) }
+      before { create_list(:tournament, 2, organiser: current_user) }
 
       it 'returns organised Tournaments' do
         get tournaments_path,
@@ -46,8 +46,10 @@ RSpec.describe 'Tournaments', type: :request do
   describe 'GET /tournaments/enlisted' do
     authenticate
 
-    let!(:tournament) { create(:tournament) }
-    let!(:competitor) { create(:competitor, tournament: tournament, user: current_user) }
+    before do
+      tournament = create(:tournament)
+      create(:competitor, tournament: tournament, user: current_user)
+    end
 
     it 'returns Tournaments user has enlisted in' do
       get enlisted_tournaments_path,
@@ -75,9 +77,6 @@ RSpec.describe 'Tournaments', type: :request do
 
   describe 'GET /tournaments/:id' do
     let!(:tournament) { create(:tournament) }
-    let!(:competitor) { create(:competitor, :anonymous, tournament: tournament) }
-    let!(:round) { create(:round, tournament: tournament) }
-    let!(:player) { create(:player, competitor: competitor, round: round) }
     let(:tournament_detailed_json) do
       {
         tournament: tournament_json[:tournament].merge(
@@ -91,6 +90,12 @@ RSpec.describe 'Tournaments', type: :request do
       }
     end
 
+    before do
+      competitor = create(:competitor, :anonymous, tournament: tournament)
+      round = create(:round, tournament: tournament)
+      create(:player, competitor: competitor, round: round)
+    end
+
     it 'returns Tournament' do
       get tournament_path(tournament.id)
       expect(response).to have_http_status(:ok)
@@ -102,7 +107,7 @@ RSpec.describe 'Tournaments', type: :request do
     authenticate
 
     describe 'POST /tournaments' do
-      context 'when params are valid' do
+      context 'with valid params' do
         it 'returns Tournament' do
           expect do
             post tournaments_path,
@@ -121,7 +126,7 @@ RSpec.describe 'Tournaments', type: :request do
         end
       end
 
-      context 'when params are not valid' do
+      context 'with invalid params' do
         it 'returns validation errors' do
           expect do
             post tournaments_path,
@@ -131,7 +136,7 @@ RSpec.describe 'Tournaments', type: :request do
                      name: 'New tournament test'
                    }
                  }
-          end.to_not change(Tournament, :count)
+          end.not_to change(Tournament, :count)
           expect(response).to have_http_status(:unprocessable_entity)
           expect(response.body).to match_json_expression(validation_error_json)
         end
@@ -141,7 +146,7 @@ RSpec.describe 'Tournaments', type: :request do
     describe 'PUT /tournaments/:id' do
       let(:tournament) { create(:tournament, organiser: current_user) }
 
-      context 'when params are valid' do
+      context 'with valid params' do
         it 'returns Tournament' do
           put tournament_path(tournament.id),
               headers: auth_headers,
@@ -155,7 +160,7 @@ RSpec.describe 'Tournaments', type: :request do
         end
       end
 
-      context 'when params are not valid' do
+      context 'with invalid params' do
         it 'return validation errors' do
           put tournament_path(tournament.id),
               headers: auth_headers,

@@ -56,8 +56,6 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
       zeitwerk (~> 2.2, >= 2.2.2)
-    addressable (2.7.0)
-      public_suffix (>= 2.0.2, < 5.0)
     annotate (3.1.1)
       activerecord (>= 3.2, < 7.0)
       rake (>= 10.4, < 14.0)
@@ -77,8 +75,6 @@ GEM
       url
     coderay (1.1.2)
     concurrent-ruby (1.1.6)
-    crack (0.4.3)
-      safe_yaml (~> 1.0.0)
     crass (1.0.6)
     database_cleaner (1.8.5)
     database_cleaner-active_record (1.8.0)
@@ -116,7 +112,6 @@ GEM
       ruby-progressbar (~> 1.4)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
-    hashdiff (1.0.1)
     i18n (1.8.2)
       concurrent-ruby (~> 1.0)
     json (2.3.0)
@@ -165,7 +160,6 @@ GEM
       pry (~> 0.13.0)
     pry-rails (0.3.9)
       pry (>= 0.10.4)
-    public_suffix (4.0.5)
     puma (4.3.5)
       nio4r (~> 2.0)
     pundit (2.1.0)
@@ -244,12 +238,15 @@ GEM
       unicode-display_width (>= 1.4.0, < 2.0)
     rubocop-ast (0.0.3)
       parser (>= 2.7.0.1)
+    rubocop-performance (1.6.0)
+      rubocop (>= 0.71.0)
     rubocop-rails (2.5.2)
       activesupport
       rack (>= 1.1)
       rubocop (>= 0.72.0)
+    rubocop-rspec (1.39.0)
+      rubocop (>= 0.68.1)
     ruby-progressbar (1.10.1)
-    safe_yaml (1.0.5)
     scenic (1.5.2)
       activerecord (>= 4.0.0)
       railties (>= 4.0.0)
@@ -281,10 +278,6 @@ GEM
       i18n
     validates_timeliness (4.1.1)
       timeliness (>= 0.3.10, < 1)
-    webmock (3.8.3)
-      addressable (>= 2.3.6)
-      crack (>= 0.3.2)
-      hashdiff (>= 0.4.0, < 2.0.0)
     websocket-driver (0.7.1)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.4)
@@ -322,14 +315,15 @@ DEPENDENCIES
   reform-rails
   rspec-rails
   rubocop
+  rubocop-performance
   rubocop-rails
+  rubocop-rspec
   scenic
   simplecov
   spring
   spring-watcher-listen
   validates_email_format_of
   validates_timeliness
-  webmock
 
 RUBY VERSION
    ruby 2.7.1p83

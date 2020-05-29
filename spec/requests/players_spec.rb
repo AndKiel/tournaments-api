@@ -10,7 +10,7 @@ RSpec.describe 'Players', type: :request do
   let!(:first_round) { create(:round, tournament: tournament) }
 
   describe 'POST /players' do
-    context 'first Round of a Tournament' do
+    context 'with first Round of a Tournament' do
       it 'randomizes Players' do
         expect_any_instance_of(MatchmakingService).to receive(:random_assignment).and_call_original
         expect do
@@ -25,7 +25,7 @@ RSpec.describe 'Players', type: :request do
       end
     end
 
-    context 'consecutive elimination Rounds of a Tournament' do
+    context 'with consecutive elimination Round of a Tournament' do
       before do
         competitors.each do |competitor|
           create(:player, competitor: competitor, round: first_round)
@@ -48,7 +48,7 @@ RSpec.describe 'Players', type: :request do
       end
     end
 
-    context 'noninitial Round of a Tournament' do
+    context 'with noninitial Round of a Tournament' do
       before do
         competitors.each_with_index do |competitor, index|
           create(:player, competitor: competitor, result_values: [index % 4], round: first_round)
@@ -75,7 +75,7 @@ RSpec.describe 'Players', type: :request do
   describe 'PATCH /players/:id' do
     let!(:player) { create(:player, competitor: competitors.first, round: first_round) }
 
-    context 'when params are valid' do
+    context 'with valid params' do
       it 'returns Player' do
         patch player_path(player.id),
               headers: auth_headers,
@@ -89,7 +89,7 @@ RSpec.describe 'Players', type: :request do
       end
     end
 
-    context 'when params are not valid' do
+    context 'with invalid params' do
       it 'returns validation errors' do
         patch player_path(player.id),
               headers: auth_headers,
