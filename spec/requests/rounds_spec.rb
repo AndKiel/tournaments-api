@@ -3,12 +3,12 @@
 require 'rails_helper'
 
 RSpec.describe 'Rounds', type: :request do
-  authenticate(:john)
+  authenticate
+
+  let(:tournament) { create(:tournament, organiser: current_user) }
 
   describe 'POST /rounds' do
-    let(:tournament) { tournaments(:tenkaichi_budokai) }
-
-    context 'when params are valid' do
+    context 'with valid params' do
       it 'returns Round' do
         expect do
           post rounds_path,
@@ -27,7 +27,7 @@ RSpec.describe 'Rounds', type: :request do
       end
     end
 
-    context 'when params are not valid' do
+    context 'with invalid params' do
       it 'returns validation errors' do
         post rounds_path,
              headers: auth_headers,
@@ -46,9 +46,9 @@ RSpec.describe 'Rounds', type: :request do
   end
 
   describe 'PATCH /rounds/:id' do
-    let(:round) { rounds(:tenkaichi_budokai_one) }
+    let!(:round) { create(:round, tournament: tournament) }
 
-    context 'when params are valid' do
+    context 'with valid params' do
       it 'returns Round' do
         patch round_path(round.id),
               headers: auth_headers,
@@ -61,11 +61,11 @@ RSpec.describe 'Rounds', type: :request do
               as: :json
         expect(response).to have_http_status(:ok)
         expect(response.body).to match_json_expression(round_json)
-        expect(round.attributes).to_not eq(round.reload.attributes)
+        expect(round.attributes).not_to eq(round.reload.attributes)
       end
     end
 
-    context 'when params are not valid' do
+    context 'with invalid params' do
       it 'returns validation errors' do
         patch round_path(round.id),
               headers: auth_headers,
@@ -83,7 +83,7 @@ RSpec.describe 'Rounds', type: :request do
   end
 
   describe 'DELETE /rounds/:id' do
-    let(:round) { rounds(:game_of_thrones_delete_me) }
+    let!(:round) { create(:round, tournament: tournament) }
 
     it 'returns nothing' do
       expect do

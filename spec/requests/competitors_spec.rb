@@ -3,13 +3,13 @@
 require 'rails_helper'
 
 RSpec.describe 'Competitors', type: :request do
-  authenticate(:hellen)
+  authenticate
+
+  let(:tournament) { create(:tournament) }
 
   describe 'POST /competitor' do
     context 'when it is possible to enlist' do
-      let(:tournament) { tournaments(:tenkaichi_budokai) }
-
-      context 'when params are valid' do
+      context 'with valid params' do
         it 'creates Competitor' do
           expect do
             post competitor_path,
@@ -27,7 +27,7 @@ RSpec.describe 'Competitors', type: :request do
         end
       end
 
-      context 'when params are not valid' do
+      context 'with invalid params' do
         it 'returns validation errors' do
           post competitor_path,
                headers: auth_headers,
@@ -45,7 +45,7 @@ RSpec.describe 'Competitors', type: :request do
     end
 
     context 'when it is not possible to enlist' do
-      let(:tournament) { tournaments(:in_progress) }
+      let(:tournament) { create(:tournament, :in_progress) }
 
       it 'returns error' do
         post competitor_path,
@@ -61,9 +61,9 @@ RSpec.describe 'Competitors', type: :request do
   end
 
   describe 'DELETE /competitor' do
-    context 'when it is possible to resign' do
-      let(:tournament) { tournaments(:game_of_thrones) }
+    before { create(:competitor, tournament: tournament, user: current_user) }
 
+    context 'when it is possible to resign' do
       it 'deletes Competitor' do
         expect do
           delete competitor_path,
@@ -78,7 +78,9 @@ RSpec.describe 'Competitors', type: :request do
     end
 
     context 'when it is not possible to resign' do
-      let(:tournament) { tournaments(:ended) }
+      let(:tournament) { create(:tournament, :ended) }
+
+      before { create(:competitor, tournament: tournament, user: current_user) }
 
       it 'returns error' do
         delete competitor_path,
@@ -93,13 +95,11 @@ RSpec.describe 'Competitors', type: :request do
   end
 
   context 'when authenticated as tournament organiser' do
-    authenticate(:john)
+    let(:tournament) { create(:tournament, organiser: current_user) }
 
     describe 'POST /competitors/add' do
       context 'when conditions for adding competitor are met' do
-        let(:tournament) { tournaments(:tenkaichi_budokai) }
-
-        context 'when params are valid' do
+        context 'with valid params' do
           it 'creates Competitor' do
             expect do
               post add_competitor_path,
@@ -117,7 +117,7 @@ RSpec.describe 'Competitors', type: :request do
           end
         end
 
-        context 'when params are not valid' do
+        context 'with invalid params' do
           it 'returns validation errors' do
             post add_competitor_path,
                  headers: auth_headers,
@@ -135,7 +135,7 @@ RSpec.describe 'Competitors', type: :request do
       end
 
       context 'when conditions for adding competitor are not met' do
-        let(:tournament) { tournaments(:in_progress) }
+        let(:tournament) { create(:tournament, :in_progress, organiser: current_user) }
 
         it 'returns error' do
           post add_competitor_path,
@@ -152,7 +152,7 @@ RSpec.describe 'Competitors', type: :request do
 
     describe 'DELETE /competitors/:id/remove' do
       context 'when conditions for remove are met' do
-        let(:competitor) { competitors(:game_of_thrones_anon) }
+        let!(:competitor) { create(:competitor, :anonymous, tournament: tournament) }
 
         it 'deletes Competitor' do
           delete remove_competitor_path(competitor.id),
@@ -163,7 +163,8 @@ RSpec.describe 'Competitors', type: :request do
       end
 
       context 'when conditions for remove are not met' do
-        let(:competitor) { competitors(:discworld_anon) }
+        let(:tournament) { create(:tournament, :in_progress, organiser: current_user) }
+        let!(:competitor) { create(:competitor, :anonymous, tournament: tournament) }
 
         it 'returns error' do
           delete remove_competitor_path(competitor.id),
@@ -176,7 +177,7 @@ RSpec.describe 'Competitors', type: :request do
 
     describe 'POST /competitors/:id/confirm' do
       context 'when conditions for confirm are met' do
-        let(:competitor) { competitors(:created_hellen) }
+        let!(:competitor) { create(:competitor, :anonymous, tournament: tournament) }
 
         it 'updates Competitor' do
           post confirm_competitor_path(competitor.id),
@@ -188,7 +189,8 @@ RSpec.describe 'Competitors', type: :request do
       end
 
       context 'when conditions for confirm are not met' do
-        let(:competitor) { competitors(:in_progress_hellen) }
+        let(:tournament) { create(:tournament, :in_progress, organiser: current_user) }
+        let!(:competitor) { create(:competitor, :anonymous, tournament: tournament) }
 
         it 'returns error' do
           post confirm_competitor_path(competitor.id),
@@ -201,7 +203,7 @@ RSpec.describe 'Competitors', type: :request do
 
     describe 'POST /competitors/:id/reject' do
       context 'when conditions for reject are met' do
-        let(:competitor) { competitors(:tenkaichi_budokai_john) }
+        let!(:competitor) { create(:competitor, :anonymous, :confirmed, tournament: tournament) }
 
         it 'updates Competitor' do
           post reject_competitor_path(competitor.id),
@@ -213,7 +215,8 @@ RSpec.describe 'Competitors', type: :request do
       end
 
       context 'when conditions for reject are not met' do
-        let(:competitor) { competitors(:game_of_thrones_hellen) }
+        let(:tournament) { create(:tournament, :in_progress, organiser: current_user) }
+        let!(:competitor) { create(:competitor, :anonymous, :confirmed, tournament: tournament) }
 
         it 'returns error' do
           post reject_competitor_path(competitor.id),

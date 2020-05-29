@@ -3,42 +3,48 @@
 require 'rails_helper'
 
 RSpec.describe RoundForm do
-  subject { described_class.new(Round.new(tournament: tournaments(:tenkaichi_budokai))) }
+  subject(:form) { described_class.new(round) }
+
+  let(:round) { build(:round) }
 
   it 'validates presence of competitors limit' do
-    result = subject.validate(competitors_limit: nil)
+    result = form.validate(competitors_limit: nil)
     expect(result).to be false
-    expect(subject.errors[:competitors_limit]).to include 'must be filled'
+    expect(form.errors[:competitors_limit]).to include 'must be filled'
   end
 
-  it 'validates numericality of competitors limit' do
-    result = subject.validate(competitors_limit: 2.5)
+  it 'validates competitors limit being integer' do
+    result = form.validate(competitors_limit: 2.5)
     expect(result).to be false
-    expect(subject.errors[:competitors_limit]).to include I18n.t('errors.messages.not_an_integer')
+    expect(form.errors[:competitors_limit]).to include I18n.t('errors.messages.not_an_integer')
+  end
 
-    result = subject.validate(competitors_limit: -20)
+  it 'validates competitors limit being greater than 1' do
+    result = form.validate(competitors_limit: -20)
     expect(result).to be false
-    expect(subject.errors[:competitors_limit]).to include I18n.t('errors.messages.greater_than', count: 1)
+    expect(form.errors[:competitors_limit]).to include I18n.t('errors.messages.greater_than', count: 1)
   end
 
   it 'validates presence of tables count' do
-    result = subject.validate(tables_count: nil)
+    result = form.validate(tables_count: nil)
     expect(result).to be false
-    expect(subject.errors[:tables_count]).to include 'must be filled'
+    expect(form.errors[:tables_count]).to include 'must be filled'
   end
 
-  it 'validates numericality of tables count' do
-    result = subject.validate(tables_count: 2.5)
+  it 'validates tables count being integer' do
+    result = form.validate(tables_count: 2.5)
     expect(result).to be false
-    expect(subject.errors[:tables_count]).to include I18n.t('errors.messages.not_an_integer')
+    expect(form.errors[:tables_count]).to include I18n.t('errors.messages.not_an_integer')
+  end
 
-    result = subject.validate(tables_count: -20)
+  it 'validates tables count being greater than 0' do
+    result = form.validate(tables_count: -20)
     expect(result).to be false
-    expect(subject.errors[:tables_count]).to include I18n.t('errors.messages.greater_than', count: 0)
+    expect(form.errors[:tables_count]).to include I18n.t('errors.messages.greater_than', count: 0)
   end
 
   it 'returns true for valid attributes' do
-    result = subject.validate(
+    result = form.validate(
       competitors_limit: 8,
       tables_count: 4
     )

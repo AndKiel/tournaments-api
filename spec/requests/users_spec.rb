@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe 'Users', type: :request do
   describe 'POST #sign_up' do
-    context 'when params are valid' do
+    context 'with valid params' do
       it 'returns User' do
         expect do
           post sign_up_users_path,
@@ -22,7 +22,7 @@ RSpec.describe 'Users', type: :request do
       end
     end
 
-    context 'when params are not valid' do
+    context 'with invalid params' do
       it 'returns validation errors' do
         expect do
           post sign_up_users_path,
@@ -32,7 +32,7 @@ RSpec.describe 'Users', type: :request do
                  }
                },
                as: :json
-        end.to_not change(User, :count)
+        end.not_to change(User, :count)
         expect(response).to have_http_status(:unprocessable_entity)
         expect(response.body).to match_json_expression(validation_error_json)
       end
@@ -40,7 +40,7 @@ RSpec.describe 'Users', type: :request do
   end
 
   context 'when authenticated' do
-    authenticate(:john)
+    authenticate
 
     describe 'GET #show' do
       it 'returns authenticated User' do
@@ -52,7 +52,7 @@ RSpec.describe 'Users', type: :request do
     end
 
     describe 'PUT #update' do
-      context 'when params are valid' do
+      context 'with valid params' do
         it 'updates authenticated User' do
           put user_path,
               headers: auth_headers,
@@ -64,11 +64,11 @@ RSpec.describe 'Users', type: :request do
               as: :json
           expect(response).to have_http_status(:ok)
           expect(response.body).to match_json_expression(user_json)
-          expect(current_user.attributes).to_not eq(current_user.reload.attributes)
+          expect(current_user.attributes).not_to eq(current_user.reload.attributes)
         end
       end
 
-      context 'when params are not valid' do
+      context 'with invalid params' do
         it 'returns error' do
           put user_path,
               headers: auth_headers,
