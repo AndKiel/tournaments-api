@@ -14,8 +14,8 @@ RSpec.describe 'Tournaments', type: :request do
     end
 
     it 'allows filtering' do
-      expect(Tournament).to have_received(:starts_at_after).and_call_original
-      expect(Tournament).to have_received(:with_name).and_call_original
+      expect(Tournament).to receive(:starts_at_after).and_call_original
+      expect(Tournament).to receive(:with_name).and_call_original
       get tournaments_path,
           params: {
             filters: {
@@ -60,8 +60,8 @@ RSpec.describe 'Tournaments', type: :request do
     end
 
     it 'allows filtering' do
-      expect(Tournament).to have_received(:starts_at_after).and_call_original
-      expect(Tournament).to have_received(:with_name).and_call_original
+      expect(Tournament).to receive(:starts_at_after).and_call_original
+      expect(Tournament).to receive(:with_name).and_call_original
       get tournaments_path,
           params: {
             filters: {
