@@ -197,7 +197,7 @@ RSpec.describe 'Tournaments', type: :request do
                headers: auth_headers
           expect(response).to have_http_status(:ok)
           expect(response.body).to match_json_expression(tournament_json)
-          expect(tournament.reload.status).to eq(:in_progress)
+          expect(tournament.reload.status).to eq('in_progress')
         end
       end
 
@@ -222,7 +222,7 @@ RSpec.describe 'Tournaments', type: :request do
                headers: auth_headers
           expect(response).to have_http_status(:ok)
           expect(response.body).to match_json_expression(tournament_json)
-          expect(tournament.reload.status).to eq(:ended)
+          expect(tournament.reload.status).to eq('ended')
         end
       end
 

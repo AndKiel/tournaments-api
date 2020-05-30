@@ -41,13 +41,13 @@ class TournamentPolicy < ApplicationPolicy
 
   def start?
     organised_by_user? &&
-      record.status.created? &&
+      record.created? &&
       record.starts_at <= Time.current
   end
 
   def end?
     organised_by_user? &&
-      record.status.in_progress?
+      record.in_progress?
   end
 
 

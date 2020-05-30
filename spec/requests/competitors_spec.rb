@@ -178,7 +178,7 @@ RSpec.describe 'Competitors', type: :request do
                headers: auth_headers
           expect(response).to have_http_status(:ok)
           expect(response.body).to match_json_expression(competitor_json)
-          expect(competitor.reload.status).to eq(:confirmed)
+          expect(competitor.reload.status).to eq('confirmed')
         end
       end
 
@@ -204,7 +204,7 @@ RSpec.describe 'Competitors', type: :request do
                headers: auth_headers
           expect(response).to have_http_status(:ok)
           expect(response.body).to match_json_expression(competitor_json)
-          expect(competitor.reload.status).to eq(:enlisted)
+          expect(competitor.reload.status).to eq('enlisted')
         end
       end
 
