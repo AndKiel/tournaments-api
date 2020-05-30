@@ -24,17 +24,12 @@
 #
 
 class Competitor < ApplicationRecord
-  extend Enumerize
-
   belongs_to :tournament
   belongs_to :user, optional: true
   has_many :players, dependent: :destroy
 
-  enumerize :status,
-            in: {
-              enlisted: 0,
-              confirmed: 1
-            },
-            default: :enlisted,
-            scope: true
+  enum status: {
+    enlisted: 0,
+    confirmed: 1
+  }
 end

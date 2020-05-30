@@ -9,7 +9,7 @@ class TournamentForm < Reform::Form
              self.result_names = fragment.reject(&:blank?)
            }
   property :starts_at,
-           skip_if: ->(*) { !model.status.created? }
+           skip_if: ->(*) { !model.created? }
 
   validates :competitors_limit,
             presence: true,
@@ -34,5 +34,5 @@ class TournamentForm < Reform::Form
               type: :datetime,
               after_message: I18n.t('errors.messages.future_date')
             },
-            if: ->(*) { model.status.created? }
+            if: ->(*) { model.created? }
 end

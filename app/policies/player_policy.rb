@@ -8,6 +8,6 @@ class PlayerPolicy < ApplicationPolicy
   end
 
   def update?
-    record.tournament.status.in_progress?
+    record.tournament.in_progress?
   end
 end

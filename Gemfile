@@ -35,7 +35,6 @@ gem 'validates_timeliness'
 
 # JSON and utilities
 gem 'blueprinter'
-gem 'enumerize'
 gem 'kaminari'
 gem 'oj'
 gem 'scenic'

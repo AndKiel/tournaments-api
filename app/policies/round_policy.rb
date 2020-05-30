@@ -6,18 +6,18 @@ class RoundPolicy < ApplicationPolicy
   end
 
   def create?
-    !record.tournament.status.ended?
+    !record.tournament.ended?
   end
 
   def update?
-    !record.tournament.status.ended?
+    !record.tournament.ended?
   end
 
   def destroy?
-    !record.tournament.status.ended?
+    !record.tournament.ended?
   end
 
   def assign_players?
-    record.tournament.status.in_progress?
+    record.tournament.in_progress?
   end
 end

@@ -32,7 +32,7 @@ class MatchmakingService
 
   def random_assignment
     competitor_ids = @tournament.competitors
-                       .with_status(:confirmed)
+                       .confirmed
                        .limit(@round.competitors_limit)
                        .pluck(:id)
     competitor_ids.shuffle!
