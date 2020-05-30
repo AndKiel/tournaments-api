@@ -56,7 +56,7 @@ RSpec.describe TournamentForm do
   end
 
   it 'validates starts at being a future date' do
-    result = form.validate(starts_at: 1.day.ago)
+    result = form.validate(starts_at: 1.day.ago.iso8601)
     expect(result).to be false
     expect(form.errors[:starts_at]).to include I18n.t('errors.messages.future_date')
   end
@@ -66,7 +66,7 @@ RSpec.describe TournamentForm do
       competitors_limit: 8,
       name: 'Tenkaichi Budokai',
       result_names: ['Win'],
-      starts_at: 7.days.since
+      starts_at: 7.days.since.iso8601
     )
     expect(result).to be true
   end
