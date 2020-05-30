@@ -4,8 +4,8 @@ class User < ApplicationRecord
   class UpdateForm < BaseForm
     validation do
       params do
-        optional(:password)
-        optional(:password_confirmation)
+        optional(:password).maybe(:str?)
+        optional(:password_confirmation).maybe(:str?)
       end
 
       rule(:password, :password_confirmation) do
