@@ -13,9 +13,9 @@ class CompetitorForm < Reform::Form
 
     rule(:name) do
       if Competitor
-           .where(tournament_id: form.model.tournament_id)
+           .where(name: value, tournament_id: form.model.tournament_id)
            .where.not(id: form.model.id)
-           .find_by(name: value)
+           .exists?
         key.failure(I18n.t('errors.messages.taken'))
       end
     end
