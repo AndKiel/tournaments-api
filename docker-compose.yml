@@ -1,4 +1,4 @@
-version: '3.7'
+version: '3.8'
 
 services:
   db:
@@ -16,7 +16,7 @@ services:
       - ./docs:/docs
 
   schema:
-    image: schemacrawler/schemacrawler:v16.7.2
+    image: schemacrawler/schemacrawler:v16.8.1
     entrypoint: ['/opt/schemacrawler/schemacrawler.sh']
     command: --info-level=standard --command=schema --sort-columns --portable-names --output-format=pdf --output-file=/docs/db-schema.pdf --url="jdbc:postgresql://db:5432/tournaments-api-development" --user=postgres --password=postgres
     depends_on:
