@@ -66,5 +66,4 @@ group :test do
   gem 'json_expressions', require: false
   gem 'rspec-rails'
   gem 'simplecov', require: false
-  # gem 'webmock'
 end
