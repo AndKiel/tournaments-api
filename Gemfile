@@ -22,7 +22,7 @@ gem 'doorkeeper-i18n'
 gem 'pundit'
 
 # Validations
-gem 'reform', '~> 2.2.0'
+gem 'reform'
 gem 'reform-rails'
 gem 'validates_email_format_of'
 gem 'validates_timeliness'

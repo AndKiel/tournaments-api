@@ -2,7 +2,7 @@
 
 class User < ApplicationRecord
   class SignUpForm < BaseForm
-    validation :default do
+    validation(name: :default) do
       validates :password,
                 presence: true
 
@@ -10,7 +10,7 @@ class User < ApplicationRecord
                 presence: true
     end
 
-    validation :confirmation, if: :default do
+    validation(name: :confirmation, if: :default) do
       validate :password_confirmed?
     end
   end

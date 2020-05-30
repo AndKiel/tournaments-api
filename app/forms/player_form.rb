@@ -6,12 +6,12 @@ class PlayerForm < Reform::Form
              self.result_values = fragment.select { |value| value.to_i.to_s == value.to_s }
            }
 
-  validation :default do
+  validation(name: :default) do
     validates :result_values,
               presence: true
   end
 
-  validation :additional, if: :default do
+  validation(name: :additional, if: :default) do
     validate :length_of_result_values
   end
 
