@@ -4,12 +4,12 @@ source 'https://rubygems.org'
 ruby '2.7.1'
 
 # Base
-gem 'bootsnap', '>= 1.1.0', require: false
+gem 'bootsnap', require: false
 gem 'figaro'
 gem 'pg'
 gem 'puma'
 gem 'rack-cors'
-gem 'rails', '~> 6.0.0'
+gem 'rails', '~> 6.0.3'
 
 # Debugging
 gem 'pry-byebug'
@@ -40,11 +40,6 @@ gem 'oj'
 gem 'scenic'
 
 group :development do
-  # Auto-reloading
-  gem 'listen'
-  gem 'spring'
-  gem 'spring-watcher-listen'
-
   gem 'annotate'
   gem 'rubocop', require: false
   gem 'rubocop-performance', require: false
