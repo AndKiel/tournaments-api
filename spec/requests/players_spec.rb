@@ -18,7 +18,8 @@ RSpec.describe 'Players', type: :request do
                headers: auth_headers,
                params: {
                  round_id: first_round.id
-               }
+               },
+               as: :json
         end.to change(Player, :count).by(first_round.competitors_limit)
         expect(response).to have_http_status(:created)
         expect(response.body).to match_json_schema('responses/players')
@@ -41,7 +42,8 @@ RSpec.describe 'Players', type: :request do
                headers: auth_headers,
                params: {
                  round_id: second_round.id
-               }
+               },
+               as: :json
         end.to change(Player, :count).by(second_round.competitors_limit)
         expect(response).to have_http_status(:created)
         expect(response.body).to match_json_schema('responses/players')
@@ -64,7 +66,8 @@ RSpec.describe 'Players', type: :request do
                headers: auth_headers,
                params: {
                  round_id: second_round.id
-               }
+               },
+               as: :json
         end.to change(Player, :count).by(second_round.competitors_limit)
         expect(response).to have_http_status(:created)
         expect(response.body).to match_json_schema('responses/players')
@@ -83,7 +86,8 @@ RSpec.describe 'Players', type: :request do
                 player: {
                   result_values: [1]
                 }
-              }
+              },
+              as: :json
         expect(response).to have_http_status(:ok)
         expect(response.body).to match_json_schema('responses/player')
       end
@@ -97,7 +101,8 @@ RSpec.describe 'Players', type: :request do
                 player: {
                   result_values: []
                 }
-              }
+              },
+              as: :json
         expect(response).to have_http_status(:unprocessable_entity)
         expect(response.body).to match_json_schema('responses/validation_error')
       end
