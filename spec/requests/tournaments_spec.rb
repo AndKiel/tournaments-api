@@ -18,7 +18,7 @@ RSpec.describe 'Tournaments', type: :request do
       get tournaments_path,
           params: {
             filters: {
-              starts_at_after: 1.day.since,
+              starts_at_after: 1.day.since.iso8601,
               with_name: ''
             }
           }
@@ -61,7 +61,7 @@ RSpec.describe 'Tournaments', type: :request do
       get tournaments_path,
           params: {
             filters: {
-              starts_at_after: 1.day.since,
+              starts_at_after: 1.day.since.iso8601,
               with_name: ''
             }
           }
@@ -100,7 +100,7 @@ RSpec.describe 'Tournaments', type: :request do
                      competitors_limit: 8,
                      name: 'New tournament test',
                      result_names: ['Win'],
-                     starts_at: 14.days.since
+                     starts_at: 14.days.since.iso8601
                    }
                  },
                  as: :json
