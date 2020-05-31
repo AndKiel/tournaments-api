@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# TODO: Split assignment into specific implementations and clean up?
 class MatchmakingService
   def initialize(round)
     @round = round
