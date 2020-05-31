@@ -3,8 +3,9 @@
 require 'rails_helper'
 
 RSpec.describe User::UpdateForm do
-  subject(:form) { described_class.new(User.new) }
+  subject(:form) { described_class.new(user) }
 
+  let(:user) { create(:user) }
   let(:another_user) { create(:user) }
 
   it 'validates presence of email' do
