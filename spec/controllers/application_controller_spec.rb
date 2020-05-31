@@ -25,7 +25,7 @@ RSpec.describe ApplicationController, type: :controller do
       process :anon,
               method: :get
       expect(response).to have_http_status(:forbidden)
-      expect(response.body).to match_json_schema('errors/error')
+      expect(response.body).to match_json_schema('responses/error')
     end
   end
 end

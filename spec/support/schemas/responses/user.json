@@ -1,27 +1,13 @@
 {
-  "$schema": "https://json-schema.org/draft/2019-09/schema",
-  "$id": "file:/responses/user.json",
+  "$schema": "https://json-schema.org/draft-06/schema",
+  "id": "file:/responses/user.json#",
   "type": "object",
   "required": [
     "user"
   ],
   "properties": {
     "user": {
-      "type": "object",
-      "required": [
-        "id",
-        "email"
-      ],
-      "properties": {
-        "id": {
-          "type": "string",
-          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
-        },
-        "email": {
-          "type": "string",
-          "format": "email"
-        }
-      }
+      "$ref": "file:/models/user.json#"
     }
   }
 }

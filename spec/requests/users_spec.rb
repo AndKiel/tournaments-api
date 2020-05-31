@@ -32,7 +32,7 @@ RSpec.describe 'Users', type: :request do
                }
         end.not_to change(User, :count)
         expect(response).to have_http_status(:unprocessable_entity)
-        expect(response.body).to match_json_schema('errors/validation_error')
+        expect(response.body).to match_json_schema('responses/validation_error')
       end
     end
   end
@@ -75,7 +75,7 @@ RSpec.describe 'Users', type: :request do
                 }
               }
           expect(response).to have_http_status(:unprocessable_entity)
-          expect(response.body).to match_json_schema('errors/validation_error')
+          expect(response.body).to match_json_schema('responses/validation_error')
         end
       end
     end

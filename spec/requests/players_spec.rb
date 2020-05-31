@@ -99,7 +99,7 @@ RSpec.describe 'Players', type: :request do
                 }
               }
         expect(response).to have_http_status(:unprocessable_entity)
-        expect(response.body).to match_json_schema('errors/validation_error')
+        expect(response.body).to match_json_schema('responses/validation_error')
       end
     end
   end

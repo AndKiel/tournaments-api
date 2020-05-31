@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft-06/schema",
+  "id": "file:/models/round_extended.json#",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "file:/models/round.json#"
+    },
+    {
+      "required": [
+        "players"
+      ],
+      "properties": {
+        "players": {
+          "type": "array",
+          "items": {
+            "$ref": "file:/models/player.json#"
+          }
+        }
+      }
+    }
+  ]
+}

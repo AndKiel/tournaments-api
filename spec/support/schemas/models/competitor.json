@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft-06/schema",
+  "id": "file:/models/competitor.json#",
+  "type": "object",
+  "required": [
+    "created_at",
+    "id",
+    "name",
+    "status",
+    "user_id"
+  ],
+  "properties": {
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "id": {
+      "$ref": "file:/common/uuid.json#"
+    },
+    "name": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "enlisted",
+        "confirmed"
+      ]
+    },
+    "user_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    }
+  }
+}

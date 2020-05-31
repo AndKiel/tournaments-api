@@ -1,6 +1,6 @@
 {
-  "$schema": "https://json-schema.org/draft/2019-09/schema",
-  "$id": "file:/oauth/access_token.json",
+  "$schema": "https://json-schema.org/draft-06/schema",
+  "id": "file:/oauth/access_token.json#",
   "type": "object",
   "required": [
     "access_token",

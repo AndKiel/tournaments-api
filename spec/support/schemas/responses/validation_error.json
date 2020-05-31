@@ -1,6 +1,6 @@
 {
-  "$schema": "https://json-schema.org/draft/2019-09/schema",
-  "$id": "file:/errors/validation_error.json",
+  "$schema": "https://json-schema.org/draft-06/schema",
+  "id": "file:/responses/validation_error.json#",
   "type": "object",
   "required": [
     "error",

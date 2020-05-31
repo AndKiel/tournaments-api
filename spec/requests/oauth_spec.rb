@@ -30,7 +30,7 @@ RSpec.describe 'OAuth', type: :request do
                grant_type: 'invalid_grant'
              }
         expect(response).to have_http_status(:bad_request)
-        expect(response.body).to match_json_schema('errors/error')
+        expect(response.body).to match_json_schema('responses/error')
       end
     end
   end
@@ -51,7 +51,7 @@ RSpec.describe 'OAuth', type: :request do
       it 'returns error' do
         get oauth_token_info_path
         expect(response).to have_http_status(:unauthorized)
-        expect(response.body).to match_json_schema('errors/error')
+        expect(response.body).to match_json_schema('responses/error')
       end
     end
   end

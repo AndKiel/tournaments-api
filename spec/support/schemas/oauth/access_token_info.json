@@ -1,6 +1,6 @@
 {
-  "$schema": "https://json-schema.org/draft/2019-09/schema",
-  "$id": "file:/oauth/access_token_info.json",
+  "$schema": "https://json-schema.org/draft-06/schema",
+  "id": "file:/oauth/access_token_info.json#",
   "type": "object",
   "required": [
     "application",
@@ -25,8 +25,7 @@
       "type": "integer"
     },
     "resource_owner_id": {
-      "type": "string",
-      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+      "$ref": "file:/common/uuid.json#"
     },
     "scope": {
       "type": "array",

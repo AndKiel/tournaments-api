@@ -1,38 +1,13 @@
 {
-  "$schema": "https://json-schema.org/draft/2019-09/schema",
-  "$id": "file:/responses/player.json",
+  "$schema": "https://json-schema.org/draft-06/schema",
+  "id": "file:/responses/player.json#",
   "type": "object",
   "required": [
     "player"
   ],
   "properties": {
     "player": {
-      "type": "object",
-      "required": [
-        "competitor_id",
-        "id",
-        "result_values",
-        "table_number"
-      ],
-      "properties": {
-        "competitor_id": {
-          "type": "string",
-          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
-        },
-        "id": {
-          "type": "string",
-          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
-        },
-        "result_values": {
-          "type": "array",
-          "items": {
-            "type": "integer"
-          }
-        },
-        "table_number": {
-          "type": "integer"
-        }
-      }
+      "$ref": "file:/models/player.json#"
     }
   }
 }

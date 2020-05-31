@@ -1,6 +1,6 @@
 {
-  "$schema": "https://json-schema.org/draft/2019-09/schema",
-  "$id": "file:/responses/results.json",
+  "$schema": "https://json-schema.org/draft-06/schema",
+  "id": "file:/responses/results.json#",
   "type": "object",
   "required": [
     "results"
@@ -9,23 +9,7 @@
     "results": {
       "type": "array",
       "items": {
-        "type": "object",
-        "required": [
-          "competitor_id",
-          "total"
-        ],
-        "properties": {
-          "competitor_id": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
-          },
-          "total": {
-            "type": "array",
-            "items": {
-              "type": "integer"
-            }
-          }
-        }
+        "$ref": "file:/models/result.json#"
       }
     }
   }
