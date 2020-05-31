@@ -22,7 +22,7 @@ RSpec.describe 'Rounds', type: :request do
                }
         end.to change(Round, :count).by(1)
         expect(response).to have_http_status(:created)
-        expect(response.body).to match_json_schema('round')
+        expect(response.body).to match_json_schema('responses/round')
       end
     end
 
@@ -38,7 +38,7 @@ RSpec.describe 'Rounds', type: :request do
                }
              }
         expect(response).to have_http_status(:unprocessable_entity)
-        expect(response.body).to match_json_schema('validation_error')
+        expect(response.body).to match_json_schema('errors/validation_error')
       end
     end
   end
@@ -57,7 +57,7 @@ RSpec.describe 'Rounds', type: :request do
                 }
               }
         expect(response).to have_http_status(:ok)
-        expect(response.body).to match_json_schema('round')
+        expect(response.body).to match_json_schema('responses/round')
         expect(round.attributes).not_to eq(round.reload.attributes)
       end
     end
@@ -73,7 +73,7 @@ RSpec.describe 'Rounds', type: :request do
                 }
               }
         expect(response).to have_http_status(:unprocessable_entity)
-        expect(response.body).to match_json_schema('validation_error')
+        expect(response.body).to match_json_schema('errors/validation_error')
       end
     end
   end

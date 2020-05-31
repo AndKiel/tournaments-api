@@ -1,35 +1,32 @@
 {
   "$schema": "https://json-schema.org/draft/2019-09/schema",
-  "$id": "file:/player.json",
+  "$id": "file:/responses/round.json",
   "type": "object",
   "required": [
-    "player"
+    "round"
   ],
   "properties": {
-    "player": {
+    "round": {
       "type": "object",
       "required": [
-        "competitor_id",
+        "competitors_limit",
+        "created_at",
         "id",
-        "result_values",
-        "table_number"
+        "tables_count"
       ],
       "properties": {
-        "competitor_id": {
+        "competitors_limit": {
+          "type": "integer"
+        },
+        "created_at": {
           "type": "string",
-          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+          "format": "date-time"
         },
         "id": {
           "type": "string",
           "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
         },
-        "result_values": {
-          "type": "array",
-          "items": {
-            "type": "integer"
-          }
-        },
-        "table_number": {
+        "tables_count": {
           "type": "integer"
         }
       }

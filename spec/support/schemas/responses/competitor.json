@@ -1,23 +1,21 @@
 {
   "$schema": "https://json-schema.org/draft/2019-09/schema",
-  "$id": "file:/round.json",
+  "$id": "file:/responses/competitor.json",
   "type": "object",
   "required": [
-    "round"
+    "competitor"
   ],
   "properties": {
-    "round": {
+    "competitor": {
       "type": "object",
       "required": [
-        "competitors_limit",
         "created_at",
         "id",
-        "tables_count"
+        "name",
+        "status",
+        "user_id"
       ],
       "properties": {
-        "competitors_limit": {
-          "type": "integer"
-        },
         "created_at": {
           "type": "string",
           "format": "date-time"
@@ -26,8 +24,18 @@
           "type": "string",
           "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
         },
-        "tables_count": {
-          "type": "integer"
+        "name": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "user_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
         }
       }
     }
