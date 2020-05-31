@@ -11,10 +11,8 @@ class User < ApplicationRecord
               email_format: true,
               unique: true
 
-    validate :password_confirmed?
-
-    def password_confirmed?
-      errors.add(:password_confirmation, :password_mismatch) unless password == password_confirmation
-    end
+    validates :password,
+              allow_blank: true,
+              confirmation: true
   end
 end
