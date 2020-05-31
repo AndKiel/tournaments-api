@@ -19,7 +19,8 @@ RSpec.describe 'Rounds', type: :request do
                    competitors_limit: 4,
                    tables_count: 2
                  }
-               }
+               },
+               as: :json
         end.to change(Round, :count).by(1)
         expect(response).to have_http_status(:created)
         expect(response.body).to match_json_schema('responses/round')
@@ -36,7 +37,8 @@ RSpec.describe 'Rounds', type: :request do
                  competitors_limit: 0,
                  tables_count: 0
                }
-             }
+             },
+             as: :json
         expect(response).to have_http_status(:unprocessable_entity)
         expect(response.body).to match_json_schema('responses/validation_error')
       end
@@ -55,7 +57,8 @@ RSpec.describe 'Rounds', type: :request do
                   competitors_limit: 16,
                   tables_count: 8
                 }
-              }
+              },
+              as: :json
         expect(response).to have_http_status(:ok)
         expect(response.body).to match_json_schema('responses/round')
         expect(round.attributes).not_to eq(round.reload.attributes)
@@ -71,7 +74,8 @@ RSpec.describe 'Rounds', type: :request do
                   competitors_limit: 0,
                   tables_count: 0
                 }
-              }
+              },
+              as: :json
         expect(response).to have_http_status(:unprocessable_entity)
         expect(response.body).to match_json_schema('responses/validation_error')
       end

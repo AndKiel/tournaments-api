@@ -14,7 +14,8 @@ RSpec.describe 'Users', type: :request do
                    password: 'password',
                    password_confirmation: 'password'
                  }
-               }
+               },
+               as: :json
         end.to change(User, :count).by(1)
         expect(response).to have_http_status(:created)
         expect(response.body).to match_json_schema('responses/user')
@@ -29,7 +30,8 @@ RSpec.describe 'Users', type: :request do
                  user: {
                    email: ''
                  }
-               }
+               },
+               as: :json
         end.not_to change(User, :count)
         expect(response).to have_http_status(:unprocessable_entity)
         expect(response.body).to match_json_schema('responses/validation_error')
@@ -58,7 +60,8 @@ RSpec.describe 'Users', type: :request do
                 user: {
                   email: 'one.updated@mail.co'
                 }
-              }
+              },
+              as: :json
           expect(response).to have_http_status(:ok)
           expect(response.body).to match_json_schema('responses/user')
           expect(current_user.attributes).not_to eq(current_user.reload.attributes)
@@ -73,7 +76,8 @@ RSpec.describe 'Users', type: :request do
                 user: {
                   email: 'invalid'
                 }
-              }
+              },
+              as: :json
           expect(response).to have_http_status(:unprocessable_entity)
           expect(response.body).to match_json_schema('responses/validation_error')
         end

@@ -102,7 +102,8 @@ RSpec.describe 'Tournaments', type: :request do
                      result_names: ['Win'],
                      starts_at: 14.days.since
                    }
-                 }
+                 },
+                 as: :json
           end.to change(Tournament, :count).by(1)
           expect(response).to have_http_status(:created)
           expect(response.body).to match_json_schema('responses/tournament')
@@ -118,7 +119,8 @@ RSpec.describe 'Tournaments', type: :request do
                    tournament: {
                      name: 'New tournament test'
                    }
-                 }
+                 },
+                 as: :json
           end.not_to change(Tournament, :count)
           expect(response).to have_http_status(:unprocessable_entity)
           expect(response.body).to match_json_schema('responses/validation_error')
@@ -137,7 +139,8 @@ RSpec.describe 'Tournaments', type: :request do
                 tournament: {
                   competitors_limit: 16
                 }
-              }
+              },
+              as: :json
           expect(response).to have_http_status(:ok)
           expect(response.body).to match_json_schema('responses/tournament')
         end
@@ -151,7 +154,8 @@ RSpec.describe 'Tournaments', type: :request do
                 tournament: {
                   competitors_limit: 0
                 }
-              }
+              },
+              as: :json
           expect(response).to have_http_status(:unprocessable_entity)
           expect(response.body).to match_json_schema('responses/validation_error')
         end

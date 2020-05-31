@@ -14,7 +14,8 @@ RSpec.describe 'OAuth', type: :request do
                  email: user.email,
                  password: 'password',
                  grant_type: 'password'
-               }
+               },
+               as: :json
         end.to change(Doorkeeper::AccessToken, :count).by(1)
         expect(response).to have_http_status(:ok)
         expect(response.body).to match_json_schema('oauth/access_token')
@@ -28,7 +29,8 @@ RSpec.describe 'OAuth', type: :request do
                email: user.email,
                password: 'password',
                grant_type: 'invalid_grant'
-             }
+             },
+             as: :json
         expect(response).to have_http_status(:bad_request)
         expect(response.body).to match_json_schema('responses/error')
       end
@@ -63,7 +65,8 @@ RSpec.describe 'OAuth', type: :request do
       post oauth_revoke_path,
            params: {
              token: access_token.token
-           }
+           },
+           as: :json
       expect(response).to have_http_status(:ok)
       expect(response.body).to eq('{}')
     end
