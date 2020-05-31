@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "file:/access_token_info.json",
+  "type": "object",
+  "required": [
+    "application",
+    "created_at",
+    "expires_in",
+    "resource_owner_id",
+    "scope"
+  ],
+  "properties": {
+    "application": {
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "null"
+        }
+      }
+    },
+    "created_at": {
+      "type": "integer"
+    },
+    "expires_in": {
+      "type": "integer"
+    },
+    "resource_owner_id": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "scope": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

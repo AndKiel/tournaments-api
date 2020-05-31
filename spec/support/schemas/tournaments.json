@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "file:/tournaments.json",
+  "type": "object",
+  "required": [
+    "tournaments"
+  ],
+  "properties": {
+    "tournaments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "competitors_limit",
+          "description",
+          "id",
+          "name",
+          "organiser_id",
+          "result_names",
+          "starts_at",
+          "status"
+        ],
+        "properties": {
+          "competitors_limit": {
+            "type": "integer"
+          },
+          "description": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+          },
+          "name": {
+            "type": "string"
+          },
+          "organiser_id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+          },
+          "result_names": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string"
+            }
+          },
+          "starts_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "status": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "meta": {
+      "type": "object",
+      "properties": {
+        "total_count": {
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

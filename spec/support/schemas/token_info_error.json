@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "file:/token_info_error.json",
+  "type": "object",
+  "required": [
+    "error",
+    "error_description",
+    "state"
+  ],
+  "properties": {
+    "error": {
+      "type": "string"
+    },
+    "error_description": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    }
+  }
+}
