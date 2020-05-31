@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  class UpdateForm
+  class UpdateForm < Reform::Form
     property :email
     property :password, readable: false
     property :password_confirmation, virtual: true
@@ -14,7 +14,7 @@ class User < ApplicationRecord
     validate :password_confirmed?
 
     def password_confirmed?
-      errors.add(:password_confirmation, :password_mismatch) if password != password_confirmation
+      errors.add(:password_confirmation, :password_mismatch) unless password == password_confirmation
     end
   end
 end
