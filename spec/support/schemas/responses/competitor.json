@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft-06/schema",
+  "id": "file:/responses/competitor.json#",
+  "type": "object",
+  "required": [
+    "competitor"
+  ],
+  "properties": {
+    "competitor": {
+      "$ref": "file:/models/competitor.json#"
+    }
+  }
+}

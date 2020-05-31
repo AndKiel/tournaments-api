@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft-06/schema",
+  "id": "file:/responses/player.json#",
+  "type": "object",
+  "required": [
+    "player"
+  ],
+  "properties": {
+    "player": {
+      "$ref": "file:/models/player.json#"
+    }
+  }
+}

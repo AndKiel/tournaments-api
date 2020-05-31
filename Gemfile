@@ -58,7 +58,7 @@ group :test do
   gem 'database_cleaner-active_record'
   gem 'factory_bot_rails'
   gem 'fuubar'
-  gem 'json_expressions', require: false
+  gem 'json_matchers'
   gem 'rspec-rails'
   gem 'simplecov', require: false
 end

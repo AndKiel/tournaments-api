@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft-06/schema",
+  "id": "file:/responses/tournament_extended.json#",
+  "type": "object",
+  "required": [
+    "tournament"
+  ],
+  "properties": {
+    "tournament": {
+      "$ref": "file:/models/tournament_extended.json#"
+    }
+  }
+}

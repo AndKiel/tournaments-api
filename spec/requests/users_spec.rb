@@ -17,7 +17,7 @@ RSpec.describe 'Users', type: :request do
                }
         end.to change(User, :count).by(1)
         expect(response).to have_http_status(:created)
-        expect(response.body).to match_json_expression(user_json)
+        expect(response.body).to match_json_schema('responses/user')
       end
     end
 
@@ -32,7 +32,7 @@ RSpec.describe 'Users', type: :request do
                }
         end.not_to change(User, :count)
         expect(response).to have_http_status(:unprocessable_entity)
-        expect(response.body).to match_json_expression(validation_error_json)
+        expect(response.body).to match_json_schema('responses/validation_error')
       end
     end
   end
@@ -45,7 +45,7 @@ RSpec.describe 'Users', type: :request do
         get user_path,
             headers: auth_headers
         expect(response).to have_http_status(:ok)
-        expect(response.body).to match_json_expression(user_json)
+        expect(response.body).to match_json_schema('responses/user')
       end
     end
 
@@ -60,7 +60,7 @@ RSpec.describe 'Users', type: :request do
                 }
               }
           expect(response).to have_http_status(:ok)
-          expect(response.body).to match_json_expression(user_json)
+          expect(response.body).to match_json_schema('responses/user')
           expect(current_user.attributes).not_to eq(current_user.reload.attributes)
         end
       end
@@ -75,7 +75,7 @@ RSpec.describe 'Users', type: :request do
                 }
               }
           expect(response).to have_http_status(:unprocessable_entity)
-          expect(response.body).to match_json_expression(validation_error_json)
+          expect(response.body).to match_json_schema('responses/validation_error')
         end
       end
     end

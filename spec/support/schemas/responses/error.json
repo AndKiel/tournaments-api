@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft-06/schema",
+  "id": "file:/responses/error.json#",
+  "type": "object",
+  "required": [
+    "error",
+    "error_description"
+  ],
+  "properties": {
+    "error": {
+      "type": "string"
+    },
+    "error_description": {
+      "type": "string"
+    }
+  }
+}

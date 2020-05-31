@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft-06/schema",
+  "id": "file:/oauth/access_token.json#",
+  "type": "object",
+  "required": [
+    "access_token",
+    "created_at",
+    "expires_in",
+    "refresh_token",
+    "token_type"
+  ],
+  "properties": {
+    "access_token": {
+      "type": "string"
+    },
+    "created_at": {
+      "type": "integer"
+    },
+    "expires_in": {
+      "type": "integer"
+    },
+    "refresh_token": {
+      "type": "string"
+    },
+    "token_type": {
+      "type": "string"
+    }
+  }
+}

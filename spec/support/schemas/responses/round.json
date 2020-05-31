@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft-06/schema",
+  "id": "file:/responses/round.json#",
+  "type": "object",
+  "required": [
+    "round"
+  ],
+  "properties": {
+    "round": {
+      "$ref": "file:/models/round.json#"
+    }
+  }
+}
