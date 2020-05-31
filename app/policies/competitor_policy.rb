@@ -6,18 +6,18 @@ class CompetitorPolicy < ApplicationPolicy
   end
 
   def create?
-    record.tournament.status.created?
+    record.tournament.created?
   end
 
   def destroy?
-    record.tournament.status.created?
+    record.tournament.created?
   end
 
   def confirm?
-    record.status.enlisted? && record.tournament.status.created?
+    record.enlisted? && record.tournament.created?
   end
 
   def reject?
-    record.status.confirmed? && record.tournament.status.created?
+    record.confirmed? && record.tournament.created?
   end
 end

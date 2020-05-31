@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft-06/schema",
+  "id": "file:/models/player.json#",
+  "type": "object",
+  "required": [
+    "competitor_id",
+    "id",
+    "result_values",
+    "table_number"
+  ],
+  "properties": {
+    "competitor_id": {
+      "$ref": "file:/common/uuid.json#"
+    },
+    "id": {
+      "$ref": "file:/common/uuid.json#"
+    },
+    "result_values": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "table_number": {
+      "type": "integer"
+    }
+  }
+}

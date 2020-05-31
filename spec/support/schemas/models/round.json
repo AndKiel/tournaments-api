@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft-06/schema",
+  "id": "file:/models/round.json#",
+  "type": "object",
+  "required": [
+    "competitors_limit",
+    "created_at",
+    "id",
+    "tables_count"
+  ],
+  "properties": {
+    "competitors_limit": {
+      "type": "integer"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "id": {
+      "$ref": "file:/common/uuid.json#"
+    },
+    "tables_count": {
+      "type": "integer"
+    }
+  }
+}

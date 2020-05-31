@@ -1,6 +1,8 @@
 <!--- Provide a general summary of your changes in the Title above. -->
 <!--- Title must follow conventional commits. -->
-<!--- See: https://github.com/commitizen/conventional-commit-types/blob/master/index.json -->
+<!--- See: -->
+<!--- - https://www.conventionalcommits.org/ -->
+<!--- - https://github.com/commitizen/conventional-commit-types/blob/master/index.json -->
 
 ## Description
 

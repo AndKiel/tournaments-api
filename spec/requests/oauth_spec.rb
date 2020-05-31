@@ -18,7 +18,7 @@ RSpec.describe 'OAuth', type: :request do
                as: :json
         end.to change(Doorkeeper::AccessToken, :count).by(1)
         expect(response).to have_http_status(:ok)
-        expect(response.body).to match_json_expression(access_token_json)
+        expect(response.body).to match_json_schema('oauth/access_token')
       end
     end
 
@@ -32,7 +32,7 @@ RSpec.describe 'OAuth', type: :request do
              },
              as: :json
         expect(response).to have_http_status(:bad_request)
-        expect(response.body).to match_json_expression(error_json)
+        expect(response.body).to match_json_schema('responses/error')
       end
     end
   end
@@ -45,7 +45,7 @@ RSpec.describe 'OAuth', type: :request do
         get oauth_token_info_path,
             headers: auth_headers
         expect(response).to have_http_status(:ok)
-        expect(response.body).to match_json_expression(access_token_info_json)
+        expect(response.body).to match_json_schema('oauth/access_token_info')
       end
     end
 
@@ -53,7 +53,7 @@ RSpec.describe 'OAuth', type: :request do
       it 'returns error' do
         get oauth_token_info_path
         expect(response).to have_http_status(:unauthorized)
-        expect(response.body).to match_json_expression(token_info_error_json)
+        expect(response.body).to match_json_schema('responses/error')
       end
     end
   end
@@ -68,7 +68,7 @@ RSpec.describe 'OAuth', type: :request do
            },
            as: :json
       expect(response).to have_http_status(:ok)
-      expect(response.body).to match_json_expression({})
+      expect(response.body).to eq('{}')
     end
   end
 end

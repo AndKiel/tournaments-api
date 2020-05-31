@@ -26,19 +26,15 @@
 
 class Tournament < ApplicationRecord
   include TournamentFilters
-  extend Enumerize
 
   belongs_to :organiser, class_name: 'User', inverse_of: :tournaments
   has_many :competitors, -> { order(:created_at) }, inverse_of: :tournament, dependent: :destroy
   has_many :results, dependent: :destroy
   has_many :rounds, -> { order(:created_at) }, inverse_of: :tournament, dependent: :destroy
 
-  enumerize :status,
-            in: {
-              created: 0,
-              in_progress: 1,
-              ended: 2
-            },
-            default: :created,
-            scope: true
+  enum status: {
+    created: 0,
+    in_progress: 1,
+    ended: 2
+  }
 end

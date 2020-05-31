@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft-06/schema",
+  "id": "file:/models/tournament_extended.json#",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "file:/models/tournament.json#"
+    },
+    {
+      "required": [
+        "competitors",
+        "rounds"
+      ],
+      "properties": {
+        "competitors": {
+          "type": "array",
+          "items": {
+            "$ref": "file:/models/competitor.json#"
+          }
+        },
+        "rounds": {
+          "type": "array",
+          "items": {
+            "$ref": "file:/models/round_extended.json#"
+          }
+        }
+      }
+    }
+  ]
+}

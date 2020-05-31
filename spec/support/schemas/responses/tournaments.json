@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft-06/schema",
+  "id": "file:/responses/tournaments.json#",
+  "type": "object",
+  "required": [
+    "tournaments"
+  ],
+  "properties": {
+    "tournaments": {
+      "type": "array",
+      "items": {
+        "$ref": "file:/models/tournament.json#"
+      }
+    },
+    "meta": {
+      "type": "object",
+      "properties": {
+        "total_count": {
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

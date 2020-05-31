@@ -24,7 +24,7 @@ module TournamentsApi
     config.action_view.raise_on_missing_translations = !Rails.env.production?
     config.active_record.dump_schema_after_migration = Rails.env.development?
     config.api_only = true
-    config.cache_classes = Rails.env.production?
+    config.cache_classes = !Rails.env.development?
     config.consider_all_requests_local = !Rails.env.production?
     config.eager_load = Rails.env.production?
 

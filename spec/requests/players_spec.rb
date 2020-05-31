@@ -22,7 +22,7 @@ RSpec.describe 'Players', type: :request do
                as: :json
         end.to change(Player, :count).by(first_round.competitors_limit)
         expect(response).to have_http_status(:created)
-        expect(response.body).to match_json_expression(players_json)
+        expect(response.body).to match_json_schema('responses/players')
       end
     end
 
@@ -46,7 +46,7 @@ RSpec.describe 'Players', type: :request do
                as: :json
         end.to change(Player, :count).by(second_round.competitors_limit)
         expect(response).to have_http_status(:created)
-        expect(response.body).to match_json_expression(players_json)
+        expect(response.body).to match_json_schema('responses/players')
       end
     end
 
@@ -70,7 +70,7 @@ RSpec.describe 'Players', type: :request do
                as: :json
         end.to change(Player, :count).by(second_round.competitors_limit)
         expect(response).to have_http_status(:created)
-        expect(response.body).to match_json_expression(players_json)
+        expect(response.body).to match_json_schema('responses/players')
       end
     end
   end
@@ -89,7 +89,7 @@ RSpec.describe 'Players', type: :request do
               },
               as: :json
         expect(response).to have_http_status(:ok)
-        expect(response.body).to match_json_expression(player_json)
+        expect(response.body).to match_json_schema('responses/player')
       end
     end
 
@@ -104,7 +104,7 @@ RSpec.describe 'Players', type: :request do
               },
               as: :json
         expect(response).to have_http_status(:unprocessable_entity)
-        expect(response.body).to match_json_expression(validation_error_json)
+        expect(response.body).to match_json_schema('responses/validation_error')
       end
     end
   end

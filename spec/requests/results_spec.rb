@@ -20,7 +20,7 @@ RSpec.describe 'Results', type: :request do
             tournament_id: tournament.id
           }
       expect(response).to have_http_status(:ok)
-      expect(response.body).to match_json_expression(results_json)
+      expect(response.body).to match_json_schema('responses/results')
     end
   end
 end

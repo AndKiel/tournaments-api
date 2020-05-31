@@ -23,7 +23,7 @@ RSpec.describe 'Competitors', type: :request do
                  as: :json
           end.to change(Competitor, :count).by(1)
           expect(response).to have_http_status(:created)
-          expect(response.body).to match_json_expression(competitor_json)
+          expect(response.body).to match_json_schema('responses/competitor')
         end
       end
 
@@ -39,7 +39,7 @@ RSpec.describe 'Competitors', type: :request do
                },
                as: :json
           expect(response).to have_http_status(:unprocessable_entity)
-          expect(response.body).to match_json_expression(validation_error_json)
+          expect(response.body).to match_json_schema('responses/validation_error')
         end
       end
     end
@@ -55,7 +55,7 @@ RSpec.describe 'Competitors', type: :request do
              },
              as: :json
         expect(response).to have_http_status(:forbidden)
-        expect(response.body).to match_json_expression(error_json)
+        expect(response.body).to match_json_schema('responses/error')
       end
     end
   end
@@ -89,7 +89,7 @@ RSpec.describe 'Competitors', type: :request do
                  tournament_id: tournament.id
                }
         expect(response).to have_http_status(:forbidden)
-        expect(response.body).to match_json_expression(error_json)
+        expect(response.body).to match_json_schema('responses/error')
       end
     end
   end
@@ -113,7 +113,7 @@ RSpec.describe 'Competitors', type: :request do
                    as: :json
             end.to change(Competitor, :count).by(1)
             expect(response).to have_http_status(:created)
-            expect(response.body).to match_json_expression(competitor_json)
+            expect(response.body).to match_json_schema('responses/competitor')
           end
         end
 
@@ -129,7 +129,7 @@ RSpec.describe 'Competitors', type: :request do
                  },
                  as: :json
             expect(response).to have_http_status(:unprocessable_entity)
-            expect(response.body).to match_json_expression(validation_error_json)
+            expect(response.body).to match_json_schema('responses/validation_error')
           end
         end
       end
@@ -145,7 +145,7 @@ RSpec.describe 'Competitors', type: :request do
                },
                as: :json
           expect(response).to have_http_status(:forbidden)
-          expect(response.body).to match_json_expression(error_json)
+          expect(response.body).to match_json_schema('responses/error')
         end
       end
     end
@@ -170,7 +170,7 @@ RSpec.describe 'Competitors', type: :request do
           delete remove_competitor_path(competitor.id),
                  headers: auth_headers
           expect(response).to have_http_status(:forbidden)
-          expect(response.body).to match_json_expression(error_json)
+          expect(response.body).to match_json_schema('responses/error')
         end
       end
     end
@@ -183,8 +183,8 @@ RSpec.describe 'Competitors', type: :request do
           post confirm_competitor_path(competitor.id),
                headers: auth_headers
           expect(response).to have_http_status(:ok)
-          expect(response.body).to match_json_expression(competitor_json)
-          expect(competitor.reload.status).to eq(:confirmed)
+          expect(response.body).to match_json_schema('responses/competitor')
+          expect(competitor.reload.status).to eq('confirmed')
         end
       end
 
@@ -196,7 +196,7 @@ RSpec.describe 'Competitors', type: :request do
           post confirm_competitor_path(competitor.id),
                headers: auth_headers
           expect(response).to have_http_status(:forbidden)
-          expect(response.body).to match_json_expression(error_json)
+          expect(response.body).to match_json_schema('responses/error')
         end
       end
     end
@@ -209,8 +209,8 @@ RSpec.describe 'Competitors', type: :request do
           post reject_competitor_path(competitor.id),
                headers: auth_headers
           expect(response).to have_http_status(:ok)
-          expect(response.body).to match_json_expression(competitor_json)
-          expect(competitor.reload.status).to eq(:enlisted)
+          expect(response.body).to match_json_schema('responses/competitor')
+          expect(competitor.reload.status).to eq('enlisted')
         end
       end
 
@@ -222,7 +222,7 @@ RSpec.describe 'Competitors', type: :request do
           post reject_competitor_path(competitor.id),
                headers: auth_headers
           expect(response).to have_http_status(:forbidden)
-          expect(response.body).to match_json_expression(error_json)
+          expect(response.body).to match_json_schema('responses/error')
         end
       end
     end
