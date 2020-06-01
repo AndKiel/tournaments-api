@@ -165,16 +165,14 @@ RSpec.describe 'Tournaments', type: :request do
         let(:tournament) { create(:tournament, :in_progress, organiser: current_user) }
 
         it 'skips starts at during update' do
-          expect do
-            put tournament_path(tournament.id),
-                headers: auth_headers,
-                params: {
-                  tournament: {
-                    starts_at: 10.days.since.iso8601
-                  }
-                },
-                as: :json
-          end.not_to change { tournament.reload.attributes }
+          put tournament_path(tournament.id),
+              headers: auth_headers,
+              params: {
+                tournament: {
+                  starts_at: 'whatever'
+                }
+              },
+              as: :json
           expect(response).to have_http_status(:ok)
           expect(response.body).to match_json_schema('responses/tournament')
         end
