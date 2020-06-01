@@ -43,12 +43,6 @@ RSpec.describe Tournament::CreateForm do
     expect(form.errors[:result_names]).to include 'must be filled'
   end
 
-  it 'validates presence of starts at' do
-    result = form.validate(starts_at: nil)
-    expect(result).to be false
-    expect(form.errors[:starts_at]).to include 'must be filled'
-  end
-
   it 'validates starts at being datetime' do
     result = form.validate(starts_at: 'not.a.date')
     expect(result).to be false

@@ -16,7 +16,7 @@ class Tournament < ApplicationRecord
         required(:competitors_limit).filled(:int?, gt?: 1)
         required(:name).filled(:str?)
         required(:result_names).filled(:array?).each(:str?)
-        required(:starts_at).filled(:date_time?)
+        required(:starts_at).value(:date_time)
       end
 
       rule(:starts_at) do

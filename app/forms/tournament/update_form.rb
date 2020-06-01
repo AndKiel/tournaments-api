@@ -19,11 +19,11 @@ class Tournament < ApplicationRecord
         required(:competitors_limit).filled(:int?, gt?: 1)
         required(:name).filled(:str?)
         required(:result_names).filled(:array?).each(:str?)
-        optional(:starts_at).filled(:date_time?)
+        optional(:starts_at).value(:date_time)
       end
 
       rule(:starts_at) do
-        if form.model.status.created?
+        if form.model.created?
           key.failure(I18n.t('errors.messages.future_date')) unless value > Time.current
         end
       end
