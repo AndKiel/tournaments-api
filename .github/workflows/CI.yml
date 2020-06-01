@@ -34,8 +34,8 @@ jobs:
         run: |
           bundle config path vendor/bundle
           bundle install
-      - name: Run Rubocop
-        run: bundle exec rubocop
+#      - name: Run Rubocop
+#        run: bundle exec rubocop
       - name: Run Rspec
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}

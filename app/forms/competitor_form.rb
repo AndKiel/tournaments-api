@@ -12,6 +12,7 @@ class CompetitorForm < Reform::Form
     end
 
     rule(:name) do
+      puts "inside form >>> value: #{value} | tournament_id: #{form.model.tournament_id} | id: #{form.model.id}"
       if Competitor
            .where(name: value, tournament_id: form.model.tournament_id)
            .where.not(id: form.model.id)
