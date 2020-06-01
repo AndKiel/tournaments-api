@@ -9,8 +9,7 @@ class Tournament < ApplicationRecord
              populator: lambda { |fragment:, **|
                self.result_names = fragment.reject(&:blank?)
              }
-    property :starts_at,
-             skip_if: ->(*) { !model.created? }
+    property :starts_at
 
     validates :competitors_limit,
               presence: true,
@@ -34,7 +33,6 @@ class Tournament < ApplicationRecord
                 after: :now,
                 type: :datetime,
                 after_message: I18n.t('errors.messages.future_date')
-              },
-              if: ->(*) { model.created? }
+              }
   end
 end
