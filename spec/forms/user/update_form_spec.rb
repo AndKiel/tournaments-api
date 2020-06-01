@@ -11,13 +11,13 @@ RSpec.describe User::UpdateForm do
   it 'validates presence of email' do
     result = form.validate(email: '')
     expect(result).to be false
-    expect(form.errors[:email]).to include I18n.t('errors.messages.blank')
+    expect(form.errors[:email]).to include 'must be filled'
   end
 
   it 'validates format of email' do
     result = form.validate(email: 'not.an.email')
     expect(result).to be false
-    expect(form.errors[:email]).to include I18n.t('activemodel.errors.messages.invalid_email_address')
+    expect(form.errors[:email]).to include I18n.t('errors.messages.invalid_email')
   end
 
   it 'validates uniqueness of email' do
@@ -37,7 +37,7 @@ RSpec.describe User::UpdateForm do
       password_confirmation: 'orNot'
     )
     expect(result).to be false
-    expect(form.errors[:password_confirmation]).to include I18n.t('errors.messages.confirmation', attribute: 'Password')
+    expect(form.errors[:password_confirmation]).to include I18n.t('errors.messages.password_mismatch')
   end
 
   it 'returns true for valid attributes' do
