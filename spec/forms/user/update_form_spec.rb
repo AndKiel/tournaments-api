@@ -37,7 +37,7 @@ RSpec.describe User::UpdateForm do
       password_confirmation: 'orNot'
     )
     expect(result).to be false
-    expect(form.errors[:password_confirmation]).to include I18n.t('errors.messages.confirmation', attribute: "Password")
+    expect(form.errors[:password_confirmation]).to include I18n.t('errors.messages.confirmation', attribute: 'Password')
   end
 
   it 'returns true for valid attributes' do
