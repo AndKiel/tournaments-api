@@ -160,6 +160,25 @@ RSpec.describe 'Tournaments', type: :request do
           expect(response.body).to match_json_schema('responses/validation_error')
         end
       end
+
+      context 'when tournament does not have created status' do
+        let(:tournament) { create(:tournament, :in_progress, organiser: current_user) }
+
+        it 'skips starts at during update' do
+          expect do
+            put tournament_path(tournament.id),
+                headers: auth_headers,
+                params: {
+                  tournament: {
+                    starts_at: 10.days.since.iso8601
+                  }
+                },
+                as: :json
+          end.not_to change { tournament.reload.attributes }
+          expect(response).to have_http_status(:ok)
+          expect(response.body).to match_json_schema('responses/tournament')
+        end
+      end
     end
 
     describe 'DELETE /tournaments/:id' do
