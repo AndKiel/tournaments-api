@@ -22,10 +22,10 @@ gem 'doorkeeper-i18n'
 gem 'pundit'
 
 # Validations
+gem 'dry-monads' # TODO: Remove when dry-validation 1.5.1 is released
+gem 'dry-validation'
 gem 'reform'
-gem 'reform-rails'
 gem 'validates_email_format_of'
-gem 'validates_timeliness'
 
 # File upload and processing
 # gem 'shrine'
