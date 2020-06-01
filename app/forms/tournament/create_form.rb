@@ -11,28 +11,17 @@ class Tournament < ApplicationRecord
              }
     property :starts_at
 
-    validates :competitors_limit,
-              presence: true,
-              numericality: {
-                only_integer: true,
-                greater_than: 1
-              }
+    validation do
+      params do
+        required(:competitors_limit).filled(:int?, gt?: 1)
+        required(:name).filled(:str?)
+        required(:result_names).filled(:array?).each(:str?)
+        required(:starts_at).filled(:date_time?)
+      end
 
-    validates :name,
-              presence: true
-
-    validates :result_names,
-              presence: true,
-              length: {
-                minimum: 1
-              }
-
-    validates :starts_at,
-              presence: true,
-              timeliness: {
-                after: :now,
-                type: :datetime,
-                after_message: I18n.t('errors.messages.future_date')
-              }
+      rule(:starts_at) do
+        key.failure(I18n.t('errors.messages.future_date')) unless value > Time.current
+      end
+    end
   end
 end
