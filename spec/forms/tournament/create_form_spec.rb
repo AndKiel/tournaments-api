@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe TournamentForm do
+RSpec.describe Tournament::CreateForm do
   subject(:form) { described_class.new(tournament) }
 
   let(:tournament) { build(:tournament) }

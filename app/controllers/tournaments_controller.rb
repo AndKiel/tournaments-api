@@ -36,7 +36,7 @@ class TournamentsController < ApplicationController
   def create
     tournament = policy_scope(Tournament).new
     authorize tournament
-    form = TournamentForm.new(tournament)
+    form = Tournament::CreateForm.new(tournament)
     if form.validate(permitted_attributes(tournament))
       form.save
       return render json: TournamentSerializer.render(form.model, root: :tournament),
@@ -50,7 +50,7 @@ class TournamentsController < ApplicationController
   def update
     tournament = policy_scope(Tournament).find(params[:id])
     authorize tournament
-    form = TournamentForm.new(tournament)
+    form = Tournament::UpdateForm.new(tournament)
     if form.validate(permitted_attributes(tournament))
       form.save
       return render json: TournamentSerializer.render(form.model, root: :tournament)

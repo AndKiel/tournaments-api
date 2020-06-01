@@ -7,7 +7,6 @@ en:
     messages:
       invalid_datetime: 'is not a valid datetime'
       future_date: 'must be a future date'
-      password_mismatch: 'does not match password'
     attributes:
       result_values:
         invalid: 'provide all values, only integers are accepted'

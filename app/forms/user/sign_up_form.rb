@@ -1,17 +1,18 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  class SignUpForm < BaseForm
-    validation(name: :default) do
-      validates :password,
-                presence: true
+  class SignUpForm < Reform::Form
+    property :email
+    property :password, readable: false
+    property :password_confirmation, virtual: true
 
-      validates :password_confirmation,
-                presence: true
-    end
+    validates :email,
+              presence: true,
+              email_format: true,
+              unique: true
 
-    validation(name: :confirmation, if: :default) do
-      validate :password_confirmed?
-    end
+    validates :password,
+              presence: true,
+              confirmation: true
   end
 end

@@ -3,8 +3,9 @@
 require 'rails_helper'
 
 RSpec.describe User::UpdateForm do
-  subject(:form) { described_class.new(User.new) }
+  subject(:form) { described_class.new(user) }
 
+  let(:user) { create(:user) }
   let(:another_user) { create(:user) }
 
   it 'validates presence of email' do
@@ -36,7 +37,7 @@ RSpec.describe User::UpdateForm do
       password_confirmation: 'orNot'
     )
     expect(result).to be false
-    expect(form.errors[:password_confirmation]).to include I18n.t('errors.messages.password_mismatch')
+    expect(form.errors[:password_confirmation]).to include I18n.t('errors.messages.confirmation', attribute: 'Password')
   end
 
   it 'returns true for valid attributes' do

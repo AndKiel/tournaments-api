@@ -3,8 +3,9 @@
 require 'rails_helper'
 
 RSpec.describe User::SignUpForm do
-  subject(:form) { described_class.new(User.new) }
+  subject(:form) { described_class.new(user) }
 
+  let(:user) { User.new }
   let(:another_user) { create(:user) }
 
   it 'validates presence of email' do
@@ -31,19 +32,13 @@ RSpec.describe User::SignUpForm do
     expect(form.errors[:password]).to include I18n.t('errors.messages.blank')
   end
 
-  it 'validates presence of password confirmation' do
-    result = form.validate(password_confirmation: '')
-    expect(result).to be false
-    expect(form.errors[:password_confirmation]).to include I18n.t('errors.messages.blank')
-  end
-
   it 'validates confirmation of password' do
     result = form.validate(
       password: 'verySecure',
       password_confirmation: 'orNot'
     )
     expect(result).to be false
-    expect(form.errors[:password_confirmation]).to include I18n.t('errors.messages.password_mismatch')
+    expect(form.errors[:password_confirmation]).to include I18n.t('errors.messages.confirmation', attribute: 'Password')
   end
 
   it 'returns true for valid attributes' do
