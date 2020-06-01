@@ -1,22 +1,18 @@
 # frozen_string_literal: true
 
 class PlayerForm < Reform::Form
-  property :result_values,
-           populator: lambda { |fragment:, **|
-             self.result_values = fragment.select { |value| value.to_i.to_s == value.to_s }
-           }
+  property :result_values
 
-  validation(name: :default) do
-    validates :result_values,
-              presence: true
-  end
+  validation do
+    option :form
 
-  validation(name: :additional, if: :default) do
-    validate :length_of_result_values
-  end
+    params do
+      required(:result_values).filled(:array?).each(:int?)
+    end
 
-  def length_of_result_values
-    result_names_length = model.tournament.result_names.length
-    errors.add(:result_values, :invalid) unless result_values.length == result_names_length
+    rule(:result_values) do
+      result_names_count = form.model.round.tournament.result_names.length
+      key.failure(I18n.t('errors.attributes.result_values.invalid')) if value.length != result_names_count
+    end
   end
 end
