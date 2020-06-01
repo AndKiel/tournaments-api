@@ -70,4 +70,13 @@ RSpec.describe Tournament::UpdateForm do
     )
     expect(result).to be true
   end
+
+  context 'when tournament does not have created status' do
+    let(:tournament) { create(:tournament, :in_progress) }
+
+    it 'skips starts at validation' do
+      result = form.validate(starts_at: 'not.a.date')
+      expect(result).to be true
+    end
+  end
 end
