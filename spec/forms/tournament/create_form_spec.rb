@@ -10,7 +10,7 @@ RSpec.describe Tournament::CreateForm do
   it 'validates presence of competitors limit' do
     result = form.validate(competitors_limit: nil)
     expect(result).to be false
-    expect(form.errors[:competitors_limit]).to include I18n.t('errors.messages.blank')
+    expect(form.errors[:competitors_limit]).to include 'must be filled'
   end
 
   it 'validates competitors limit being integer' do
@@ -28,31 +28,31 @@ RSpec.describe Tournament::CreateForm do
   it 'validates presence of name' do
     result = form.validate(name: '')
     expect(result).to be false
-    expect(form.errors[:name]).to include I18n.t('errors.messages.blank')
+    expect(form.errors[:name]).to include 'must be filled'
   end
 
   it 'validates presence of result names' do
     result = form.validate(result_names: nil)
     expect(result).to be false
-    expect(form.errors[:result_names]).to include I18n.t('errors.messages.blank')
+    expect(form.errors[:result_names]).to include 'must be filled'
   end
 
   it 'validates length of result names' do
     result = form.validate(result_names: [])
     expect(result).to be false
-    expect(form.errors[:result_names]).to include I18n.t('errors.messages.too_short', count: 1)
+    expect(form.errors[:result_names]).to include 'must be filled'
   end
 
   it 'validates presence of starts at' do
     result = form.validate(starts_at: nil)
     expect(result).to be false
-    expect(form.errors[:starts_at]).to include I18n.t('errors.messages.blank')
+    expect(form.errors[:starts_at]).to include 'must be filled'
   end
 
   it 'validates starts at being datetime' do
     result = form.validate(starts_at: 'not.a.date')
     expect(result).to be false
-    expect(form.errors[:starts_at]).to include I18n.t('errors.messages.invalid_datetime')
+    expect(form.errors[:starts_at]).to include 'must be a date time'
   end
 
   it 'validates starts at being a future date' do
