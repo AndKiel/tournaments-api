@@ -7,6 +7,7 @@ en:
     messages:
       invalid_email: 'is not a valid e-mail address'
       future_date: 'must be a future date'
+      password_mismatch: "doesn't match password"
     attributes:
       result_values:
         invalid: 'must have the same count as tournament result names'
