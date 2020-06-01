@@ -12,7 +12,7 @@ RSpec.describe PlayerForm do
   it 'validates presence of result values' do
     result = form.validate(result_values: nil)
     expect(result).to be false
-    expect(form.errors[:result_values]).to include I18n.t('errors.messages.blank')
+    expect(form.errors[:result_values]).to include 'must be filled'
   end
 
   it 'validates length of result values' do
@@ -21,10 +21,10 @@ RSpec.describe PlayerForm do
     expect(form.errors[:result_values]).to include I18n.t('errors.attributes.result_values.invalid')
   end
 
-  it 'ignores non-integer result values' do
-    result = form.validate(result_values: ['A', nil, 2.2])
+  it 'validates result values being integer' do
+    result = form.validate(result_values: ['A'])
     expect(result).to be false
-    expect(form.errors[:result_values]).to include I18n.t('errors.messages.blank')
+    expect(form.errors[:result_values]).to eq(0 => [I18n.t('errors.messages.not_an_integer')])
   end
 
   it 'returns true for valid attributes' do
