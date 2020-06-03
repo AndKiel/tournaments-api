@@ -12,6 +12,7 @@ RSpec.describe CompetitorForm, :focus do
 
   it 'validates presence of name' do
     result = form.validate(name: nil)
+    puts "presence competitor >> tournament_id: #{competitor.tournament_id}"
     expect(result).to be false
     expect(form.errors[:name]).to include I18n.t('errors.messages.blank')
   end
