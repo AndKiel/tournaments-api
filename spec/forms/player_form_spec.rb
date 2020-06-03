@@ -12,7 +12,7 @@ RSpec.describe PlayerForm do
   it 'validates presence of result values' do
     result = form.validate(result_values: nil)
     expect(result).to be false
-    expect(form.errors[:result_values]).to include 'must be filled'
+    expect(form.errors[:result_values]).to include I18n.t('errors.messages.blank')
   end
 
   it 'validates length of result values' do

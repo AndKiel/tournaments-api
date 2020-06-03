@@ -22,7 +22,7 @@ class User < ApplicationRecord
 
       rule(:password, :password_confirmation) do
         if values[:password] != values[:password_confirmation]
-          key(:password_confirmation).failure(I18n.t('errors.messages.password_mismatch'))
+          key(:password_confirmation).failure(I18n.t('errors.messages.confirmation', attribute: 'password'))
         end
       end
     end

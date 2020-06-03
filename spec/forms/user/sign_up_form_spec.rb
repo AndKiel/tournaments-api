@@ -11,7 +11,7 @@ RSpec.describe User::SignUpForm do
   it 'validates presence of email' do
     result = form.validate(email: '')
     expect(result).to be false
-    expect(form.errors[:email]).to include 'must be filled'
+    expect(form.errors[:email]).to include I18n.t('errors.messages.blank')
   end
 
   it 'validates format of email' do
@@ -29,7 +29,7 @@ RSpec.describe User::SignUpForm do
   it 'validates presence of password' do
     result = form.validate(password: '')
     expect(result).to be false
-    expect(form.errors[:password]).to include 'must be filled'
+    expect(form.errors[:password]).to include I18n.t('errors.messages.blank')
   end
 
   it 'validates confirmation of password' do
@@ -38,7 +38,7 @@ RSpec.describe User::SignUpForm do
       password_confirmation: 'orNot'
     )
     expect(result).to be false
-    expect(form.errors[:password_confirmation]).to include I18n.t('errors.messages.password_mismatch')
+    expect(form.errors[:password_confirmation]).to include I18n.t('errors.messages.confirmation', attribute: 'password')
   end
 
   it 'returns true for valid attributes' do

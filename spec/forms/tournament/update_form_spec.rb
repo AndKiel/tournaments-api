@@ -10,7 +10,7 @@ RSpec.describe Tournament::UpdateForm do
   it 'validates presence of competitors limit' do
     result = form.validate(competitors_limit: nil)
     expect(result).to be false
-    expect(form.errors[:competitors_limit]).to include 'must be filled'
+    expect(form.errors[:competitors_limit]).to include I18n.t('errors.messages.blank')
   end
 
   it 'validates competitors limit being integer' do
@@ -28,19 +28,19 @@ RSpec.describe Tournament::UpdateForm do
   it 'validates presence of name' do
     result = form.validate(name: '')
     expect(result).to be false
-    expect(form.errors[:name]).to include 'must be filled'
+    expect(form.errors[:name]).to include I18n.t('errors.messages.blank')
   end
 
   it 'validates presence of result names' do
     result = form.validate(result_names: nil)
     expect(result).to be false
-    expect(form.errors[:result_names]).to include 'must be filled'
+    expect(form.errors[:result_names]).to include I18n.t('errors.messages.blank')
   end
 
   it 'validates length of result names' do
     result = form.validate(result_names: [])
     expect(result).to be false
-    expect(form.errors[:result_names]).to include 'must be filled'
+    expect(form.errors[:result_names]).to include I18n.t('errors.messages.blank')
   end
 
   it 'validates starts at being datetime' do
