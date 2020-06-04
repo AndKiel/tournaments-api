@@ -3,14 +3,13 @@ en:
     errors:
       messages:
         invalid_resource_owner: 'The provided user credentials are not valid, or user cannot be found.'
-  errors:
-    messages:
-      blank: 'must be filled'
-      invalid_email: 'is not a valid e-mail address'
-      future_date: 'must be a future date'
-    attributes:
-      result_values:
-        invalid: 'must have the same count as tournament result names'
+  dry_validation:
+    errors:
+      after_now?: 'must be a future date'
+      email?: 'is not a valid e-mail address'
+      rules:
+        result_values:
+          size?: 'count must match Tournament result names'
   pundit:
     default: 'You cannot perform this action.'
     tournament_policy:
