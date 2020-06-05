@@ -2,19 +2,16 @@
 
 class Tournament < ApplicationRecord
   class UpdateContract < ApplicationContract
-    option :model
-
     json do
-      required(:competitors_limit).filled(:int?, gt?: 1)
-      required(:name).filled(:str?)
-      required(:result_names).array(:str?)
+      optional(:competitors_limit).value(:int?, gt?: 1)
+      optional(:description).value(:str?)
+      optional(:name).value(:str?, :filled?)
+      optional(:result_names).value(:array?, :filled?).each(:str?, :filled?)
       optional(:starts_at).value(:date_time)
     end
 
     rule(:starts_at) do
-      if model.created?
-        key.failure(I18n.t('errors.messages.future_date')) unless value > Time.current
-      end
+      key.failure(:after_now?) if key? && value <= Time.current
     end
   end
 end
