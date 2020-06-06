@@ -36,13 +36,14 @@ class TournamentsController < ApplicationController
   def create
     tournament = policy_scope(Tournament).new
     authorize tournament
-    form = Tournament::CreateForm.new(tournament)
-    if form.validate(permitted_attributes(tournament))
-      form.save
-      return render json: TournamentSerializer.render(form.model, root: :tournament),
+    contract = Tournament::CreateContract.new
+    validation_result = contract.call(permitted_attributes(tournament))
+    if validation_result.success?
+      tournament.update!(validation_result.to_h)
+      return render json: TournamentSerializer.render(tournament, root: :tournament),
                     status: :created
     end
-    render_validation_errors(form)
+    render_validation_errors(validation_result)
   end
 
   # Actions for tournament organisers
@@ -50,12 +51,13 @@ class TournamentsController < ApplicationController
   def update
     tournament = policy_scope(Tournament).find(params[:id])
     authorize tournament
-    form = Tournament::UpdateForm.new(tournament)
-    if form.validate(permitted_attributes(tournament))
-      form.save
-      return render json: TournamentSerializer.render(form.model, root: :tournament)
+    contract = Tournament::UpdateContract.new
+    validation_result = contract.call(permitted_attributes(tournament))
+    if validation_result
+      tournament.update!(validation_result.to_h)
+      return render json: TournamentSerializer.render(tournament, root: :tournament)
     end
-    render_validation_errors(form)
+    render_validation_errors(validation_result)
   end
 
   def destroy

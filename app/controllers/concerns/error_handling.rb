@@ -19,8 +19,8 @@ module ErrorHandling
              status: :forbidden
     end
 
-    def render_validation_errors(form)
-      render json: { error: 'invalid_params', fields: form.errors.messages },
+    def render_validation_errors(validation_result)
+      render json: { error: 'invalid_params', fields: validation_result.errors.to_h },
              status: :unprocessable_entity
     end
 

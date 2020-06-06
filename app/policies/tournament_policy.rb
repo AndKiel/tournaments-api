@@ -11,6 +11,25 @@ class TournamentPolicy < ApplicationPolicy
     ]
   end
 
+  def permitted_attributes_for_update
+    if record.created?
+      [
+        :competitors_limit,
+        :description,
+        :name,
+        :starts_at,
+        result_names: []
+      ]
+    else
+      [
+        :competitors_limit,
+        :description,
+        :name,
+        result_names: []
+      ]
+    end
+  end
+
   def index?
     true
   end

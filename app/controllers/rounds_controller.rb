@@ -10,24 +10,26 @@ class RoundsController < ApplicationController
     tournament = current_user.organised_tournaments.find(params[:tournament_id])
     round = tournament.rounds.new
     authorize round
-    form = RoundForm.new(round)
-    if form.validate(permitted_attributes(round))
-      form.save
-      return render json: RoundSerializer.render(form.model, root: :round),
+    contract = RoundContract.new
+    validation_result = contract.call(permitted_attributes(round))
+    if validation_result.success?
+      round.update!(validation_result.to_h)
+      return render json: RoundSerializer.render(round, root: :round),
                     status: :created
     end
-    render_validation_errors(form)
+    render_validation_errors(validation_result)
   end
 
   def update
     round = current_user.tournament_rounds.find(params[:id])
     authorize round
-    form = RoundForm.new(round)
-    if form.validate(permitted_attributes(round))
-      form.save
-      return render json: RoundSerializer.render(form.model, root: :round)
+    contract = RoundContract.new
+    validation_result = contract.call(permitted_attributes(round))
+    if validation_result
+      round.update!(validation_result.to_h)
+      return render json: RoundSerializer.render(round, root: :round)
     end
-    render_validation_errors(form)
+    render_validation_errors(validation_result)
   end
 
   def destroy
