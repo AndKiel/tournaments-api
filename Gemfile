@@ -4,7 +4,6 @@ source 'https://rubygems.org'
 ruby '2.7.1'
 
 # Base
-gem 'figaro' # TODO: Maybe replace with dotenv
 gem 'pg'
 gem 'puma'
 gem 'rack-cors'
