@@ -10,13 +10,12 @@ class CompetitorsController < ApplicationController
     tournament = Tournament.find(params[:tournament_id])
     competitor = current_user.competitors.find_or_initialize_by(tournament: tournament)
     authorize competitor
-    form = CompetitorForm.new(competitor)
-    if form.validate(permitted_attributes(competitor))
-      form.save
-      return render json: CompetitorSerializer.render(form.model, root: :competitor),
+    contract = CompetitorContract.new(model: competitor)
+    validate(contract, competitor) do |validation_result|
+      competitor.update!(validation_result.to_h)
+      return render json: CompetitorSerializer.render(competitor, root: :competitor),
                     status: :created
     end
-    render_validation_errors(form)
   end
 
   def destroy
@@ -32,13 +31,12 @@ class CompetitorsController < ApplicationController
     tournament = current_user.organised_tournaments.find(params[:tournament_id])
     competitor = tournament.competitors.new
     authorize competitor, :create?
-    form = CompetitorForm.new(competitor)
-    if form.validate(permitted_attributes(competitor))
-      form.save
-      return render json: CompetitorSerializer.render(form.model, root: :competitor),
+    contract = CompetitorContract.new(model: competitor)
+    validate(contract, competitor) do |validation_result|
+      competitor.update!(validation_result.to_h)
+      return render json: CompetitorSerializer.render(competitor, root: :competitor),
                     status: :created
     end
-    render_validation_errors(form)
   end
 
   def remove

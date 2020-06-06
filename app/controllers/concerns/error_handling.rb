@@ -5,6 +5,7 @@ module ErrorHandling
 
   included do
     rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
+    rescue_from InvalidParamsError,           with: :invalid_params
     rescue_from Pundit::NotAuthorizedError,   with: :action_forbidden
 
     def record_not_found
@@ -19,8 +20,8 @@ module ErrorHandling
              status: :forbidden
     end
 
-    def render_validation_errors(form)
-      render json: { error: 'invalid_params', fields: form.errors.messages },
+    def invalid_params(exception)
+      render json: { error: 'invalid_params', error_description: exception.message, fields: exception.errors },
              status: :unprocessable_entity
     end
 

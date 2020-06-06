@@ -3,6 +3,9 @@ properties:
   error:
     description: Error code, for validation error it is always "invalid_params".
     type: string
+  error_description:
+    description: Human-readable error message.
+    type: string
   fields:
     description: An object containing all errors. Object keys are field names, values are error messages (arrays of string).
     type: object

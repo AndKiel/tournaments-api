@@ -9,13 +9,14 @@ class UsersController < ApplicationController
   def sign_up
     user = User.new
     authorize user
-    form = User::SignUpForm.new(user)
-    if form.validate(permitted_attributes(user))
-      form.save
-      return render json: UserSerializer.render(form.model, root: :user),
+    contract = User::SignUpContract.new
+    validate(contract, user) do |validation_result|
+      attributes = validation_result.to_h
+      attributes.delete(:password_confirmation)
+      user.update!(attributes)
+      return render json: UserSerializer.render(user, root: :user),
                     status: :created
     end
-    render_validation_errors(form)
   end
 
   # Actions for authenticated users
@@ -29,11 +30,12 @@ class UsersController < ApplicationController
   def update
     user = current_user
     authorize user
-    form = User::UpdateForm.new(user)
-    if form.validate(permitted_attributes(user))
-      form.save
-      return render json: UserSerializer.render(form.model, root: :user)
+    contract = User::UpdateContract.new(model: user)
+    validate(contract, user) do |validation_result|
+      attributes = validation_result.to_h
+      attributes.delete(:password_confirmation)
+      user.update!(attributes)
+      return render json: UserSerializer.render(user, root: :user)
     end
-    render_validation_errors(form)
   end
 end

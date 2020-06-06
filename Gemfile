@@ -4,7 +4,6 @@ source 'https://rubygems.org'
 ruby '2.7.1'
 
 # Base
-gem 'bootsnap', require: false
 gem 'figaro' # TODO: Maybe replace with dotenv
 gem 'pg'
 gem 'puma'
@@ -22,14 +21,12 @@ gem 'doorkeeper-i18n'
 gem 'pundit'
 
 # Validations
-gem 'reform'
-gem 'reform-rails'
+gem 'dry-monads' # TODO: Remove when dry-validation 1.5.1 is released
+gem 'dry-validation'
 gem 'validates_email_format_of'
-gem 'validates_timeliness'
 
 # File upload and processing
 # gem 'shrine'
-# gem 'shrine-reform'
 # gem 'image_processing'
 # gem 'mini_magick'
 
