@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe RoundContract, :focus do
+RSpec.describe RoundContract do
   subject(:contract) { described_class.new(model: round) }
 
   let(:round) { build(:round) }
@@ -29,7 +29,7 @@ RSpec.describe RoundContract, :focus do
     expect(result.errors[:tables_count]).to include I18n.t('dry_validation.errors.gt?', num: 0)
   end
 
-  it 'returns true for valid attributes' do
+  it 'is successful for valid attributes' do
     result = contract.call({
                              competitors_limit: 8,
                              tables_count: 4

@@ -13,7 +13,7 @@ en:
       unique?: 'has already been taken'
       rules:
         result_values:
-          size?: 'count must match Tournament result names'
+          size?: 'amount must match the Tournament result names'
   pundit:
     default: 'You cannot perform this action.'
     tournament_policy:

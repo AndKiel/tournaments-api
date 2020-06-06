@@ -15,30 +15,31 @@ RSpec.describe User::UpdateContract do
     end
   end
 
-  it "validates email being filled" do
+  it 'validates email being filled' do
     result = contract.call({ email: '' })
     expect(result.errors[:email]).to include I18n.t('dry_validation.errors.filled?')
   end
 
-  it 'validates format of email' do
+  it 'validates email format' do
     result = contract.call({ email: 'not.an.email' })
     expect(result.errors[:email]).to include I18n.t('dry_validation.errors.email?')
   end
 
-  it 'validates uniqueness of email' do
+  it 'validates email being unique' do
     result = contract.call({ email: another_user.email })
     expect(result.errors[:email]).to include I18n.t('dry_validation.errors.unique?')
   end
 
-  it 'validates confirmation of password' do
+  it 'validates password being confirmed' do
     result = contract.call({
                              password: 'verySecure',
                              password_confirmation: 'orNot'
                            })
-    expect(result.errors[:password_confirmation]).to include I18n.t('dry_validation.errors.confirmed?.arg.default', key: :password)
+    error_message = I18n.t('dry_validation.errors.confirmed?.arg.default', key: :password)
+    expect(result.errors[:password_confirmation]).to include error_message
   end
 
-  it 'returns true for valid attributes' do
+  it 'is successful for valid attributes' do
     result = contract.call({
                              email: user.email
                            })

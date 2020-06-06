@@ -8,7 +8,8 @@ class PlayerContract < ApplicationContract
   end
 
   rule(:result_values) do
-    result_names_count = model.tournament.result_names.length
-    key.failure(I18n.t('dry_validation.errors.rules.result_values.size?')) if value.length != result_names_count
+    if value.length != model.tournament.result_names.length
+      key.failure(I18n.t('dry_validation.errors.rules.result_values.size?'))
+    end
   end
 end

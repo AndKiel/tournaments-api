@@ -63,7 +63,6 @@ RSpec.describe Tournament::UpdateContract do
                              name: 'Tenkaichi Budokai',
                              result_names: ['Win']
                            })
-    expect(result.errors).to be_empty
     expect(result.success?).to be true
   end
 end

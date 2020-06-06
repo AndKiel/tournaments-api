@@ -9,17 +9,17 @@ RSpec.describe PlayerContract do
   let(:round) { create(:round, tournament: tournament) }
   let(:player) { build(:player, round: round) }
 
-  it "validates result_values key presence" do
+  it 'validates result_values key presence' do
     result = contract.call({})
     expect(result.errors[:result_values]).to include I18n.t('dry_validation.errors.key?')
   end
 
-  it "validates result_values being a string" do
+  it 'validates result_values being an array' do
     result = contract.call({ result_values: 1 })
     expect(result.errors[:result_values]).to include I18n.t('dry_validation.errors.array?')
   end
 
-  it "validates result_values being filled" do
+  it 'validates result_values being filled' do
     result = contract.call({ result_values: [] })
     expect(result.errors[:result_values]).to include I18n.t('dry_validation.errors.filled?')
   end
@@ -29,12 +29,12 @@ RSpec.describe PlayerContract do
     expect(result.errors[:result_values][0]).to include I18n.t('dry_validation.errors.int?')
   end
 
-  it 'validates length of result values' do
+  it 'validates result_values size' do
     result = contract.call({ result_values: [1] })
     expect(result.errors[:result_values]).to include I18n.t('dry_validation.errors.rules.result_values.size?')
   end
 
-  it 'returns true for valid attributes' do
+  it 'is successful for valid attributes' do
     result = contract.call({ result_values: [1, 73] })
     expect(result.success?).to be true
   end
