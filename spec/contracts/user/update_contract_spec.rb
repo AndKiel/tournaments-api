@@ -2,26 +2,22 @@
 
 require 'rails_helper'
 
-RSpec.describe User::SignUpContract do
-  subject(:contract) { described_class.new }
+RSpec.describe User::UpdateContract do
+  subject(:contract) { described_class.new(model: user) }
 
+  let(:user) { create(:user) }
   let(:another_user) { create(:user) }
 
   %i[email password password_confirmation].each do |key|
-    it "validates #{key} key presence" do
-      result = contract.call({})
-      expect(result.errors[key]).to include I18n.t('dry_validation.errors.key?')
-    end
-
     it "validates #{key} being a string" do
       result = contract.call({ key => 1 })
       expect(result.errors[key]).to include I18n.t('dry_validation.errors.str?')
     end
+  end
 
-    it "validates #{key} being filled" do
-      result = contract.call({ key => '' })
-      expect(result.errors[key]).to include I18n.t('dry_validation.errors.filled?')
-    end
+  it "validates email being filled" do
+    result = contract.call({ email: '' })
+    expect(result.errors[:email]).to include I18n.t('dry_validation.errors.filled?')
   end
 
   it 'validates format of email' do
@@ -44,9 +40,7 @@ RSpec.describe User::SignUpContract do
 
   it 'returns true for valid attributes' do
     result = contract.call({
-                             email: 'some@one.co',
-                             password: 'verySecure',
-                             password_confirmation: 'verySecure'
+                             email: user.email
                            })
     expect(result.success?).to be true
   end

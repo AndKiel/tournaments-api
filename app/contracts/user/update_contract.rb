@@ -5,19 +5,22 @@ class User < ApplicationRecord
     option :model
 
     json do
-      required(:email).filled(:str?)
-      optional(:password).maybe(:str?)
-      optional(:password_confirmation).maybe(:str?)
+      optional(:email).value(:str?, :filled?)
+      optional(:password).value(:str?)
+      optional(:password_confirmation).value(:str?)
     end
 
     rule(:email) do
-      key.failure(I18n.t('errors.messages.invalid_email')) if ValidatesEmailFormatOf.validate_email_format(value)
-      key.failure(I18n.t('errors.messages.taken')) if User.where(email: value).where.not(id: model.id).exists?
+      if ValidatesEmailFormatOf.validate_email_format(value)
+        key.failure(:email?)
+      elsif User.where(email: value).where.not(id: model.id).exists?
+        key.failure(:unique?)
+      end
     end
 
     rule(:password, :password_confirmation) do
       if values[:password] != values[:password_confirmation]
-        key(:password_confirmation).failure(I18n.t('errors.messages.confirmation', attribute: 'password'))
+        key(:password_confirmation).failure(:confirmed?, key: :password)
       end
     end
   end
