@@ -24,12 +24,10 @@ gem 'pundit'
 # Validations
 gem 'dry-monads' # TODO: Remove when dry-validation 1.5.1 is released
 gem 'dry-validation'
-gem 'reform'
 gem 'validates_email_format_of'
 
 # File upload and processing
 # gem 'shrine'
-# gem 'shrine-reform'
 # gem 'image_processing'
 # gem 'mini_magick'
 
