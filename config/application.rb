@@ -17,7 +17,7 @@ module TournamentsApi
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
-    secrets.secret_key_base = Figaro.env.secret_key_base!
+    secrets.secret_key_base = ENV.fetch('SECRET_KEY_BASE')
 
     config.action_controller.allow_forgery_protection = !Rails.env.test?
     config.action_controller.perform_caching = Rails.env.production?

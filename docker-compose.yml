@@ -32,7 +32,8 @@ services:
     environment:
       BUNDLE_PATH: /bundle_cache
       GEM_HOME: /bundle_cache # without it spring cannot find gems
-      WEB_CONCURRENCY: 1
+    env_file:
+      - .env.example
     depends_on:
       - db
     ports:
