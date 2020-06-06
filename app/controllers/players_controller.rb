@@ -18,10 +18,10 @@ class PlayersController < ApplicationController
     player = current_user.tournament_players.find(params[:id])
     authorize player
     contract = PlayerContract.new(model: player)
-    validation_result = contract.call(permitted_attributes(player))
+    validation_result = contract.call(permitted_attributes(player).to_h)
     if validation_result.success?
       player.update!(validation_result.to_h)
-      return render json: PlayerSerializer.render(form.model, root: :player)
+      return render json: PlayerSerializer.render(player, root: :player)
     end
     render_validation_errors(validation_result)
   end

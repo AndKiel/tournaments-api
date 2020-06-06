@@ -37,7 +37,7 @@ class TournamentsController < ApplicationController
     tournament = policy_scope(Tournament).new
     authorize tournament
     contract = Tournament::CreateContract.new
-    validation_result = contract.call(permitted_attributes(tournament))
+    validation_result = contract.call(permitted_attributes(tournament).to_h)
     if validation_result.success?
       tournament.update!(validation_result.to_h)
       return render json: TournamentSerializer.render(tournament, root: :tournament),
@@ -52,7 +52,7 @@ class TournamentsController < ApplicationController
     tournament = policy_scope(Tournament).find(params[:id])
     authorize tournament
     contract = Tournament::UpdateContract.new
-    validation_result = contract.call(permitted_attributes(tournament))
+    validation_result = contract.call(permitted_attributes(tournament).to_h)
     if validation_result
       tournament.update!(validation_result.to_h)
       return render json: TournamentSerializer.render(tournament, root: :tournament)

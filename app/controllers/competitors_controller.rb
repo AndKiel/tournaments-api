@@ -11,7 +11,7 @@ class CompetitorsController < ApplicationController
     competitor = current_user.competitors.find_or_initialize_by(tournament: tournament)
     authorize competitor
     contract = CompetitorContract.new(model: competitor)
-    validation_result = contract.call(permitted_attributes(competitor))
+    validation_result = contract.call(permitted_attributes(competitor).to_h)
     if validation_result.success?
       competitor.update!(validation_result.to_h)
       return render json: CompetitorSerializer.render(competitor, root: :competitor),
@@ -34,7 +34,7 @@ class CompetitorsController < ApplicationController
     competitor = tournament.competitors.new
     authorize competitor, :create?
     contract = CompetitorContract.new(model: competitor)
-    validation_result = contract.call(permitted_attributes(competitor))
+    validation_result = contract.call(permitted_attributes(competitor).to_h)
     if validation_result.success?
       competitor.update!(validation_result.to_h)
       return render json: CompetitorSerializer.render(competitor, root: :competitor),
