@@ -53,7 +53,7 @@ class TournamentsController < ApplicationController
     authorize tournament
     contract = Tournament::UpdateContract.new
     validation_result = contract.call(permitted_attributes(tournament).to_h)
-    if validation_result
+    if validation_result.success?
       tournament.update!(validation_result.to_h)
       return render json: TournamentSerializer.render(tournament, root: :tournament)
     end

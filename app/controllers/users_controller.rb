@@ -12,7 +12,9 @@ class UsersController < ApplicationController
     contract = User::SignUpContract.new
     validation_result = contract.call(permitted_attributes(user).to_h)
     if validation_result.success?
-      user.update!(validation_result.to_h)
+      attributes = validation_result.to_h
+      attributes.delete(:password_confirmation)
+      user.update!(attributes)
       return render json: UserSerializer.render(user, root: :user),
                     status: :created
     end
@@ -33,7 +35,9 @@ class UsersController < ApplicationController
     contract = User::UpdateContract.new(model: user)
     validation_result = contract.call(permitted_attributes(user).to_h)
     if validation_result.success?
-      user.update!(validation_result.to_h)
+      attributes = validation_result.to_h
+      attributes.delete(:password_confirmation)
+      user.update!(attributes)
       return render json: UserSerializer.render(user, root: :user)
     end
     render_validation_errors(validation_result)

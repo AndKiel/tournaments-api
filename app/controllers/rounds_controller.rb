@@ -25,7 +25,7 @@ class RoundsController < ApplicationController
     authorize round
     contract = RoundContract.new
     validation_result = contract.call(permitted_attributes(round).to_h)
-    if validation_result
+    if validation_result.success?
       round.update!(validation_result.to_h)
       return render json: RoundSerializer.render(round, root: :round)
     end
