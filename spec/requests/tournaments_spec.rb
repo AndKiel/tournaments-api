@@ -123,7 +123,7 @@ RSpec.describe 'Tournaments', type: :request do
                  as: :json
           end.not_to change(Tournament, :count)
           expect(response).to have_http_status(:unprocessable_entity)
-          expect(response.body).to match_json_schema('responses/validation_error')
+          expect(response.body).to match_json_schema('responses/error')
         end
       end
     end
@@ -157,7 +157,7 @@ RSpec.describe 'Tournaments', type: :request do
               },
               as: :json
           expect(response).to have_http_status(:unprocessable_entity)
-          expect(response.body).to match_json_schema('responses/validation_error')
+          expect(response.body).to match_json_schema('responses/error')
         end
       end
 
