@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-
 RSpec.describe 'OAuth', type: :request do
   describe 'POST /oauth/token' do
     let(:user) { create(:user) }

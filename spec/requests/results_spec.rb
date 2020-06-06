@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-
 RSpec.describe 'Results', type: :request do
   describe 'GET /results' do
     let(:tournament) { create(:tournament, :in_progress) }
