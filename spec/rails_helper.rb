@@ -1,21 +1,20 @@
 # frozen_string_literal: true
 
-require 'support/simplecov'
 require 'spec_helper'
+
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../config/environment', __dir__)
-# Prevent database truncation if the environment is production
 abort('The Rails environment is running in production mode!') if Rails.env.production?
 require 'rspec/rails'
-# Add additional requires below this line. Rails is not loaded until this point!
 
+ActiveRecord::Migration.maintain_test_schema!
+
+# Add additional requires below this line. Rails is not loaded until this point!
 require 'support/controller_macros'
 require 'support/database_cleaner'
 require 'support/factory_bot'
 require 'support/json_matchers'
 require 'support/request_macros'
-
-ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
   config.extend ControllerMacros, type: :controller
