@@ -62,8 +62,6 @@ GEM
     ast (2.4.0)
     bcrypt (3.1.13)
     blueprinter (0.23.4)
-    bootsnap (1.4.6)
-      msgpack (~> 1.0)
     builder (3.2.4)
     bullet (6.1.0)
       activesupport (>= 3.0.0)
@@ -171,7 +169,6 @@ GEM
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
     minitest (5.14.1)
-    msgpack (1.3.3)
     nio4r (2.5.2)
     nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
@@ -299,7 +296,6 @@ DEPENDENCIES
   annotate
   bcrypt
   blueprinter
-  bootsnap
   bullet
   codecov
   database_cleaner-active_record
