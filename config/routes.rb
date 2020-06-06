@@ -43,7 +43,7 @@ Rails.application.routes.draw do
     root 'tournaments#index'
 
     use_doorkeeper do
-      skip_controllers :applications, :authorizations, :authorized_applications
+      skip_controllers :authorizations
     end
 
     resources :users, only: :none do

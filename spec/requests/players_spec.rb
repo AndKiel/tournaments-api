@@ -12,7 +12,7 @@ RSpec.describe 'Players', type: :request do
   describe 'POST /players' do
     context 'with first Round of a Tournament' do
       it 'randomizes Players' do
-        expect_any_instance_of(MatchmakingService).to receive(:random_assignment).and_call_original
+        expect_any_instance_of(Assigners::RandomAssigner).to receive(:call).and_call_original
         expect do
           post players_path,
                headers: auth_headers,
@@ -36,7 +36,7 @@ RSpec.describe 'Players', type: :request do
       let(:second_round) { create(:round, tournament: tournament) }
 
       it "assigns Players who haven't met yet" do
-        expect_any_instance_of(MatchmakingService).to receive(:new_opponents_assignment).and_call_original
+        expect_any_instance_of(Assigners::NewOpponentsAssigner).to receive(:call).and_call_original
         expect do
           post players_path,
                headers: auth_headers,
@@ -60,7 +60,7 @@ RSpec.describe 'Players', type: :request do
       let(:second_round) { create(:round, competitors_limit: 8, tournament: tournament) }
 
       it 'assigns Players according to their results' do
-        expect_any_instance_of(MatchmakingService).to receive(:swiss_assignment).and_call_original
+        expect_any_instance_of(Assigners::SwissAssigner).to receive(:call).and_call_original
         expect do
           post players_path,
                headers: auth_headers,
