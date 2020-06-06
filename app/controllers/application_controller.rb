@@ -5,4 +5,5 @@ class ApplicationController < ActionController::API
   include ErrorHandling
   include Internationalization
   include Meta
+  include Validation
 end
