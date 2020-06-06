@@ -2,22 +2,23 @@
 
 class User < ApplicationRecord
   class SignUpContract < ApplicationContract
-    option :model
-
     json do
-      required(:email).filled(:str?)
-      required(:password).filled(:str?)
-      required(:password_confirmation).filled(:str?)
+      required(:email).value(:str?, :filled?)
+      required(:password).value(:str?, :filled?)
+      required(:password_confirmation).value(:str?, :filled?)
     end
 
     rule(:email) do
-      key.failure(I18n.t('errors.messages.invalid_email')) if ValidatesEmailFormatOf.validate_email_format(value)
-      key.failure(I18n.t('errors.messages.taken')) if User.where(email: value).where.not(id: model.id).exists?
+      if ValidatesEmailFormatOf.validate_email_format(value)
+        key.failure(:email?)
+      elsif User.where(email: value).exists?
+        key.failure(:unique?)
+      end
     end
 
     rule(:password, :password_confirmation) do
       if values[:password] != values[:password_confirmation]
-        key(:password_confirmation).failure(I18n.t('errors.messages.confirmation', attribute: 'password'))
+        key(:password_confirmation).failure(:confirmed?, key: :password)
       end
     end
   end

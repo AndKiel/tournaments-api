@@ -6,7 +6,11 @@ en:
   dry_validation:
     errors:
       after_now?: 'must be a future date'
+      confirmed?:
+        arg:
+          default: 'must match %{key}'
       email?: 'is not a valid e-mail address'
+      unique?: 'has already been taken'
       rules:
         result_values:
           size?: 'count must match Tournament result names'
