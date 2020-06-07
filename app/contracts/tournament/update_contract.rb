@@ -2,6 +2,8 @@
 
 class Tournament < ApplicationRecord
   class UpdateContract < ApplicationContract
+    option :model
+
     json do
       optional(:competitors_limit).value(:int?, gt?: 1)
       optional(:description).value(:str?)
@@ -11,7 +13,7 @@ class Tournament < ApplicationRecord
     end
 
     rule(:starts_at) do
-      key.failure(:after_now?) if key? && value <= Time.current
+      key.failure(:after_now?) if key? && value != model.starts_at && value <= Time.current
     end
   end
 end
