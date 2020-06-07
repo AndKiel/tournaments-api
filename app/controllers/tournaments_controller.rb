@@ -49,7 +49,7 @@ class TournamentsController < ApplicationController
   def update
     tournament = policy_scope(Tournament).find(params[:id])
     authorize tournament
-    contract = Tournament::UpdateContract.new
+    contract = Tournament::UpdateContract.new(model: tournament)
     validate(contract, tournament) do |validation_result|
       tournament.update!(validation_result.to_h)
       return render json: TournamentSerializer.render(tournament, root: :tournament)
