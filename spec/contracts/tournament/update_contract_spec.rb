@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 RSpec.describe Tournament::UpdateContract do
-  subject(:contract) { described_class.new }
+  subject(:contract) { described_class.new(model: tournament) }
+
+  let(:tournament) { create(:tournament, :past) }
 
   it 'validates competitors_limit being an integer' do
     result = contract.call({ competitors_limit: 2.5 })
